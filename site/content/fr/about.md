@@ -7,10 +7,6 @@ Je suis ingénieur professionnel; mon expérience couvre l'aérospatiale, la dé
 	### Expérience professionnelle
 	- **Ingénieur en essais et évaluation (IVVQ)** — Entrepreneur de la défense au service de la Marine royale canadienne, Mill Bay (C.-B.) · avril 2026 – aujourd'hui
 		Planification des essais, rédaction des procédures et conduite des essais des systèmes de bord de navires de la Marine royale canadienne, notamment en chantier naval et lors d'essais en mer.
-	- **Vice-président par intérim (bénévole)** — Victoria Conservative Association (Parti conservateur du Canada), Victoria (C.-B.) · juin 2026 – aujourd'hui
-		Également premier dirigeant de l'association inscrit auprès d'Élections Canada. Je m'occupe de ses déclarations, du registre des membres et des activités des bénévoles.
-	- **Fondateur et responsable** — A City That Works, Victoria (C.-B.) · mars 2026 – aujourd'hui
-		Initiative citoyenne indépendante et non partisane qui a publié un cadre de politiques fondé sur des données probantes en vue de l'élection municipale de 2026 à Victoria.
 	- **Fondateur et chef de la direction** — Casagou Inc., Victoria (C.-B.) · juillet 2023 – aujourd'hui
 		Petite entreprise de services professionnels de Victoria. Ses activités comprennent JOA Aero Engineering, mon cabinet de génie-conseil (P.Eng.) depuis juin 2025, ainsi qu'Eventia Media (production vidéo événementielle et d’entreprise, et diffusion en direct), Victoria Drone (photo et vidéo aériennes) et BC Funeral Videos (diffusion en direct de funérailles et vidéos hommage).
 	- **Administrateur, comptabilité et opérations** — Sarah Mae Ives Social Media Inc., Vancouver (C.-B.) · septembre 2023 – janvier 2026

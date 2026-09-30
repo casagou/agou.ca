@@ -7,10 +7,6 @@ I'm a professional engineer with more than 15 years of experience in aerospace, 
 	### Career history
 	- **Test & Evaluation Engineer (IVVQ)** — Defence contractor supporting the Royal Canadian Navy, Mill Bay, BC · April 2026 – present
 		Test planning, test procedures and test events for shipboard systems on Royal Canadian Navy vessels, including at shipyards and during sea trials.
-	- **Vice-President (interim), volunteer** — Victoria Conservative Association (Conservative Party of Canada), Victoria, BC · June 2026 – present
-		Also the association's chief executive officer registered with Elections Canada. I handle its filings, member records and volunteer operations.
-	- **Founder & Lead** — A City That Works, Victoria, BC · March 2026 – present
-		An independent, non-partisan civic initiative that published an evidence-based policy framework for Victoria's 2026 municipal election.
 	- **Founder & Chief Executive** — Casagou Inc., Victoria, BC · July 2023 – present
 		A small Victoria professional services company. Its businesses include JOA Aero Engineering (my P.Eng. engineering consulting practice, since June 2025), Eventia Media (event and corporate video and livestreaming), Victoria Drone (aerial photography and video) and BC Funeral Videos (memorial livestreams and tribute videos).
 	- **Accounting & Operations Administrator** — Sarah Mae Ives Social Media Inc., Vancouver, BC · September 2023 – January 2026

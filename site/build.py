@@ -689,6 +689,7 @@ NOTION_TITLES = {  # page titles as in Notion
 # ---------------- checks ----------------
 FORBIDDEN = [
     (r"Thales", "employer name (Thales)"), (r"\bNATO\b|OTAN", "NATO"), (r"AJISS", "AJISS"), (r"clearance|habilitation de sécurité", "security clearance"),
+    (r"(?i:a city that works|\bune ville qui fonctionne|acitythatworks)|\bACTW\b", "A City That Works (hard rule: never on agou.ca)"),
     (r"\bJoa\b", "the nickname Joa"), (r"Victoria-Beacon Hill", "hyphen instead of en dash in Victoria–Beacon Hill"),
     (r"is the Conservative Party of BC candidate|Party of BC candidate in|est le candidat du Parti", "wording that implies he is the confirmed candidate"),
     (r"date of birth|date de naissance|\bborn on\b", "date of birth"),
