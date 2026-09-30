@@ -1,0 +1,53 @@
+/* /province/ only (loaded by province.py). Same tokens as site.css. Mobile first (390px): 18px text, 48px targets, no sideways scroll. */
+.pv-wrap [id] { scroll-margin-top:16px; }
+.pv-frdraft { margin:0 0 18px; max-width:none; }
+.pv-intro p:last-child { margin-bottom:0; }
+.pv-intro { margin-bottom:28px; }
+
+/* jump list: wrapping chips on phones (no sideways scroll), a quiet boxed list on wide screens */
+.pv-jump { margin:0 0 40px; padding:14px 14px 10px; background:#fff; border:1px solid var(--line); border-radius:var(--radius); }
+.pv-jump-t { margin:0 0 6px; font-size:.85rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+.pv-jump ul { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:6px 8px; }
+.pv-jump li { margin:0; max-width:none; }
+.pv-jump a { display:inline-flex; align-items:center; min-height:48px; padding:4px 10px; border:1.5px solid #9fb0c6; border-radius:10px; color:var(--navy); font-weight:700; font-size:.9rem; line-height:1.25; text-decoration:none; }
+.pv-jump a:hover { background:var(--sky); border-color:var(--navy); }
+@media (min-width:800px) { .pv-jump ul { display:grid; grid-template-columns:1fr 1fr; gap:0 24px; } .pv-jump a { display:flex; border:0; border-left:3px solid var(--line); border-radius:0; padding:4px 12px; } .pv-jump a:hover { border-left-color:var(--navy); background:none; text-decoration:underline; } }
+
+/* lists: lead words in bold, a little air between items */
+.pv-list { padding-left:1.2em; }
+.pv-list li { margin:0 0 12px; }
+.pv-list li::marker { color:var(--blue); }
+.pv-list strong { color:var(--navy); }
+
+/* tables: real tables on wide screens; stacked label/value cards under 640px */
+.pv-tablewrap { margin:4px 0 20px; }
+.pv-table { width:100%; border-collapse:separate; border-spacing:0; background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; font-size:1rem; line-height:1.45; }
+.pv-table th, .pv-table td { text-align:left; vertical-align:top; padding:12px 14px; border-top:1px solid var(--line); }
+.pv-table thead th { background:var(--navy); color:#fff; border-top:0; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; }
+.pv-table tbody th { color:var(--navy); font-weight:700; }
+.pv-table tbody tr:nth-child(even) { background:#f8fafd; }
+.pv-table.cols-3 th:nth-child(1) { width:30%; } .pv-table.cols-3 th:nth-child(2), .pv-table.cols-3 td:nth-child(2) { width:24%; font-weight:600; }
+.pv-table.cols-2 th:nth-child(1) { width:26%; }
+.pv-lbl { display:none; }
+@media (max-width:639.98px) {
+  .pv-table, .pv-table tbody, .pv-table tr, .pv-table th, .pv-table td { display:block; width:auto !important; }
+  .pv-table { background:none; border:0; border-radius:0; overflow:visible; }
+  .pv-table thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .pv-table tbody tr { background:#fff !important; border:1px solid var(--line); border-left:5px solid var(--blue); border-radius:var(--radius); padding:6px 14px 8px; margin:0 0 12px; }
+  .pv-table th, .pv-table td { border:0; padding:6px 0; }
+  .pv-table tbody th { font-size:1.05rem; }
+  .pv-table td + td, .pv-table th + td { border-top:1px solid var(--line); }
+  .pv-lbl { display:block; font-size:.75rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:0 0 2px; }
+  .pv-table.cols-3 td:nth-child(2) .pv-v { font-weight:700; color:var(--navy); }
+}
+
+/* sources: numbered, one link per line, 48px targets */
+.pv-sources { padding-left:1.6em; }
+.pv-sources li { margin:0; }
+.pv-sources li::marker { color:var(--muted); font-weight:700; }
+.pv-sources a { display:inline-flex; align-items:center; min-height:48px; padding:4px 0; line-height:1.35; font-weight:600; }
+
+/* reading line on Priorities and the scorecard */
+.pv-link { font-size:1.05rem; }
+.pv-link a { display:inline-flex; align-items:center; min-height:48px; font-weight:700; }
+@media print { .pv-jump { display:none; } .pv-table tbody tr { break-inside:avoid; } }
