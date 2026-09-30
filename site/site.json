@@ -236,6 +236,6 @@
     "en-faq": "2026-09-30",
     "fr-faq": "2026-09-30"
   },
-  "publish_faq_live": false,
+  "publish_faq_live": true,
   "_publish_faq_live_doc": "false = the live build (build.py --env live) leaves out /faq/ and /fr/faq/ and every link to them (footer, How to vote, Get involved, home 'Questions?' section). Staging always shows the FAQ. Set to true once the FAQ has no [TO COMPLETE] notes left (the live build refuses to run while any remain), rebuild live and publish."
 }

@@ -66,6 +66,12 @@
       "find": "[Demander une pancarte](https://agou.ca/lawn-sign/) (page en anglais)",
       "replace": "[Demander une pancarte](https://agou.ca/lawn-sign/)",
       "why": "The lawn sign page now exists in French (/fr/lawn-sign/)."
+    },
+    {
+      "page": "en-faq",
+      "find": "I'm Joachim Agou — most people call me Joa. ",
+      "replace": "",
+      "why": "Rule: say \"Joachim\", never \"Joa\"."
     }
   ]
 }

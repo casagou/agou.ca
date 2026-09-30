@@ -50,9 +50,9 @@ The design is complete without photos. The slots are set in `site.json` → `pho
 
 To fill a slot, save a JPG (at least 1600px wide, real campaign photo) as `assets/img/photos/<slot>.jpg` and set `"hero": "hero.jpg"`. Then rebuild. Text always stays on a solid background, never over a photo.
 
-## FAQ switch (held back from live)
-`site.json` → `"publish_faq_live": false`. The live build leaves out `/faq/` and `/fr/faq/` and every link to them (footer nav, How to vote, Get involved, the home "Questions?" section and the Contact page link). The build fails if any link to them is left. Staging always shows the FAQ.
-To publish it: finish every `[TO COMPLETE]` note in Notion, re-sync `en-faq`/`fr-faq`, set `"publish_faq_live": true`, then build live and publish. The live build refuses to run while any TO COMPLETE note remains.
+## FAQ switch
+`site.json` → `"publish_faq_live"` (currently `true`: the FAQ is live since 2026-09-30). With `false`, the live build leaves out `/faq/` and `/fr/faq/` and every link to them (footer nav, How to vote, Get involved, the home "Questions?" section and the Contact page link). The build fails if any link to them is left. Staging always shows the FAQ.
+To publish it again after holding it back: finish every `[TO COMPLETE]` note in Notion, re-sync `en-faq`/`fr-faq`, set `"publish_faq_live": true`, then build live and publish. The live build refuses to run while any TO COMPLETE note remains.
 
 ## Donate switch
 `site.json` → `"promote_donate": false` (the default). Donate is a quiet item in Get involved and points people to the financial agent (Bert).
