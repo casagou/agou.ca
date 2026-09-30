@@ -34,6 +34,9 @@ T = {
         "desc": "Joachim Agou’s scorecard for Victoria–Beacon Hill: 12 numbers published every quarter, with sources, as-of dates and how he voted.",
         "priorities_link": "See the scorecard", "priorities_sub": "12 numbers, published every quarter, with sources.",
         "home_link": "See the scorecard",
+        "jump": "Jump to", "jump_promises": "The two promises",
+        "prio_lead": "I’ll report on these every quarter.", "prio_link": "See the scorecard",
+        "rel": "Tracked on the scorecard:", "prio": "Priority", "from": "From my priorities:",
     },
     "fr": {
         "title": "Bulletin",
@@ -60,8 +63,26 @@ T = {
         "desc": "Le bulletin de Joachim Agou pour Victoria–Beacon Hill : 12 chiffres publiés chaque trimestre, avec leurs sources, leurs dates et ses votes.",
         "priorities_link": "Voir le bulletin", "priorities_sub": "12 chiffres, publiés chaque trimestre, avec leurs sources.",
         "home_link": "Voir le bulletin",
+        "jump": "Aller à", "jump_promises": "Les deux promesses",
+        "prio_lead": "Je fais le point chaque trimestre.", "prio_link": "Voir le bulletin",
+        "rel": "Suivi dans le bulletin :", "prio": "Priorité", "from": "Tiré de mes priorités :",
     },
 }
+
+# scorecard line -> the Priorities section it reports on ("1"-"4" = the numbered priorities; "report" = "How I'll report to you")
+PRIORITY = {"8": "1", "9": "1", "10": "1", "3": "2", "4": "2", "1": "3", "2": "3", "5": "4", "6": "4", "7": "4", "12": "4", "11": "report"}
+
+
+def priority_heads(B, lang):
+    """Priorities page headings -> {"1": (id, title), ..., "report": (id, title)} (ids as build.py makes them)."""
+    heads = [l[3:].strip() for l in B.read(lang, "priorities").split("\n") if l.startswith("## ")]
+    out = {}
+    for h in heads:
+        m = re.match(r"^(\d)\.\s", h)
+        if m: out[m.group(1)] = (B.slugify(h.replace("*", "")), h)
+    out["report"] = (B.slugify(heads[-1].replace("*", "")), heads[-1])
+    return out
+
 
 LABELS = {  # row label in content/<lang>/scorecard.md -> row key
     "Target": "target", "Today": "today", "Source / cadence": "source", "Quarterly stand-in": "standin", "My lever": "lever",
@@ -154,7 +175,15 @@ def scorecard_page(B, lang, page, env):
     grid = (f'<section class="sc-report" id="report-card" aria-labelledby="rc-h"><h2 id="rc-h">{esc(L["card_h"])}</h2>'
             f'<p class="sc-intro">{esc(L["card_intro"])}</p>{legend}<ol class="sc-grid">{"".join(cards)}</ol></section>')
     how_html = (f'<section class="block sc-how" aria-labelledby="how"><h2 id="how">{esc(how_h)}</h2>' + "".join(f"<p>{inl(p)}</p>" for p in how) + "</section>")
-    # details
+    # details: each line links back to the priority it reports on
+    PH = priority_heads(B, lang)
+    def prio_link(n):
+        k = PRIORITY.get(n)
+        if not k or k not in PH: return ""
+        hid, ht = PH[k]
+        label = f'{L["prio"]} {ht}' if k != "report" else ht
+        label = re.sub(r"^(\S+) (\d)\. ", r"\1 \2 : " if lang == "fr" else r"\1 \2: ", label)
+        return f'<p class="sc-prio"><a href="{B.url(lang, "priorities")}#{hid}">{esc(label)} <span aria-hidden="true">→</span></a></p>'
     det = []
     for it in items:
         m = meta[it["n"]]; st = m["status"]
@@ -169,18 +198,39 @@ def scorecard_page(B, lang, page, env):
                    f'<header class="sc-ihead"><span class="sc-num big" aria-hidden="true">{it["n"]}</span><div><h3 id="item-{it["n"]}-h"><span class="vh">{it["n"]}. </span>{inl(it["title"])}</h3>'
                    f'<p class="sc-meta">{chip(st, lang)} <span class="sc-cad">{esc(L["cad"][m["cadence"]])}</span>{"<span class=\"sc-asofw\">·" + NB + asof + "</span>" if asof else ""}</p></div></header>'
                    f'<dl class="sc-rows">{"".join(rows)}</dl>{fc}'
-                   f'<p class="sc-back"><a href="#report-card"><span aria-hidden="true">↑</span> {esc(L["back"])}</a></p></article>')
+                   f'{prio_link(it["n"])}'
+                   f'<p class="sc-back"><a href="#report-card">{esc(L["back"])} <span aria-hidden="true">↑</span></a></p></article>')
     details = f'<section class="sc-details" aria-labelledby="det-h"><h2 id="det-h">{esc(L["details_h"])}</h2>{"".join(det)}</section>'
-    body = f'<div class="wrap sc-wrap">{fr_note}{promises_html}{grid}{how_html}{details}{B.updated_for(lang, "scorecard")}</div>'
+    jl = ([("promises", L["jump_promises"], "")] + [("how", how_h, "")]
+          + [(f"item-{it['n']}", tx(meta[it["n"]]["short"], lang), it["n"]) for it in items])
+    jump = (f'<nav class="sc-jump" aria-label="{esc(L["jump"])}"><p class="sc-jump-t" aria-hidden="true">{esc(L["jump"])}</p><ul>'
+            + "".join(f'<li><a href="#{h}">{f"<span class=\"sc-jn\">{n}</span> " if n else ""}{esc(t_)}</a></li>' for h, t_, n in jl) + "</ul></nav>")
+    body = (f'<div class="wrap sc-wrap sc-layout">{jump}<div class="sc-main">{fr_note}{promises_html}{grid}{how_html}{details}'
+            f'{B.updated_for(lang, "scorecard")}</div></div>')
     extra_head = f'<link rel="stylesheet" href="/assets/css/scorecard.css?v={B.BUILD_ID}">\n'
     title = f'{L["title"]} – Joachim Agou – Victoria–Beacon Hill'
     return B.shell(lang, page, title, L["desc"], head + body, env, extra_head=extra_head)
 
 
 def priorities_link(B, lang):
+    """Top of /priorities/: one reading line (no extra button)."""
     L = T[lang]
-    return (f'<div class="sc-cta"><p class="cta-line"><a href="{B.url(lang, "scorecard")}"><strong>{B.esc(L["priorities_link"])}</strong>&nbsp;<span aria-hidden="true">→</span></a></p>'
-            f'<p class="sc-cta-sub">{B.esc(L["priorities_sub"])}</p></div>')
+    return (f'<p class="sc-prio-lead">{B.esc(L["prio_lead"])} <a href="{B.url(lang, "scorecard")}">{B.esc(L["prio_link"])}'
+            f'{chr(160)}<span aria-hidden="true">→</span></a></p>')
+
+
+def priorities_related(B, lang, body):
+    """In each Priorities section, a text link to its scorecard lines (inverse of PRIORITY)."""
+    L = T[lang]; PH = priority_heads(B, lang); meta = SC["items"]
+    for k, (hid, _) in PH.items():
+        ns = sorted((n for n, p in PRIORITY.items() if p == k), key=int)
+        if not ns: continue
+        start = body.find(f'<section class="block" aria-labelledby="{hid}">')
+        if start < 0: raise SystemExit(f"priorities: section {hid!r} not found (needed for scorecard links)")
+        end = body.index("</section>", start)
+        links = " · ".join(f'<a href="{B.url(lang, "scorecard")}#item-{n}">{n}. {B.esc(tx(meta[n]["short"], lang))}</a>' for n in ns)
+        body = body[:end] + f'<p class="sc-rel"><span class="sc-rel-t">{B.esc(L["rel"])}</span> {links}</p>' + body[end:]
+    return body
 
 
 def home_link(B, lang):

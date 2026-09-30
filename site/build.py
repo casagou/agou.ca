@@ -486,7 +486,7 @@ def build_page(lang, page, env):
     if key == "priorities":
         body = collapse(body, lang)
     if key == "priorities" and "scorecard" not in HIDDEN:
-        body = scorecard.priorities_link(sys.modules[__name__], lang) + body
+        body = scorecard.priorities_link(sys.modules[__name__], lang) + scorecard.priorities_related(sys.modules[__name__], lang, body)
     if key == "faq" and heads:
         idx = "".join(f'<li><a href="#{h}">{inline(t_, ctx)}</a></li>' for h, t_ in heads)
         body = (f'<div class="faq-layout"><nav class="faq-index" aria-label="{esc(U["faq_index"])}"><p class="faq-index-t" aria-hidden="true">{esc(U["faq_index"])}</p><ul>{idx}</ul></nav>'

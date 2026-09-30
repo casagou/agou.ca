@@ -73,7 +73,7 @@ Mobile-first. Body text 18px with line-height 1.55 and lines of about 62 charact
 
 ### Header
 - Phones and tablets (below 1024px): a 56px bar. On the left, "Joachim Agou" with "Victoria–Beacon Hill" under it (never wrapped, never shrunk). On the right, the FR/EN switch and a "Menu" button whose label is always visible. From 480px wide, Volunteer is also in the bar. Below 480px it is the first item of the menu, as a primary button.
-- Main menu: About, Priorities, Get involved (with sub-items), Events, How to vote, FAQ (`site.json` → `main_nav`; the short label "FAQ" comes from `nav_short`). The footer still links to the FAQ. At 1024px the desktop nav fits on one row in EN and FR.
+- Main menu: About, Priorities (sub-item Scorecard / Bulletin), Get involved (with sub-items), Events, How to vote, FAQ. Sub-items are indented in the phone menu and appear in a small dropdown on desktop (on hover or keyboard focus) (`site.json` → `main_nav`; the short label "FAQ" comes from `nav_short`). The footer still links to the FAQ. At 1024px the desktop nav fits on one row in EN and FR.
 
 ### Section treatments
 - **Open** (`.block`): the default for reading. No box. It sits on the page background, and spacing (44px, or 56px on desktop) separates sections.
@@ -98,6 +98,12 @@ Mobile-first. Body text 18px with line-height 1.55 and lines of about 62 charact
 
 ### FAQ page
 A "Topics" / "Thèmes" index links to each group heading. On phones it shows as chips at the top. From 1100px it becomes a sticky list to the right of the reading column. Each question row is a full-width `<summary>` at least 56px tall, with a circled +/− indicator and a visible focus outline.
+
+### Priorities ↔ Scorecard (scorecard.py `PRIORITY`)
+- The top of /priorities/ has one reading line: "I’ll report on these every quarter. See the scorecard →" (FR « Je fais le point chaque trimestre. Voir le bulletin → »). It replaces the old button.
+- Each Priorities section ends with "Tracked on the scorecard:" and links to its lines. Each scorecard detail card links back to its priority ("Priority N: … →"), then "Back to the report card ↑".
+- Mapping: 1 Health care → 8, 9, 10. 2 Homes → 3, 4. 3 Cost of living → 1, 2. 4 Downtown → 5, 6, 7, 12. "How I'll report to you" → 11.
+- The scorecard has a jump list: The two promises, How this page works, then lines 1–12. On phones it is a row of chips that scrolls sideways. From 1100px it is a sticky side list. Report-card cards link to their detail cards.
 
 ### "More photos on Instagram"
 After the photo "Joachim Agou presenting a test program" (Media, Photos), build.py adds the reading link "More photos on Instagram ↗" / "Plus de photos sur Instagram ↗". It links to `site.json` → `social.Instagram` (same tab, `rel="noopener"`, no embed and no tracking). It is not in Notion. `site.json` → `more_photos_after` lists the images it follows, so a Notion re-sync keeps it.

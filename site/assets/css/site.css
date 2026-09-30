@@ -311,3 +311,8 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
   .faq-index a { display:flex; min-height:48px; border:0; border-left:3px solid var(--line); border-radius:0; padding:0 12px; font-weight:600; }
   .faq-index a:hover { border-left-color:var(--navy); }
 }
+/* Priorities <-> scorecard links (scorecard.py) */
+.sc-prio-lead { margin:0 0 28px; font-size:1.05rem; }
+.sc-prio-lead a, .sc-rel a { display:inline-flex; align-items:center; min-height:48px; font-weight:700; }
+.sc-rel { margin:10px 0 0; font-size:.95rem; }
+.sc-rel-t { display:block; color:var(--muted); font-weight:600; }

@@ -51,7 +51,10 @@
       "nav": {
         "en": "Priorities",
         "fr": "Priorités"
-      }
+      },
+      "children": [
+        "scorecard"
+      ]
     },
     {
       "key": "get-involved",
