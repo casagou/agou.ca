@@ -96,6 +96,10 @@ main:focus { outline:none; }
 .tagline { font-size:1.3rem; line-height:1.35; margin:0 0 20px; color:var(--yellow); }
 .hero .callout { background:#fff; color:var(--ink); border-left:6px solid var(--yellow); }
 .hero .callout a { font-weight:700; }
+.hero-intro { font-size:1rem; line-height:1.5; margin:0 0 16px; color:#fff; max-width:40em; }
+.hero .callout p:first-child strong { font-size:1.12rem; color:var(--navy); }
+.hero-src { font-size:.8rem; line-height:1.5; color:#c9d8ea; margin:18px 0 0; }
+.hero-src a { color:#fff; }
 .hero-photo.no-photo { display:none; }
 .hero-photo svg { color:#b9cde6; width:100%; }
 .hero-photo.has-photo img { border-radius:var(--radius); display:block; }
@@ -362,3 +366,18 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 .pv-link a { display:inline-flex; align-items:center; min-height:48px; font-weight:700; }
 .sc-how .pv-link { margin:6px 0 0; }
 .sc-prio-lead + .pv-link { margin-top:-20px; }
+
+/* two-line lockup (home hero, Priorities and Scorecard heads, Priorities report block) */
+.lockup { font-weight:700; font-size:1.02rem; line-height:1.4; margin:0 0 16px; color:#fff; }
+.hero .lockup { margin:-10px 0 16px; }
+.page-head .lockup { margin:8px 0 0; color:#e3ecf7; }
+.content .lockup-block { color:var(--navy); margin:0 0 10px; }
+@media (max-width:560px) {
+  .hero { padding:20px 0 28px; }
+  .hero h1 { font-size:2.1rem; margin:0 0 8px; }
+  .hero-sub { font-size:.95rem; margin:0 0 10px; }
+  .tagline { font-size:1.2rem; margin:0 0 14px; }
+  .hero .lockup { font-size:.95rem; margin:-6px 0 12px; }
+  .hero-intro { font-size:.95rem; line-height:1.45; margin:0 0 12px; }
+  .hero .callout { padding:12px 14px; }
+}
