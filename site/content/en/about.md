@@ -41,8 +41,6 @@ I'm a professional engineer with more than 15 years of experience in aerospace, 
 	- ASME (American Society of Mechanical Engineers)
 	- SAE International, member since 2009
 </details>
-## Community
-- Interim Vice-President, Victoria Conservative Association (the federal riding association), since June 2026.
 ## Languages
 French (native), English (fluent), Spanish (limited working proficiency), Italian and Hebrew (basic).
 ## Why I am running

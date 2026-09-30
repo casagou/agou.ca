@@ -41,8 +41,6 @@ Je suis ingénieur professionnel; mon expérience couvre l'aérospatiale, la dé
 	- ASME (American Society of Mechanical Engineers)
 	- SAE International, membre depuis 2009
 </details>
-## Engagement communautaire
-- Vice-président par intérim, Victoria Conservative Association (l'association de circonscription fédérale), depuis juin 2026.
 ## Langues
 Français (langue maternelle), anglais (courant), espagnol (connaissance pratique limitée), italien et hébreu (notions de base).
 ## Pourquoi je me présente
