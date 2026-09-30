@@ -273,6 +273,6 @@
     "joachim-agou-speaking"
   ],
   "_more_photos_doc": "After these images (any page, any re-sync), build.py adds the reading link 'More photos on Instagram ↗' (ui.json more_photos) to social.Instagram, same tab, rel=noopener. Not from Notion.",
-  "review_batch_approved": false,
-  "_review_batch_doc": "30 Sep 2026 staging review batch (mobile header + FAQ in menu, forms, read more + shortcuts, action hierarchy, section treatments, desktop alignment, FAQ index, Instagram link). The live build refuses to run until Joachim approves and this is set to true."
+  "review_batch_approved": true,
+  "_review_batch_doc": "30 Sep 2026 design refresh (078cca5 + 3825943): approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future staging-only batch back from live builds."
 }
