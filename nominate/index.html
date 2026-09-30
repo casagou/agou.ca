@@ -1,142 +1,66 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nominate Joachim Agou – Victoria–Beacon Hill</title>
-<meta name="description" content="Sign up to sign Joachim Agou's nomination paper for Victoria–Beacon Hill.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Become a nominator – Joachim Agou – Victoria–Beacon Hill</title>
+<meta name="description" content="You can nominate me if you are an eligible voter who lives in Victoria–Beacon Hill:">
 <meta name="robots" content="noindex">
-<style>
-  :root { --blue:#1a4c8b; --bg:#f5f7fb; }
-  * { box-sizing:border-box; }
-  body { margin:0; font:17px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:#1b1f24; }
-  main { max-width:560px; margin:0 auto; padding:20px 16px 48px; }
-  h1 { font-size:1.5rem; margin:.2em 0 .1em; color:var(--blue); }
-  .sub { margin:0 0 1em; color:#444; }
-  .intro { background:#fff; border-left:4px solid var(--blue); padding:12px 14px; border-radius:6px; margin-bottom:18px; }
-  form { background:#fff; padding:16px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
-  label.f { display:block; font-weight:600; margin:14px 0 4px; }
-  .opt { font-weight:400; color:#666; }
-  input[type=text], input[type=tel], input[type=email] { width:100%; padding:12px; font-size:17px; border:1px solid #bbb; border-radius:8px; }
-  input:focus { outline:2px solid var(--blue); border-color:var(--blue); }
-  fieldset { border:0; padding:0; margin:14px 0 0; }
-  legend { font-weight:600; margin-bottom:4px; }
-  .cb { display:flex; gap:10px; align-items:flex-start; padding:9px 0; }
-  .cb input { width:22px; height:22px; margin:1px 0 0; flex:none; }
-  .hint { font-size:.9rem; color:#666; margin:2px 0 0; }
-  button { width:100%; margin-top:18px; padding:14px; font-size:18px; font-weight:700; color:#fff; background:var(--blue); border:0; border-radius:8px; }
-  button:disabled { opacity:.6; }
-  .msg { margin-top:14px; padding:12px; border-radius:8px; display:none; }
-  .err { background:#fdecea; color:#8a1c1c; display:block; }
-  .ok { background:#e8f5e9; color:#1b5e20; display:block; }
-  .hp { position:absolute; left:-5000px; }
-  footer { font-size:.85rem; color:#666; margin-top:18px; text-align:center; }
-</style>
+<link rel="canonical" href="https://agou.ca/nominate/">
+<link rel="alternate" hreflang="en-CA" href="https://agou.ca/nominate/">
+<link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/nominate/">
+<link rel="alternate" hreflang="x-default" href="https://agou.ca/nominate/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Joachim Agou – Victoria–Beacon Hill">
+<meta property="og:locale" content="en_CA">
+<meta property="og:locale:alternate" content="fr_CA">
+<meta property="og:title" content="Become a nominator – Joachim Agou – Victoria–Beacon Hill">
+<meta property="og:description" content="You can nominate me if you are an eligible voter who lives in Victoria–Beacon Hill:">
+<meta property="og:url" content="https://agou.ca/nominate/">
+<meta property="og:image" content="https://agou.ca/assets/img/og-joachim-agou.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Joachim Agou, Victoria–Beacon Hill">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#123a6d">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/site.css?v=0daff16">
 </head>
-<body>
-<main>
-  <h1 id="t-title"></h1>
-  <p class="sub" id="t-sub"></p>
-  <div class="intro" id="t-intro"></div>
+<body class="page-nominate">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+ <div class="wrap bar">
+  <a class="brand" href="/"><span class="brand-name">Joachim Agou</span><span class="brand-sub">Victoria–Beacon Hill</span></a>
+  <div class="tools">
+   <a class="lang" href="/fr/nominate/" hreflang="fr-CA" lang="fr" aria-label="Lire cette page en français"><span class="lang-long">Français</span><span class="lang-short" aria-hidden="true">FR</span></a>
+   <a class="btn primary hdr-cta" href="/volunteer/">Volunteer</a>
 
-  <form id="f" novalidate>
-    <label class="f" for="full_name">Full name</label>
-    <input id="full_name" name="full_name" type="text" autocomplete="name" required maxlength="120">
-
-    <label class="f" for="street_address">Residential street address <span class="opt">(in Victoria–Beacon Hill)</span></label>
-    <input id="street_address" name="street_address" type="text" autocomplete="street-address" required maxlength="200" placeholder="e.g. 123 Cook St, Unit 4, Victoria">
-
-    <label class="f" for="phone">Phone</label>
-    <input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="30" inputmode="tel">
-
-    <label class="f" for="email">Email <span class="opt">(optional)</span></label>
-    <input id="email" name="email" type="email" autocomplete="email" maxlength="200">
-
-    <label class="f" for="best_time">Best time to reach you</label>
-    <input id="best_time" name="best_time" type="text" maxlength="200" placeholder="e.g. weekday evenings, Saturday morning">
-
-    <fieldset>
-      <legend>Which signing session(s) can you attend?</legend>
-      <p class="hint" id="t-sessions-hint"></p>
-      <div id="sessions"></div>
-    </fieldset>
-
-    <fieldset>
-      <div class="cb"><input id="consent" type="checkbox" required><label for="consent" id="t-consent"></label></div>
-    </fieldset>
-
-    <div class="hp" aria-hidden="true"><label>Leave empty <input id="website" type="text" tabindex="-1" autocomplete="off"></label></div>
-
-    <button id="btn" type="submit">Sign me up</button>
-    <div id="msg" class="msg" role="status"></div>
-  </form>
-  <footer id="t-footer"></footer>
+   <button id="menu-btn" class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close"><span class="burger" aria-hidden="true"></span><span class="lbl">Menu</span></button>
+  </div>
+ </div>
+ <nav id="site-nav" class="site-nav" aria-label="Main"><ul class="wrap"><li><a href="/about/">About</a></li><li><a href="/priorities/">Priorities</a></li><li class="has-sub"><a href="/get-involved/" class="active">Get involved</a><ul class="subnav"><li><a href="/volunteer/">Volunteer</a></li><li><a href="/lawn-sign/">Lawn sign</a></li><li><a href="/nominate/" aria-current="page">Nominate</a></li><li><a href="/donate/">Donate</a></li></ul></li><li><a href="/events/">Events</a></li><li><a href="/how-to-vote/">How to vote</a></li></ul></nav>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap"><h1>Become a nominator</h1></div></div><div class="wrap content"><section class="block lead"><p>You can nominate me if you are an eligible voter who lives in Victoria–Beacon Hill:</p>
+<ul>
+<li>Canadian citizen</li>
+<li>18 or older by 24 October 2026</li>
+<li>Lived in B.C. for at least 6 months before 24 October 2026</li>
+<li>Not disqualified from voting</li>
+</ul>
+<p>The riding covers James Bay, Fairfield, Downtown, Rockland, North Park, most of Fernwood, and parts of Burnside, Jubilee and Gonzales.</p>
+<figure class="fig"><a href="/assets/img/riding-map-1600.jpg" class="figlink"><img src="/assets/img/riding-map-1600.jpg" srcset="/assets/img/riding-map-800.jpg 800w, /assets/img/riding-map-1600.jpg 1600w" sizes="(min-width: 900px) 820px, 100vw" width="1600" height="1200" alt="Victoria–Beacon Hill riding boundary. Boundary: Elections BC (2023). Map data © OpenStreetMap contributors." loading="lazy" decoding="async"></a><figcaption>Victoria–Beacon Hill riding boundary. Boundary: Elections BC (2023). Map data © OpenStreetMap contributors.</figcaption></figure>
+<p>Not sure you live in the riding? Check at <a href="https://wheretovote.elections.bc.ca/" rel="noopener">wheretovote.elections.bc.ca</a>.</p>
+<ul>
+<li>It is not a pledge to vote for me.</li>
+<li>Each voter can nominate only one candidate this election (Election Act s. 53(2)).</li>
+<li>You don&#x27;t need to be on the voters list.</li>
+<li>Signing the Elections BC form takes about 1 minute. I bring the form to you.</li>
+</ul>
+<p class="cta-line"><a href="#form"><strong>→ Sign up to nominate</strong></a></p></section><section class="block formblock" id="form" aria-labelledby="form-title"><h2 id="form-title">Nominate Joachim Agou</h2><p class="sub">Seeking the BC Conservative nomination · Victoria–Beacon Hill · Provincial election 24 October 2026</p><div class="intro"><p>Thank you. Nominating is not a vote pledge. You must be an eligible voter living in Victoria–Beacon Hill. Each voter can nominate only one candidate.</p></div><form id="f" class="card form" novalidate><label class="f" for="full_name">Full name</label><input id="full_name" name="full_name" type="text" autocomplete="name" required maxlength="120"><label class="f" for="street_address">Residential street address <span class="opt">(in Victoria–Beacon Hill)</span></label><input id="street_address" name="street_address" type="text" autocomplete="street-address" required maxlength="200" placeholder="e.g. 123 Cook St, Unit 4, Victoria"><label class="f" for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="30" inputmode="tel"><label class="f" for="email">Email <span class="opt">(optional)</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="200" inputmode="email" autocapitalize="off" spellcheck="false"><label class="f" for="best_time">Best time to reach you</label><input id="best_time" name="best_time" type="text" maxlength="200" placeholder="e.g. weekday evenings, Saturday morning"><fieldset><legend>Which signing session(s) can you attend?</legend><p class="hint">Times to be confirmed. We&#x27;ll contact you with the exact time.</p><div class="cb"><input type="checkbox" name="session" id="s0" value="Thrifty Foods Fairfield (Cook St &amp; Fairfield Rd area) — time to be confirmed"><label for="s0">Thrifty Foods Fairfield (Cook St &amp; Fairfield Rd area) — time to be confirmed</label></div><div class="cb"><input type="checkbox" name="session" id="s1" value="Thrifty Foods James Bay (Menzies St) — time to be confirmed"><label for="s1">Thrifty Foods James Bay (Menzies St) — time to be confirmed</label></div><div class="cb"><input type="checkbox" name="session" id="s2" value="Cook Street Village — time to be confirmed"><label for="s2">Cook Street Village — time to be confirmed</label></div><div class="cb"><input type="checkbox" name="session" id="s3" value="James Bay Market — time to be confirmed"><label for="s3">James Bay Market — time to be confirmed</label></div><div class="cb"><input type="checkbox" name="session" id="s4" value="Come to me / I&#x27;ll arrange a time"><label for="s4">Come to me / I&#x27;ll arrange a time</label></div></fieldset><div class="cb"><input id="consent" type="checkbox" required><label for="consent">I agree to be contacted by the Joachim Agou campaign about signing the nomination paper. My information will be used only for this nomination.</label></div><div class="hp" aria-hidden="true"><label>Leave empty <input id="website" type="text" tabindex="-1" autocomplete="off"></label></div><button id="btn" class="btn primary block" type="submit">Sign me up</button><div id="msg" class="msg" role="status" aria-live="polite" tabindex="-1"></div></form><p class="privacy-note"><a href="/privacy/">Privacy</a></p></section><p class="updated">Last updated: <time datetime="2026-09-30">30 September 2026</time></p></div>
 </main>
-<script>
-/* ======== EDIT TEXT HERE (easy to change after legal check) ======== */
-const TEXT = {
-  title: "Nominate Joachim Agou",
-  sub: "Seeking the BC Conservative nomination · Victoria–Beacon Hill · Provincial election 24 October 2026",
-  intro: "Thank you. Nominating is not a vote pledge. You must be an eligible voter living in Victoria–Beacon Hill. Each voter can nominate only one candidate.",
-  sessionsHint: "Times to be confirmed. We'll contact you with the exact time.",
-  sessions: [
-    "Thrifty Foods Fairfield (Cook St & Fairfield Rd area) — time to be confirmed",
-    "Thrifty Foods James Bay (Menzies St) — time to be confirmed",
-    "Cook Street Village — time to be confirmed",
-    "James Bay Market — time to be confirmed",
-    "Come to me / I'll arrange a time"
-  ],
-  consent: "I agree to be contacted by the Joachim Agou campaign about signing the nomination paper. My information will be used only for this nomination.",
-  thanks: "Thank you! We'll contact you soon to arrange signing the nomination paper.",
-  footer: "Questions? joachim@agou.ca"
-};
-/* ================================================================== */
-const SUPABASE_URL = "https://qhyttuzmysookdgxymrl.supabase.co";
-const SUPABASE_KEY = "sb_publishable_yJEI3Tmfk2bnZanIF-W1gQ_tgBwW-N7"; // public insert-only key (RLS: cannot read data)
-
-const $ = id => document.getElementById(id);
-$("t-title").textContent = TEXT.title; $("t-sub").textContent = TEXT.sub;
-$("t-intro").textContent = TEXT.intro; $("t-sessions-hint").textContent = TEXT.sessionsHint;
-$("t-consent").textContent = TEXT.consent; $("t-footer").textContent = TEXT.footer;
-TEXT.sessions.forEach((s, i) => {
-  const d = document.createElement("div"); d.className = "cb";
-  d.innerHTML = '<input type="checkbox" name="session" id="s' + i + '"><label for="s' + i + '"></label>';
-  d.querySelector("input").value = s; d.querySelector("label").textContent = s;
-  $("sessions").appendChild(d);
-});
-function show(kind, text) { const m = $("msg"); m.className = "msg " + kind; m.textContent = text; }
-
-$("f").addEventListener("submit", async e => {
-  e.preventDefault();
-  if ($("website").value) return; // bot
-  const v = id => $(id).value.trim();
-  const errs = [];
-  if (v("full_name").length < 2) errs.push("your full name");
-  if (v("street_address").length < 4) errs.push("your street address");
-  if (v("phone").replace(/\D/g, "").length < 7) errs.push("a phone number");
-  if (v("email") && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("email"))) errs.push("a valid email (or leave it empty)");
-  if (!$("consent").checked) errs.push("the consent checkbox");
-  if (errs.length) { show("err", "Please add " + errs.join(", ") + "."); return; }
-  const btn = $("btn"); btn.disabled = true; btn.textContent = "Sending…";
-  try {
-    const r = await fetch(SUPABASE_URL + "/rest/v1/rpc/submit_nominator_signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", apikey: SUPABASE_KEY },
-      body: JSON.stringify({
-        p_full_name: v("full_name"), p_street_address: v("street_address"), p_phone: v("phone"),
-        p_email: v("email"), p_best_time: v("best_time"),
-        p_sessions: [...document.querySelectorAll('input[name=session]:checked')].map(x => x.value),
-        p_consent: true, p_consent_text: TEXT.consent
-      })
-    });
-    if (!r.ok) throw new Error(await r.text());
-    $("f").querySelectorAll("input,button").forEach(x => x.disabled = true);
-    btn.textContent = "Sent ✓"; show("ok", TEXT.thanks);
-  } catch (err) {
-    btn.disabled = false; btn.textContent = "Sign me up";
-    show("err", "Sorry, something went wrong. Please try again, or email joachim@agou.ca.");
-  }
-});
-</script>
+<footer class="site-footer"><div class="wrap fgrid"><section aria-labelledby="fc"><h2 id="fc">Contact</h2><p><a href="mailto:joachim@agou.ca">joachim@agou.ca</a> · <a href="tel:+16729227017">672-922-7017</a></p><p class="soc-label">Social media</p><ul class="social"><li><a href="https://www.instagram.com/casagou/" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1C2.6 8.9 2.6 9.3 2.6 12s0 3.1.1 4.3c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.3s0-3.1-.1-4.3c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 8a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2zm5.1-8.3a1.1 1.1 0 110-2.3 1.1 1.1 0 010 2.3z"/></svg><span>Instagram</span></a></li><li><a href="https://x.com/casagou" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.9 2.3h7l4.8 6.4 5.5-6.4zm-1.2 17.9h1.9L7.1 4.2H5.1l11.9 16z"/></svg><span>X</span></a></li><li><a href="https://www.facebook.com/casagou" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0022 12z"/></svg><span>Facebook</span></a></li></ul></section><section aria-label="Financial agent and auditor"><div class="fa-box"><p class="fa-title"><strong>Financial agent and auditor</strong></p><p>Financial agent: Bert Chen · <a href="mailto:bert@bertchen.ca">bert@bertchen.ca</a> · <a href="tel:+17789969910">778-996-9910</a></p><p>Auditor: Chan Nowosad Boates, Chartered Professional Accountants, Campbell River</p></div></section><nav aria-label="Site"><ul class="fnav"><li><a href="/faq/">Frequently asked questions</a></li><li><a href="/media/">Media</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li></ul></nav></div><div class="wrap"><p class="auth">Authorized by Bert Chen, financial agent, bert@bertchen.ca, 778-996-9910.</p></div></footer>
+<script src="/assets/js/site.js?v=0daff16" defer></script>
+<script id="form-config" type="application/json">{"form": "nominate", "text": {"title": "Nominate Joachim Agou", "sub": "Seeking the BC Conservative nomination · Victoria–Beacon Hill · Provincial election 24 October 2026", "intro": "Thank you. Nominating is not a vote pledge. You must be an eligible voter living in Victoria–Beacon Hill. Each voter can nominate only one candidate.", "sessions_legend": "Which signing session(s) can you attend?", "sessions_hint": "Times to be confirmed. We'll contact you with the exact time.", "sessions": [["Thrifty Foods Fairfield (Cook St & Fairfield Rd area) — time to be confirmed", "Thrifty Foods Fairfield (Cook St & Fairfield Rd area) — time to be confirmed"], ["Thrifty Foods James Bay (Menzies St) — time to be confirmed", "Thrifty Foods James Bay (Menzies St) — time to be confirmed"], ["Cook Street Village — time to be confirmed", "Cook Street Village — time to be confirmed"], ["James Bay Market — time to be confirmed", "James Bay Market — time to be confirmed"], ["Come to me / I'll arrange a time", "Come to me / I'll arrange a time"]], "consent": "I agree to be contacted by the Joachim Agou campaign about signing the nomination paper. My information will be used only for this nomination.", "thanks": "Thank you! We'll contact you soon to arrange signing the nomination paper.", "full_name": "Full name", "street_address": "Residential street address", "street_hint": "(in Victoria–Beacon Hill)", "street_ph": "e.g. 123 Cook St, Unit 4, Victoria", "phone": "Phone", "email": "Email", "optional": "(optional)", "best_time": "Best time to reach you", "best_time_ph": "e.g. weekday evenings, Saturday morning", "button": "Sign me up", "sending": "Sending…", "sent": "Sent ✓", "err_prefix": "Please add ", "err_name": "your full name", "err_street": "your street address", "err_phone": "a phone number", "err_email": "a valid email (or leave it empty)", "err_consent": "the consent checkbox", "err_send": "Sorry, something went wrong. Please try again, or email joachim@agou.ca.", "honeypot": "Leave empty"}}</script>
+<script src="/assets/js/forms.js?v=0daff16" defer></script>
 </body>
 </html>

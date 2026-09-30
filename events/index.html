@@ -1,294 +1,51 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-CA">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Events – Joachim Agou – Victoria–Beacon Hill</title>
-<meta name="description" content="Upcoming events with Joachim Agou, seeking the Conservative Party of BC nomination in Victoria–Beacon Hill. Come meet Joachim, RSVP and add events to your calendar.">
-<!-- Indexable on purpose (unlike /nominate and /volunteer): public events should be findable. -->
+<meta name="description" content="Come for a coffee and tell me what matters to you. Each event has its own page where you can RSVP and add it to your calendar.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://agou.ca/events/">
+<link rel="alternate" hreflang="en-CA" href="https://agou.ca/events/">
+<link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/events/">
+<link rel="alternate" hreflang="x-default" href="https://agou.ca/events/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Joachim Agou – Victoria–Beacon Hill">
+<meta property="og:locale" content="en_CA">
+<meta property="og:locale:alternate" content="fr_CA">
 <meta property="og:title" content="Events – Joachim Agou – Victoria–Beacon Hill">
-<meta property="og:description" content="Upcoming events with Joachim Agou, seeking the Conservative Party of BC nomination in Victoria–Beacon Hill. RSVP and add them to your calendar.">
+<meta property="og:description" content="Come for a coffee and tell me what matters to you. Each event has its own page where you can RSVP and add it to your calendar.">
 <meta property="og:url" content="https://agou.ca/events/">
-<meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#1a4c8b">
-<style>
-  :root { --blue:#1a4c8b; --bg:#f5f7fb; --yellow:#ffd23f; --yellow-ink:#3d3000; }
-  * { box-sizing:border-box; }
-  body { margin:0; font:17px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:#1b1f24; }
-  main { max-width:760px; margin:0 auto; padding:20px 16px 48px; }
-  a { color:var(--blue); }
-  h1 { font-size:2rem; margin:.2em 0 .1em; color:var(--blue); }
-  .sub { margin:0 0 1.2em; color:#444; }
-  .ev { background:#fff; padding:16px 18px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.08); margin:0 0 14px; }
-  .ev h2 { font-size:1.2rem; line-height:1.3; margin:0 0 6px; }
-  .ev h2 a { color:var(--blue); text-decoration:none; }
-  .ev h2 a:hover, .ev h2 a:focus { text-decoration:underline; }
-  .ex { margin:0 0 10px; color:#333; display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-  .badge { display:inline-block; background:var(--yellow); color:var(--yellow-ink); font-weight:700; font-size:.92rem; padding:5px 10px; border-radius:4px; }
-  .empty, .note { background:#fff; border-left:4px solid var(--blue); padding:12px 14px; border-radius:6px; }
-  .more { display:inline-flex; align-items:center; min-height:44px; font-weight:600; }
-  .back { display:inline-flex; align-items:center; min-height:44px; font-weight:600; margin-bottom:6px; text-decoration:none; }
-  .back:hover { text-decoration:underline; }
-  .detail h1 { font-size:1.9rem; line-height:1.2; margin:.1em 0 .35em; }
-  .detail .badge { font-size:1rem; padding:6px 12px; }
-  .card { background:#fff; padding:16px 18px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.08); margin:16px 0; }
-  .desc p { margin:0 0 .8em; } .desc ul { margin:0 0 .8em; padding-left:1.3em; } .desc li { margin:.2em 0; }
-  .desc :last-child { margin-bottom:0; }
-  .where b, .when b { display:block; font-size:.85rem; text-transform:uppercase; letter-spacing:.04em; color:#555; }
-  .where p, .when p { margin:0 0 .3em; }
-  .actions { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0; }
-  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 20px; font-family:inherit; font-size:18px; font-weight:700; line-height:1.2; border-radius:8px; border:2px solid var(--blue); cursor:pointer; text-decoration:none; }
-  .btn.primary { background:var(--blue); color:#fff; flex:1 1 220px; font-size:20px; }
-  .btn.sec { background:#fff; color:var(--blue); flex:1 1 160px; }
-  .cal { position:relative; flex:1 1 200px; display:flex; }
-  .cal > .btn { flex:1; }
-  .calmenu { position:absolute; top:calc(100% + 6px); left:0; right:0; background:#fff; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,.18); padding:6px; z-index:5; }
-  .calmenu a, .calmenu button { display:flex; align-items:center; width:100%; min-height:44px; padding:8px 12px; font-family:inherit; font-size:16px; font-weight:600; color:var(--blue); background:none; border:0; border-radius:6px; text-align:left; cursor:pointer; text-decoration:none; }
-  .calmenu a:hover, .calmenu button:hover { background:#eef3fa; }
-  form { background:#fff; padding:16px; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.08); margin-top:16px; }
-  form h2 { margin:0 0 4px; font-size:1.3rem; color:var(--blue); }
-  label.f { display:block; font-weight:600; margin:14px 0 4px; }
-  .opt { font-weight:400; color:#666; }
-  input[type=text], input[type=tel], input[type=email], select { width:100%; padding:12px; font-size:17px; border:1px solid #bbb; border-radius:8px; background:#fff; font-family:inherit; min-height:48px; }
-  input:focus, select:focus { outline:2px solid var(--blue); border-color:var(--blue); }
-  fieldset { border:0; padding:0; margin:14px 0 0; }
-  .cb { display:flex; gap:10px; align-items:flex-start; padding:9px 0; }
-  .cb input { width:22px; height:22px; margin:1px 0 0; flex:none; }
-  form button[type=submit] { width:100%; margin-top:18px; padding:14px; font-size:18px; font-weight:700; color:#fff; background:var(--blue); border:0; border-radius:8px; min-height:48px; font-family:inherit; }
-  form button:disabled { opacity:.6; }
-  .msg { margin-top:14px; padding:12px; border-radius:8px; display:none; }
-  .err { background:#fdecea; color:#8a1c1c; display:block; }
-  .ok { background:#e8f5e9; color:#1b5e20; display:block; }
-  .thanks { background:#e8f5e9; color:#1b5e20; padding:16px; border-radius:10px; margin-top:16px; font-size:1.05rem; }
-  .hp { position:absolute; left:-5000px; }
-  .row { display:flex; gap:12px; }
-  .row > div { flex:1; min-width:0; }
-  @media (max-width:340px) { .row { display:block; } }
-  .vol { margin-top:22px; text-align:center; }
-  .vol a { display:inline-flex; align-items:center; min-height:44px; font-weight:600; }
-  footer { font-size:.85rem; color:#666; margin-top:18px; text-align:center; }
-  @media (max-width:480px) { h1 { font-size:1.7rem; } .detail h1 { font-size:1.5rem; } .ev { padding:14px; } }
-  [hidden] { display:none !important; }
-</style>
+<meta property="og:image" content="https://agou.ca/assets/img/og-joachim-agou.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Joachim Agou, Victoria–Beacon Hill">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#123a6d">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/site.css?v=0daff16">
 </head>
-<body>
-<main>
-  <div id="listView">
-    <h1>Events</h1>
-    <p class="sub">Joachim Agou · Conservative Party of BC · Victoria–Beacon Hill</p>
-    <div id="list" aria-live="polite"><p class="note">Loading events…</p></div>
+<body class="page-events">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+ <div class="wrap bar">
+  <a class="brand" href="/"><span class="brand-name">Joachim Agou</span><span class="brand-sub">Victoria–Beacon Hill</span></a>
+  <div class="tools">
+   <a class="lang" href="/fr/events/" hreflang="fr-CA" lang="fr" data-lang-switch data-base="/fr/events/" aria-label="Lire cette page en français"><span class="lang-long">Français</span><span class="lang-short" aria-hidden="true">FR</span></a>
+   <a class="btn primary hdr-cta" href="/volunteer/">Volunteer</a>
+
+   <button id="menu-btn" class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close"><span class="burger" aria-hidden="true"></span><span class="lbl">Menu</span></button>
   </div>
-  <article id="detailView" class="detail" hidden></article>
-  <p class="vol"><a href="/volunteer/">Want to help? Volunteer with the campaign →</a></p>
-  <footer>Authorized by Bert Chen, financial agent, bert@bertchen.ca, 778-996-9910.</footer>
+ </div>
+ <nav id="site-nav" class="site-nav" aria-label="Main"><ul class="wrap"><li><a href="/about/">About</a></li><li><a href="/priorities/">Priorities</a></li><li class="has-sub"><a href="/get-involved/">Get involved</a><ul class="subnav"><li><a href="/volunteer/">Volunteer</a></li><li><a href="/lawn-sign/">Lawn sign</a></li><li><a href="/nominate/">Nominate</a></li><li><a href="/donate/">Donate</a></li></ul></li><li><a href="/events/" aria-current="page">Events</a></li><li><a href="/how-to-vote/">How to vote</a></li></ul></nav>
+</header>
+<main id="main" tabindex="-1">
+<div class="page-head"><div class="wrap"><h1>Events</h1></div></div><div class="wrap content"><div data-hide-on-detail><section class="block lead"><p>Come for a coffee and tell me what matters to you. Each event has its own page where you can RSVP and add it to your calendar.</p>
+<p class="cta-line"><a href="#events-list"><strong>→ See upcoming events</strong></a></p></section></div><section class="block" id="events-list" aria-live="polite"><div id="listView"><div id="list"><p class="note">Loading events…</p></div></div><article id="detailView" class="detail" hidden></article></section><p class="updated">Last updated: <time datetime="2026-09-30">30 September 2026</time></p></div>
 </main>
-<script>
-/* ======== EDIT TEXT HERE ======== */
-const TEXT = {
-  riding: "Victoria–Beacon Hill",
-  empty: "No upcoming events yet. Check back soon.",
-  gone: "This event isn't listed any more. It may have ended or been cancelled.",
-  loadErr: "Sorry, events couldn't be loaded right now. Please try again in a moment.",
-  consent: "I agree that the Joachim Agou campaign (Conservative Party of BC, Victoria–Beacon Hill) may contact me by email, phone or text about this event and the campaign. I can ask to stop at any time.",
-  thanks: "Thank you, you're on the list! We look forward to seeing you. We may be in touch with details about the event.",
-  rsvpErr: "Sorry, something went wrong and your RSVP was not sent. Please check your details and try again, or email joachim@agou.ca."
-};
-/* ================================= */
-const SUPABASE_URL = "https://qhyttuzmysookdgxymrl.supabase.co";
-const SUPABASE_KEY = "sb_publishable_yJEI3Tmfk2bnZanIF-W1gQ_tgBwW-N7"; // public key: can only call get_public_events and submit_event_rsvp (RLS: cannot read tables)
-const TZ = "America/Vancouver";
-const $ = id => document.getElementById(id);
-const el = (tag, attrs, ...kids) => { const e = document.createElement(tag); for (const k in attrs || {}) { if (k === "text") e.textContent = attrs[k]; else if (k === "class") e.className = attrs[k]; else e.setAttribute(k, attrs[k]); } kids.flat().forEach(c => c != null && e.append(c)); return e; };
-let EVENTS = null;
-
-// ---- dates (always Pacific) ----
-function parts(s) { const o = {}; new Intl.DateTimeFormat("en-US", { timeZone: TZ, weekday: "long", month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", hour12: true }).formatToParts(new Date(s)).forEach(p => o[p.type] = p.value); return o; }
-const ymd = s => new Date(s).toLocaleDateString("en-CA", { timeZone: TZ });
-const dayLong = s => { const p = parts(s); return p.weekday + " " + p.month + " " + p.day; };
-const dayShort = s => { const p = parts(s); return p.month + " " + p.day; };
-const clock = s => { const p = parts(s); return p.hour + ":" + p.minute + " " + String(p.dayPeriod || "").toLowerCase(); };
-function timeLine(e) { return dayShort(e.starts_at) + " @ " + clock(e.starts_at) + " - " + (ymd(e.starts_at) === ymd(e.ends_at) ? "" : dayShort(e.ends_at) + " @ ") + clock(e.ends_at); }
-function heading(e) { return dayLong(e.starts_at) + " | " + TEXT.riding + " | " + e.title; }
-
-// ---- simple, safe markdown: blank line = paragraph, "- " = bullet, **bold**, bare https links. No raw HTML ever. ----
-function inline(text) {
-  const out = []; const re = /\*\*([^*]+)\*\*|(https?:\/\/[^\s<>"]+[^\s<>".,;:!?)])/g; let last = 0, m;
-  while ((m = re.exec(text))) {
-    if (m.index > last) out.push(document.createTextNode(text.slice(last, m.index)));
-    if (m[1] != null) out.push(el("strong", { text: m[1] }));
-    else out.push(el("a", { href: m[2], rel: "noopener noreferrer", target: "_blank", text: m[2] }));
-    last = re.lastIndex;
-  }
-  if (last < text.length) out.push(document.createTextNode(text.slice(last)));
-  return out;
-}
-function renderMd(src) {
-  const box = el("div", { class: "desc" });
-  String(src || "").replace(/\r\n?/g, "\n").split(/\n\s*\n/).forEach(block => {
-    const lines = block.split("\n").map(l => l.trimEnd()).filter(l => l.trim());
-    if (!lines.length) return;
-    let ul = null, p = null;
-    lines.forEach(l => {
-      const b = /^\s*(?:[-*•])\s+(.*)$/.exec(l);
-      if (b) { p = null; if (!ul) { ul = el("ul"); box.append(ul); } ul.append(el("li", null, inline(b[1]))); }
-      else { ul = null; if (!p) { p = el("p"); box.append(p); } else p.append(el("br")); p.append(...inline(l.trim())); }
-    });
-  });
-  return box;
-}
-const plain = s => String(s || "").replace(/\*\*([^*]+)\*\*/g, "$1").replace(/^\s*[-*•]\s+/gm, "").replace(/\s+/g, " ").trim();
-function excerpt(s) { const t = plain(s); return t.length > 200 ? t.slice(0, 200).replace(/\s+\S*$/, "") + "…" : t; }
-const whereText = e => [e.location_name, e.address].filter(Boolean).join(", ");
-const mapUrl = e => whereText(e) ? "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(whereText(e)) : "";
-const eventUrl = e => "https://agou.ca/events/?e=" + e.id;
-
-// ---- calendar ----
-const utc = s => new Date(s).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-const icsEsc = s => String(s || "").replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/([,;])/g, "\\$1");
-function icsFold(line) { const out = []; while (line.length > 74) { out.push(line.slice(0, 74)); line = " " + line.slice(74); } out.push(line); return out.join("\r\n"); }
-function downloadIcs(e) {
-  const desc = plain(e.description) + (e.description ? "\n\n" : "") + eventUrl(e);
-  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//agou.ca//Events//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "BEGIN:VEVENT",
-    "UID:event-" + e.id + "@agou.ca", "DTSTAMP:" + utc(new Date()), "DTSTART:" + utc(e.starts_at), "DTEND:" + utc(e.ends_at),
-    "SUMMARY:" + icsEsc(e.title), whereText(e) ? "LOCATION:" + icsEsc(whereText(e)) : null, "DESCRIPTION:" + icsEsc(desc), "URL:" + eventUrl(e),
-    "END:VEVENT", "END:VCALENDAR"].filter(Boolean).map(icsFold).join("\r\n") + "\r\n";
-  const a = el("a", { href: URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" })), download: "agou-event-" + e.id + ".ics" });
-  document.body.append(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
-}
-function googleCal(e) {
-  const q = new URLSearchParams({ action: "TEMPLATE", text: e.title, dates: utc(e.starts_at) + "/" + utc(e.ends_at), ctz: TZ,
-    details: (plain(e.description) ? plain(e.description).slice(0, 1200) + "\n\n" : "") + eventUrl(e), location: whereText(e) });
-  return "https://calendar.google.com/calendar/render?" + q.toString();
-}
-
-// ---- views ----
-function renderList() {
-  const box = $("list"); box.textContent = "";
-  if (!EVENTS.length) { box.append(el("p", { class: "empty", text: TEXT.empty })); return; }
-  EVENTS.forEach(e => {
-    const a = el("a", { href: "?e=" + e.id, text: heading(e) });
-    a.addEventListener("click", ev => { if (ev.metaKey || ev.ctrlKey || ev.shiftKey) return; ev.preventDefault(); history.pushState({ e: e.id }, "", "?e=" + e.id); route(); window.scrollTo(0, 0); });
-    const ex = excerpt(e.description);
-    box.append(el("section", { class: "ev" }, el("h2", null, a), ex ? el("p", { class: "ex", text: ex }) : null, el("span", { class: "badge", text: timeLine(e) })));
-  });
-}
-function setMeta(title, desc, url) {
-  document.title = title;
-  const set = (sel, attr, v) => { const m = document.querySelector(sel); if (m) m.setAttribute(attr, v); };
-  set('meta[name="description"]', "content", desc); set('meta[property="og:title"]', "content", title);
-  set('meta[property="og:description"]', "content", desc); set('meta[property="og:url"]', "content", url); set('link[rel="canonical"]', "href", url);
-}
-function jsonLd(list) {
-  let s = $("ld"); if (!s) { s = el("script", { id: "ld", type: "application/ld+json" }); document.head.append(s); }
-  s.textContent = JSON.stringify(list.map(e => ({ "@context": "https://schema.org", "@type": "Event", name: e.title, startDate: e.starts_at, endDate: e.ends_at,
-    eventStatus: "https://schema.org/EventScheduled", eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    location: { "@type": "Place", name: e.location_name || e.address || TEXT.riding, address: e.address || e.location_name || "Victoria, BC" },
-    description: plain(e.description).slice(0, 500), url: eventUrl(e), organizer: { "@type": "Organization", name: "Joachim Agou campaign (Conservative Party of BC)", url: "https://agou.ca/events/" } })));
-}
-function backLink() {
-  const a = el("a", { href: "./", class: "back", text: "‹ All events" });
-  a.addEventListener("click", ev => { ev.preventDefault(); history.pushState({}, "", location.pathname); route(); window.scrollTo(0, 0); });
-  return a;
-}
-function renderDetail(id) {
-  const box = $("detailView"); box.textContent = "";
-  const e = EVENTS.find(x => String(x.id) === String(id));
-  if (!e) { box.append(backLink(), el("p", { class: "note", text: TEXT.gone })); setMeta("Events – Joachim Agou – Victoria–Beacon Hill", "Upcoming events with Joachim Agou in Victoria–Beacon Hill.", "https://agou.ca/events/"); return; }
-  setMeta(e.title + " – " + dayLong(e.starts_at) + " – Joachim Agou", (plain(e.description) || heading(e)).slice(0, 160), eventUrl(e));
-  jsonLd([e]);
-  const where = whereText(e), mu = mapUrl(e);
-  box.append(backLink(), el("h1", { text: heading(e) }), el("span", { class: "badge", text: timeLine(e) }));
-  if (e.description) box.append(el("div", { class: "card" }, renderMd(e.description)));
-  const info = el("div", { class: "card" },
-    el("div", { class: "when" }, el("b", { text: "When" }), el("p", { text: dayLong(e.starts_at) + ", " + clock(e.starts_at) + " – " + (ymd(e.starts_at) === ymd(e.ends_at) ? "" : dayLong(e.ends_at) + ", ") + clock(e.ends_at) + " (Pacific time)" })));
-  if (where) info.append(el("div", { class: "where" }, el("b", { text: "Where" }),
-    e.location_name ? el("p", { text: e.location_name }) : null, e.address ? el("p", { text: e.address }) : null,
-    mu ? el("p", null, el("a", { href: mu, target: "_blank", rel: "noopener noreferrer", class: "more", text: "Open in Google Maps ↗" })) : null));
-  box.append(info);
-  const acts = el("div", { class: "actions" });
-  let rsvpBtn = null;
-  if (e.rsvp_open) { rsvpBtn = el("button", { type: "button", class: "btn primary", "aria-expanded": "false", "aria-controls": "rsvp", text: "RSVP" }); acts.append(rsvpBtn); }
-  const calBtn = el("button", { type: "button", class: "btn sec", "aria-expanded": "false", "aria-haspopup": "true", text: "Add to calendar" });
-  const ics = el("button", { type: "button", text: "Apple / Outlook (.ics file)" }); ics.addEventListener("click", () => { downloadIcs(e); menu.hidden = true; calBtn.setAttribute("aria-expanded", "false"); });
-  const menu = el("div", { class: "calmenu", hidden: "" }, el("a", { href: googleCal(e), target: "_blank", rel: "noopener noreferrer", text: "Google Calendar ↗" }), ics);
-  calBtn.addEventListener("click", () => { menu.hidden = !menu.hidden; calBtn.setAttribute("aria-expanded", String(!menu.hidden)); });
-  acts.append(el("div", { class: "cal" }, calBtn, menu));
-  if (e.signup_url && /^https?:\/\//i.test(e.signup_url)) acts.append(el("a", { href: e.signup_url, target: "_blank", rel: "noopener noreferrer", class: "btn sec", text: "Sign up ↗" }));
-  box.append(acts);
-  if (rsvpBtn) { const f = rsvpForm(e); box.append(f); rsvpBtn.addEventListener("click", () => { f.hidden = false; rsvpBtn.setAttribute("aria-expanded", "true"); f.scrollIntoView({ behavior: "smooth", block: "start" }); setTimeout(() => $("first_name") && $("first_name").focus({ preventScroll: true }), 300); }); }
-}
-function field(id, label, type, attrs, opt) {
-  return [el("label", { class: "f", for: id }, label, opt ? el("span", { class: "opt", text: " (optional)" }) : null), el("input", Object.assign({ id, name: id, type }, attrs))];
-}
-function rsvpForm(e) {
-  const guests = el("select", { id: "guests", name: "guests" }); for (let i = 0; i <= 10; i++) guests.append(el("option", { value: String(i), text: i === 0 ? "Just me" : "+" + i + (i === 1 ? " guest" : " guests") }));
-  const btn = el("button", { id: "btn", type: "submit", text: "Send my RSVP" });
-  const msg = el("div", { id: "msg", class: "msg", role: "status", "aria-live": "polite" });
-  const f = el("form", { id: "rsvp", novalidate: "", hidden: "" },
-    el("h2", { text: "RSVP" }), el("p", { class: "opt", text: e.title + " · " + timeLine(e) }),
-    el("div", { class: "row" }, el("div", null, field("first_name", "First name", "text", { autocomplete: "given-name", autocapitalize: "words", required: "", maxlength: "80" })),
-      el("div", null, field("last_name", "Last name", "text", { autocomplete: "family-name", autocapitalize: "words", required: "", maxlength: "80" }))),
-    field("email", "Email", "email", { autocomplete: "email", autocapitalize: "off", spellcheck: "false", required: "", maxlength: "200", inputmode: "email" }),
-    field("phone", "Phone", "tel", { autocomplete: "tel", maxlength: "30", inputmode: "tel" }, true),
-    el("label", { class: "f", for: "guests" }, "Bringing anyone?"), guests,
-    el("fieldset", null, el("div", { class: "cb" }, el("input", { id: "consent", type: "checkbox", required: "" }), el("label", { for: "consent", text: TEXT.consent }))),
-    el("div", { class: "hp", "aria-hidden": "true" }, el("label", null, "Leave empty ", el("input", { id: "website", type: "text", tabindex: "-1", autocomplete: "off" }))),
-    btn, msg);
-  const show = (k, t) => { msg.className = "msg " + k; msg.textContent = t; };
-  f.addEventListener("submit", async ev => {
-    ev.preventDefault();
-    const v = id => $(id).value.trim();
-    const done = () => { const t = el("div", { class: "thanks", role: "status", text: TEXT.thanks }); f.replaceWith(t); t.scrollIntoView({ behavior: "smooth", block: "center" }); };
-    if (v("website")) { done(); return; } // bot
-    const errs = [];
-    if (!v("first_name")) errs.push("your first name");
-    if (!v("last_name")) errs.push("your last name");
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("email"))) errs.push("a valid email");
-    if (v("phone") && v("phone").replace(/\D/g, "").length < 7) errs.push("a full phone number (or leave it empty)");
-    if (!$("consent").checked) errs.push("the consent checkbox");
-    if (errs.length) { show("err", "Please add " + errs.join(", ") + "."); return; }
-    btn.disabled = true; btn.textContent = "Sending…";
-    try {
-      const r = await fetch(SUPABASE_URL + "/rest/v1/rpc/submit_event_rsvp", {
-        method: "POST", headers: { "Content-Type": "application/json", apikey: SUPABASE_KEY },
-        body: JSON.stringify({ p_event_id: e.id, p_first_name: v("first_name"), p_last_name: v("last_name"), p_email: v("email"),
-          p_phone: v("phone") || null, p_guests: +$("guests").value, p_consent: true, p_consent_text: TEXT.consent, p_website: v("website") })
-      });
-      if (!r.ok) throw new Error(await r.text());
-      done();
-    } catch (err) {
-      btn.disabled = false; btn.textContent = "Send my RSVP";
-      show("err", /not open for RSVPs/.test(String(err && err.message)) ? "Sorry, RSVPs for this event are closed." : TEXT.rsvpErr);
-    }
-  });
-  return f;
-}
-function currentId() { const q = new URLSearchParams(location.search).get("e"); if (q) return q; const h = location.hash.replace(/^#/, ""); return /^\d+$/.test(h) ? h : null; }
-function route() {
-  if (!EVENTS) return;
-  const id = currentId();
-  $("listView").hidden = !!id; $("detailView").hidden = !id;
-  if (id) renderDetail(id);
-  else { setMeta("Events – Joachim Agou – Victoria–Beacon Hill", "Upcoming events with Joachim Agou, seeking the Conservative Party of BC nomination in Victoria–Beacon Hill. Come meet Joachim, RSVP and add events to your calendar.", "https://agou.ca/events/"); renderList(); jsonLd(EVENTS); }
-}
-window.addEventListener("popstate", route);
-window.addEventListener("hashchange", route);
-document.addEventListener("click", ev => { const m = document.querySelector(".calmenu"); if (m && !m.hidden && !ev.target.closest(".cal")) { m.hidden = true; const b = document.querySelector(".cal > .btn"); if (b) b.setAttribute("aria-expanded", "false"); } });
-(async function load() {
-  try {
-    const r = await fetch(SUPABASE_URL + "/rest/v1/rpc/get_public_events", { method: "POST", headers: { "Content-Type": "application/json", apikey: SUPABASE_KEY }, body: "{}" });
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    EVENTS = await r.json();
-    route();
-  } catch (err) {
-    $("list").textContent = ""; $("list").append(el("p", { class: "note", text: TEXT.loadErr }));
-    if (currentId()) { $("listView").hidden = false; }
-  }
-})();
-</script>
+<footer class="site-footer"><div class="wrap fgrid"><section aria-labelledby="fc"><h2 id="fc">Contact</h2><p><a href="mailto:joachim@agou.ca">joachim@agou.ca</a> · <a href="tel:+16729227017">672-922-7017</a></p><p class="soc-label">Social media</p><ul class="social"><li><a href="https://www.instagram.com/casagou/" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1C2.6 8.9 2.6 9.3 2.6 12s0 3.1.1 4.3c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.3s0-3.1-.1-4.3c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 8a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2zm5.1-8.3a1.1 1.1 0 110-2.3 1.1 1.1 0 010 2.3z"/></svg><span>Instagram</span></a></li><li><a href="https://x.com/casagou" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.9 2.3h7l4.8 6.4 5.5-6.4zm-1.2 17.9h1.9L7.1 4.2H5.1l11.9 16z"/></svg><span>X</span></a></li><li><a href="https://www.facebook.com/casagou" rel="me noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0022 12z"/></svg><span>Facebook</span></a></li></ul></section><section aria-label="Financial agent and auditor"><div class="fa-box"><p class="fa-title"><strong>Financial agent and auditor</strong></p><p>Financial agent: Bert Chen · <a href="mailto:bert@bertchen.ca">bert@bertchen.ca</a> · <a href="tel:+17789969910">778-996-9910</a></p><p>Auditor: Chan Nowosad Boates, Chartered Professional Accountants, Campbell River</p></div></section><nav aria-label="Site"><ul class="fnav"><li><a href="/faq/">Frequently asked questions</a></li><li><a href="/media/">Media</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li></ul></nav></div><div class="wrap"><p class="auth">Authorized by Bert Chen, financial agent, bert@bertchen.ca, 778-996-9910.</p></div></footer>
+<script src="/assets/js/site.js?v=0daff16" defer></script>
+<script id="form-config" type="application/json">{"form": "events", "live_url": "https://agou.ca/events/", "text": {"locale": "en-US", "riding": "Victoria–Beacon Hill", "loading": "Loading events…", "empty": "No upcoming events yet. Check back soon.", "gone": "This event isn't listed any more. It may have ended or been cancelled.", "loadErr": "Sorry, events couldn't be loaded right now. Please try again in a moment.", "consent": "I agree that the Joachim Agou campaign (Conservative Party of BC, Victoria–Beacon Hill) may contact me by email, phone or text about this event and the campaign. I can ask to stop at any time.", "thanks": "Thank you, you're on the list! We look forward to seeing you. We may be in touch with details about the event.", "rsvpErr": "Sorry, something went wrong and your RSVP was not sent. Please check your details and try again, or email joachim@agou.ca.", "rsvpClosed": "Sorry, RSVPs for this event are closed.", "all": "‹ All events", "when": "When", "where": "Where", "pacific": "(Pacific time)", "maps": "Open in Google Maps ↗", "rsvp": "RSVP", "add_cal": "Add to calendar", "ics": "Apple / Outlook (.ics file)", "gcal": "Google Calendar ↗", "signup": "Sign up ↗", "first_name": "First name", "last_name": "Last name", "email": "Email", "phone": "Phone", "optional": " (optional)", "guests": "Bringing anyone?", "just_me": "Just me", "guest": " guest", "guests_pl": " guests", "button": "Send my RSVP", "sending": "Sending…", "err_prefix": "Please add ", "err_first": "your first name", "err_last": "your last name", "err_email": "a valid email", "err_phone": "a full phone number (or leave it empty)", "err_consent": "the consent checkbox", "honeypot": "Leave empty", "list_title": "Events – Joachim Agou – Victoria–Beacon Hill"}}</script>
+<script src="/assets/js/forms.js?v=0daff16" defer></script>
 </body>
 </html>
