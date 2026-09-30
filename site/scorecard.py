@@ -154,7 +154,7 @@ def scorecard_page(B, lang, page, env):
     fr_note = ""
     if lang == "fr" and not SC.get("fr_reviewed"):
         fr_note = f'<p class="sc-frdraft"><mark class="todo">{esc(L["fr_draft"])}</mark></p>'
-    head = (f'<div class="page-head sc-head"><div class="wrap"><p class="sc-kicker">{esc(L["kicker"])}</p><h1>{esc(L["title"])}</h1>{status}</div></div>')
+    head = (f'<div class="page-head sc-head"><div class="wrap"><p class="sc-kicker">{esc(L["kicker"])}</p><h1>{esc(L["title"])}</h1><p class="lockup">{esc(B.UI[lang]["lockup"])}</p>{status}</div></div>')
     # promises
     pr = "".join(f'<li class="sc-promise"><p class="sc-pnum">{chip("promise", lang)} <span class="sc-pn">{n}</span></p>'
                  f'<p class="sc-plead">{inl(lead)}</p><p>{inl(rest)}</p></li>' for n, (lead, rest) in enumerate(promises, 1))

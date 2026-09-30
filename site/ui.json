@@ -278,7 +278,9 @@
       "err_title": "Please fix the following:",
       "tick": "Please tick "
     },
-    "more_photos": "More photos on Instagram"
+    "more_photos": "More photos on Instagram",
+    "lockup": "A number on every promise. A report every quarter.",
+    "lockup_block": "How I'll report to you"
   },
   "fr": {
     "site_name": "Joachim Agou – Victoria–Beacon Hill",
@@ -331,7 +333,7 @@
       "honeypot": "Laisser vide"
     },
     "nominate": {
-      "title": "Appuyer la candidature de Joachim Agou",
+      "title": "Signer mon formulaire de mise en candidature",
       "sub": "Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative · Élection provinciale du 24 octobre 2026",
       "intro": "Merci. Signer le formulaire de mise en candidature n'est pas un engagement à voter. Vous devez être électeur admissible et habiter Victoria–Beacon Hill. Chaque électeur ne peut signer le formulaire de mise en candidature que d'un seul candidat.",
       "sessions_legend": "À quelle(s) séance(s) de signature pouvez-vous venir?",
@@ -559,6 +561,8 @@
       "err_title": "Veuillez corriger ce qui suit :",
       "tick": "Veuillez cocher "
     },
-    "more_photos": "Plus de photos sur Instagram"
+    "more_photos": "Plus de photos sur Instagram",
+    "lockup": "Un indicateur chiffré pour chaque engagement. Un bilan public chaque trimestre.",
+    "lockup_block": "Comment je vous rendrai des comptes"
   }
 }

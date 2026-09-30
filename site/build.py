@@ -539,7 +539,12 @@ def build_page(lang, page, env):
         rest = "## " + rest
         tl = [l for l in top.split("\n") if l.strip()]
         sub, tagline = tl[0], tl[1]
-        callout = "\n".join(tl[2:])
+        # hero: status line, tagline, short intro paragraph(s), the nominator callout, then an optional "Sources:" line
+        c0 = next(k for k, l in enumerate(tl) if l.strip().startswith("<callout"))
+        c1 = next(k for k, l in enumerate(tl) if l.strip().startswith("</callout>"))
+        intro = "".join(f'<p class="hero-intro">{inline(l.strip(), ctx)}</p>' for l in tl[2:c0])
+        callout = "\n".join(tl[c0:c1 + 1])
+        hero_src = "".join(f'<p class="hero-src">{inline(l.strip(), ctx)}</p>' for l in tl[c1 + 1:])
         # Follow along section goes before Donate
         donate_h = page_section_title("donate", lang)
         follow = f'<section class="block follow" aria-labelledby="follow"><h2 id="follow">{esc(U["follow_title"])}</h2><p>{esc(U["follow_text"])}</p>{social_links("social big")}</section>'
@@ -557,8 +562,9 @@ def build_page(lang, page, env):
         # the callout's link is the page's main action: a primary button (same wording)
         hero_callout = re.sub(r'<a href="([^"]+)">', r'<a class="btn primary hero-cta" href="\1">', render(callout, lang, {"self": self_path})[0], count=1)
         hero = (f'<div class="hero"><div class="wrap hero-grid"><div class="hero-text">'
-                f'<h1>{esc(U["home_title"])}</h1><p class="hero-sub">{inline(sub, ctx)}</p><p class="tagline">{inline(tagline, ctx)}</p>'
-                f'{hero_callout}</div>{hero_media}</div></div>')
+                f'<h1>{esc(U["home_title"])}</h1><p class="hero-sub">{inline(sub, ctx)}</p><p class="tagline">{inline(tagline, ctx)}</p><p class="lockup">{esc(U["lockup"])}</p>'
+                f'{intro}{hero_callout}</div>{hero_media}</div>'
+                + (f'<div class="wrap">{hero_src}</div>' if hero_src else "") + '</div>')
         main = hero + shortcuts(lang) + home_layout(collapse(body, lang), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
         title = f"Joachim Agou – Victoria–Beacon Hill" if lang == "en" else "Joachim Agou – Victoria–Beacon Hill (français)"
         desc = re.sub(r"[*]", "", sub) + ". " + re.sub(r"[*]", "", tagline)
@@ -617,7 +623,13 @@ def build_page(lang, page, env):
         T = U["events"]
         body = f'<div data-hide-on-detail>{body}</div><section class="block" id="events-list" aria-live="polite"><div id="listView"><div id="list"><p class="note">{esc(T["loading"])}</p></div></div><article id="detailView" class="detail" hidden></article></section>'
         extra = f'<script id="form-config" type="application/json">{json.dumps({"form": "events", "live_url": LIVE + self_path, "text": T, "common": U["form_common"], "maps": event_maps()}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
-    main = f'<div class="page-head"><div class="wrap"><h1>{esc(h1)}</h1></div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
+    lock = f'<p class="lockup">{esc(U["lockup"])}</p>' if key == "priorities" else ""  # two-line lockup: home, Priorities, Scorecard only
+    if key == "priorities":
+        rid = slugify(U["lockup_block"])
+        m_ = re.search(rf'<h2 id="{re.escape(rid)}">.*?</h2>', body)
+        if not m_: sys.exit(f"priorities: '{U['lockup_block']}' section not found (needed for the lockup)")
+        body = body[:m_.end()] + f'<p class="lockup lockup-block">{esc(U["lockup"])}</p>' + body[m_.end():]
+    main = f'<div class="page-head"><div class="wrap"><h1>{esc(h1)}</h1>{lock}</div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
     desc = first_text(md) if md else U["lawnsign"]["intro"] if key == "lawn-sign" else ""
     if key == "lawn-sign": desc = U["lawnsign"]["intro"]
     title = f"{h1} – Joachim Agou – Victoria–Beacon Hill"
@@ -758,8 +770,8 @@ def hub(lang, home):
         if c == "lawn-sign":
             text = esc(UI[lang]["lawnsign"]["intro"])
         elif c == "nominate":
-            callout = re.search(r"<callout[^>]*>\n\t(.*?)\n", home).group(1)
-            text = inline(callout, {})
+            cl = re.search(r"<callout[^>]*>\n(.*?)\n</callout>", home, re.S).group(1).split("\n")
+            text = " ".join(inline(l.strip(), {}) for l in cl if l.strip() and not l.strip().startswith("["))
         else:
             sec = section(home, p["section"][lang])
             first = next(l for l in sec.split("\n") if l.strip() and not l.startswith(("[", "<", "!", "-")))
@@ -797,7 +809,7 @@ FORBIDDEN = [
 # brings any of it back on a /fr/ page, the build stops. Apostrophes may be ' or ’.
 A_ = "['’]"
 FR_OLD = [
-    (r"pour appuyer ma candidature|appuyer qu" + A_ + "un seul|Que veut dire appuyer", "'appuyer' for nominating (use 'signer le formulaire de mise en candidature')"),
+    (r"[Aa]ppuyer ma candidature|[Aa]ppuyer la candidature|appuyer qu" + A_ + "un seul|Que veut dire appuyer", "'appuyer' for nominating (use 'signer le formulaire de mise en candidature')"),
     (r"payés par le public", "old 'payés par le public' (use 'financés par les fonds publics')"),
     (r"centre-ville ne semble plus sûr", "old 'le centre-ville ne semble plus sûr'"),
     (r"Des soins sécurisés|les soins sécurisés|lits de soins sécurisés", "old 'soins sécurisés' (use 'soins dans un milieu sécurisé')"),
@@ -837,6 +849,9 @@ def check(dist):
         plain_t = html.unescape(re.sub(r"<[^>]+>", " ", vis))
         if re.search(EXPERIENCE_OLD, plain_t):
             errs.append(f"{f.relative_to(dist)}: contains a '12 years' experience claim (Joachim: 'more than 15 years' everywhere)")
+        rel_ = f.relative_to(dist).as_posix()
+        if 'class="lockup' in t and rel_ not in ("index.html", "fr/index.html", "priorities/index.html", "fr/priorities/index.html", "scorecard/index.html", "fr/scorecard/index.html"):
+            errs.append(f"{rel_}: the two-line lockup is only for home, Priorities and Scorecard")
         for pat in ABOUT_OLD:
             if re.search(pat, plain_t):
                 errs.append(f"{f.relative_to(dist)}: contains the old About intro ('{pat}'; rewritten 2026-09-30, see exclusions.json)")

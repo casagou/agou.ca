@@ -18,11 +18,11 @@
     "home": {
       "en": {
         "home_title": "Joachim Agou, Victoria–Beacon Hill – Safer streets",
-        "desc": "Joachim Agou is seeking the BC Conservative nomination in Victoria–Beacon Hill. Safer streets, honest budgets, a downtown that works. Join the campaign."
+        "desc": "Joachim Agou, a test engineer, is seeking the BC Conservative nomination in Victoria–Beacon Hill. Safer streets, honest budgets, a downtown that works."
       },
       "fr": {
         "home_title": "Joachim Agou, Victoria–Beacon Hill – Des rues plus sûres",
-        "desc": "Joachim Agou sollicite l'investiture conservatrice dans Victoria–Beacon Hill. Des rues plus sûres, des budgets honnêtes et un centre-ville qui fonctionne."
+        "desc": "Joachim Agou, ingénieur d'essais, sollicite l'investiture conservatrice dans Victoria–Beacon Hill : rues plus sûres, budgets honnêtes, centre-ville qui fonctionne."
       }
     },
     "about": {
@@ -101,8 +101,8 @@
         "desc": "Eligible voters who live in Victoria–Beacon Hill can nominate Joachim Agou for the BC Conservative nomination. See who can sign and leave your details."
       },
       "fr": {
-        "title": "Appuyer ma candidature",
-        "desc": "Les électeurs admissibles de Victoria–Beacon Hill peuvent appuyer la candidature de Joachim Agou à l'investiture conservatrice. Voyez qui peut signer."
+        "title": "Formulaire de mise en candidature",
+        "desc": "Les électeurs admissibles de Victoria–Beacon Hill peuvent signer le formulaire de mise en candidature de Joachim Agou. Voyez qui peut signer et inscrivez-vous."
       }
     },
     "donate": {

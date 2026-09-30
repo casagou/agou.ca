@@ -1,13 +1,17 @@
 Seeking the BC Conservative nomination to run for Member of the Legislative Assembly (MLA) for Victoria–Beacon Hill
 **Safer streets, honest budgets, a downtown that works.**
+After 9 years of the same government, B.C. is running a \$13.8 billion deficit, 1 in 4 people don’t have a family doctor, and Pandora Avenue shows what happens when a problem is left alone. This riding sat on the government side the whole time. It got announcements. It didn’t get results.
 <callout icon="✍️" color="blue_bg">
-	**I need 75 local nominators by 1 p.m., Saturday 3 October.**
+	**Put a test engineer on the ballot.**
+	I need 75 neighbours to sign by 1 p.m. Saturday 3 October. It takes 1 minute and I come to you.
 	[Sign up to nominate (takes 1 minute)](/nominate/)
 </callout>
+Sources: [deficit (B.C. First Quarterly Report, Sept. 2026)](https://news.gov.bc.ca/releases/2026FIN0031-001066) · [family doctors (B.C. Ministry of Health: 76% had a family doctor or nurse practitioner, June 2025)](https://news.gov.bc.ca/releases/2025HLTH0077-000752) · [government since July 2017](https://news.gov.bc.ca/releases/2017PREM0061-001322) · [riding results 2017–2024 (Elections BC)](https://elections.bc.ca/resources/results/) · [75 nominators, nominations close 1 p.m. 3 October (Elections BC)](https://elections.bc.ca/2026-provincial-election/)
 ## About me
+I’m a test engineer. I’ll do that job in the Legislature: a number on every promise, a public report every quarter. If the Ministry won’t publish the Island’s numbers, I’ll file the FOI and print the refusal.
 I'm a dad, a professional engineer (P.Eng.) and a small-business owner in Fairfield. For more than 15 years I've led engineering teams and delivered multimillion-dollar projects on budget and on deadline, from gas turbine test facilities on three continents to space robotics. Today I'm a test and evaluation engineer in the defence sector, and I run Casagou Inc., a Victoria engineering consulting and media company.
 Born in Nice, France, I studied mechanical engineering at Florida Institute of Technology and came to Canada in 2011 for graduate research at Université Laval in Quebec City. I've since lived in Montreal, Ottawa and Toronto. I settled in Victoria in 2023 to raise my daughter, and became a Canadian citizen that same year. I speak English and French.
-I serve as interim vice-president of the Victoria Conservative Association and volunteer with Chabad of Vancouver Island. I'm running because neighbours across this riding tell me the same things: they can't find a family doctor, rent is out of reach, everything costs more, and downtown doesn't feel safe. My job as a test engineer is to check whether something works and report the result. I'll bring that habit to the Legislature: every commitment with a number attached, and a public report to the riding every quarter.
+I serve as interim vice-president of the Victoria Conservative Association and volunteer with Chabad of Vancouver Island. I'm running because neighbours across this riding tell me the same things: they can't find a family doctor, rent is out of reach, everything costs more, and downtown doesn't feel safe.
 <page url="/about/">About Joachim</page>
 ## My priorities and proposals
 Four priorities for Victoria–Beacon Hill: health care you can get, homes people can afford, a lower cost of living, and a downtown that works. For each one, I set out the problem, what I'll push for, and the number you can use to check whether it worked.
