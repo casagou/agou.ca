@@ -191,7 +191,10 @@
     var plain = function (s) { return String(s || "").replace(/\*\*([^*]+)\*\*/g, "$1").replace(/^\s*[-*•]\s+/gm, "").replace(/\s+/g, " ").trim(); };
     function excerpt(s) { var t = plain(s); return t.length > 200 ? t.slice(0, 200).replace(/\s+\S*$/, "") + "…" : t; }
     var whereText = function (e) { return [e.location_name, e.address].filter(Boolean).join(", "); };
-    var mapUrl = function (e) { return whereText(e) ? "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(whereText(e)) : ""; };
+    var mapUrl = function (e) { // exact pin (lat/lng, migration 41); otherwise the street address only, never the free-text spot description
+      if (typeof e.lat === "number" && typeof e.lng === "number") return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(e.lat.toFixed(6) + "," + e.lng.toFixed(6));
+      return e.address ? "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(e.address) : "";
+    };
     var eventUrl = function (e) { return LIVE + "?e=" + e.id; };
     var utc = function (s) { return new Date(s).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); };
     var icsEsc = function (s) { return String(s || "").replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/([,;])/g, "\\$1"); };
