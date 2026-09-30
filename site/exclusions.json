@@ -606,66 +606,6 @@
       "find": " I do not agree with every person who has ever spoken for the party.",
       "replace": "",
       "why": "Joachim's decision (2026-09-30, live hotfix): sentence removed from 'Why the Conservatives?'; build.py refuses it."
-    },
-    {
-      "page": "en-home",
-      "find": "I serve as interim vice-president of the Victoria Conservative Association and volunteer with Chabad of Vancouver Island.",
-      "replace": "I volunteer with Chabad of Vancouver Island.",
-      "why": "Joachim's decision (2026-09-30): leave the VCA role off agou.ca. build.py refuses the name."
-    },
-    {
-      "page": "fr-home",
-      "find": "Je suis vice-président par intérim de la Victoria Conservative Association et bénévole auprès de Chabad of Vancouver Island.",
-      "replace": "Je suis bénévole auprès de Chabad of Vancouver Island.",
-      "why": "Joachim's decision (2026-09-30): leave the VCA role off agou.ca. build.py refuses the name."
-    },
-    {
-      "page": "en-faq",
-      "find": ", volunteer with Chabad of Vancouver Island, and serve as interim vice-president of the Victoria Conservative Association.",
-      "replace": " and volunteer with Chabad of Vancouver Island.",
-      "why": "Joachim's decision (2026-09-30): leave the VCA role off agou.ca. build.py refuses the name."
-    },
-    {
-      "page": "en-faq",
-      "find": ", and I will keep helping through the Victoria Conservative Association.",
-      "replace": ".",
-      "why": "Joachim's decision (2026-09-30): leave the VCA role off agou.ca. build.py refuses the name."
-    },
-    {
-      "page": "fr-faq",
-      "find": "Je suis bénévole auprès de Chabad of Vancouver Island et vice-président par intérim de la Victoria Conservative Association.",
-      "replace": "Je suis bénévole auprès de Chabad of Vancouver Island.",
-      "why": "Joachim's decision (2026-09-30): leave the VCA role off agou.ca. build.py refuses the name."
-    },
-    {
-      "page": "fr-faq",
-      "find": ", et je continuerai d'aider par l'intermédiaire de la Victoria Conservative Association.",
-      "replace": ".",
-      "why": "Joachim's decision (2026-09-30): leave the VCA role off agou.ca. build.py refuses the name."
-    },
-    {
-      "page": "en-media",
-      "find": " He volunteers with Chabad of Vancouver Island and serves as interim vice-president of the Victoria Conservative Association.",
-      "replace": " He volunteers with Chabad of Vancouver Island.",
-      "why": "Joachim's decision (2026-09-30): leave the VCA role off agou.ca. build.py refuses the name."
-    },
-    {
-      "page": "en-media",
-      "find": "Joachim volunteers with Chabad of Vancouver Island and is interim vice-president of the Victoria Conservative Association.",
-      "replace": "Joachim volunteers with Chabad of Vancouver Island.",
-      "why": "Joachim's decision (2026-09-30): leave the VCA role off agou.ca. build.py refuses the name."
-    },
-    {
-      "page": "en-about",
-      "find": "## Community\n- Interim Vice-President, Victoria Conservative Association (the federal riding association), since June 2026.\n",
-      "replace": "",
-      "why": "Joachim's decision (2026-09-30): leave the VCA role off agou.ca. build.py refuses the name."
-    },
-    {
-      "page": "fr-about",
-      "find": "## Engagement communautaire\n- Vice-président par intérim, Victoria Conservative Association (l'association de circonscription fédérale), depuis juin 2026.\n",
-      "replace": "",
-      "why": "Joachim's decision (2026-09-30): leave the VCA role off agou.ca. build.py refuses the name."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

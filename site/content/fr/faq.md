@@ -21,7 +21,7 @@
 </details>
 <details>
 <summary>Habitez-vous dans la circonscription? Quel est votre lien avec la communauté?</summary>
-	Oui. J'habite à Fairfield, où j'élève ma fille. Je vis au Canada depuis 2011. Après avoir habité à Québec, à Montréal, à Ottawa et à Toronto, je me suis installé à Victoria en 2023. Je dirige Casagou Inc., une petite entreprise de Victoria spécialisée en génie-conseil et en production de contenus. Je suis bénévole auprès de Chabad of Vancouver Island.
+	Oui. J'habite à Fairfield, où j'élève ma fille. Je vis au Canada depuis 2011. Après avoir habité à Québec, à Montréal, à Ottawa et à Toronto, je me suis installé à Victoria en 2023. Je dirige Casagou Inc., une petite entreprise de Victoria spécialisée en génie-conseil et en production de contenus. Je suis bénévole auprès de Chabad of Vancouver Island et vice-président par intérim de la Victoria Conservative Association.
 </details>
 <details>
 <summary>Vous vous êtes installé ici seulement en 2023. Pourquoi devrions-nous vous faire confiance?</summary>
@@ -145,7 +145,7 @@
 <details>
 <summary>Que se passe-t-il si vous n'obtenez pas 75 signataires?</summary>
 	Si je n'ai pas 75 signataires valides de cette circonscription d'ici le samedi 3 octobre, à 13 h, Elections BC ne m'inscrira pas sur le bulletin de vote. Cette échéance est bien réelle.
-	Si vous habitez Victoria–Beacon Hill et pouvez signer, cela prend environ une minute : [agou.ca/nominate](/fr/nominate/). Si je ne figure pas sur la liste, je publierai quand même ce que j'ai entendu aux portes.
+	Si vous habitez Victoria–Beacon Hill et pouvez signer, cela prend environ une minute : [agou.ca/nominate](/fr/nominate/). Si je ne figure pas sur la liste, je publierai quand même ce que j'ai entendu aux portes, et je continuerai d'aider par l'intermédiaire de la Victoria Conservative Association.
 </details>
 <details>
 <summary>Comment devenir bénévole?</summary>

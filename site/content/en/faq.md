@@ -21,7 +21,7 @@
 </details>
 <details>
 <summary>Do you live in the riding? What is your connection to the community?</summary>
-	Yes. I live in Fairfield, where I'm raising my daughter. I've lived in Canada since 2011, in Quebec City, Montreal, Ottawa and Toronto, and settled in Victoria in 2023. I run Casagou Inc., a small Victoria engineering consulting and media company and volunteer with Chabad of Vancouver Island.
+	Yes. I live in Fairfield, where I'm raising my daughter. I've lived in Canada since 2011, in Quebec City, Montreal, Ottawa and Toronto, and settled in Victoria in 2023. I run Casagou Inc., a small Victoria engineering consulting and media company, volunteer with Chabad of Vancouver Island, and serve as interim vice-president of the Victoria Conservative Association.
 </details>
 <details>
 <summary>You only settled here in 2023. Why should we trust you?</summary>
@@ -145,7 +145,7 @@
 <details>
 <summary>What happens if you don't get 75 nominators?</summary>
 	If I don't have 75 valid nominators from this riding by 1 p.m. on Saturday 3 October, Elections BC will not put me on the ballot. That deadline is real.
-	If you live in Victoria–Beacon Hill and can sign, it takes about a minute: [agou.ca/nominate](/nominate/). If I don't make the list, I will still publish what I heard at the door.
+	If you live in Victoria–Beacon Hill and can sign, it takes about a minute: [agou.ca/nominate](/nominate/). If I don't make the list, I will still publish what I heard at the door, and I will keep helping through the Victoria Conservative Association.
 </details>
 <details>
 <summary>How can I volunteer?</summary>
