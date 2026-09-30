@@ -1,0 +1,179 @@
+{
+  "_doc": "Search and social metadata per page (not from Notion; a re-sync never changes it). title: the page part of <title> and og:title; build.py adds ' – Joachim Agou, Victoria–Beacon Hill' (home uses home_title as is). desc: meta/og/twitter description, 110–165 characters, written from the page content: say 'Joachim', never 'the candidate', no employer, no street. build.py fails if a page has none, or if two pages share a title or description. Edit here, then rebuild.",
+  "suffix": {
+    "en": " – Joachim Agou, Victoria–Beacon Hill",
+    "fr": " – Joachim Agou, Victoria–Beacon Hill"
+  },
+  "og_image": {
+    "en": "og-joachim-agou-en.png",
+    "fr": "og-joachim-agou-fr.png",
+    "width": 1200,
+    "height": 630,
+    "alt": {
+      "en": "Joachim Agou, Victoria–Beacon Hill: Safer streets, honest budgets, a downtown that works.",
+      "fr": "Joachim Agou, Victoria–Beacon Hill : Des rues plus sûres, des budgets honnêtes et un centre-ville qui fonctionne."
+    }
+  },
+  "pages": {
+    "home": {
+      "en": {
+        "home_title": "Joachim Agou, Victoria–Beacon Hill – Safer streets",
+        "desc": "Joachim Agou is seeking the BC Conservative nomination in Victoria–Beacon Hill. Safer streets, honest budgets, a downtown that works. Join the campaign."
+      },
+      "fr": {
+        "home_title": "Joachim Agou, Victoria–Beacon Hill – Des rues plus sûres",
+        "desc": "Joachim Agou sollicite l'investiture conservatrice dans Victoria–Beacon Hill. Des rues plus sûres, des budgets honnêtes et un centre-ville qui fonctionne."
+      }
+    },
+    "about": {
+      "en": {
+        "title": "About Joachim",
+        "desc": "Meet Joachim Agou: a dad and professional engineer who settled in Fairfield in 2023. His work, his community, and why he is running in Victoria–Beacon Hill."
+      },
+      "fr": {
+        "title": "À propos de Joachim",
+        "desc": "Faites connaissance avec Joachim Agou, papa et ingénieur établi à Fairfield depuis 2023 : son parcours, sa communauté et pourquoi il se présente."
+      }
+    },
+    "priorities": {
+      "en": {
+        "title": "Priorities and proposals",
+        "desc": "Joachim's four priorities for Victoria–Beacon Hill: health care you can get, homes people can afford, the cost of living and a downtown that works."
+      },
+      "fr": {
+        "title": "Priorités et propositions",
+        "desc": "Quatre priorités de Joachim pour Victoria–Beacon Hill : des soins accessibles, des logements abordables, le coût de la vie et un centre-ville qui fonctionne."
+      }
+    },
+    "scorecard": {
+      "en": {
+        "title": "Scorecard",
+        "desc": "Joachim's scorecard for Victoria–Beacon Hill: 12 numbers published every quarter, with sources, as-of dates and how he voted, so you can hold him to account."
+      },
+      "fr": {
+        "title": "Bulletin",
+        "desc": "Le bulletin de Joachim pour Victoria–Beacon Hill : 12 chiffres publiés chaque trimestre, avec sources, dates et votes, pour lui demander des comptes."
+      }
+    },
+    "province": {
+      "en": {
+        "title": "What the Province controls",
+        "desc": "What the Province of BC actually controls, what belongs to Ottawa, and what belongs to cities and the Capital Regional District, in plain words, with sources."
+      },
+      "fr": {
+        "title": "Ce que contrôle la Province",
+        "desc": "Ce que la Province de la C.-B. contrôle vraiment, ce qui relève d'Ottawa, et ce qui relève des villes et du district régional de la capitale, en termes simples."
+      }
+    },
+    "get-involved": {
+      "en": {
+        "title": "Get involved",
+        "desc": "Help Joachim Agou in Victoria–Beacon Hill: volunteer, request a free lawn sign, become a nominator or donate. Pick what fits your time."
+      },
+      "fr": {
+        "title": "S'impliquer",
+        "desc": "Aidez Joachim Agou dans Victoria–Beacon Hill : bénévolat, pancarte gratuite, appui à sa candidature ou don. Choisissez ce qui vous convient."
+      }
+    },
+    "volunteer": {
+      "en": {
+        "title": "Volunteer",
+        "desc": "Volunteer with Joachim Agou in Victoria–Beacon Hill: knock on doors, make calls, put up a sign or help on election day. Every hour helps. Sign up here."
+      },
+      "fr": {
+        "title": "Bénévolat",
+        "desc": "Faites du bénévolat avec Joachim Agou dans Victoria–Beacon Hill : porte-à-porte, appels, pancartes ou aide le jour de l'élection. Chaque heure compte."
+      }
+    },
+    "lawn-sign": {
+      "en": {
+        "title": "Free lawn sign",
+        "desc": "Show your support for Joachim Agou in Victoria–Beacon Hill with a free lawn sign. Leave your details and the campaign will bring one to your door."
+      },
+      "fr": {
+        "title": "Pancarte gratuite",
+        "desc": "Montrez votre appui à Joachim Agou dans Victoria–Beacon Hill avec une pancarte gratuite. Laissez vos coordonnées et la campagne vous l'apportera."
+      }
+    },
+    "nominate": {
+      "en": {
+        "title": "Become a nominator",
+        "desc": "Eligible voters who live in Victoria–Beacon Hill can nominate Joachim Agou for the BC Conservative nomination. See who can sign and leave your details."
+      },
+      "fr": {
+        "title": "Appuyer ma candidature",
+        "desc": "Les électeurs admissibles de Victoria–Beacon Hill peuvent appuyer la candidature de Joachim Agou à l'investiture conservatrice. Voyez qui peut signer."
+      }
+    },
+    "donate": {
+      "en": {
+        "title": "Donate",
+        "desc": "Online donations to Joachim Agou's campaign in Victoria–Beacon Hill are coming soon. To give now, contact financial agent Bert Chen, who will explain how."
+      },
+      "fr": {
+        "title": "Faire un don",
+        "desc": "Les dons en ligne à la campagne de Joachim Agou dans Victoria–Beacon Hill arrivent bientôt. Pour donner dès maintenant, écrivez à l'agent financier, Bert Chen."
+      }
+    },
+    "events": {
+      "en": {
+        "title": "Events",
+        "desc": "Come for a coffee and tell Joachim what matters to you. Upcoming events in Victoria–Beacon Hill, with dates, places and directions. RSVP online."
+      },
+      "fr": {
+        "title": "Événements",
+        "desc": "Venez prendre un café et dire à Joachim ce qui compte pour vous. Les prochains événements dans Victoria–Beacon Hill, avec dates, lieux et itinéraires."
+      }
+    },
+    "how-to-vote": {
+      "en": {
+        "title": "How to vote",
+        "desc": "How to vote in Victoria–Beacon Hill: key dates, how to register or update your details, where to vote, and a map of the riding's boundaries."
+      },
+      "fr": {
+        "title": "Comment voter",
+        "desc": "Comment voter dans Victoria–Beacon Hill : dates clés, inscription ou mise à jour de vos renseignements, où voter, et la carte de la circonscription."
+      }
+    },
+    "faq": {
+      "en": {
+        "title": "Common questions",
+        "desc": "Answers to common questions about Joachim Agou's campaign in Victoria–Beacon Hill: his proposals, what an MLA can realistically do, and how to help."
+      },
+      "fr": {
+        "title": "Foire aux questions",
+        "desc": "Réponses aux questions fréquentes sur la campagne de Joachim Agou dans Victoria–Beacon Hill : ses propositions, ce qu'un député peut faire, et comment aider."
+      }
+    },
+    "media": {
+      "en": {
+        "title": "Media and press kit",
+        "desc": "Media kit for Joachim Agou, Victoria–Beacon Hill: short and full bios, fast facts, photos and PDF downloads. Interviews in English and French."
+      },
+      "fr": {
+        "title": "Médias",
+        "desc": "Dossier de presse de Joachim Agou, Victoria–Beacon Hill : téléchargez-le en PDF, en français ou en anglais. Entrevues en français et en anglais."
+      }
+    },
+    "contact": {
+      "en": {
+        "title": "Contact",
+        "desc": "Contact Joachim Agou in Victoria–Beacon Hill by email or phone, follow him on Instagram, X and Facebook, or reach his financial agent, Bert Chen."
+      },
+      "fr": {
+        "title": "Coordonnées",
+        "desc": "Joignez Joachim Agou dans Victoria–Beacon Hill par courriel ou téléphone, suivez-le sur Instagram, X et Facebook, ou écrivez à son agent financier, Bert Chen."
+      }
+    },
+    "privacy": {
+      "en": {
+        "title": "Privacy notice",
+        "desc": "How Joachim Agou's campaign in Victoria–Beacon Hill collects, uses and protects your personal information, and how to ask the campaign to stop contacting you."
+      },
+      "fr": {
+        "title": "Avis de confidentialité",
+        "desc": "Comment la campagne de Joachim Agou recueille, utilise et protège vos renseignements personnels, et comment lui demander de cesser de vous joindre."
+      }
+    }
+  }
+}

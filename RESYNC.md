@@ -71,6 +71,14 @@ A Notion re-sync never touches this page. Its text comes from Joachim's message 
 - Live switch: `site.json` → `publish_province_live` is `false` until Joachim approves. The live build then leaves out both pages and every link to them: the menu item under Priorities, the "Who controls what?" line on Priorities and in the scorecard's "How this page works", the footer, and the sitemap. With `publish_province_live` set to `true`, the live build still refuses to run while `province_fr_reviewed` is `false`.
 - Fact-check (30 Sep 2026): the claims the check flagged are listed in the page's commit message and the report to Joachim. Nothing was changed in his text. Apply fixes only when he approves them.
 
+### Search and social metadata (seo.json): not from Notion
+- Every page's `<title>` and meta/og/twitter description come from `site/seo.json` (EN and FR). A Notion re-sync never changes them, so update `seo.json` when a page's subject changes. Titles follow "Page – Joachim Agou, Victoria–Beacon Hill". Descriptions run 110 to 165 characters, say "Joachim", and never say "the candidate", the employer or a street.
+- `build.py` fails if any page lacks a title, description, canonical, hreflang trio, og or twitter tag, or if two pages share a title, description or canonical (`seo_check`).
+- Social image: `site/assets/img/og-joachim-agou-{en,fr}.png` (1200×630, text kept inside the central square for WhatsApp crops). Regenerate with `python3 tools/make_og.py`. Staging builds point og:image at agou-staging.pages.dev and live builds at agou.ca.
+- JSON-LD: Person + WebSite on the home pages, BreadcrumbList on the others, and Event on /events/ (added in forms.js from get_public_events, with lat/lng).
+- `sitemap.xml` (both envs) lists the indexable pages with hreflang alternates and lastmod (the page's "Last updated" date). Volunteer, Lawn sign and Nominate are `noindex`, so they are left out. Staging stays `noindex` (meta robots, X-Robots-Tag, robots.txt Disallow).
+- `site.json` → `seo_batch_approved` is `false` until Joachim approves this batch, and the live build refuses to run until then.
+
 ### Site-made additions a re-sync keeps (not from Notion)
 - "More photos on Instagram ↗" after the Media photo (`site.json` → `more_photos_after`).
 - Buttons and reading links: the leading "→" on Notion call-to-action lines is dropped when rendering, not in content/.

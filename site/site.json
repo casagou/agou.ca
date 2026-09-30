@@ -292,5 +292,7 @@
   "review_batch_approved": true,
   "_review_batch_doc": "30 Sep 2026 design refresh (078cca5 + 3825943): approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future staging-only batch back from live builds.",
   "fr_faq_approved": false,
-  "fr_edits_approved": false
+  "fr_edits_approved": false,
+  "seo_batch_approved": false,
+  "_seo_batch_doc": "30 Sep 2026 SEO/social batch: seo.json (per-page titles and descriptions), og-joachim-agou-{en,fr}.png (tools/make_og.py), twitter tags, JSON-LD (Person, WebSite, BreadcrumbList; Event in forms.js), sitemap with hreflang + lastmod, build SEO check. The live build refuses to run until Joachim approves and this is true."
 }

@@ -11,6 +11,8 @@ import province  # /province/ page (province.py, content/<lang>/province.md; not
 ROOT = pathlib.Path(__file__).resolve().parent
 SITE = json.loads((ROOT / "site.json").read_text())
 UI = json.loads((ROOT / "ui.json").read_text())
+SEO = json.loads((ROOT / "seo.json").read_text())  # titles, descriptions, og:image per page and language (see seo.json _doc)
+STAGING_ORIGIN = "https://agou-staging.pages.dev"  # og:image host on staging builds, so shared staging links preview the new image
 PAGES = SITE["pages"]
 BYKEY = {p["key"]: p for p in PAGES}
 LIVE = SITE["live_origin"]
@@ -330,6 +332,21 @@ def shell(lang, page, title, desc, main_html, env, extra_head="", robots_overrid
     path = url(lang, key); opath = url(other, key)
     canonical = LIVE + path
     robots = "noindex, nofollow" if env == "staging" else (robots_override or ("noindex" if page.get("robots") == "noindex" else "index, follow"))
+    # search/social metadata (seo.json): every real page gets its own title and description; the 404 page keeps its own
+    meta = SEO["pages"].get(key, {}).get(lang) if robots_override is None else None
+    if meta:
+        title = meta.get("home_title") or meta["title"] + SEO["suffix"][lang]
+        desc = meta["desc"]
+    OG = SEO["og_image"]
+    og_img = f'{LIVE if env == "live" else STAGING_ORIGIN}/assets/img/{OG[lang]}'
+    og_type = "profile" if key == "about" else "website"
+    if robots_override is None:
+        alt_links = (f'<link rel="canonical" href="{canonical}">\n'
+                     + "".join(f'<link rel="alternate" hreflang="{h}" href="{LIVE + url(l, key)}">\n' for h, l in (("en-CA", "en"), ("fr-CA", "fr"), ("x-default", "en"))))
+        og_url = f'<meta property="og:url" content="{canonical}">\n'
+    else:  # 404: no canonical, alternates or og:url (it is not a page of its own)
+        alt_links = ""; og_url = ""
+    extra_head = json_ld(lang, key, title, desc, canonical, env) + extra_head if robots_override is None else extra_head
     def cur(k):
         return ' aria-current="page"' if k == key else ""
     items = []
@@ -354,21 +371,21 @@ def shell(lang, page, title, desc, main_html, env, extra_head="", robots_overrid
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 <meta name="robots" content="{robots}">
-<link rel="canonical" href="{canonical}">
-<link rel="alternate" hreflang="en-CA" href="{LIVE + url('en', key)}">
-<link rel="alternate" hreflang="fr-CA" href="{LIVE + url('fr', key)}">
-<link rel="alternate" hreflang="x-default" href="{LIVE + url('en', key)}">
-<meta property="og:type" content="website">
+{alt_links}<meta property="og:type" content="{og_type}">
 <meta property="og:site_name" content="{esc(U['site_name'])}">
 <meta property="og:locale" content="{'en_CA' if lang == 'en' else 'fr_CA'}">
 <meta property="og:locale:alternate" content="{'fr_CA' if lang == 'en' else 'en_CA'}">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
-<meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{LIVE}/assets/img/og-joachim-agou.jpg">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{esc(U['og_image_alt'])}">
+{og_url}<meta property="og:image" content="{og_img}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="{OG['width']}"><meta property="og:image:height" content="{OG['height']}">
+<meta property="og:image:alt" content="{esc(OG['alt'][lang])}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(title)}">
+<meta name="twitter:description" content="{esc(desc)}">
+<meta name="twitter:image" content="{og_img}">
+<meta name="twitter:image:alt" content="{esc(OG['alt'][lang])}">
 <meta name="theme-color" content="#123a6d">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/img/favicon.svg?v=joa" type="image/svg+xml">
@@ -400,6 +417,83 @@ def shell(lang, page, title, desc, main_html, env, extra_head="", robots_overrid
 </body>
 </html>
 """
+
+
+def json_ld(lang, key, title, desc, canonical, env):
+    """schema.org JSON-LD: Person + WebSite on the home page; BreadcrumbList on the others (events add Event items in forms.js)."""
+    home = LIVE + url(lang, "home")
+    person = {"@type": "Person", "@id": LIVE + "/#joachim", "name": "Joachim Agou", "url": home,
+              "image": LIVE + "/assets/img/joachim-agou-speaking-1600.jpg", "knowsLanguage": ["en", "fr"],
+              "sameAs": [u for n, u in SITE["social"].items() if not n.startswith("_")],
+              "description": SEO["pages"]["home"][lang]["desc"]}
+    if key == "home":
+        graph = [person, {"@type": "WebSite", "@id": LIVE + "/#website", "name": UI[lang]["site_name"], "url": home,
+                          "inLanguage": f"{lang}-CA", "publisher": {"@id": LIVE + "/#joachim"}}]
+    else:
+        crumbs = [(BYKEY["home"]["nav"][lang], home)]
+        parent = next((p["key"] for p in PAGES if key in (p.get("children") or [])), None)
+        if parent: crumbs.append((BYKEY[parent]["nav"][lang], LIVE + url(lang, parent)))
+        crumbs.append((BYKEY[key]["nav"][lang], canonical))
+        graph = [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i, "name": n, "item": u} for i, (n, u) in enumerate(crumbs, 1)]}]
+    data = {"@context": "https://schema.org", "@graph": graph}
+    return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False).replace("</", "<\\/") + "</script>\n"
+
+
+def updated_date(lang, key):
+    return re.search(r'datetime="([^"]+)"', updated_for(lang, key)).group(1)
+
+
+def sitemap():
+    """All indexable pages, each with its en-CA / fr-CA / x-default alternates and lastmod (the page's 'Last updated' date)."""
+    out = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    for p in PAGES:
+        if p.get("robots") == "noindex": continue
+        for l in LANGS:
+            alts = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{h}" href="{LIVE + url(al, p["key"])}"/>' for h, al in (("en-CA", "en"), ("fr-CA", "fr"), ("x-default", "en")))
+            out.append(f'  <url>\n    <loc>{LIVE + url(l, p["key"])}</loc>\n    <lastmod>{updated_date(l, p["key"])}</lastmod>{alts}\n  </url>')
+    return "\n".join(out + ["</urlset>"]) + "\n"
+
+
+def seo_check(dist, env):
+    """Every page: one title, description, canonical, hreflang trio, og and twitter tags; no duplicates across pages."""
+    errs = []; seen = {"title": {}, "description": {}, "canonical": {}}
+    need = ["og:title", "og:description", "og:url", "og:type", "og:locale", "og:locale:alternate", "og:site_name", "og:image", "og:image:width", "og:image:height", "og:image:alt"]
+    for f in sorted(dist.rglob("*.html")):
+        rel = str(f.relative_to(dist)); t = f.read_text(); head = t[:t.index("</head>")]
+        is404 = rel == "404.html"
+        def one(pat, what):
+            m = re.findall(pat, head)
+            if len(m) != 1: errs.append(f"{rel}: {len(m)} × {what}")
+            return html.unescape(m[0]) if m else ""
+        title = one(r"<title>(.*?)</title>", "<title>")
+        desc = one(r'<meta name="description" content="([^"]*)"', "meta description")
+        for p in need:
+            if p == "og:url" and is404: continue
+            one(rf'<meta property="{re.escape(p)}" content="([^"]*)"', p)
+        for n in ("twitter:card", "twitter:title", "twitter:description", "twitter:image"): one(rf'<meta name="{n}" content="([^"]*)"', n)
+        if 'name="twitter:card" content="summary_large_image"' not in head: errs.append(f"{rel}: twitter:card is not summary_large_image")
+        if not re.search(r'<html lang="(en|fr)-CA">', t): errs.append(f"{rel}: html lang missing")
+        robots = one(r'<meta name="robots" content="([^"]*)"', "meta robots")
+        if env == "staging" and "noindex" not in robots: errs.append(f"{rel}: staging page is indexable")
+        if env == "live" and not is404 and "noindex" in robots and f.parent.name not in {p["slug"].strip("/") for p in PAGES if p.get("robots") == "noindex"}:
+            errs.append(f"{rel}: live page is noindex")
+        img = re.search(r'<meta property="og:image" content="https?://[^/]+(/[^"]+)"', head)
+        if img and not (dist / img.group(1).lstrip("/")).exists(): errs.append(f"{rel}: og:image file {img.group(1)} missing")
+        for m in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S):
+            try: json.loads(m)
+            except ValueError as e: errs.append(f"{rel}: invalid JSON-LD ({e})")
+        if is404: continue
+        canon = one(r'<link rel="canonical" href="([^"]*)">', "canonical")
+        want = LIVE + "/" + rel[:-len("index.html")]
+        if canon != want: errs.append(f"{rel}: canonical {canon} != {want}")
+        hl = re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">', head)
+        if sorted(h for h, _ in hl) != ["en-CA", "fr-CA", "x-default"]: errs.append(f"{rel}: hreflang set {hl}")
+        if not 100 <= len(desc) <= 170: errs.append(f"{rel}: description is {len(desc)} characters (100–170)")
+        if len(title) > 70: errs.append(f"{rel}: title is {len(title)} characters (max 70)")
+        for k, v in (("title", title), ("description", desc), ("canonical", canon)):
+            if v in seen[k]: errs.append(f"{rel}: same {k} as {seen[k][v]}")
+            seen[k][v] = rel
+    return errs
 
 
 def first_text(md, n=155):
@@ -800,6 +894,9 @@ if __name__ == "__main__":
     if a.env == "live" and not SITE.get("fr_edits_approved", True):
         sys.exit("Live build refused: staging contains Joachim's 30 Sep 2026 FR corrections and About career-history changes (navy role, JOA Aero Engineering, 15 years), not yet approved. "
                  "Set site.json fr_edits_approved to true after approval, or publish from a branch without them (see RESYNC.md).")
+    if a.env == "live" and not SITE.get("seo_batch_approved", True):
+        sys.exit("Live build refused: staging contains the 30 Sep 2026 SEO/social metadata batch (seo.json titles and descriptions, new og:image, JSON-LD, sitemap), not yet approved by Joachim. "
+                 "Set site.json seo_batch_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
     if a.env == "live" and not SITE.get("review_batch_approved", True):
         sys.exit("Live build refused: staging contains the 30 Sep 2026 review batch (header, forms, sections, actions, FAQ index), not yet approved by Joachim. "
                  "Set site.json review_batch_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
@@ -839,10 +936,9 @@ if __name__ == "__main__":
         (dist / "_headers").write_text("/*\n  X-Robots-Tag: noindex, nofollow\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n")
     else:
         (dist / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {LIVE}/sitemap.xml\n")
-        locs = [LIVE + url(l, p["key"]) for p in PAGES for l in LANGS if p.get("robots") != "noindex"]
-        (dist / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{u}</loc></url>\n" for u in locs) + "</urlset>\n")
         (dist / "CNAME").write_text("agou.ca\n"); (dist / ".nojekyll").write_text("")
-    errs = check(dist)
+    (dist / "sitemap.xml").write_text(sitemap())  # staging too, for review (its robots.txt still disallows everything)
+    errs = check(dist) + seo_check(dist, a.env)
     if HIDDEN:
         hu = hidden_urls()
         errs += [f"{f.relative_to(dist)}: links to a page left out of this build ({u})" for f in sorted(dist.rglob("*.html")) for u in hu if f'href="{u}"' in f.read_text()]

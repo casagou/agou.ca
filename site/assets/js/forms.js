@@ -296,14 +296,18 @@
       var set = function (sel, attr, val) { var m = document.querySelector(sel); if (m) m.setAttribute(attr, val); };
       set('meta[name="description"]', "content", desc); set('meta[property="og:title"]', "content", title);
       set('meta[property="og:description"]', "content", desc); set('meta[property="og:url"]', "content", url); set('link[rel="canonical"]', "href", url);
+      set('meta[name="twitter:title"]', "content", title); set('meta[name="twitter:description"]', "content", desc);
     }
     function jsonLd(list) {
       var s = $("ld"); if (!s) { s = el("script", { id: "ld", type: "application/ld+json" }); document.head.append(s); }
       s.textContent = JSON.stringify(list.map(function (e) { return { "@context": "https://schema.org", "@type": "Event", name: e.title, startDate: e.starts_at, endDate: e.ends_at,
         eventStatus: "https://schema.org/EventScheduled", eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-        location: Object.assign({ "@type": "Place", name: venue(e) || e.location_name || e.address || T.riding, address: e.address || e.location_name || "Victoria, BC" },
+        location: Object.assign({ "@type": "Place", name: venue(e) || e.location_name || e.address || T.riding,
+          address: { "@type": "PostalAddress", streetAddress: e.address || e.location_name || "", addressLocality: "Victoria", addressRegion: "BC", addressCountry: "CA" } },
           hasPin(e) ? { geo: { "@type": "GeoCoordinates", latitude: e.lat, longitude: e.lng } } : {}),
-        description: plain(e.description).slice(0, 500), url: eventUrl(e), organizer: { "@type": "Organization", name: "Joachim Agou campaign", url: LIVE } }; }));
+        description: plain(e.description).slice(0, 500), url: eventUrl(e), organizer: { "@type": "Person", "@id": new URL(LIVE).origin + "/#joachim", name: "Joachim Agou", url: new URL(LIVE).origin + "/" },
+        image: [(document.querySelector('meta[property="og:image"]') || {}).content].filter(Boolean), inLanguage: document.documentElement.lang,
+        isAccessibleForFree: true }; }));
     }
     function backLink() {
       var a = el("a", { href: "./", class: "back", text: T.all });
