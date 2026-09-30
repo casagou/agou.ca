@@ -27,6 +27,7 @@ Content lives in Notion. This folder holds a verbatim snapshot of it (`notion-ra
 | `build.py` | `python3 build.py --env staging|live` → `dist/` (and runs content checks: forbidden terms, phone whitelist, authorization line) |
 | `tools/diffcheck.py` | Word-for-word check of the built pages against notion-raw; only listed exclusions may differ |
 | `tools/qa.py BASE OUT` | Screenshots (390×844 phone, 1440×900 desktop, EN and FR) plus console errors, horizontal overflow, tap targets <48px and broken internal links |
+| `assets/media/` | Media-kit PDFs (EN/FR), checked with pdftotext by build.py |
 | `assets/` | CSS, JS (`forms.js` has the same RPCs/payloads as the existing live forms; `site.js` is the menu), images |
 
 ## Forms (Supabase project qhyttuzmysookdgxymrl, the campaign app at beacon-hill-map.pages.dev)
@@ -72,5 +73,5 @@ Mobile-first. Body text 18px with line-height 1.55 and lines of about 62 charact
 - The Thales Canada job line (EN/FR): current employer is not shown.
 - "Joa Aero Engineering (…)," (EN/FR): the business name contains "Joa". Joachim can approve or rename it.
 - Media: "Joachim Agou is the Conservative Party of BC candidate…" was removed, because he is *seeking* the nomination.
-- Both media-kit PDFs are withheld (they call him the candidate). A placeholder is shown until corrected PDFs exist.
+- Media-kit PDFs: they are in `assets/media/` (not Notion), and `<placeholder>MEDIAKIT</placeholder>` renders as the download links (see RESYNC.md "Media kit PDFs"). Staging shows them. Live keeps the placeholder while `site.json` → `publish_media_kit_live` is `false`. As of 2026-09-30 both PDFs still call him the candidate (EN medium bio: "is the Conservative Party of BC candidate"; FR: "est le candidat du Parti conservateur"), so the live build would refuse them anyway.
 - FR "(page en anglais)" notes were removed (home and FAQ), because those pages now exist in French.

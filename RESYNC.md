@@ -21,6 +21,13 @@ Notion pages (ids are also in `site/site.json` → `notion`):
 6. Optional: `python3 -m http.server 8931 --directory dist` and `python3 tools/qa.py http://localhost:8931 /tmp/qa`.
 7. `git commit -am "site: re-sync <page> from Notion" && git push origin staging`.
 
+### Media kit PDFs (do not lose these on a re-sync)
+The media-kit links on `/media/` and `/fr/media/` do **not** come from Notion, so a re-sync cannot remove them, as long as these rules hold:
+- The PDFs are `site/assets/media/joachim-agou-media-kit-en.pdf` and `-fr.pdf` (names in `site.json` → `media_kit`). To update one, replace the file under the same name. The KB size in the link text is worked out at build time.
+- `exclusions.json` rule "en-media … `<pdf src=…>`" turns Notion's two PDF attachments into `<placeholder>MEDIAKIT</placeholder>`, and `build.py` renders that token as the download links. If Notion's attachment block changes, notion2md warns that the rule no longer matches. **Update the rule's `find` text so it still outputs `<placeholder>MEDIAKIT</placeholder>`.** Don't delete the rule, and don't hand-edit content/.
+- `/fr/media/` has no Notion page. build.py writes it (FR PDF, EN PDF, link to the English page). If a FR Notion media page is ever added, put `<placeholder>MEDIAKIT</placeholder>` in it through an exclusions rule in the same way.
+- `site.json` → `publish_media_kit_live` (currently `false`). Staging always shows the links. The live build leaves out the PDFs and links until this is `true`. Even then it runs pdftotext + pdfinfo on each PDF with the same forbidden-term and phone checks as the pages, and it refuses to build if any fail. Staging prints the hits as warnings and shows a yellow note on the media pages.
+
 ## 2. Redeploy staging (https://agou-staging.pages.dev)
 Deployment runs from casagou/Beacon-Hill, branch **`agou-site-staging`**, workflow `.github/workflows/agou-staging.yml`. It checks out agou.ca@staging, builds with `--env staging`, runs diffcheck, and deploys to the Cloudflare Pages project `agou-staging` with the repo's existing Cloudflare secret.
 Trigger it by pushing to that branch:

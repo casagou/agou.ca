@@ -235,3 +235,7 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 .hero-map { width:100%; }
 @media (min-width:800px) { .hero-grid:has(.hero-map) { grid-template-columns:1fr 1.05fr; gap:44px; } }
 .hero-photo .map-card figcaption { display:block; }
+/* media kit download (media pages) */
+.mediakit .cta-line { margin:4px 0 6px; }
+.mk-other { margin:0 0 12px; font-size:.95rem; }
+.mk-other a { display:inline-flex; align-items:center; min-height:48px; }

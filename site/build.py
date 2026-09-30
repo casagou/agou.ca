@@ -14,6 +14,7 @@ BYKEY = {p["key"]: p for p in PAGES}
 LIVE = SITE["live_origin"]
 LANGS = ["en", "fr"]
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
+MEDIAKIT = {"on": True, "env": "staging", "errs": {}}  # media-kit PDFs (site.json media_kit / publish_media_kit_live); set in __main__
 IMG = {  # local image name -> (files by width, width, height)
     "joachim-agou-speaking": ({800: "joachim-agou-speaking-800.jpg", 1600: "joachim-agou-speaking-1600.jpg"}, 1600, 1000),
 }
@@ -132,6 +133,8 @@ def render(md, lang, ctx, toc_levels=("h2",)):
             close_list(); out.append(f'<div class="draft" role="note">{esc(re.sub(r"</?draft>", "", s))}</div>'); i += 1; continue
         if s.startswith("<placeholder>"):
             close_list(); key = re.sub(r"</?placeholder>", "", s).strip().lower()
+            if key == "mediakit" and MEDIAKIT["on"]:
+                out.append(mediakit_block(lang)); i += 1; continue
             txt = UI[lang].get("placeholder_" + key) or UI["en"].get("placeholder_" + key)
             out.append(f'<div class="placeholder" role="note"><strong>[Placeholder]</strong> {esc(txt)}</div>'); i += 1; continue
         m = re.match(r'<page url="([^"]+)">(.*)</page>', s)
@@ -408,6 +411,9 @@ def build_page(lang, page, env):
         h1 = page["section"][lang]; md = section(home, h1)
     elif key == "lawn-sign":
         h1 = U["lawnsign"]["title"]; md = ""
+    elif key == "media" and lang == "fr" and not read("fr", "media") and MEDIAKIT["on"]:
+        h1 = "Médias"
+        md = f"<placeholder>MEDIAKIT</placeholder>\n<page url=\"/media/\">{U['mediakit']['page_link']}</page>"
     elif key == "media" and lang == "fr" and not read("fr", "media"):
         h1 = "Médias"
         md = f"<placeholder>FR_MEDIA</placeholder>\n[Media (English)](/media/)"
@@ -443,6 +449,45 @@ def build_page(lang, page, env):
     title = f"{h1} – Joachim Agou – Victoria–Beacon Hill"
     out = shell(lang, page, title, desc, main, env)
     return out.replace("</body>", extra + "</body>", 1) if extra else out
+
+
+def pdf_kb(name):
+    return max(1, round((ROOT / "assets" / "media" / name).stat().st_size / 1024))
+
+
+def mediakit_block(lang):
+    """Media kit download links (rule in RESYNC.md: Notion's PDF attachments become <placeholder>MEDIAKIT</placeholder>, rendered here)."""
+    T = UI[lang]["mediakit"]; K = SITE["media_kit"]; other = T["other_lang"]
+    main_f, other_f = K[lang], K[other]
+    h = (f'<div class="mediakit"><p class="cta-line"><a href="/assets/media/{main_f}" type="application/pdf" hreflang="{lang}">'
+         f'<strong>{esc(T["main"].format(kb=pdf_kb(main_f)))}</strong></a></p>'
+         f'<p class="mk-other"><a href="/assets/media/{other_f}" type="application/pdf" hreflang="{other}" lang="{other}">{esc(T["other"].format(kb=pdf_kb(other_f)))}</a></p>')
+    errs = sorted({w.split(":")[0] for es in MEDIAKIT["errs"].values() for w in es})
+    if MEDIAKIT["env"] == "staging" and errs:
+        h += f'<div class="draft" role="note">{esc(T["staging_note"].format(errs="; ".join(errs)))}</div>'
+    return h + "</div>"
+
+
+def pdf_check(dist):
+    """Run the same content checks on the text of every PDF in dist/ (needs pdftotext from poppler-utils)."""
+    import subprocess
+    res = {}
+    for f in sorted(dist.rglob("*.pdf")):
+        try:
+            txt = subprocess.check_output(["pdftotext", "-enc", "UTF-8", str(f), "-"], text=True)
+            meta = subprocess.check_output(["pdfinfo", "-enc", "UTF-8", str(f)], text=True)
+        except (OSError, subprocess.CalledProcessError) as e:
+            res[f] = [f"cannot read PDF text ({e}); install poppler-utils"]; continue
+        es = []
+        for pat, what in FORBIDDEN:
+            for m in re.finditer(pat, txt + "\n" + meta):
+                line = (txt + "\n" + meta)[:m.start()].rsplit("\n", 1)[-1] + (txt + "\n" + meta)[m.start():].split("\n", 1)[0]
+                es.append(f"{what}: {line.strip()!r}")
+        for m in re.finditer(r"(?<![\d-])(?:1-)?\d{3}[-. ]\d{3}[-. ]\d{4}(?!\d)", txt):
+            if m.group(0) not in PHONES_OK:
+                es.append(f"unexpected phone number {m.group(0)}")
+        res[f] = es
+    return res
 
 
 def hidden_urls():
@@ -577,6 +622,13 @@ if __name__ == "__main__":
     dist = ROOT / a.out
     if dist.exists(): shutil.rmtree(dist)
     shutil.copytree(ROOT / "assets", dist / "assets")
+    MEDIAKIT["env"] = a.env
+    MEDIAKIT["on"] = a.env == "staging" or bool(SITE.get("publish_media_kit_live"))
+    if not MEDIAKIT["on"]:
+        shutil.rmtree(dist / "assets" / "media", ignore_errors=True)
+    MEDIAKIT["errs"] = {f: e for f, e in pdf_check(dist).items() if e}
+    for f, es in MEDIAKIT["errs"].items():
+        print(f"{'PDF CHECK' if a.env == 'live' else 'WARNING (staging only, would block live)'}: {f.relative_to(dist)}:\n    " + "\n    ".join(es))
     for lang in LANGS:
         for p in PAGES:
             out = dist / url(lang, p["key"]).lstrip("/") / "index.html"
@@ -599,6 +651,9 @@ if __name__ == "__main__":
         hu = hidden_urls()
         errs += [f"{f.relative_to(dist)}: links to a page left out of this build ({u})" for f in sorted(dist.rglob("*.html")) for u in hu if f'href="{u}"' in f.read_text()]
     if a.env == "live":
+        errs += [f"{f.relative_to(dist)}: PDF fails content checks ({len(e)} hits, listed above)" for f, e in MEDIAKIT["errs"].items()]
+        if not MEDIAKIT["on"]:
+            errs += [f"{f.relative_to(dist)}: links to a media-kit PDF, but publish_media_kit_live is false" for f in sorted(dist.rglob("*.html")) if "/assets/media/" in f.read_text()]
         errs += [f"{f.relative_to(dist)}: open draft note (Notion red text, e.g. [TO COMPLETE]); finish it in Notion first" for f in sorted(dist.rglob("*.html")) if 'class="todo"' in f.read_text()]
     n = len(list(dist.rglob("index.html")))
     if errs:

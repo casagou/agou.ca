@@ -15,6 +15,12 @@
     "staging": "Staging preview for review. Not the live site.",
     "home_title": "Joachim Agou",
     "toc": "On this page",
+    "mediakit": {
+      "main": "Download the media kit (PDF, {kb} KB)",
+      "other": "Version française : dossier de presse (PDF, {kb} KB)",
+      "other_lang": "fr",
+      "staging_note": "Staging only: these PDFs are not on the live site. They still fail the content checks: {errs}"
+    },
     "placeholder_mediakit": "Placeholder: the English media kit and the French dossier de presse (PDF) are held back for review. Both PDFs say Joachim is the party's candidate; he is seeking the nomination. They will be added here once corrected in Notion.",
     "placeholder_fr_media": "",
     "photo_alt": "Joachim Agou presenting a test program",
@@ -271,6 +277,13 @@
     "staging": "Version de test pour révision. Ce n'est pas le site public.",
     "home_title": "Joachim Agou",
     "toc": "Sur cette page",
+    "mediakit": {
+      "main": "Télécharger le dossier de presse (PDF, {kb} Ko)",
+      "other": "English version: media kit (PDF, {kb} KB)",
+      "other_lang": "en",
+      "page_link": "Page Médias en anglais (biographies complètes)",
+      "staging_note": "Staging seulement : ces PDF ne sont pas sur le site public. Ils échouent encore aux vérifications de contenu : {errs}"
+    },
     "placeholder_mediakit": "",
     "placeholder_fr_media": "Espace réservé : il n'y a pas encore de page Médias en français dans Notion. La page Médias est en anglais.",
     "photo_alt": "Joachim Agou présentant un programme d'essais",

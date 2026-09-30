@@ -237,5 +237,11 @@
     "fr-faq": "2026-09-30"
   },
   "publish_faq_live": true,
-  "_publish_faq_live_doc": "false = the live build (build.py --env live) leaves out /faq/ and /fr/faq/ and every link to them (footer, How to vote, Get involved, home 'Questions?' section). Staging always shows the FAQ. Set to true once the FAQ has no [TO COMPLETE] notes left (the live build refuses to run while any remain), rebuild live and publish."
+  "_publish_faq_live_doc": "false = the live build (build.py --env live) leaves out /faq/ and /fr/faq/ and every link to them (footer, How to vote, Get involved, home 'Questions?' section). Staging always shows the FAQ. Set to true once the FAQ has no [TO COMPLETE] notes left (the live build refuses to run while any remain), rebuild live and publish.",
+  "media_kit": {
+    "en": "joachim-agou-media-kit-en.pdf",
+    "fr": "joachim-agou-media-kit-fr.pdf"
+  },
+  "publish_media_kit_live": false,
+  "_media_kit_doc": "Media-kit PDFs in assets/media/ (not from Notion; the Notion PDF attachments are replaced by <placeholder>MEDIAKIT</placeholder> in exclusions.json, and build.py renders that token as the download links). Staging always shows them. publish_media_kit_live: false = the live build keeps the placeholder text, leaves the PDFs out of dist/ and fails if any page links to them. true = live shows the links, but the live build still refuses to run if pdftotext finds forbidden wording or an unlisted phone number in a PDF."
 }
