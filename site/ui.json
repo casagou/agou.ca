@@ -1,0 +1,507 @@
+{
+  "_doc": "Interface and form wording (not from Notion). EN form wording is copied unchanged from the live agou.ca/volunteer, /nominate, /events and /lawn-sign pages. FR is a translation of it; consent keeps the same meaning.",
+  "en": {
+    "site_name": "Joachim Agou – Victoria–Beacon Hill",
+    "brand_sub": "Victoria–Beacon Hill",
+    "menu": "Menu",
+    "close": "Close",
+    "skip": "Skip to content",
+    "lang_other": "Français",
+    "lang_other_short": "FR",
+    "lang_other_label": "Lire cette page en français",
+    "cta_volunteer": "Volunteer",
+    "cta_donate": "Donate",
+    "footer_nav": "Site",
+    "staging": "Staging preview for review. Not the live site.",
+    "home_title": "Joachim Agou",
+    "toc": "On this page",
+    "placeholder_mediakit": "Placeholder: the English media kit and the French dossier de presse (PDF) are held back for review. Both PDFs say Joachim is the party's candidate; he is seeking the nomination. They will be added here once corrected in Notion.",
+    "placeholder_fr_media": "",
+    "photo_alt": "Joachim Agou presenting a test program",
+    "volunteer": {
+      "title": "Volunteer with Joachim Agou",
+      "sub": "Conservative Party of BC · Victoria–Beacon Hill · Provincial election 24 October 2026",
+      "intro": "Thank you for wanting to help! Leave your details and we'll be in touch about ways to volunteer: door-knocking, phone calls, events, signs and more.",
+      "consent": "I agree that the Joachim Agou campaign (Conservative Party of BC, Victoria–Beacon Hill) may contact me by email, phone or text about volunteering. I can ask to stop at any time.",
+      "thanks": "Thank you for signing up! We'll be in touch soon about volunteering.",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "optional": "(optional)",
+      "address_ph": "e.g. 123 Cook St, Unit 4, Victoria",
+      "button": "Sign me up to volunteer",
+      "sending": "Sending…",
+      "sent": "Sent ✓",
+      "err_prefix": "Please add ",
+      "err_first": "your first name",
+      "err_last": "your last name",
+      "err_email": "a valid email",
+      "err_phone": "a phone number",
+      "err_consent": "the consent checkbox",
+      "err_send": "Sorry, something went wrong and your sign-up was not sent. Please check your details and try again, or email joachim@agou.ca.",
+      "honeypot": "Leave empty"
+    },
+    "nominate": {
+      "title": "Nominate Joachim Agou",
+      "sub": "Seeking the BC Conservative nomination · Victoria–Beacon Hill · Provincial election 24 October 2026",
+      "intro": "Thank you. Nominating is not a vote pledge. You must be an eligible voter living in Victoria–Beacon Hill. Each voter can nominate only one candidate.",
+      "sessions_legend": "Which signing session(s) can you attend?",
+      "sessions_hint": "Times to be confirmed. We'll contact you with the exact time.",
+      "sessions": [
+        [
+          "Thrifty Foods Fairfield (Cook St & Fairfield Rd area) — time to be confirmed",
+          "Thrifty Foods Fairfield (Cook St & Fairfield Rd area) — time to be confirmed"
+        ],
+        [
+          "Thrifty Foods James Bay (Menzies St) — time to be confirmed",
+          "Thrifty Foods James Bay (Menzies St) — time to be confirmed"
+        ],
+        [
+          "Cook Street Village — time to be confirmed",
+          "Cook Street Village — time to be confirmed"
+        ],
+        [
+          "James Bay Market — time to be confirmed",
+          "James Bay Market — time to be confirmed"
+        ],
+        [
+          "Come to me / I'll arrange a time",
+          "Come to me / I'll arrange a time"
+        ]
+      ],
+      "consent": "I agree to be contacted by the Joachim Agou campaign about signing the nomination paper. My information will be used only for this nomination.",
+      "thanks": "Thank you! We'll contact you soon to arrange signing the nomination paper.",
+      "full_name": "Full name",
+      "street_address": "Residential street address",
+      "street_hint": "(in Victoria–Beacon Hill)",
+      "street_ph": "e.g. 123 Cook St, Unit 4, Victoria",
+      "phone": "Phone",
+      "email": "Email",
+      "optional": "(optional)",
+      "best_time": "Best time to reach you",
+      "best_time_ph": "e.g. weekday evenings, Saturday morning",
+      "button": "Sign me up",
+      "sending": "Sending…",
+      "sent": "Sent ✓",
+      "err_prefix": "Please add ",
+      "err_name": "your full name",
+      "err_street": "your street address",
+      "err_phone": "a phone number",
+      "err_email": "a valid email (or leave it empty)",
+      "err_consent": "the consent checkbox",
+      "err_send": "Sorry, something went wrong. Please try again, or email joachim@agou.ca.",
+      "honeypot": "Leave empty"
+    },
+    "lawnsign": {
+      "title": "Request a lawn sign",
+      "sub": "Joachim Agou · Conservative Party of BC · Victoria–Beacon Hill · Provincial election 24 October 2026",
+      "intro": "Show your support for Joachim Agou in Victoria–Beacon Hill. Lawn signs are free: leave your details and we'll bring one to you.",
+      "delivery": "Signs are delivered and put up by campaign volunteers, and we'll pick them up after Election Day (24 October).",
+      "large": "I'd like a large sign if one is available (corner lot or busy street)",
+      "permission": "I'm the owner, or I have the owner's or landlord's permission to put up a sign here.",
+      "consent": "I agree that the Joachim Agou campaign (Conservative Party of BC, Victoria–Beacon Hill) may contact me by email, phone or text about my lawn sign and the campaign. I can ask to stop at any time.",
+      "thanks": "Thank you! We've got your lawn sign request. A volunteer will be in touch about delivery.",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "street_address": "Street address",
+      "street_ph": "e.g. 123 Cook St",
+      "unit": "Unit",
+      "unit_ph": "e.g. 4",
+      "city": "City",
+      "postal_code": "Postal code",
+      "optional": "(optional)",
+      "placement_legend": "Where will the sign go?",
+      "placements": [
+        [
+          "House lawn",
+          "House lawn"
+        ],
+        [
+          "Apartment balcony or window",
+          "Apartment balcony or window"
+        ],
+        [
+          "Business",
+          "Business"
+        ]
+      ],
+      "notes": "Delivery notes",
+      "notes_ph": "e.g. gate code, best spot for the sign, side door",
+      "button": "Request my lawn sign",
+      "sending": "Sending…",
+      "sent": "Sent ✓",
+      "err_add": "Please add ",
+      "err_tick": "Please tick ",
+      "and": " and ",
+      "err_first": "your first name",
+      "err_last": "your last name",
+      "err_email": "a valid email",
+      "err_phone": "a phone number",
+      "err_street": "your street address",
+      "err_city": "your city",
+      "err_postal": "a valid postal code (like V8V 1A1)",
+      "tick_permission": "the owner/landlord permission box",
+      "tick_consent": "the consent box",
+      "err_send": "Sorry, something went wrong and your request was not sent. Please check your details and try again, or email joachim@agou.ca.",
+      "honeypot": "Leave empty"
+    },
+    "events": {
+      "locale": "en-US",
+      "riding": "Victoria–Beacon Hill",
+      "loading": "Loading events…",
+      "empty": "No upcoming events yet. Check back soon.",
+      "gone": "This event isn't listed any more. It may have ended or been cancelled.",
+      "loadErr": "Sorry, events couldn't be loaded right now. Please try again in a moment.",
+      "consent": "I agree that the Joachim Agou campaign (Conservative Party of BC, Victoria–Beacon Hill) may contact me by email, phone or text about this event and the campaign. I can ask to stop at any time.",
+      "thanks": "Thank you, you're on the list! We look forward to seeing you. We may be in touch with details about the event.",
+      "rsvpErr": "Sorry, something went wrong and your RSVP was not sent. Please check your details and try again, or email joachim@agou.ca.",
+      "rsvpClosed": "Sorry, RSVPs for this event are closed.",
+      "all": "‹ All events",
+      "when": "When",
+      "where": "Where",
+      "pacific": "(Pacific time)",
+      "maps": "Open in Google Maps ↗",
+      "rsvp": "RSVP",
+      "add_cal": "Add to calendar",
+      "ics": "Apple / Outlook (.ics file)",
+      "gcal": "Google Calendar ↗",
+      "signup": "Sign up ↗",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "optional": " (optional)",
+      "guests": "Bringing anyone?",
+      "just_me": "Just me",
+      "guest": " guest",
+      "guests_pl": " guests",
+      "button": "Send my RSVP",
+      "sending": "Sending…",
+      "err_prefix": "Please add ",
+      "err_first": "your first name",
+      "err_last": "your last name",
+      "err_email": "a valid email",
+      "err_phone": "a full phone number (or leave it empty)",
+      "err_consent": "the consent checkbox",
+      "honeypot": "Leave empty",
+      "list_title": "Events – Joachim Agou – Victoria–Beacon Hill"
+    },
+    "follow_title": "Follow along",
+    "follow_text": "Photos and updates from the campaign:",
+    "social_label": "Social media",
+    "og_image_alt": "Joachim Agou, Victoria–Beacon Hill",
+    "photo_slot": "Photo coming soon",
+    "vote": {
+      "title": "Key dates and official links",
+      "source": "From Elections BC. Each line links to its official source.",
+      "facts": [
+        [
+          "Register or update your voter information by October 1, 2026 to make sure you receive a Where to Vote card.",
+          "https://elections.bc.ca/2026-provincial-election/"
+        ],
+        [
+          "Advance voting: October 16–21, 2026, 8 a.m. to 8 p.m. (local time), at any advance voting location.",
+          "https://elections.bc.ca/2026-provincial-election/ways-to-vote/"
+        ],
+        [
+          "Final Voting Day: October 24, 2026, 8 a.m. to 8 p.m. (Pacific time), at your assigned voting place.",
+          "https://elections.bc.ca/2026-provincial-election/ways-to-vote/"
+        ],
+        [
+          "Last day to request a vote-by-mail package online or by phone: October 18, 2026.",
+          "https://elections.bc.ca/2026-provincial-election/"
+        ],
+        [
+          "All voters must prove their identity and residential address before voting.",
+          "https://elections.bc.ca/2026-provincial-election/voter-id/"
+        ]
+      ],
+      "links_title": "Official Elections BC pages",
+      "links": [
+        [
+          "Register to vote",
+          "https://elections.bc.ca/2026-provincial-election/register-to-vote/"
+        ],
+        [
+          "Where to vote",
+          "https://elections.bc.ca/2026-provincial-election/where-to-vote/"
+        ],
+        [
+          "Voter ID",
+          "https://elections.bc.ca/2026-provincial-election/voter-id/"
+        ],
+        [
+          "Ways to vote, including vote by mail",
+          "https://elections.bc.ca/2026-provincial-election/ways-to-vote/"
+        ],
+        [
+          "Where to Vote lookup: find your electoral district",
+          "https://wheretovote.elections.bc.ca/"
+        ]
+      ],
+      "src_link": "Source: Elections BC"
+    },
+    "map": {
+      "title": "Am I in Victoria–Beacon Hill?",
+      "link": "Check your address with Elections BC (Where to Vote lookup)",
+      "alt": "Victoria–Beacon Hill riding boundary. Boundary: Elections BC (2023). Map data © OpenStreetMap contributors."
+    },
+    "updated": "Last updated:"
+  },
+  "fr": {
+    "site_name": "Joachim Agou – Victoria–Beacon Hill",
+    "brand_sub": "Victoria–Beacon Hill",
+    "menu": "Menu",
+    "close": "Fermer",
+    "skip": "Aller au contenu",
+    "lang_other": "English",
+    "lang_other_short": "EN",
+    "lang_other_label": "Read this page in English",
+    "cta_volunteer": "Bénévolat",
+    "cta_donate": "Faire un don",
+    "footer_nav": "Site",
+    "staging": "Version de test pour révision. Ce n'est pas le site public.",
+    "home_title": "Joachim Agou",
+    "toc": "Sur cette page",
+    "placeholder_mediakit": "",
+    "placeholder_fr_media": "Espace réservé : il n'y a pas encore de page Médias en français dans Notion. La page Médias est en anglais.",
+    "photo_alt": "Joachim Agou présentant un programme d'essais",
+    "volunteer": {
+      "title": "Devenir bénévole avec Joachim Agou",
+      "sub": "Parti conservateur de la C.-B. · Victoria–Beacon Hill · Élection provinciale du 24 octobre 2026",
+      "intro": "Merci de vouloir aider! Laissez vos coordonnées et nous vous contacterons pour vous proposer des façons de donner un coup de main : porte-à-porte, appels, événements, pancartes et plus encore.",
+      "consent": "J'accepte que la campagne de Joachim Agou (Parti conservateur de la C.-B., Victoria–Beacon Hill) communique avec moi par courriel, téléphone ou texto au sujet du bénévolat. Je peux demander que cela cesse à tout moment.",
+      "thanks": "Merci de votre inscription! Nous vous contacterons bientôt au sujet du bénévolat.",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "email": "Courriel",
+      "phone": "Téléphone",
+      "address": "Adresse",
+      "optional": "(facultatif)",
+      "address_ph": "p. ex. 123 Cook St, app. 4, Victoria",
+      "button": "Je m'inscris comme bénévole",
+      "sending": "Envoi…",
+      "sent": "Envoyé ✓",
+      "err_prefix": "Veuillez indiquer ",
+      "err_first": "votre prénom",
+      "err_last": "votre nom",
+      "err_email": "un courriel valide",
+      "err_phone": "un numéro de téléphone",
+      "err_consent": "la case de consentement",
+      "err_send": "Désolé, un problème est survenu et votre inscription n'a pas été envoyée. Vérifiez vos renseignements et réessayez, ou écrivez à joachim@agou.ca.",
+      "honeypot": "Laisser vide"
+    },
+    "nominate": {
+      "title": "Appuyer la candidature de Joachim Agou",
+      "sub": "Candidat à l'investiture du Parti conservateur de la C.-B. · Victoria–Beacon Hill · Élection provinciale du 24 octobre 2026",
+      "intro": "Merci. Signer le formulaire de mise en candidature n'est pas un engagement à voter. Vous devez être électeur admissible et habiter Victoria–Beacon Hill. Chaque électeur ne peut appuyer qu'un seul candidat.",
+      "sessions_legend": "À quelle(s) séance(s) de signature pouvez-vous venir?",
+      "sessions_hint": "Heures à confirmer. Nous vous communiquerons l'heure exacte.",
+      "sessions": [
+        [
+          "Thrifty Foods Fairfield (Cook St & Fairfield Rd area) — time to be confirmed",
+          "Thrifty Foods Fairfield (secteur Cook St et Fairfield Rd) — heure à confirmer"
+        ],
+        [
+          "Thrifty Foods James Bay (Menzies St) — time to be confirmed",
+          "Thrifty Foods James Bay (Menzies St) — heure à confirmer"
+        ],
+        [
+          "Cook Street Village — time to be confirmed",
+          "Cook Street Village — heure à confirmer"
+        ],
+        [
+          "James Bay Market — time to be confirmed",
+          "James Bay Market — heure à confirmer"
+        ],
+        [
+          "Come to me / I'll arrange a time",
+          "Venez chez moi / je fixerai un moment"
+        ]
+      ],
+      "consent": "J'accepte que la campagne de Joachim Agou communique avec moi au sujet de la signature du formulaire de mise en candidature. Mes renseignements serviront uniquement à cette mise en candidature.",
+      "thanks": "Merci! Nous vous contacterons bientôt pour organiser la signature du formulaire de mise en candidature.",
+      "full_name": "Nom complet",
+      "street_address": "Adresse résidentielle",
+      "street_hint": "(dans Victoria–Beacon Hill)",
+      "street_ph": "p. ex. 123 Cook St, app. 4, Victoria",
+      "phone": "Téléphone",
+      "email": "Courriel",
+      "optional": "(facultatif)",
+      "best_time": "Meilleur moment pour vous joindre",
+      "best_time_ph": "p. ex. en soirée la semaine, samedi matin",
+      "button": "Je m'inscris",
+      "sending": "Envoi…",
+      "sent": "Envoyé ✓",
+      "err_prefix": "Veuillez indiquer ",
+      "err_name": "votre nom complet",
+      "err_street": "votre adresse",
+      "err_phone": "un numéro de téléphone",
+      "err_email": "un courriel valide (ou laissez le champ vide)",
+      "err_consent": "la case de consentement",
+      "err_send": "Désolé, un problème est survenu. Réessayez, ou écrivez à joachim@agou.ca.",
+      "honeypot": "Laisser vide"
+    },
+    "lawnsign": {
+      "title": "Demander une pancarte",
+      "sub": "Joachim Agou · Parti conservateur de la C.-B. · Victoria–Beacon Hill · Élection provinciale du 24 octobre 2026",
+      "intro": "Montrez votre appui à Joachim Agou dans Victoria–Beacon Hill. Les pancartes sont gratuites : laissez vos coordonnées et nous vous en apporterons une.",
+      "delivery": "Les pancartes sont livrées et installées par des bénévoles de la campagne, et nous les reprendrons après le jour de l'élection (24 octobre).",
+      "large": "J'aimerais une grande pancarte s'il y en a une de disponible (terrain en coin ou rue passante)",
+      "permission": "Je suis propriétaire, ou j'ai la permission du propriétaire ou du locateur d'installer une pancarte à cet endroit.",
+      "consent": "J'accepte que la campagne de Joachim Agou (Parti conservateur de la C.-B., Victoria–Beacon Hill) communique avec moi par courriel, téléphone ou texto au sujet de ma pancarte et de la campagne. Je peux demander que cela cesse à tout moment.",
+      "thanks": "Merci! Nous avons bien reçu votre demande de pancarte. Un bénévole vous contactera pour la livraison.",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "email": "Courriel",
+      "phone": "Téléphone",
+      "street_address": "Adresse",
+      "street_ph": "p. ex. 123 Cook St",
+      "unit": "App.",
+      "unit_ph": "p. ex. 4",
+      "city": "Ville",
+      "postal_code": "Code postal",
+      "optional": "(facultatif)",
+      "placement_legend": "Où sera installée la pancarte?",
+      "placements": [
+        [
+          "House lawn",
+          "Pelouse d'une maison"
+        ],
+        [
+          "Apartment balcony or window",
+          "Balcon ou fenêtre d'appartement"
+        ],
+        [
+          "Business",
+          "Commerce"
+        ]
+      ],
+      "notes": "Notes pour la livraison",
+      "notes_ph": "p. ex. code de la barrière, meilleur endroit pour la pancarte, porte de côté",
+      "button": "Demander ma pancarte",
+      "sending": "Envoi…",
+      "sent": "Envoyé ✓",
+      "err_add": "Veuillez indiquer ",
+      "err_tick": "Veuillez cocher ",
+      "and": " et ",
+      "err_first": "votre prénom",
+      "err_last": "votre nom",
+      "err_email": "un courriel valide",
+      "err_phone": "un numéro de téléphone",
+      "err_street": "votre adresse",
+      "err_city": "votre ville",
+      "err_postal": "un code postal valide (comme V8V 1A1)",
+      "tick_permission": "la case de permission du propriétaire ou du locateur",
+      "tick_consent": "la case de consentement",
+      "err_send": "Désolé, un problème est survenu et votre demande n'a pas été envoyée. Vérifiez vos renseignements et réessayez, ou écrivez à joachim@agou.ca.",
+      "honeypot": "Laisser vide"
+    },
+    "events": {
+      "locale": "fr-CA",
+      "riding": "Victoria–Beacon Hill",
+      "loading": "Chargement des événements…",
+      "empty": "Aucun événement à venir pour l'instant. Revenez bientôt.",
+      "gone": "Cet événement n'est plus affiché. Il est peut-être terminé ou annulé.",
+      "loadErr": "Désolé, impossible de charger les événements pour le moment. Réessayez dans un instant.",
+      "consent": "J'accepte que la campagne de Joachim Agou (Parti conservateur de la C.-B., Victoria–Beacon Hill) communique avec moi par courriel, téléphone ou texto au sujet de cet événement et de la campagne. Je peux demander que cela cesse à tout moment.",
+      "thanks": "Merci, vous êtes inscrit! Au plaisir de vous voir. Nous pourrions vous contacter avec des détails sur l'événement.",
+      "rsvpErr": "Désolé, un problème est survenu et votre réponse n'a pas été envoyée. Vérifiez vos renseignements et réessayez, ou écrivez à joachim@agou.ca.",
+      "rsvpClosed": "Désolé, les inscriptions à cet événement sont fermées.",
+      "all": "‹ Tous les événements",
+      "when": "Quand",
+      "where": "Où",
+      "pacific": "(heure du Pacifique)",
+      "maps": "Ouvrir dans Google Maps ↗",
+      "rsvp": "Confirmer ma présence",
+      "add_cal": "Ajouter à l'agenda",
+      "ics": "Apple / Outlook (fichier .ics)",
+      "gcal": "Google Agenda ↗",
+      "signup": "S'inscrire ↗",
+      "first_name": "Prénom",
+      "last_name": "Nom",
+      "email": "Courriel",
+      "phone": "Téléphone",
+      "optional": " (facultatif)",
+      "guests": "Vous venez accompagné?",
+      "just_me": "Seulement moi",
+      "guest": " invité",
+      "guests_pl": " invités",
+      "button": "Envoyer ma réponse",
+      "sending": "Envoi…",
+      "err_prefix": "Veuillez indiquer ",
+      "err_first": "votre prénom",
+      "err_last": "votre nom",
+      "err_email": "un courriel valide",
+      "err_phone": "un numéro de téléphone complet (ou laissez le champ vide)",
+      "err_consent": "la case de consentement",
+      "honeypot": "Laisser vide",
+      "list_title": "Événements – Joachim Agou – Victoria–Beacon Hill"
+    },
+    "follow_title": "Suivez la campagne",
+    "follow_text": "Photos et nouvelles de la campagne :",
+    "social_label": "Réseaux sociaux",
+    "og_image_alt": "Joachim Agou, Victoria–Beacon Hill",
+    "photo_slot": "Photo à venir",
+    "vote": {
+      "title": "Dates clés et liens officiels",
+      "source": "Selon Elections BC (pages en anglais). Chaque ligne renvoie à sa source officielle.",
+      "facts": [
+        [
+          "Inscrivez-vous ou mettez à jour vos renseignements d'électeur d'ici le 1er octobre 2026 pour recevoir votre carte « Where to Vote ».",
+          "https://elections.bc.ca/2026-provincial-election/"
+        ],
+        [
+          "Vote par anticipation : du 16 au 21 octobre 2026, de 8 h à 20 h (heure locale), à n'importe quel bureau de vote par anticipation.",
+          "https://elections.bc.ca/2026-provincial-election/ways-to-vote/"
+        ],
+        [
+          "Jour du scrutin : 24 octobre 2026, de 8 h à 20 h (heure du Pacifique), au bureau de vote qui vous est assigné.",
+          "https://elections.bc.ca/2026-provincial-election/ways-to-vote/"
+        ],
+        [
+          "Dernier jour pour demander une trousse de vote par la poste en ligne ou par téléphone : 18 octobre 2026.",
+          "https://elections.bc.ca/2026-provincial-election/"
+        ],
+        [
+          "Tous les électeurs doivent prouver leur identité et leur adresse résidentielle avant de voter.",
+          "https://elections.bc.ca/2026-provincial-election/voter-id/"
+        ]
+      ],
+      "links_title": "Pages officielles d'Elections BC (en anglais)",
+      "links": [
+        [
+          "S'inscrire pour voter (Register to Vote)",
+          "https://elections.bc.ca/2026-provincial-election/register-to-vote/"
+        ],
+        [
+          "Où voter (Where to Vote)",
+          "https://elections.bc.ca/2026-provincial-election/where-to-vote/"
+        ],
+        [
+          "Pièces d'identité (Voter ID)",
+          "https://elections.bc.ca/2026-provincial-election/voter-id/"
+        ],
+        [
+          "Façons de voter, dont le vote par la poste (Ways to Vote)",
+          "https://elections.bc.ca/2026-provincial-election/ways-to-vote/"
+        ],
+        [
+          "Recherche « Where to Vote » : trouver votre circonscription",
+          "https://wheretovote.elections.bc.ca/"
+        ]
+      ],
+      "src_link": "Source : Elections BC"
+    },
+    "map": {
+      "title": "Est-ce que j'habite dans Victoria–Beacon Hill?",
+      "link": "Vérifiez votre adresse auprès d'Elections BC (recherche « Where to Vote »)",
+      "alt": "Limites de la circonscription de Victoria–Beacon Hill. Limites : Elections BC (2023). Données cartographiques © contributeurs d'OpenStreetMap."
+    },
+    "updated": "Dernière mise à jour :"
+  }
+}

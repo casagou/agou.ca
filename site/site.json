@@ -1,0 +1,225 @@
+{
+  "_doc": "Site map. notion: Notion page id per language (null = no Notion page; see 'section' or 'placeholder'). section: take this H2 section from the home page content. Edit labels here, not in HTML. main_nav: header menu order (set by Joachim). Footer lists every page.",
+  "live_origin": "https://agou.ca",
+  "notion": {
+    "home": {
+      "en": "3e7e245a-e5f3-8189-b010-c0b008f99f7e",
+      "fr": "3e8e245a-e5f3-81b8-82ed-f46ff291e069"
+    },
+    "about": {
+      "en": "3e8e245a-e5f3-81ab-a121-efa7bf13cc57",
+      "fr": "8e3e245a-e5f3-83f3-afca-01c296ec9ce6"
+    },
+    "priorities": {
+      "en": "3e8e245a-e5f3-8181-b6b1-dbc98a2cde9a",
+      "fr": "b03e245a-e5f3-8201-ae89-010013ebc80e"
+    },
+    "media": {
+      "en": "3ebe245a-e5f3-8157-9873-c06a8d0db06d",
+      "fr": null
+    }
+  },
+  "images": {
+    "5c1d2ef1-cb6b-41e7-a968-a4f7f4863382.png": "riding-map",
+    "victoria-beacon-hill-riding-map.png": "riding-map",
+    "Joachim_Agou_speaking.jpg": "joachim-agou-speaking"
+  },
+  "pages": [
+    {
+      "key": "home",
+      "slug": "",
+      "nav": {
+        "en": "Home",
+        "fr": "Accueil"
+      }
+    },
+    {
+      "key": "about",
+      "slug": "about/",
+      "nav": {
+        "en": "About",
+        "fr": "À propos"
+      }
+    },
+    {
+      "key": "priorities",
+      "slug": "priorities/",
+      "nav": {
+        "en": "Priorities",
+        "fr": "Priorités"
+      }
+    },
+    {
+      "key": "get-involved",
+      "slug": "get-involved/",
+      "nav": {
+        "en": "Get involved",
+        "fr": "S'impliquer"
+      },
+      "title": {
+        "en": "Get involved",
+        "fr": "S'impliquer"
+      },
+      "children": [
+        "volunteer",
+        "lawn-sign",
+        "nominate",
+        "donate"
+      ]
+    },
+    {
+      "key": "volunteer",
+      "slug": "volunteer/",
+      "nav": {
+        "en": "Volunteer",
+        "fr": "Bénévolat"
+      },
+      "section": {
+        "en": "Volunteer",
+        "fr": "Bénévolat"
+      },
+      "form": "volunteer",
+      "robots": "noindex"
+    },
+    {
+      "key": "lawn-sign",
+      "slug": "lawn-sign/",
+      "nav": {
+        "en": "Lawn sign",
+        "fr": "Pancarte"
+      },
+      "form": "lawnsign",
+      "robots": "noindex"
+    },
+    {
+      "key": "nominate",
+      "slug": "nominate/",
+      "nav": {
+        "en": "Nominate",
+        "fr": "Appuyer ma candidature"
+      },
+      "section": {
+        "en": "Become a nominator",
+        "fr": "Appuyer ma candidature"
+      },
+      "form": "nominate",
+      "robots": "noindex"
+    },
+    {
+      "key": "donate",
+      "slug": "donate/",
+      "nav": {
+        "en": "Donate",
+        "fr": "Faire un don"
+      },
+      "section": {
+        "en": "Donate",
+        "fr": "Faire un don"
+      }
+    },
+    {
+      "key": "events",
+      "slug": "events/",
+      "nav": {
+        "en": "Events",
+        "fr": "Événements"
+      },
+      "section": {
+        "en": "Events",
+        "fr": "Événements"
+      },
+      "form": "events",
+      "robots": "index"
+    },
+    {
+      "key": "how-to-vote",
+      "slug": "how-to-vote/",
+      "nav": {
+        "en": "How to vote",
+        "fr": "Comment voter"
+      },
+      "section": {
+        "en": "Voter information",
+        "fr": "Renseignements pour voter"
+      },
+      "title": {
+        "en": "How to vote",
+        "fr": "Comment voter"
+      }
+    },
+    {
+      "key": "media",
+      "slug": "media/",
+      "nav": {
+        "en": "Media",
+        "fr": "Médias"
+      }
+    },
+    {
+      "key": "contact",
+      "slug": "contact/",
+      "nav": {
+        "en": "Contact",
+        "fr": "Coordonnées"
+      },
+      "title": {
+        "en": "Contact",
+        "fr": "Coordonnées"
+      }
+    },
+    {
+      "key": "privacy",
+      "slug": "privacy/",
+      "nav": {
+        "en": "Privacy",
+        "fr": "Confidentialité"
+      },
+      "title": {
+        "en": "Privacy notice",
+        "fr": "Avis de confidentialité"
+      },
+      "robots": "noindex"
+    }
+  ],
+  "photos": {
+    "_doc": "Photo slots. Put a JPG in assets/img/photos/ named <slot>.jpg (e.g. hero.jpg) and set the slot to that file name; null = no photo (the design shows a clean colour panel instead). See README 'Photo slots'.",
+    "hero": null,
+    "about-portrait": null
+  },
+  "social": {
+    "_doc": "Only account URLs that appear in Notion (home page Contact block). Do not add guessed handles.",
+    "Instagram": "https://www.instagram.com/casagou/",
+    "X": "https://x.com/casagou",
+    "Facebook": "https://www.facebook.com/casagou"
+  },
+  "main_nav": [
+    "about",
+    "priorities",
+    "get-involved",
+    "events",
+    "how-to-vote"
+  ],
+  "promote_donate": false,
+  "_promote_donate_doc": "ONE-LINE SWITCH. false = Donate is a quiet item inside Get involved only (people are sent to Bert Chen). true = adds a yellow Donate button in the header and in the phone's bottom bar, and a yellow Donate button on the Get involved page. Rebuild after changing.",
+  "footer_nav": [
+    "media",
+    "contact",
+    "privacy"
+  ],
+  "updated": {
+    "_doc": "'Last updated' date shown on each page (YYYY-MM-DD, Pacific time). Notion pages: tools/notion2md.py sets en-<key>/fr-<key> from Notion's page_last_edited_at. Pages built from the home page use the home date. Others: set by hand when you change their text.",
+    "en-home": "2026-09-30",
+    "fr-home": "2026-09-30",
+    "en-about": "2026-09-30",
+    "fr-about": "2026-09-30",
+    "en-priorities": "2026-09-30",
+    "fr-priorities": "2026-09-30",
+    "en-media": "2026-09-30",
+    "lawn-sign": "2026-09-30",
+    "get-involved": "2026-09-30",
+    "contact": "2026-09-30",
+    "privacy": "2026-09-30",
+    "how-to-vote": "2026-09-30",
+    "forms": "2026-09-30"
+  }
+}

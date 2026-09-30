@@ -1,0 +1,15 @@
+{
+  "_doc": "Exact-string edits applied by tools/notion2md.py when converting Notion text. Every edit is listed in the build report and in the README. Add a rule here instead of editing content/*.md by hand, so a re-sync from Notion keeps it.",
+  "rules": [
+    {"page": "en-about", "find": "Most people call me Joa. ", "replace": "", "why": "Rule: say \"Joachim\", never \"Joa\"."},
+    {"page": "fr-about", "find": "La plupart des gens m'appellent Joa. ", "replace": "", "why": "Rule: say \"Joachim\", never \"Joa\"."},
+    {"page": "en-about", "find": "\t- **Test & Evaluation Engineer** — Thales Canada, Mill Bay, BC · April 2026 – present\n", "replace": "", "why": "Rule: never show Thales (current employer)."},
+    {"page": "fr-about", "find": "\t- **Ingénieur en essais et évaluation** — Thales Canada, Mill Bay (C.-B.) · avril 2026 – aujourd'hui\n", "replace": "", "why": "Rule: never show Thales (current employer)."},
+    {"page": "en-about", "find": "Joa Aero Engineering (my P.Eng. consulting practice, since June 2025), ", "replace": "", "why": "Rule: never \"Joa\" (business name contains it). Joachim can rename or approve it."},
+    {"page": "fr-about", "find": "Joa Aero Engineering (mon cabinet de génie-conseil (P.Eng.), depuis juin 2025), ", "replace": "", "why": "Rule: never \"Joa\" (business name contains it). Joachim can rename or approve it."},
+    {"page": "en-media", "find": "Joachim Agou is the Conservative Party of BC candidate for Victoria–Beacon Hill.\n", "replace": "", "why": "Rule: he is SEEKING the nomination; this sentence says he is the confirmed candidate."},
+    {"page": "en-media", "find": "<details>\n<summary>English media kit (PDF)</summary>\n\t<pdf src=\"file://%7B%22source%22%3A%22attachment%3Ab0dd854d-b394-4b54-8b5e-840a5786be8d%3AJoachim-Agou-Media-Kit-EN.pdf%22%7D\">Joachim Agou media kit (English)</pdf>\n</details>\n<details>\n<summary>Dossier de presse en français (PDF)</summary>\n\t<pdf src=\"file://%7B%22source%22%3A%22attachment%3A11099979-5454-4ca8-95f4-45f5914782a8%3AJoachim-Agou-Dossier-de-presse-FR.pdf%22%7D\">Dossier de presse de Joachim Agou (français)</pdf>\n</details>\n", "replace": "<placeholder>MEDIAKIT</placeholder>\n", "why": "Both PDFs say he IS the party's candidate (EN medium bio: \"is the Conservative Party of BC candidate\"; FR: \"est le candidat du Parti conservateur\"). Withheld until fixed; see README."},
+    {"page": "fr-home", "find": "[**→ Demander une pancarte**](https://agou.ca/lawn-sign/) (page en anglais)", "replace": "[**→ Demander une pancarte**](https://agou.ca/lawn-sign/)", "why": "The lawn sign page now exists in French (/fr/lawn-sign/)."},
+    {"page": "fr-home", "find": " et l'ajouter à votre agenda (page en anglais).", "replace": " et l'ajouter à votre agenda.", "why": "The events page now exists in French (/fr/events/); event titles and descriptions still come from the campaign app as entered."}
+  ]
+}
