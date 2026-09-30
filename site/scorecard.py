@@ -14,6 +14,7 @@ T = {
         "title": "Scorecard",
         "kicker": "Victoria–Beacon Hill · 12 numbers, every quarter",
         "last_pub": "Last published:", "last_pub_none": "—",
+        "baseline": "Baseline:", "baseline_next": "First quarterly report after the election.",
         "next_due": "Next update due within 30 days of quarter-end.",
         "votes_note": "How I voted: printed beside every line once there are votes to report.",
         "promises_h": "Two promises, checked every three months",
@@ -42,6 +43,7 @@ T = {
         "title": "Bulletin",
         "kicker": "Victoria–Beacon Hill · 12 chiffres, chaque trimestre",
         "last_pub": "Dernière publication :", "last_pub_none": "—",
+        "baseline": "Point de départ :", "baseline_next": "Premier bilan trimestriel après l’élection.",
         "next_due": "Prochaine mise à jour dans les 30 jours suivant la fin du trimestre.",
         "votes_note": "Comment j’ai voté : indiqué à côté de chaque ligne dès qu’il y aura des votes à rapporter.",
         "promises_h": "Deux promesses, vérifiées tous les trois mois",
@@ -149,7 +151,12 @@ def scorecard_page(B, lang, page, env):
     meta = SC["items"]
     # status strip
     lp = SC.get("last_published")
-    status = (f'<div class="sc-status" role="note"><p><strong>{esc(L["last_pub"])}</strong> {esc(lp or L["last_pub_none"])} · {esc(L["next_due"])}</p>'
+    if lp:
+        first = f'<strong>{esc(L["last_pub"])}</strong> {esc(lp)}'
+    else:  # nothing published yet: show the baseline date (scorecard.json "baseline") instead of "Last published: —"
+        y, m, d = map(int, SC["baseline"].split("-"))
+        first = f'<strong>{esc(tx({lang: L["baseline"]}, lang))}</strong> <time datetime="{SC["baseline"]}">{d} {B.MONTHS[lang][m - 1]} {y}</time>. {esc(L["baseline_next"])}'
+    status = (f'<div class="sc-status" role="note"><p>{first} · {esc(L["next_due"])}</p>'
               f'<p class="sc-votes">{chip("coming", lang)} {esc(L["votes_note"])}</p></div>')
     fr_note = ""
     if lang == "fr" and not SC.get("fr_reviewed"):

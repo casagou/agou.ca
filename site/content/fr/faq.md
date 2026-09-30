@@ -17,7 +17,7 @@
 </details>
 <details>
 <summary>Pourquoi les conservateurs?</summary>
-	J'ai choisi les conservateurs parce qu'ils sont prêts à changer les règles qui ne fonctionnent pas en matière de logement, de santé, de traversiers et de sécurité publique, et à chiffrer le résultat. Je suis ingénieur. Je veux un gouvernement qui mesure ce qu'il fait et qui met fin à ce qui échoue. Je ne suis pas d'accord avec toutes les personnes qui ont un jour parlé au nom du parti. Jugez-moi sur le plan que je vous demande de retenir : des médecins accessibles, des logements abordables, des coûts que le gouvernement contrôle réellement et un centre-ville qui fonctionne.
+	J'ai choisi les conservateurs parce qu'ils sont prêts à changer les règles qui ne fonctionnent pas en matière de logement, de santé, de traversiers et de sécurité publique, et à chiffrer le résultat. Je suis ingénieur. Je veux un gouvernement qui mesure ce qu'il fait et qui met fin à ce qui échoue. Jugez-moi sur le plan que je vous demande de retenir : des médecins accessibles, des logements abordables, des coûts que le gouvernement contrôle réellement et un centre-ville qui fonctionne.
 </details>
 <details>
 <summary>Habitez-vous dans la circonscription? Quel est votre lien avec la communauté?</summary>
