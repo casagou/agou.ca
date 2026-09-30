@@ -1,7 +1,7 @@
 ## Qui je suis
 Je m'appelle Joachim Agou. J'habite à Fairfield, dans Victoria–Beacon Hill, depuis janvier 2023. Je suis papa. Né à Nice, en France, je suis arrivé au Canada à 22 ans pour étudier le génie mécanique à l'Université Laval, notamment la combustion et la dynamique des fluides numérique. J'ai travaillé sur les turbines à gaz à Montréal, dans les essais industriels à Ottawa et dans le secteur spatial à Brampton. Je me suis installé à Victoria en 2023 pour y élever ma famille et suis devenu citoyen canadien la même année.
 ## Parcours professionnel
-Je suis ingénieur professionnel. J'ai plus de 12 ans d'expérience en aérospatiale, en défense, en énergie et dans le secteur spatial. J'ai dirigé des équipes et géré des projets de plusieurs millions de dollars, leurs budgets et leurs échéanciers.
+Je suis ingénieur professionnel. J'ai plus de 15 ans d'expérience en aérospatiale, en défense, en énergie et dans le secteur spatial. J'ai dirigé des équipes et géré des projets de plusieurs millions de dollars, leurs budgets et leurs échéanciers.
 <details>
 <summary>Parcours professionnel détaillé</summary>
 	### Expérience professionnelle

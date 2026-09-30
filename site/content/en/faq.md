@@ -17,7 +17,7 @@
 </details>
 <details>
 <summary>Why the Conservatives?</summary>
-	I chose the Conservatives because they are prepared to change the rules that are not working on housing, health, ferries and public safety, and to put a number on the result. I am an engineer. I want a government that measures what it does and stops what fails. I do not agree with every person who has ever spoken for the party. Judge me on the plan I am asking you to use: doctors you can get, homes people can afford, costs government actually controls, and a downtown that works.
+	I chose the Conservatives because they are prepared to change the rules that are not working on housing, health, ferries and public safety, and to put a number on the result. I am an engineer. I want a government that measures what it does and stops what fails. Judge me on the plan I am asking you to use: doctors you can get, homes people can afford, costs government actually controls, and a downtown that works.
 </details>
 <details>
 <summary>Do you live in the riding? What is your connection to the community?</summary>

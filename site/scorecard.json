@@ -2,6 +2,7 @@
   "_doc": "Scorecard page (/scorecard/, /fr/scorecard/). The item text (Target, Today, Source / cadence, Quarterly stand-in, My lever) is Joachim's, word for word, in content/<lang>/scorecard.md (EN = his text; FR = draft translation). This file only holds the report-card summary (short title, headline figure, cadence, as-of), the source links shown under each Today row, and open fact-check flags. Every flag renders as a highlighted note (class todo) on the page, so the live build refuses to run while any flag is left; delete a flag once Joachim has decided. See README 'Scorecard'.",
   "updated": "2026-09-30",
   "last_published": null,
+  "baseline": "2026-09-30",
   "fr_reviewed": true,
   "items": {
     "1": {

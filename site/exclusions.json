@@ -168,6 +168,24 @@
       "find": "Les vols qualifiés ont augmenté de 21 % à Victoria en 2025 ([Victoria News, 24 juillet 2026](https://vicnews.com/2026/07/24/victoria-sees-small-bump-in-2025-crime-stats/)).",
       "replace": "Les vols qualifiés ont augmenté de 19 % à Victoria en 2025 ([Statistique Canada, tableau 35-10-0184](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3510018401)).",
       "why": "Fact-check (2026-09-30, approved by Joachim): the 21% (181) figure is the Victoria metro area. City of Victoria (VicPD municipal) robberies: 106 in 2024, 126 in 2025 (+19%), Statistics Canada Table 35-10-0184. Lasting override: Notion still has the old line; see RESYNC.md."
+    },
+    {
+      "page": "en-about",
+      "find": "more than 12 years of experience",
+      "replace": "more than 15 years of experience",
+      "why": "Joachim's decision (2026-09-30, live hotfix): 'more than 15 years' everywhere."
+    },
+    {
+      "page": "fr-about",
+      "find": "plus de 12 ans d'expérience",
+      "replace": "plus de 15 ans d'expérience",
+      "why": "Joachim's decision (2026-09-30, live hotfix): 'plus de 15 ans' partout."
+    },
+    {
+      "page": "en-faq",
+      "find": " I do not agree with every person who has ever spoken for the party.",
+      "replace": "",
+      "why": "Joachim's decision (2026-09-30, live hotfix): sentence removed from 'Why the Conservatives?'; build.py refuses it."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

@@ -1,7 +1,7 @@
 ## Who I am
 I am Joachim Agou. I have lived in Fairfield, in Victoria–Beacon Hill, since January 2023. I am a dad. Born in Nice, France, I came to Canada at 22 to study mechanical engineering at Université Laval, focusing on combustion and computational fluid dynamics. My career spans gas turbines in Montreal, industrial testing in Ottawa and the space industry in Brampton. I settled in Victoria in 2023 to raise my family and became a Canadian citizen that year.
 ## Work
-I am a professional engineer with more than 12 years of experience in aerospace, defence, energy and space. My work has included leading teams and managing multimillion-dollar projects, budgets and deadlines.
+I am a professional engineer with more than 15 years of experience in aerospace, defence, energy and space. My work has included leading teams and managing multimillion-dollar projects, budgets and deadlines.
 <details>
 <summary>Detailed professional background</summary>
 	### Career history
