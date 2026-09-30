@@ -323,7 +323,12 @@ def shell(lang, page, title, desc, main_html, env, extra_head="", robots_overrid
 <meta property="og:image:alt" content="{esc(U['og_image_alt'])}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#123a6d">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/img/favicon.svg?v=joa" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png?v=joa" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/img/favicon-16.png?v=joa" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=joa">
+<link rel="manifest" href="{'/fr/' if lang == 'fr' else '/'}site.webmanifest">
 <link rel="stylesheet" href="/assets/css/site.css?v={BUILD_ID}">
 {extra_head}</head>
 <body class="page-{key}">
@@ -628,6 +633,18 @@ if __name__ == "__main__":
     dist = ROOT / a.out
     if dist.exists(): shutil.rmtree(dist)
     shutil.copytree(ROOT / "assets", dist / "assets")
+    # favicon (JOA, tools/make_favicon.py): /favicon.ico at the root, one web manifest per language
+    shutil.copy(ROOT / "assets/img/favicon.ico", dist / "favicon.ico")
+    for ml, start, desc in (("en", "/", "Joachim Agou, seeking the BC Conservative nomination in Victoria–Beacon Hill"),
+                            ("fr", "/fr/", "Joachim Agou, candidat à l'investiture conservatrice dans Victoria–Beacon Hill")):
+        man = {"name": "Joachim Agou – Victoria–Beacon Hill", "short_name": "Joachim Agou", "lang": f"{ml}-CA",
+               "description": desc, "start_url": start, "scope": "/", "display": "browser",
+               "background_color": "#ffffff", "theme_color": "#123a6d",
+               "icons": [{"src": "/assets/img/icon-192.png", "sizes": "192x192", "type": "image/png"},
+                         {"src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png"},
+                         {"src": "/assets/img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}]}
+        (dist / start.lstrip("/")).mkdir(parents=True, exist_ok=True)
+        (dist / start.lstrip("/") / "site.webmanifest").write_text(json.dumps(man, ensure_ascii=False, indent=1) + "\n")
     MEDIAKIT["env"] = a.env
     MEDIAKIT["on"] = a.env == "staging" or bool(SITE.get("publish_media_kit_live"))
     if not MEDIAKIT["on"]:

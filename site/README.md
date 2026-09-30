@@ -55,6 +55,9 @@ To fill a slot, save a JPG (at least 1600px wide, real campaign photo) as `asset
 `site.json` → `"publish_faq_live"` (currently `true`: the FAQ is live since 2026-09-30). With `false`, the live build leaves out `/faq/` and `/fr/faq/` and every link to them (footer nav, How to vote, Get involved, the home "Questions?" section and the Contact page link). The build fails if any link to them is left. Staging always shows the FAQ.
 To publish it again after holding it back: finish every `[TO COMPLETE]` note in Notion, re-sync `en-faq`/`fr-faq`, set `"publish_faq_live": true`, then build live and publish. The live build refuses to run while any TO COMPLETE note remains.
 
+## Favicon (JOA)
+Joachim chose "JOA" on 2026-09-30 (the "never Joa" text rule does not apply to the favicon). `tools/make_favicon.py` draws it (navy rounded square, white Barlow Condensed letters as outlines, yellow underline) and writes `assets/img/favicon.svg`, `favicon.ico` (16/32/48), `favicon-16/32/48.png`, `apple-touch-icon.png` (180), `icon-192/512.png` and `icon-maskable-512.png`. The 16–48 px sizes and the SVG use bigger ExtraBold letters and a pixel-aligned underline so the three letters stay legible in a tab. `build.py` copies `/favicon.ico` to the root and writes `/site.webmanifest` and `/fr/site.webmanifest`. Run `/workspace/.mapenv/bin/python tools/make_favicon.py` (matplotlib, Pillow, numpy), then rebuild. If you change the icon, bump `?v=joa` in the `<head>` so browsers pick it up.
+
 ## Riding map
 `tools/make_map.py` renders the riding map as static PNGs from OpenStreetMap data (`data/osm-victoria.json.gz`, fetched with `data/osm-victoria.overpass`) and the Elections BC boundary (`data/boundary.js`). There are no map tiles and no scripts at runtime.
 - Files: `assets/img/riding-map-{en,fr}-{desk,phone}-{2x,3x}.png`. Phones get a tighter crop with bigger labels (`<picture>` media query).
