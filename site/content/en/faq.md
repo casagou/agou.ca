@@ -1,7 +1,7 @@
 ## About the campaign
 <details>
 <summary>Who are you?</summary>
-	I'm a dad, a professional engineer (P.Eng.) and a small-business owner. I live on Hilda Street in Fairfield, in this riding, with my daughter.
+	I'm a dad, a professional engineer (P.Eng.) and a small-business owner. I live in Fairfield, in this riding, with my daughter.
 	I was born in Nice, France, came to Canada in 2011, and became a citizen in 2023. I've lived in Quebec City, Montreal, Ottawa and Toronto, and I settled in Victoria in 2023. For more than 15 years I've delivered engineering projects on budget and on deadline. Today I work as a test and evaluation engineer in the defence sector, and I run Casagou Inc., a Victoria engineering and media company.
 	More: <mention-page url="/about/"/>
 </details>
@@ -21,11 +21,11 @@
 </details>
 <details>
 <summary>Do you live in the riding? What is your connection to the community?</summary>
-	Yes. I live on Hilda Street in Fairfield, where I'm raising my daughter. I've lived in Canada since 2011, in Quebec City, Montreal, Ottawa and Toronto, and settled in Victoria in 2023. I run Casagou Inc., a small Victoria engineering consulting and media company, volunteer with Chabad of Vancouver Island, and serve as interim vice-president of the Victoria Conservative Association.
+	Yes. I live in Fairfield, where I'm raising my daughter. I've lived in Canada since 2011, in Quebec City, Montreal, Ottawa and Toronto, and settled in Victoria in 2023. I run Casagou Inc., a small Victoria engineering consulting and media company, volunteer with Chabad of Vancouver Island, and serve as interim vice-president of the Victoria Conservative Association.
 </details>
 <details>
 <summary>You only settled here in 2023. Why should we trust you?</summary>
-	I have lived in Canada since 2011. I became a citizen in 2023, the same year I moved to Victoria to raise my daughter. I live on Hilda Street in Fairfield. I work on the South Island, I run a small business here, and I knock on doors in this riding.
+	I have lived in Canada since 2011. I became a citizen in 2023, the same year I moved to Victoria to raise my daughter. I live in Fairfield. I work on the South Island, I run a small business here, and I knock on doors in this riding.
 	How long someone has lived on one block is not the test. Showing up, knowing the numbers, and reporting back is the test. Judge me on that.
 </details>
 <details>

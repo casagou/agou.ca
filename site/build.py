@@ -515,6 +515,7 @@ FORBIDDEN = [
     (r"\bJoa\b", "the nickname Joa"), (r"Victoria-Beacon Hill", "hyphen instead of en dash in Victoria–Beacon Hill"),
     (r"is the Conservative Party of BC candidate|Party of BC candidate in|est le candidat du Parti", "wording that implies he is the confirmed candidate"),
     (r"date of birth|date de naissance|\bborn on\b", "date of birth"),
+    (r"(?i)hilda", "Joachim's street name (keep only the neighbourhood; see exclusions.json)"),
 ]
 PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910"}
 

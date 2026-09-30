@@ -83,11 +83,13 @@ def convert(name, report):
     text = re.sub(r"(\(https://prod-files-secure\.s3[^)?]+)\?[^)]*\)", r"\1)", text)
     # 5. exclusions
     for r in EXCL:
-        if r["page"] != name:
+        if r["page"] not in (name, "*"):
             continue
         if r["find"] in text:
             text = text.replace(r["find"], r["replace"])
             report.append(f"{name}: applied rule: {r['why']}  [removed: {r['find'].strip()[:90]!r}]")
+        elif r["page"] == "*":
+            continue
         else:
             report.append(f"{name}: WARNING rule not matched (Notion text changed? check by hand): {r['find'].strip()[:90]!r}")
     # 6. links

@@ -72,6 +72,55 @@
       "find": "I'm Joachim Agou — most people call me Joa. ",
       "replace": "",
       "why": "Rule: say \"Joachim\", never \"Joa\"."
+    },
+    {
+      "page": "*",
+      "find": "on Hilda Street in Fairfield",
+      "replace": "in Fairfield",
+      "why": "Joachim's decision (2026-09-30): no street name on the site; keep the neighbourhood (Fairfield)."
+    },
+    {
+      "page": "*",
+      "find": "on Hilda Street, in Fairfield",
+      "replace": "in Fairfield",
+      "why": "Joachim's decision (2026-09-30): no street name on the site; keep the neighbourhood (Fairfield)."
+    },
+    {
+      "page": "*",
+      "find": "on Hilda St. in Fairfield",
+      "replace": "in Fairfield",
+      "why": "Joachim's decision (2026-09-30): no street name on the site; keep the neighbourhood (Fairfield)."
+    },
+    {
+      "page": "*",
+      "find": "on Hilda St in Fairfield",
+      "replace": "in Fairfield",
+      "why": "Joachim's decision (2026-09-30): no street name on the site; keep the neighbourhood (Fairfield)."
+    },
+    {
+      "page": "*",
+      "find": "sur la rue Hilda à Fairfield",
+      "replace": "à Fairfield",
+      "why": "Joachim's decision (2026-09-30): no street name on the site; keep the neighbourhood (Fairfield)."
+    },
+    {
+      "page": "*",
+      "find": "sur la rue Hilda, à Fairfield",
+      "replace": "à Fairfield",
+      "why": "Joachim's decision (2026-09-30): no street name on the site; keep the neighbourhood (Fairfield)."
+    },
+    {
+      "page": "*",
+      "find": "rue Hilda, à Fairfield",
+      "replace": "à Fairfield",
+      "why": "Joachim's decision (2026-09-30): no street name on the site; keep the neighbourhood (Fairfield)."
+    },
+    {
+      "page": "*",
+      "find": "rue Hilda à Fairfield",
+      "replace": "à Fairfield",
+      "why": "Joachim's decision (2026-09-30): no street name on the site; keep the neighbourhood (Fairfield)."
     }
-  ]
+  ],
+  "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."
 }

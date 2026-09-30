@@ -66,7 +66,7 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
         total += 1
         if p in ptxt: continue
         # excluded on purpose? (whole line, or the line with the excluded part removed)
-        hit = [r for r in EXCL if r["page"] == name and any(plain(fl) and (plain(fl) in p or p == plain(fl)) for fl in r["find"].split("\n"))]
+        hit = [r for r in EXCL if r["page"] in (name, "*") and any(plain(fl) and (plain(fl) in p or p == plain(fl)) for fl in r["find"].split("\n"))]
         if hit:
             excluded.append(f"{name}: {p[:110]!r}  -> {hit[0]['why']}")
         else:
