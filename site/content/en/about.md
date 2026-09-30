@@ -8,7 +8,7 @@ I'm a professional engineer with more than 15 years of experience in aerospace, 
 	- **Test & Evaluation Engineer (IVVQ)** — Defence contractor supporting the Royal Canadian Navy, Mill Bay, BC · April 2026 – present
 		Test planning, test procedures and test events for shipboard systems on Royal Canadian Navy vessels, including at shipyards and during sea trials.
 	- **Founder & Chief Executive** — Casagou Inc., Victoria, BC · July 2023 – present
-		A small Victoria professional services company. Its businesses include JOA Aero Engineering (my P.Eng. engineering consulting practice, since June 2025), Eventia Media (event and corporate video and livestreaming), Victoria Drone (aerial photography and video) and BC Funeral Videos (memorial livestreams and tribute videos).
+		A small Victoria professional services company. Its businesses include JOA Aero Engineering (my P.Eng. engineering consulting practice, since June 2025), Eventia Media (event, corporate and memorial video, livestreaming and aerial drone photography) and Casagou Ops (business systems and automation).
 	- **Accounting & Operations Administrator** — Sarah Mae Ives Social Media Inc., Vancouver, BC · September 2023 – January 2026
 		Managed daily cash flow and invoicing for more than 100 client accounts. Led a team of 4 to 6.
 	- **Project Manager, Restaurant Operations (pre-launch)** — Victoria, BC · April 2024 – August 2024
