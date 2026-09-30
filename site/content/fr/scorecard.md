@@ -19,7 +19,7 @@ Je publierai ces 12 chiffres chaque trimestre, je dirai s’ils ont bougé et j�
 
 **2. Une liste publique de vraies économies**  
 **Cible :** Un registre public, ligne par ligne, des économies du gouvernement provincial. Toute nouvelle dépense supplémentaire compensée par une coupe ailleurs. Le montant total suivra le plan financier du parti une fois celui-ci publié — je n’avance pas un chiffre personnel de 500 millions de dollars qui ne couvre pas le point 1.  
-**Aujourd’hui :** Le Budget 2026 inscrit 3,5 milliards de dollars en « gestion des dépenses » sur la période du plan financier et prévoit tout de même un déficit de 13,8 milliards de dollars cette année (premier rapport trimestriel, septembre 2026). Il n’existe aucun registre public, ligne par ligne, qu’un électeur puisse vérifier.  
+**Aujourd’hui :** Le Budget 2026 inscrit 3,5 milliards de dollars en « gestion des dépenses » sur la période du plan financier, et le premier rapport trimestriel prévoit maintenant un déficit de 13,8 milliards de dollars (Premier rapport trimestriel, septembre 2026). Il n’existe aucun registre public, ligne par ligne, qu’un électeur puisse vérifier.  
 **Source / fréquence :** Comptes publics (annuels); rapports trimestriels (trimestriels).  
 **Mon levier :** Voter pour des règles « un dollar pour un dollar ». Publier moi-même le registre à partir des rapports trimestriels si le gouvernement ne le fait pas.
 
@@ -58,7 +58,7 @@ Je publierai ces 12 chiffres chaque trimestre, je dirai s’ils ont bougé et j�
 
 **8. L’attente à l’urgence quand il vous faut un lit**  
 **Cible :** La cible d’Island Health elle-même : une attente médiane de 10 heures ou moins entre le triage et un lit d’hospitalisation, à l’hôpital Royal Jubilee et à l’hôpital Victoria General.  
-**Aujourd’hui :** Médiane d’Island Health, tous sites confondus : 15 heures depuis le début de l’exercice, selon le rapport de rendement de juillet 2026 (en rouge). La mesure est la médiane — la moitié des patients admis ont attendu moins, l’autre moitié plus.  
+**Aujourd’hui :** Médiane d’Island Health, tous sites confondus : 15 heures depuis le début de l’exercice, en date de mars 2026 (publié en juillet 2026; en rouge). La mesure est la médiane — la moitié des patients admis ont attendu moins, l’autre moitié plus.  
 **Source / fréquence :** Indicateur d’Island Health « Wait Time in ED for an Inpatient Bed » — publié avec ses mesures de rendement. Demander chaque trimestre les chiffres des deux hôpitaux de Victoria séparément.  
 **Mon levier :** Voter pour des lits de médecine dotés en personnel et pour payer les hôpitaux selon les patients qu’ils traitent plutôt que par une enveloppe globale. Déposer les chiffres des deux hôpitaux si Island Health ne les publie pas.
 

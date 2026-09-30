@@ -2,7 +2,7 @@
   "_doc": "Scorecard page (/scorecard/, /fr/scorecard/). The item text (Target, Today, Source / cadence, Quarterly stand-in, My lever) is Joachim's, word for word, in content/<lang>/scorecard.md (EN = his text; FR = draft translation). This file only holds the report-card summary (short title, headline figure, cadence, as-of), the source links shown under each Today row, and open fact-check flags. Every flag renders as a highlighted note (class todo) on the page, so the live build refuses to run while any flag is left; delete a flag once Joachim has decided. See README 'Scorecard'.",
   "updated": "2026-09-30",
   "last_published": null,
-  "fr_reviewed": false,
+  "fr_reviewed": true,
   "items": {
     "1": {
       "status": "target",
@@ -57,8 +57,8 @@
         "fr": "13,8 G$"
       },
       "figlabel": {
-        "en": "deficit this year; no public savings register",
-        "fr": "de déficit cette année; aucun registre public des économies"
+        "en": "deficit projected in the first quarterly report; no public savings register",
+        "fr": "de déficit prévu au premier rapport trimestriel; aucun registre public des économies"
       },
       "sources": [
         {
@@ -71,8 +71,7 @@
           "fr": "Premier rapport trimestriel, sept. 2026 (PDF, en anglais)",
           "url": "https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/government-finances/quarterly-reports/2026-27_first_quarterly_report.pdf"
         }
-      ],
-      "factcheck": "Minor: $13.8 billion is the First Quarterly Report forecast (Sept. 14, 2026). Budget 2026 itself projected $13.3 billion. The sentence reads as if the budget projects $13.8 billion; Joachim to decide whether to reword."
+      ]
     },
     "3": {
       "status": "target",
@@ -234,8 +233,8 @@
       "status": "target",
       "cadence": "quarterly",
       "asof": {
-        "en": "July 2026 report",
-        "fr": "rapport de juillet 2026"
+        "en": "March 2026 (published July 2026)",
+        "fr": "mars 2026 (publié en juillet 2026)"
       },
       "short": {
         "en": "Emergency wait for a bed",
@@ -260,8 +259,7 @@
           "fr": "Mesures de rendement d’Island Health (en anglais)",
           "url": "https://www.islandhealth.ca/about-us/accountability/performance-measures"
         }
-      ],
-      "factcheck": "Minor: the report was published in July 2026, but its data run to March 2026 (fiscal 2025/26 year to date). 15 hours, red, and the 10-hour target are correct."
+      ]
     },
     "9": {
       "status": "target",
@@ -388,6 +386,10 @@
       "**Today:** 128 deaths in South Vancouver Island in 2025 (94 in the Greater Victoria local health area); 343 on the Island; 1,826 in B.C.",
       "**Today:** City crime-severity index 152.17 in 2024 (down 11%), then 161.18 in 2025 (up 6%). Robberies in the city +19% in 2025 (126 incidents), Statistics Canada, July 2026. This city is still the regional outlier.",
       "**Today:** New locked treatment beds are being built in Surrey (60 beds, opening spring 2028) and Prince George (72 beds, from December 2027). Our Place’s therapeutic recovery community supported about 120 people in 2025–26. There is no official South Island inventory of seats versus demand. That number does not exist until someone publishes it."
+    ],
+    "2026-09-30 (Joachim, items 2 and 8, before going live)": [
+      "**Today:** Budget 2026 books $3.5 billion in “expenditure management” over the fiscal plan, and the first quarterly report now projects a $13.8 billion deficit (First Quarterly Report, September 2026). There is no public, line-by-line register a voter can check.",
+      "**Today:** Island Health median, all sites, 15 hours year-to-date as of March 2026 (published July 2026; red). The measure is the median — half of admitted patients waited less, half waited more."
     ]
   }
 }

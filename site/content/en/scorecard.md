@@ -19,7 +19,7 @@ I will publish these 12 numbers every quarter, say whether they moved, and print
 
 **2. A public list of real savings**  
 **Target:** A published, line-by-line savings register for the provincial government. New extra spending matched by a cut somewhere else. The dollar total follows the party fiscal plan once it is out — I am not printing a personal $500 million figure that does not cover item 1.  
-**Today:** Budget 2026 books $3.5 billion in “expenditure management” over the fiscal plan and still projects a $13.8 billion deficit this year (first quarterly report, September 2026). There is no public, line-by-line register a voter can check.  
+**Today:** Budget 2026 books $3.5 billion in “expenditure management” over the fiscal plan, and the first quarterly report now projects a $13.8 billion deficit (First Quarterly Report, September 2026). There is no public, line-by-line register a voter can check.  
 **Source / cadence:** Public Accounts (annual); Quarterly Reports (quarterly).  
 **My lever:** Vote for dollar-for-dollar rules. Publish the register myself from the Quarterly Reports if the government will not.
 
@@ -58,7 +58,7 @@ I will publish these 12 numbers every quarter, say whether they moved, and print
 
 **8. Time stuck in emergency after you need a bed**  
 **Target:** Island Health’s own target: median wait from triage to an inpatient bed of 10 hours or less at Royal Jubilee and at Victoria General.  
-**Today:** Island Health median, all sites, 15 hours year-to-date as of the July 2026 performance report (red). The measure is the median — half of admitted patients waited less, half waited more.  
+**Today:** Island Health median, all sites, 15 hours year-to-date as of March 2026 (published July 2026; red). The measure is the median — half of admitted patients waited less, half waited more.  
 **Source / cadence:** Island Health “Wait Time in ED for an Inpatient Bed” — published with their performance measures. Ask for the two Victoria hospitals separately each quarter.  
 **My lever:** Vote for staffed medical beds and for paying hospitals for treating patients rather than for sitting on a block grant. Table the two-hospital split if Island Health will not.
 

@@ -80,8 +80,8 @@ Mobile-first. Body text 18px with line-height 1.55 and lines of about 62 charact
 - FR "(page en anglais)" notes were removed (home and FAQ), because those pages now exist in French.
 
 ## Scorecard (`/scorecard/`, `/fr/scorecard/`; staging only until approved)
-Not from Notion. Joachim's public scorecard text, word for word, is in `content/en/scorecard.md` (his private notes, the pay-for talking points and the draft change log are not in the repo). `content/fr/scorecard.md` is a draft translation (FR title: "Bulletin").
+Not from Notion. Joachim's public scorecard text, word for word, is in `content/en/scorecard.md` (his private notes, the pay-for talking points and the draft change log are not in the repo). `content/fr/scorecard.md` is the FR translation (FR title: "Bulletin"), approved by Joachim on 2026-09-30 (`fr_reviewed: true`).
 - `scorecard.json`: report-card summary per item (short title, headline figure, cadence, as-of), the source links under each "Today" row, `last_published` (null shows "—"), `fr_reviewed`, and open `factcheck` flags.
 - `scorecard.py` renders the page (own stylesheet `assets/css/scorecard.css`); build.py adds the "See the scorecard" links on Priorities and in the home priorities section, and `site.json` puts it in the footer.
-- `site.json` → `"publish_scorecard_live": false`: the live build leaves out both pages and every link to them. Staging always shows them. Even when true, the live build refuses to run while any `factcheck` flag is left in `scorecard.json` or `fr_reviewed` is false (both render as highlighted draft notes).
+- `site.json` → `"publish_scorecard_live"` (`true` since 2026-09-30; both EN and FR are live). When false, the live build leaves out both pages and every link to them. Staging always shows them. Even when true, the live build refuses to run while any `factcheck` flag is left in `scorecard.json` or `fr_reviewed` is false (both render as highlighted draft notes).
 - After editing: `python3 build.py --env staging && python3 tools/scorecard_check.py` (every sentence of `content/en/scorecard.md` must be on the page; add `--source <file>` to compare against Joachim's full text).
