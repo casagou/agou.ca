@@ -423,6 +423,12 @@ def photo_slot(slot, lang, cls):
     return f'<div class="{cls} hero-map" data-photo-slot="{slot}">{map_card(lang, eager=True)}</div>'
 
 
+def event_maps():
+    """assets/img/events/index.json (tools/make_event_maps.py): {event id: {lat, lng, v}}. The events page shows a map
+    only when the event's lat/lng from get_public_events still match, so a moved pin never shows an old map."""
+    f = ROOT / "assets/img/events/index.json"
+    return json.loads(f.read_text()) if f.exists() else {}
+
 def build_page(lang, page, env):
     key = page["key"]; U = UI[lang]
     if key == "scorecard":  # /scorecard/: own layout, see scorecard.py
@@ -511,7 +517,7 @@ def build_page(lang, page, env):
     if page.get("form") == "events":
         T = U["events"]
         body = f'<div data-hide-on-detail>{body}</div><section class="block" id="events-list" aria-live="polite"><div id="listView"><div id="list"><p class="note">{esc(T["loading"])}</p></div></div><article id="detailView" class="detail" hidden></article></section>'
-        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": "events", "live_url": LIVE + self_path, "text": T, "common": U["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
+        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": "events", "live_url": LIVE + self_path, "text": T, "common": U["form_common"], "maps": event_maps()}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     main = f'<div class="page-head"><div class="wrap"><h1>{esc(h1)}</h1></div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
     desc = first_text(md) if md else U["lawnsign"]["intro"] if key == "lawn-sign" else ""
     if key == "lawn-sign": desc = U["lawnsign"]["intro"]
@@ -726,6 +732,9 @@ if __name__ == "__main__":
         SITE["footer_nav"] = [k for k in SITE["footer_nav"] if k not in HIDDEN]
         for p in PAGES:
             if p.get("children"): p["children"] = [k for k in p["children"] if k not in HIDDEN]
+    if a.env == "live" and not SITE.get("events_redesign_approved", True):
+        sys.exit("Live build refused: staging contains the 30 Sep 2026 events redesign (date tiles, directions, static maps), not yet approved by Joachim. "
+                 "Set site.json events_redesign_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
     if a.env == "live" and not SITE.get("review_batch_approved", True):
         sys.exit("Live build refused: staging contains the 30 Sep 2026 review batch (header, forms, sections, actions, FAQ index), not yet approved by Joachim. "
                  "Set site.json review_batch_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
