@@ -273,6 +273,8 @@
     "joachim-agou-speaking"
   ],
   "_more_photos_doc": "After these images (any page, any re-sync), build.py adds the reading link 'More photos on Instagram ↗' (ui.json more_photos) to social.Instagram, same tab, rel=noopener. Not from Notion.",
+  "events_redesign_approved": false,
+  "_events_redesign_doc": "30 Sep 2026 events redesign on staging (date tiles, exact pins, Get directions / Apple Maps, static OSM maps, list cards). The live build refuses to run until Joachim approves and this is set to true. The database side (migration 41, lat/lng on events 5-9) is already live.",
   "review_batch_approved": true,
   "_review_batch_doc": "30 Sep 2026 design refresh (078cca5 + 3825943): approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future staging-only batch back from live builds."
 }
