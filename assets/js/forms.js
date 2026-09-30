@@ -18,6 +18,50 @@
     }).then(function (r) { if (!r.ok) return r.text().then(function (t) { throw new Error(t); }); return r; });
   }
   function show(kind, text) { var m = $("msg"); m.className = "msg " + kind; m.textContent = text; if (kind === "err") m.focus(); }
+  var C = CFG.common || { err_title: "", tick: "" };
+  /* Errors: a summary (each item links to its field) plus a message under each field (aria-invalid + aria-describedby). */
+  function clearErrs(form) {
+    form.querySelectorAll(".ferr").forEach(function (x) { x.remove(); });
+    form.querySelectorAll("[aria-invalid]").forEach(function (x) {
+      x.removeAttribute("aria-invalid");
+      var d = x.getAttribute("data-desc"); if (d) x.setAttribute("aria-describedby", d); else x.removeAttribute("aria-describedby");
+    });
+  }
+  function fieldErr(inp, text) {
+    var id = inp.id + "-err";
+    if (!inp.hasAttribute("data-desc")) inp.setAttribute("data-desc", inp.getAttribute("aria-describedby") || "");
+    inp.setAttribute("aria-invalid", "true");
+    inp.setAttribute("aria-describedby", ((inp.getAttribute("data-desc") || "") + " " + id).trim());
+    var p = document.createElement("p"); p.className = "ferr"; p.id = id;
+    var ic = document.createElement("span"); ic.className = "ferr-ic"; ic.setAttribute("aria-hidden", "true"); ic.textContent = "!";
+    p.append(ic, document.createTextNode(text));
+    var anchor = inp.type === "checkbox" || inp.type === "radio" ? inp.closest(".cb") : inp;
+    anchor.after(p);
+    var off = function () { clearOne(inp); inp.removeEventListener("input", off); inp.removeEventListener("change", off); };
+    inp.addEventListener("input", off); inp.addEventListener("change", off);
+  }
+  function clearOne(inp) {
+    var e = document.getElementById(inp.id + "-err"); if (e) e.remove();
+    inp.removeAttribute("aria-invalid");
+    var d = inp.getAttribute("data-desc"); if (d) inp.setAttribute("aria-describedby", d); else inp.removeAttribute("aria-describedby");
+  }
+  // list: [[fieldId, message], ...]
+  function fail(form, msg, list) {
+    clearErrs(form);
+    msg.className = "msg err"; msg.textContent = "";
+    var h = document.createElement("p"); h.className = "msg-t"; h.textContent = C.err_title; msg.append(h);
+    var ul = document.createElement("ul");
+    list.forEach(function (it) {
+      var inp = document.getElementById(it[0]); if (!inp) return;
+      fieldErr(inp, it[1]);
+      var li = document.createElement("li"), a = document.createElement("a");
+      a.href = "#" + it[0]; a.textContent = it[1];
+      a.addEventListener("click", function (ev) { ev.preventDefault(); inp.focus(); inp.scrollIntoView({ block: "center" }); });
+      li.append(a); ul.append(li);
+    });
+    msg.append(ul); msg.focus();
+  }
+  function ok(form) { clearErrs(form); }
   function lock(form, btn) { form.querySelectorAll("input,textarea,select,button").forEach(function (x) { x.disabled = true; }); btn.textContent = T.sent; }
 
   /* ---------- Volunteer (rpc submit_volunteer_signup) ---------- */
@@ -26,12 +70,14 @@
       e.preventDefault();
       if (v("website")) { show("ok", T.thanks); return; } // bot
       var errs = [];
-      if (!v("first_name")) errs.push(T.err_first);
-      if (!v("last_name")) errs.push(T.err_last);
-      if (!EMAIL.test(v("email"))) errs.push(T.err_email);
-      if (v("phone").replace(/\D/g, "").length < 7) errs.push(T.err_phone);
-      if (!$("consent").checked) errs.push(T.err_consent);
-      if (errs.length) { show("err", T.err_prefix + errs.join(", ") + "."); return; }
+      var P = T.err_prefix;
+      if (!v("first_name")) errs.push(["first_name", P + T.err_first]);
+      if (!v("last_name")) errs.push(["last_name", P + T.err_last]);
+      if (!EMAIL.test(v("email"))) errs.push(["email", P + T.err_email]);
+      if (v("phone").replace(/\D/g, "").length < 7) errs.push(["phone", P + T.err_phone]);
+      if (!$("consent").checked) errs.push(["consent", C.tick + T.err_consent]);
+      if (errs.length) { fail($("f"), $("msg"), errs); return; }
+      ok($("f")); $("msg").className = "msg"; $("msg").textContent = "";
       var btn = $("btn"); btn.disabled = true; btn.textContent = T.sending;
       rpc("submit_volunteer_signup", {
         p_first_name: v("first_name"), p_last_name: v("last_name"), p_email: v("email"),
@@ -48,12 +94,14 @@
       e.preventDefault();
       if (v("website")) return; // bot
       var errs = [];
-      if (v("full_name").length < 2) errs.push(T.err_name);
-      if (v("street_address").length < 4) errs.push(T.err_street);
-      if (v("phone").replace(/\D/g, "").length < 7) errs.push(T.err_phone);
-      if (v("email") && !EMAIL.test(v("email"))) errs.push(T.err_email);
-      if (!$("consent").checked) errs.push(T.err_consent);
-      if (errs.length) { show("err", T.err_prefix + errs.join(", ") + "."); return; }
+      var P = T.err_prefix;
+      if (v("full_name").length < 2) errs.push(["full_name", P + T.err_name]);
+      if (v("street_address").length < 4) errs.push(["street_address", P + T.err_street]);
+      if (v("phone").replace(/\D/g, "").length < 7) errs.push(["phone", P + T.err_phone]);
+      if (v("email") && !EMAIL.test(v("email"))) errs.push(["email", P + T.err_email]);
+      if (!$("consent").checked) errs.push(["consent", C.tick + T.err_consent]);
+      if (errs.length) { fail($("f"), $("msg"), errs); return; }
+      ok($("f")); $("msg").className = "msg"; $("msg").textContent = "";
       var btn = $("btn"); btn.disabled = true; btn.textContent = T.sending;
       rpc("submit_nominator_signup", {
         p_full_name: v("full_name"), p_street_address: v("street_address"), p_phone: v("phone"),
@@ -75,20 +123,18 @@
     $("f").addEventListener("submit", function (e) {
       e.preventDefault();
       if (v("website")) { show("ok", T.thanks); return; } // bot
-      var errs = [], ticks = [];
-      if (!v("first_name")) errs.push(T.err_first);
-      if (!v("last_name")) errs.push(T.err_last);
-      if (!EMAIL.test(v("email"))) errs.push(T.err_email);
-      if (v("phone").replace(/\D/g, "").length < 7) errs.push(T.err_phone);
-      if (v("street_address").length < 3) errs.push(T.err_street);
-      if (!v("city")) errs.push(T.err_city);
-      if (!PC.test(v("postal_code"))) errs.push(T.err_postal);
-      if (!$("permission").checked) ticks.push(T.tick_permission);
-      if (!$("consent").checked) ticks.push(T.tick_consent);
-      if (errs.length || ticks.length) {
-        show("err", [errs.length ? T.err_add + errs.join(", ") + "." : "", ticks.length ? T.err_tick + ticks.join(T.and) + "." : ""].filter(Boolean).join(" "));
-        return;
-      }
+      var errs = [], A = T.err_add, K = T.err_tick;
+      if (!v("first_name")) errs.push(["first_name", A + T.err_first]);
+      if (!v("last_name")) errs.push(["last_name", A + T.err_last]);
+      if (!EMAIL.test(v("email"))) errs.push(["email", A + T.err_email]);
+      if (v("phone").replace(/\D/g, "").length < 7) errs.push(["phone", A + T.err_phone]);
+      if (v("street_address").length < 3) errs.push(["street_address", A + T.err_street]);
+      if (!v("city")) errs.push(["city", A + T.err_city]);
+      if (!PC.test(v("postal_code"))) errs.push(["postal_code", A + T.err_postal]);
+      if (!$("permission").checked) errs.push(["permission", K + T.tick_permission]);
+      if (!$("consent").checked) errs.push(["consent", K + T.tick_consent]);
+      if (errs.length) { fail($("f"), $("msg"), errs); return; }
+      ok($("f")); $("msg").className = "msg"; $("msg").textContent = "";
       var pl = document.querySelector('input[name="placement"]:checked');
       var btn = $("btn"); btn.disabled = true; btn.textContent = T.sending;
       rpc("submit_lawn_sign_request", {
@@ -217,13 +263,14 @@
         ev.preventDefault();
         var done = function () { var t = el("div", { class: "msg ok", role: "status", tabindex: "-1", text: T.thanks }); f.replaceWith(t); t.focus(); };
         if (v("website")) { done(); return; } // bot
-        var errs = [];
-        if (!v("first_name")) errs.push(T.err_first);
-        if (!v("last_name")) errs.push(T.err_last);
-        if (!EMAIL.test(v("email"))) errs.push(T.err_email);
-        if (v("phone") && v("phone").replace(/\D/g, "").length < 7) errs.push(T.err_phone);
-        if (!$("consent").checked) errs.push(T.err_consent);
-        if (errs.length) { showm("err", T.err_prefix + errs.join(", ") + "."); return; }
+        var errs = [], P = T.err_prefix;
+        if (!v("first_name")) errs.push(["first_name", P + T.err_first]);
+        if (!v("last_name")) errs.push(["last_name", P + T.err_last]);
+        if (!EMAIL.test(v("email"))) errs.push(["email", P + T.err_email]);
+        if (v("phone") && v("phone").replace(/\D/g, "").length < 7) errs.push(["phone", P + T.err_phone]);
+        if (!$("consent").checked) errs.push(["consent", C.tick + T.err_consent]);
+        if (errs.length) { fail(f, msg, errs); return; }
+        ok(f); msg.className = "msg"; msg.textContent = "";
         btn.disabled = true; btn.textContent = T.sending;
         rpc("submit_event_rsvp", { p_event_id: e.id, p_first_name: v("first_name"), p_last_name: v("last_name"), p_email: v("email"),
           p_phone: v("phone") || null, p_guests: +$("guests").value, p_consent: true, p_consent_text: T.consent, p_website: v("website") })
