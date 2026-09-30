@@ -104,7 +104,7 @@
       "slug": "nominate/",
       "nav": {
         "en": "Nominate",
-        "fr": "Appuyer ma candidature"
+        "fr": "S'inscrire pour signer mon formulaire de mise en candidature"
       },
       "section": {
         "en": "Become a nominator",
@@ -290,5 +290,7 @@
   "events_redesign_approved": true,
   "_events_redesign_doc": "30 Sep 2026 events redesign (date tiles, exact pins, Get directions / Apple Maps, static OSM maps, list cards): approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future events change back from live builds.",
   "review_batch_approved": true,
-  "_review_batch_doc": "30 Sep 2026 design refresh (078cca5 + 3825943): approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future staging-only batch back from live builds."
+  "_review_batch_doc": "30 Sep 2026 design refresh (078cca5 + 3825943): approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future staging-only batch back from live builds.",
+  "fr_faq_approved": false,
+  "fr_edits_approved": false
 }

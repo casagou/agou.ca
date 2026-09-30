@@ -13,7 +13,7 @@
 <details>
 <summary>Why are you running to represent Victoria–Beacon Hill?</summary>
 	At the door, I hear the same four things: people can't find a family doctor, rent is out of reach, everything costs more, and downtown doesn't feel safe. About 1 in 4 British Columbians has no family doctor, and a two-bedroom here averages \$2,120 a month.
-	I've spent 15 years as an engineer delivering multimillion-dollar projects on budget. My job today is to test whether things work and report the result. I want to bring that to the Legislature: clear targets, published numbers and a quarterly report to the riding.
+	I've spent more than 15 years as an engineer delivering multimillion-dollar projects on budget. My job today is to test whether things work and report the result. I want to bring that to the Legislature: clear targets, published numbers and a quarterly report to the riding.
 </details>
 <details>
 <summary>Why the Conservatives?</summary>

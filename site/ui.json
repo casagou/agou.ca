@@ -332,8 +332,8 @@
     },
     "nominate": {
       "title": "Appuyer la candidature de Joachim Agou",
-      "sub": "Candidat à l'investiture du Parti conservateur de la C.-B. · Victoria–Beacon Hill · Élection provinciale du 24 octobre 2026",
-      "intro": "Merci. Signer le formulaire de mise en candidature n'est pas un engagement à voter. Vous devez être électeur admissible et habiter Victoria–Beacon Hill. Chaque électeur ne peut appuyer qu'un seul candidat.",
+      "sub": "Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative · Élection provinciale du 24 octobre 2026",
+      "intro": "Merci. Signer le formulaire de mise en candidature n'est pas un engagement à voter. Vous devez être électeur admissible et habiter Victoria–Beacon Hill. Chaque électeur ne peut signer le formulaire de mise en candidature que d'un seul candidat.",
       "sessions_legend": "À quelle(s) séance(s) de signature pouvez-vous venir?",
       "sessions_hint": "Heures à confirmer. Nous vous communiquerons l'heure exacte.",
       "sessions": [
@@ -496,7 +496,7 @@
       "source": "Selon Elections BC (pages en anglais). Chaque ligne renvoie à sa source officielle.",
       "facts": [
         [
-          "Inscrivez-vous ou mettez à jour vos renseignements d'électeur d'ici le 1er octobre 2026 pour recevoir votre carte « Where to Vote ».",
+          "Inscrivez-vous ou mettez à jour vos renseignements d'électeur d'ici le 1er octobre 2026 pour recevoir votre carte d'information électorale (« Where to Vote »).",
           "https://elections.bc.ca/2026-provincial-election/"
         ],
         [

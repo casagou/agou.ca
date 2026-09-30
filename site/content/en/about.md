@@ -1,27 +1,36 @@
 ## Who I am
-I am Joachim Agou. I have lived in Fairfield, in Victoria–Beacon Hill, since January 2023. I am a dad. Born in Nice, France, I came to Canada at 22 to study mechanical engineering at Université Laval, focusing on combustion and computational fluid dynamics. My career spans gas turbines in Montreal, industrial testing in Ottawa and the space industry in Brampton. I settled in Victoria in 2023 to raise my family and became a Canadian citizen that year.
+I'm Joachim Agou, and I'm a dad. I was born in Nice, France, and came to Canada at 22 to study mechanical engineering at Université Laval, focusing on combustion and computational fluid dynamics. My career took me through gas turbines in Montreal, industrial testing in Ottawa and the space industry in Brampton. In January 2023 I settled in Fairfield, in Victoria–Beacon Hill, to raise my family, and I became a Canadian citizen that year.
 ## Work
-I am a professional engineer with more than 12 years of experience in aerospace, defence, energy and space. My work has included leading teams and managing multimillion-dollar projects, budgets and deadlines.
+I'm a professional engineer with more than 15 years of experience in aerospace, defence, energy and space. I lead engineering teams and deliver multimillion-dollar projects on budget and on schedule. Today I support the navy as a defence contractor.
 <details>
 <summary>Detailed professional background</summary>
 	### Career history
+	- **Test & Evaluation Engineer (IVVQ)** — Defence contractor supporting the Royal Canadian Navy, Mill Bay, BC · April 2026 – present
+		Test planning, test procedures and test events for shipboard systems on Royal Canadian Navy vessels, including at shipyards and during sea trials.
+	- **Vice-President (interim), volunteer** — Victoria Conservative Association (Conservative Party of Canada), Victoria, BC · June 2026 – present
+		Also the association's chief executive officer registered with Elections Canada. I handle its filings, member records and volunteer operations.
+	- **Founder & Lead** — A City That Works, Victoria, BC · March 2026 – present
+		An independent, non-partisan civic initiative that published an evidence-based policy framework for Victoria's 2026 municipal election.
 	- **Founder & Chief Executive** — Casagou Inc., Victoria, BC · July 2023 – present
-		A small Victoria professional services company. Its businesses include Eventia Media (event and corporate video and livestreaming), BC Funeral Videos (memorial livestreams and tribute videos) and Victoria Drone (aerial photography and video).
+		A small Victoria professional services company. Its businesses include JOA Aero Engineering (my P.Eng. engineering consulting practice, since June 2025), Eventia Media (event and corporate video and livestreaming), Victoria Drone (aerial photography and video) and BC Funeral Videos (memorial livestreams and tribute videos).
 	- **Accounting & Operations Administrator** — Sarah Mae Ives Social Media Inc., Vancouver, BC · September 2023 – January 2026
 		Managed daily cash flow and invoicing for more than 100 client accounts. Led a team of 4 to 6.
-	- **Project Manager, restaurant pre-launch** — Victoria, BC · April 2024 – August 2024
-		Ran the pre-launch of a new restaurant: site selection, lease, permits, hiring, renovations and supplier contracts. All milestones were met on schedule; the opening was later cancelled for outside reasons.
-	- **Senior Systems / Project Engineer, Robotics & Space** — MDA, Brampton, ON · February 2022 – February 2023
+	- **Project Manager, Restaurant Operations (pre-launch)** — Victoria, BC · April 2024 – August 2024
+		Led the pre-launch of a new restaurant, from site selection, lease and permits to hiring and renovations. All milestones were met on schedule; the opening was later cancelled for outside reasons.
+	- **Senior Systems / Project Engineer, Robotics & Space Operations** — MDA, Brampton, ON · February 2022 – February 2023
 		Systems engineering for robotic systems used in on-orbit servicing and planetary exploration. Managed day-to-day work across mechanical, electrical, software and mission operations teams.
 	- **Gas Turbine Applications Engineer, Systems Integrator** — MDS Gas Turbine Engine Solutions, Ottawa, ON · December 2013 – February 2022
 		Delivered more than 15 turnkey gas turbine test facilities in North America, Europe, Asia and the Middle East, for clients including Rolls-Royce, Siemens, Safran, NASA and Air France. Managed multi-million-dollar projects, budgets, schedules and procurement.
-	- **Combustion & Pollutant Emissions Engineer** — Siemens Canada (formerly Rolls-Royce Canada), Research and Technology, Montreal, QC · January 2013 – December 2013
+	- **Combustion & Pollutant Emissions Engineer, Aerothermal** — Siemens Canada (formerly Rolls-Royce Canada), Research and Technology, Montreal, QC · January 2013 – December 2013
 		Measured emissions on gas turbine test beds and evaluated more than 10 biofuel formulations.
 	- **Graduate Research and Teaching Assistant** — Combustion Engineering Research Laboratory, Université Laval, Quebec City, QC · January 2011 – May 2013
 		Researched biofuels for gas turbines. Gave guest lectures in thermodynamics and supervised international interns.
-	- **Independent study, adaptive structures** — Florida Institute of Technology, Melbourne, FL · January 2010 – June 2010
-	- **Formula SAE powertrain lead** — Florida Tech Motorsports, Melbourne, FL · November 2008 – May 2009
-		The project won Best Mechanical Engineering Senior Design Project (April 2009).
+	- **Independent Study in Mechanical Engineering** — Florida Institute of Technology, Melbourne, FL · January 2010 – June 2010
+		Research on adaptive structures, using finite element and computational fluid dynamics simulation.
+	- **Formula SAE, Powertrain Engineering Lead** — Florida Tech Motorsports, Melbourne, FL · November 2008 – May 2009
+		Led the design and integration of the race car's powertrain and designed its composite bodywork. The project won Best Mechanical Engineering Senior Design Project (April 2009).
+	- **Service Technician (intern)** — Prestige Dentaire, Nice, France · June – July 2006
+		Helped troubleshoot, maintain and repair dental clinic equipment.
 	### Licences
 	- Professional Engineer (P.Eng.), British Columbia — Engineers and Geoscientists BC, licence #67116 (July 2026)
 	- Professional Engineer (P.Eng.), Newfoundland and Labrador — PEGNL, member #12071 (June 2025)

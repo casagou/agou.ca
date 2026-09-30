@@ -697,6 +697,33 @@ FORBIDDEN = [
     (r"[Rr]obberies in Victoria rose 21%|vols qualifiés ont augmenté de 21\s?%|181 incidents", "the retracted robbery figure (metro area, not the city; fact-check 2026-09-30, see exclusions.json)"),
     (r"paid for by a balanced budget|stopping spending that does not deliver", "the retracted FAQ funding line (fact-check 2026-09-30; see exclusions.json)"),
 ]
+
+# Old FR wording Joachim corrected on 2026-09-30 (exclusions.json fr-* rules, ui.json, scorecard FR). If a Notion re-sync or an edit
+# brings any of it back on a /fr/ page, the build stops. Apostrophes may be ' or ’.
+A_ = "['’]"
+FR_OLD = [
+    (r"pour appuyer ma candidature|appuyer qu" + A_ + "un seul|Que veut dire appuyer", "'appuyer' for nominating (use 'signer le formulaire de mise en candidature')"),
+    (r"payés par le public", "old 'payés par le public' (use 'financés par les fonds publics')"),
+    (r"centre-ville ne semble plus sûr", "old 'le centre-ville ne semble plus sûr'"),
+    (r"Des soins sécurisés|les soins sécurisés|lits de soins sécurisés", "old 'soins sécurisés' (use 'soins dans un milieu sécurisé')"),
+    (r"causes soient jugées plus vite", "old 'pour que les causes soient jugées plus vite'"),
+    (r"Aucun impôt provincial sur jusqu", "old 'Aucun impôt provincial sur jusqu'à' (income tax wording)"),
+    (r"préavis au personnel", "old 'avec un préavis au personnel'"),
+    (r"73\s?% des commerces", "old '73 % des commerces' (use 'entreprises')"),
+    (r"Candidat à l" + A_ + "investiture|candidat à l" + A_ + "investiture", "old 'Candidat à l'investiture' status line (use 'Je sollicite l'investiture…')"),
+    (r"je livre des projets|production média|en 2011 pour des recherches|loyers sont hors de portée", "old FR home wording"),
+    (r"si quelque chose fonctionne et d" + A_ + "en rendre compte|apporterai cette habitude|assorti d" + A_ + "un chiffre|rapport à la circonscription|si ça a fonctionné", "old FR home/FAQ wording"),
+    (r"Je le mesure, je le règle|Quand une proposition en vient|\bweek-end|d" + A_ + "un deux-chambres|délais de permis|présenté ligne par ligne|voyageurs fréquents|ponctualité des traversiers|dotés de personnel|des tentes à un logement|réduire l" + A_ + "impôt des petites entreprises|locaux commerciaux vacants|Aussi pour la circonscription|Comment vous le saurez", "old FR Priorities wording"),
+    (r"J" + A_ + "entends les mêmes problèmes|le prix des loyers et des logements|je porterais les chiffres|ou l" + A_ + "arrêter|[Pp]rélancement|d" + A_ + "opérations de mission|de leurs achats|permis #|membre #", "old FR About wording"),
+    (r"Aucune raison nécessaire|carte « Where to Vote »|doit la recevoir avant 20 h|Action de grâce(?!s)", "old FR voter-information wording"),
+    (r"venir à ma porte|droits de propriété clairs\b|construire, posséder et décider", "old FR FAQ wording"),
+]
+ABOUT_OLD = [  # About intro approved 2026-09-30 (EN+FR); the old paragraphs must not come back from Notion
+    r"I have lived in Fairfield, in Victoria–Beacon Hill, since January 2023", r"My work has included leading teams",
+    r"J['’]habite à Fairfield, dans Victoria–Beacon Hill, depuis janvier 2023", r"J['’]ai dirigé des équipes et géré des projets",
+    r"Ran the pre-launch of a new restaurant", r"Development of test and trial procedures", r"Élaboration de procédures d['’]essais pour les systèmes",  # old career-history entries
+]
+EXPERIENCE_OLD = r"(?i)(more than|over)\s+(12|twelve)\s+years|\b(12|twelve) years of experience|plus de (12|douze) ans"
 PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910"}
 
 
@@ -711,8 +738,27 @@ def check(dist):
         for m in re.finditer(r"(?<![\d-])(?:1-)?\d{3}[-. ]\d{3}[-. ]\d{4}(?!\d)", vis):
             if m.group(0) not in PHONES_OK:
                 errs.append(f"{f.relative_to(dist)}: unexpected phone number {m.group(0)}")
+        plain_t = html.unescape(re.sub(r"<[^>]+>", " ", vis))
+        if re.search(EXPERIENCE_OLD, plain_t):
+            errs.append(f"{f.relative_to(dist)}: contains a '12 years' experience claim (Joachim: 'more than 15 years' everywhere)")
+        for pat in ABOUT_OLD:
+            if re.search(pat, plain_t):
+                errs.append(f"{f.relative_to(dist)}: contains the old About intro ('{pat}'; rewritten 2026-09-30, see exclusions.json)")
+        if f.relative_to(dist).parts[0] == "fr":
+            for pat, what in FR_OLD:
+                if re.search(pat, plain_t):
+                    errs.append(f"{f.relative_to(dist)}: contains {what} (corrected 2026-09-30; see exclusions.json)")
         if "Authorized by Bert Chen, financial agent, bert@bertchen.ca, 778-996-9910." not in t:
             errs.append(f"{f.relative_to(dist)}: missing footer authorization line")
+    # FR FAQ must mirror the EN FAQ: same number of sections (topic index) and questions
+    en_faq, fr_faq = dist / "faq" / "index.html", dist / "fr" / "faq" / "index.html"
+    if en_faq.exists() and fr_faq.exists():
+        e_, f_ = en_faq.read_text(), fr_faq.read_text()
+        for what, pat in (("questions", r"<summary"), ("topic-index entries", r'<nav class="faq-index".*?</nav>')):
+            ne = len(re.findall(pat, e_, re.S)) if what == "questions" else len(re.findall(r"<li>", re.search(pat, e_, re.S).group(0)))
+            nf = len(re.findall(pat, f_, re.S)) if what == "questions" else len(re.findall(r"<li>", re.search(pat, f_, re.S).group(0)))
+            if ne != nf:
+                errs.append(f"fr/faq/index.html: {nf} {what}, EN has {ne} (the FR FAQ must be a full translation; see exclusions.json fr-faq rule)")
     home = (dist / "index.html").read_text()
     if "Safer streets, honest budgets, a downtown that works." not in home:
         errs.append("index.html: tagline missing")
@@ -746,6 +792,12 @@ if __name__ == "__main__":
     if a.env == "live" and not SITE.get("events_redesign_approved", True):
         sys.exit("Live build refused: staging contains the 30 Sep 2026 events redesign (date tiles, directions, static maps), not yet approved by Joachim. "
                  "Set site.json events_redesign_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
+    if a.env == "live" and not SITE.get("fr_faq_approved", True):
+        sys.exit("Live build refused: the complete FR FAQ translation (30 Sep 2026) is on staging for Joachim's review. "
+                 "Set site.json fr_faq_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
+    if a.env == "live" and not SITE.get("fr_edits_approved", True):
+        sys.exit("Live build refused: staging contains Joachim's 30 Sep 2026 FR corrections and About career-history changes (navy role, JOA Aero Engineering, 15 years), not yet approved. "
+                 "Set site.json fr_edits_approved to true after approval, or publish from a branch without them (see RESYNC.md).")
     if a.env == "live" and not SITE.get("review_batch_approved", True):
         sys.exit("Live build refused: staging contains the 30 Sep 2026 review batch (header, forms, sections, actions, FAQ index), not yet approved by Joachim. "
                  "Set site.json review_batch_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
@@ -755,7 +807,7 @@ if __name__ == "__main__":
     # favicon (JOA, tools/make_favicon.py): /favicon.ico at the root, one web manifest per language
     shutil.copy(ROOT / "assets/img/favicon.ico", dist / "favicon.ico")
     for ml, start, desc in (("en", "/", "Joachim Agou, seeking the BC Conservative nomination in Victoria–Beacon Hill"),
-                            ("fr", "/fr/", "Joachim Agou, candidat à l'investiture conservatrice dans Victoria–Beacon Hill")):
+                            ("fr", "/fr/", "Joachim Agou sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative")):
         man = {"name": "Joachim Agou – Victoria–Beacon Hill", "short_name": "Joachim Agou", "lang": f"{ml}-CA",
                "description": desc, "start_url": start, "scope": "/", "display": "browser",
                "background_color": "#ffffff", "theme_color": "#123a6d",
