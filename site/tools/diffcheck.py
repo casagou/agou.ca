@@ -65,6 +65,9 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
         if not p: continue
         total += 1
         if p in ptxt: continue
+        mi = re.match(r"!\[.*\]\((\S+?)(\?[^)]*)?\)$", l.strip())
+        if mi and SITE["images"].get(mi.group(1).rsplit("/", 1)[-1]) == "riding-map" and 'class="map-card"' in page.read_text():
+            excluded.append(f"{name}: riding map image -> replaced by the site's own map card (tools/make_map.py), same boundary, with its own alt text and attribution"); continue
         # excluded on purpose? (whole line, or the line with the excluded part removed)
         hit = [r for r in EXCL if r["page"] in (name, "*") and any(plain(fl) and (plain(fl) in p or p == plain(fl)) for fl in r["find"].split("\n"))]
         if hit:

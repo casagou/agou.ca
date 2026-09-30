@@ -15,7 +15,6 @@ LIVE = SITE["live_origin"]
 LANGS = ["en", "fr"]
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
 IMG = {  # local image name -> (files by width, width, height)
-    "riding-map": ({800: "riding-map-800.jpg", 1600: "riding-map-1600.jpg"}, 1600, 1200),
     "joachim-agou-speaking": ({800: "joachim-agou-speaking-800.jpg", 1600: "joachim-agou-speaking-1600.jpg"}, 1600, 1000),
 }
 esc = lambda s: html.escape(s, quote=True)
@@ -57,9 +56,26 @@ def unesc(s):
     return s.replace("\\$", "$").replace("\\[", "[").replace("\\]", "]")
 
 
+PAGE_STATE = {"hero_map": False}  # set while building the home page when the hero already shows the riding map
+
+
+def map_card(lang, eager=False):
+    """The riding map (tools/make_map.py): self-hosted PNGs, phone and desktop art direction, 2x/3x. Light card + caption."""
+    M = UI[lang]["map"]; f = lambda v, s: f"/assets/img/riding-map-{lang}-{v}-{s}x.png"
+    load = 'fetchpriority="high"' if eager else 'loading="lazy"'
+    return (f'<figure class="map-card"><picture>'
+            f'<source media="(max-width: 599px)" srcset="{f("phone", 2)} 680w, {f("phone", 3)} 1020w" sizes="calc(100vw - 40px)" width="680" height="510">'
+            f'<img src="{f("desk", 2)}" srcset="{f("desk", 2)} 1040w, {f("desk", 3)} 1560w" sizes="(min-width: 800px) 560px, calc(100vw - 40px)" width="1040" height="780" alt="{esc(M["alt"])}" {load} decoding="async">'
+            f'</picture><figcaption><p class="map-q">{esc(M["title"])}</p>'
+            f'<p class="map-link"><a href="https://wheretovote.elections.bc.ca/" rel="noopener">{esc(M["link"])} <span aria-hidden="true">↗</span></a></p>'
+            f'<p class="map-attr">{esc(M["attribution"])}</p></figcaption></figure>')
+
+
 def picture(name, alt, lang, caption=True, eager=False):
     fname = pathlib.PurePosixPath(name).name
     local = SITE["images"].get(fname, name)
+    if local == "riding-map":  # Notion's riding map image -> the site's own map (once per page)
+        return "" if PAGE_STATE["hero_map"] else map_card(lang)
     if local not in IMG:
         sys.exit(f"Image {name!r} is not mapped to a local file. Download it into assets/img and add it to site.json 'images' and IMG in build.py.")
     files, w, h = IMG[local]
@@ -348,9 +364,9 @@ def photo_slot(slot, lang, cls):
         return f'<div class="{cls} has-photo"><img src="/assets/img/photos/{esc(f)}" alt="{esc("Joachim Agou")}" decoding="async"></div>'
     if slot != "hero":
         return f'<!-- photo slot "{slot}": empty (see README, Photo slots) -->'
-    svg = (ROOT / "assets/img/riding-outline.svg").read_text().replace('role="img" aria-labelledby="t"', 'aria-hidden="true" focusable="false"')
-    svg = re.sub(r"<title[^>]*>.*?</title>", "", svg)
-    return f'<div class="{cls} no-photo" data-photo-slot="{slot}" aria-hidden="true">{svg}</div>'
+    # empty hero photo slot: the riding map card (the home page then skips the same map further down)
+    PAGE_STATE["hero_map"] = True
+    return f'<div class="{cls} hero-map" data-photo-slot="{slot}">{map_card(lang, eager=True)}</div>'
 
 
 def build_page(lang, page, env):
@@ -368,11 +384,14 @@ def build_page(lang, page, env):
         # Follow along section goes before Donate
         donate_h = page_section_title("donate", lang)
         follow = f'<section class="block follow" aria-labelledby="follow"><h2 id="follow">{esc(U["follow_title"])}</h2><p>{esc(U["follow_text"])}</p>{social_links("social big")}</section>'
+        PAGE_STATE["hero_map"] = False
+        hero_media = photo_slot("hero", lang, "hero-photo")
         body, _ = render(rest, lang, {"self": self_path})
+        PAGE_STATE["hero_map"] = False
         body = body.replace(f'<section class="block" aria-labelledby="{slugify(donate_h)}">', follow + f'\n<section class="block" aria-labelledby="{slugify(donate_h)}">', 1)
         hero = (f'<div class="hero"><div class="wrap hero-grid"><div class="hero-text">'
                 f'<h1>{esc(U["home_title"])}</h1><p class="hero-sub">{inline(sub, ctx)}</p><p class="tagline">{inline(tagline, ctx)}</p>'
-                f'{render(callout, lang, {"self": self_path})[0]}</div>{photo_slot("hero", lang, "hero-photo")}</div></div>')
+                f'{render(callout, lang, {"self": self_path})[0]}</div>{hero_media}</div></div>')
         main = hero + f'<div class="wrap content">{body}{updated_for(lang, "home")}</div>'
         title = f"Joachim Agou – Victoria–Beacon Hill" if lang == "en" else "Joachim Agou – Victoria–Beacon Hill (français)"
         desc = re.sub(r"[*]", "", sub) + ". " + re.sub(r"[*]", "", tagline)
@@ -451,8 +470,7 @@ def faq_block(lang):
 
 def map_block(lang):
     M = UI[lang]["map"]
-    return (f'<section class="block" aria-labelledby="am-i"><h2 id="am-i">{esc(M["title"])}</h2>{picture("riding-map", M["alt"], lang)}'
-            f'<p class="cta-line"><a href="https://wheretovote.elections.bc.ca/" rel="noopener"><strong>{esc(M["link"])} ↗</strong></a></p></section>')
+    return f'<section class="block" aria-labelledby="riding-map"><h2 id="riding-map">{esc(M["heading"])}</h2>{map_card(lang)}</section>'
 
 
 MONTHS = {"en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],

@@ -247,8 +247,10 @@
     },
     "map": {
       "title": "Am I in Victoria–Beacon Hill?",
-      "link": "Check your address with Elections BC (Where to Vote lookup)",
-      "alt": "Victoria–Beacon Hill riding boundary. Boundary: Elections BC (2023). Map data © OpenStreetMap contributors."
+      "link": "Check your address with Elections BC",
+      "alt": "Map of the Victoria–Beacon Hill provincial riding, outlined in blue. It covers James Bay, Downtown and Harris Green, North Park, most of Fernwood, Rockland, Fairfield, Beacon Hill Park, and parts of Burnside, Jubilee and Gonzales. Oak Bay, Esquimalt and Victoria West are outside the riding.",
+      "heading": "Riding map",
+      "attribution": "Map data © OpenStreetMap contributors (ODbL). Boundary: Elections BC (2023)."
     },
     "updated": "Last updated:",
     "faq_q": "Questions?",
@@ -501,8 +503,10 @@
     },
     "map": {
       "title": "Est-ce que j'habite dans Victoria–Beacon Hill?",
-      "link": "Vérifiez votre adresse auprès d'Elections BC (recherche « Where to Vote »)",
-      "alt": "Limites de la circonscription de Victoria–Beacon Hill. Limites : Elections BC (2023). Données cartographiques © contributeurs d'OpenStreetMap."
+      "link": "Vérifiez votre adresse auprès d'Elections BC",
+      "alt": "Carte de la circonscription provinciale de Victoria–Beacon Hill, délimitée en bleu. Elle comprend James Bay, le centre-ville et Harris Green, North Park, la majeure partie de Fernwood, Rockland, Fairfield, le parc Beacon Hill, et une partie de Burnside, Jubilee et Gonzales. Oak Bay, Esquimalt et Victoria West sont à l'extérieur de la circonscription.",
+      "heading": "Carte de la circonscription",
+      "attribution": "Données cartographiques © contributeurs d'OpenStreetMap (ODbL). Limites : Elections BC (2023)."
     },
     "updated": "Dernière mise à jour :",
     "faq_q": "Des questions?",
