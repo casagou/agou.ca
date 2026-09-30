@@ -172,7 +172,7 @@
     }
     function timeLine(e) { return dayShort(e.starts_at) + " · " + timeRange(e); }
     // Title as written in the campaign app, with "|" shown as an em dash: "Coffee with Joachim — North Park"
-    var evTitle = function (e) { return String(e.title || "").replace(/\s*\|\s*/g, " — ").trim(); };
+    var evTitle = function (e) { return String(e.title || "").replace(/\s*\|\s*/g, NB + "— ").trim(); }; // the dash stays with the words before it
     function tile(s, cls) { // "SUN / 4 / OCT" block (decorative: the full date is also in the text next to it)
       var o = {}; new Intl.DateTimeFormat(LOC, { timeZone: TZ, weekday: "short", day: "numeric", month: "short" }).formatToParts(new Date(s)).forEach(function (p) { o[p.type] = p.value; });
       var up = function (x) { return String(x || "").replace(/\./g, "").toUpperCase(); };
