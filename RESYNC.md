@@ -80,7 +80,7 @@ A Notion re-sync never touches this page. Its text comes from Joachim's message 
 - `build.py` fails if any page lacks a title, description, canonical, hreflang trio, og or twitter tag, or if two pages share a title, description or canonical (`seo_check`).
 - Social image: `site/assets/img/og-joachim-agou-{en,fr}.png` (1200×630, text kept inside the central square for WhatsApp crops). Regenerate with `python3 tools/make_og.py`. Staging builds point og:image at agou-staging.pages.dev and live builds at agou.ca.
 - JSON-LD: Person + WebSite on the home pages, BreadcrumbList on the others, and Event on /events/ (added in forms.js from get_public_events, with lat/lng).
-- `sitemap.xml` (both envs) lists the indexable pages with hreflang alternates and lastmod (the page's "Last updated" date). Volunteer, Lawn sign and Nominate are `noindex`, so they are left out. Staging stays `noindex` (meta robots, X-Robots-Tag, robots.txt Disallow).
+- `sitemap.xml` (both envs) lists the indexable pages with hreflang alternates and lastmod (the page's "Last updated" date). Every page is indexable on live, including Volunteer, Lawn sign and Nominate (noindex removed with Joachim's approval, 30 Sep 2026); a page with `"robots": "noindex"` in site.json would be left out. Staging stays `noindex` (meta robots, X-Robots-Tag, robots.txt Disallow).
 - `site.json` → `seo_batch_approved` is `false` until Joachim approves this batch, and the live build refuses to run until then.
 
 ### Site-made additions a re-sync keeps (not from Notion)
