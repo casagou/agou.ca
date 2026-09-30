@@ -5,6 +5,7 @@ Content comes from content/<lang>/*.md (made from Notion by tools/notion2md.py).
 Interface/form wording comes from ui.json. Page list, photo slots and social links from site.json.
 No framework, no dependencies (Python 3 standard library only)."""
 import argparse, html, json, re, shutil, pathlib, sys
+import scorecard  # /scorecard/ page (scorecard.py, scorecard.json, content/<lang>/scorecard.md)
 
 ROOT = pathlib.Path(__file__).resolve().parent
 SITE = json.loads((ROOT / "site.json").read_text())
@@ -379,6 +380,8 @@ def photo_slot(slot, lang, cls):
 
 def build_page(lang, page, env):
     key = page["key"]; U = UI[lang]
+    if key == "scorecard":  # /scorecard/: own layout, see scorecard.py
+        return scorecard.scorecard_page(sys.modules[__name__], lang, page, env)
     self_path = url(lang, key)
     ctx = {"self": self_path, "self_anchor": "#form" if page.get("form") in ("volunteer", "nominate", "lawnsign") else "#events-list"}
     home = read(lang, "home")
@@ -395,6 +398,12 @@ def build_page(lang, page, env):
         PAGE_STATE["hero_map"] = False
         hero_media = photo_slot("hero", lang, "hero-photo")
         body, _ = render(rest, lang, {"self": self_path})
+        if "scorecard" not in HIDDEN:  # "See the scorecard" under the home priorities section
+            pl = f'<p class="pagelink"><a href="{url(lang, "priorities")}">'
+            j = body.find(pl)
+            if j < 0: sys.exit("home: priorities page link not found (needed to place the scorecard link)")
+            j = body.index("</p>", j) + 4
+            body = body[:j] + scorecard.home_link(sys.modules[__name__], lang) + body[j:]
         PAGE_STATE["hero_map"] = False
         body = body.replace(f'<section class="block" aria-labelledby="{slugify(donate_h)}">', follow + f'\n<section class="block" aria-labelledby="{slugify(donate_h)}">', 1)
         hero = (f'<div class="hero"><div class="wrap hero-grid"><div class="hero-text">'
@@ -427,6 +436,8 @@ def build_page(lang, page, env):
     if page.get("title"):
         h1 = page["title"][lang]
     body, heads = render(md, lang, ctx) if md else ("", [])
+    if key == "priorities" and "scorecard" not in HIDDEN:
+        body = scorecard.priorities_link(sys.modules[__name__], lang) + body
     if key == "get-involved":
         body = hub(lang, home)
     if key in ("how-to-vote", "donate", "volunteer", "events", "nominate") and body and not body.lstrip().startswith("<section"):
@@ -625,6 +636,8 @@ if __name__ == "__main__":
         BUILD_ID = datetime.datetime.now().strftime("%Y%m%d%H%M")
     if a.env == "live" and not SITE.get("publish_faq_live", True):
         HIDDEN.add("faq")
+    if a.env == "live" and not SITE.get("publish_scorecard_live", False):
+        HIDDEN.add("scorecard")
     if HIDDEN:
         PAGES[:] = [p for p in PAGES if p["key"] not in HIDDEN]
         SITE["footer_nav"] = [k for k in SITE["footer_nav"] if k not in HIDDEN]

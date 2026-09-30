@@ -152,6 +152,14 @@
       }
     },
     {
+      "key": "scorecard",
+      "slug": "scorecard/",
+      "nav": {
+        "en": "Scorecard",
+        "fr": "Bulletin"
+      }
+    },
+    {
       "key": "faq",
       "slug": "faq/",
       "nav": {
@@ -213,6 +221,7 @@
   "promote_donate": false,
   "_promote_donate_doc": "ONE-LINE SWITCH. false = Donate is a quiet item inside Get involved only (people are sent to Bert Chen). true = adds a yellow Donate button in the header and in the phone's bottom bar, and a yellow Donate button on the Get involved page. Rebuild after changing.",
   "footer_nav": [
+    "scorecard",
     "faq",
     "media",
     "contact",
@@ -234,6 +243,7 @@
     "how-to-vote": "2026-09-30",
     "forms": "2026-09-30",
     "en-faq": "2026-09-30",
+    "scorecard": "2026-09-30",
     "fr-faq": "2026-09-30"
   },
   "publish_faq_live": true,
@@ -243,6 +253,8 @@
     "fr": "joachim-agou-media-kit-fr.pdf"
   },
   "publish_media_kit_live": true,
+  "publish_scorecard_live": false,
+  "_publish_scorecard_live_doc": "Scorecard (/scorecard/, /fr/scorecard/; see scorecard.json and README 'Scorecard'). false = the live build leaves both pages out, with every link to them (Priorities, home priorities section, footer); staging always shows them. Set true only after Joachim approves the page. The live build still refuses to run while scorecard.json has any open fact-check flag or fr_reviewed is false.",
   "_media_kit_doc": "Media-kit PDFs in assets/media/ (not from Notion; the Notion PDF attachments are replaced by <placeholder>MEDIAKIT</placeholder> in exclusions.json, and build.py renders that token as the download links). Staging always shows them. publish_media_kit_live: false = the live build keeps the placeholder text, leaves the PDFs out of dist/ and fails if any page links to them. true = live shows the links, but the live build still refuses to run if pdftotext finds forbidden wording or an unlisted phone number in a PDF.",
   "media_kit_approved": {
     "e59fa2ccf2909598f22e168bf290e6d35670e2582ad30e02d90041e0d4e58c86": "joachim-agou-media-kit-en.pdf: approved as-is by Joachim on 30 Sep 2026 (content-check hit: 'candidate' wording in the medium bio)",

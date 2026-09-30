@@ -1,0 +1,97 @@
+{
+  "_doc": "Scorecard page (/scorecard/, /fr/scorecard/). The item text (Target, Today, Source / cadence, Quarterly stand-in, My lever) is Joachim's, word for word, in content/<lang>/scorecard.md (EN = his text; FR = draft translation). This file only holds the report-card summary (short title, headline figure, cadence, as-of), the source links shown under each Today row, and open fact-check flags. Every flag renders as a highlighted note (class todo) on the page, so the live build refuses to run while any flag is left; delete a flag once Joachim has decided. See README 'Scorecard'.",
+  "updated": "2026-09-30",
+  "last_published": null,
+  "fr_reviewed": false,
+  "items": {
+    "1": {"status": "target", "cadence": "annual", "asof": {"en": "2026 tax year", "fr": "année d’imposition 2026"},
+      "short": {"en": "Tax on your first dollars", "fr": "L’impôt sur vos premiers dollars"},
+      "fig": {"en": "5.60%", "fr": "5,60 %"}, "figlabel": {"en": "on the first $50,363 (2026)", "fr": "sur les premiers 50 363 $ (2026)"},
+      "sources": [
+        {"en": "B.C. budget tax changes (Ministry of Finance)", "fr": "Changements fiscaux du budget (ministère des Finances, en anglais)", "url": "https://www2.gov.bc.ca/gov/content/taxes/tax-updates/budget-changes"},
+        {"en": "B.C. income tax rates, 2026", "fr": "Taux d’imposition 2026 (en anglais)", "url": "https://www2.gov.bc.ca/gov/content/taxes/income-taxes/personal/tax-rates"},
+        {"en": "Budget 2026 highlights ($76, 40%)", "fr": "Faits saillants du Budget 2026 (en anglais)", "url": "https://www.bcbudget.gov.bc.ca/2026/highlights/"}
+      ]},
+    "2": {"status": "target", "cadence": "quarterly", "asof": {"en": "September 2026", "fr": "septembre 2026"},
+      "short": {"en": "A public savings list", "fr": "Une liste publique d’économies"},
+      "fig": {"en": "$13.8 billion", "fr": "13,8 G$"}, "figlabel": {"en": "deficit this year; no public savings register", "fr": "de déficit cette année; aucun registre public des économies"},
+      "sources": [
+        {"en": "Budget and Fiscal Plan 2026/27 (PDF, $3.5 billion: Table 1)", "fr": "Budget et plan financier 2026-2027 (PDF, en anglais)", "url": "https://www.bcbudget.gov.bc.ca/2026/pdf/2026_Budget_and_Fiscal_Plan.pdf"},
+        {"en": "First Quarterly Report, Sept. 2026 (PDF)", "fr": "Premier rapport trimestriel, sept. 2026 (PDF, en anglais)", "url": "https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/government-finances/quarterly-reports/2026-27_first_quarterly_report.pdf"}
+      ],
+      "factcheck": "Minor: $13.8 billion is the First Quarterly Report forecast (Sept. 14, 2026). Budget 2026 itself projected $13.3 billion. The sentence reads as if the budget projects $13.8 billion; Joachim to decide whether to reword."},
+    "3": {"status": "target", "cadence": "annual_standin",
+      "short": {"en": "New homes, and what kind", "fr": "Nouveaux logements, et lesquels"},
+      "fig": {"en": "882", "fr": "882"}, "figlabel": {"en": "net new homes in year two, against a 766-unit order", "fr": "logements nets en 2e année, pour une cible de 766"},
+      "sources": [
+        {"en": "Housing Target progress report, year 2 (PDF)", "fr": "Rapport d’étape, cibles de logement, 2e année (PDF, en anglais)", "url": "https://www2.gov.bc.ca/assets/gov/housing-and-tenancy/tools-for-government/housing-targets/city_of_victoria_-_year_2_housing_targets_progress_report_nov_2025.pdf"},
+        {"en": "City of Victoria Housing Strategy Annual Review 2025 (PDF)", "fr": "Bilan annuel 2025 de la stratégie du logement (PDF, en anglais)", "url": "https://www.victoria.ca/media/file/housing-strategy-annual-report-2025pdf"}
+      ]},
+    "4": {"status": "target", "cadence": "annual_standin", "asof": {"en": "October 2025", "fr": "octobre 2025"},
+      "short": {"en": "Finding a rental", "fr": "Trouver un logement à louer"},
+      "fig": {"en": "3.3%", "fr": "3,3 %"}, "figlabel": {"en": "rental vacancy, Victoria area, Oct. 2025", "fr": "taux d’inoccupation, région de Victoria, oct. 2025"},
+      "sources": [
+        {"en": "CMHC Rental Market Report 2025 (Victoria)", "fr": "Rapport sur le marché locatif 2025 de la SCHL", "url": "https://www.cmhc-schl.gc.ca/professionals/housing-markets-data-and-research/market-reports/rental-market-reports-major-centres"},
+        {"en": "CMHC Victoria data tables 2025 (Excel, by bedroom)", "fr": "Tableaux de données SCHL, Victoria 2025 (Excel, en anglais)", "url": "https://assets.cmhc-schl.gc.ca/sites/cmhc/professional/housing-markets-data-and-research/housing-data-tables/rental-market/rental-market-report-data-tables/2025/rmr-victoria-2025-en.xlsx"}
+      ]},
+    "5": {"status": "target", "cadence": "pit_standin", "asof": {"en": "March 25–26, 2025", "fr": "25 et 26 mars 2025"},
+      "short": {"en": "Sleeping outside", "fr": "Dormir dehors"},
+      "fig": {"en": "318", "fr": "318"}, "figlabel": {"en": "people sleeping outside, March 2025 count", "fr": "personnes dormant dehors, dénombrement de mars 2025"},
+      "sources": [
+        {"en": "2025 Greater Victoria Point-in-Time Count report (PDF, 35 MB)", "fr": "Rapport du dénombrement ponctuel 2025 (PDF, 35 Mo, en anglais)", "url": "https://www.crd.ca/media/file/2025-greater-victoria-point-time-homelessness-count-and-survey-reportpdf"},
+        {"en": "CRD results release, Sept. 24, 2025", "fr": "Communiqué de la CRD, 24 sept. 2025 (en anglais)", "url": "https://www.crd.bc.ca/news/2025-greater-victoria-point-time-count-results-announced"}
+      ]},
+    "6": {"status": "target", "cadence": "monthly", "asof": {"en": "2025", "fr": "2025"},
+      "short": {"en": "Toxic-drug deaths", "fr": "Décès liés aux drogues toxiques"},
+      "fig": {"en": "128", "fr": "128"}, "figlabel": {"en": "deaths in Greater Victoria, 2025", "fr": "décès dans le Grand Victoria, 2025"},
+      "sources": [
+        {"en": "BC Coroners Service, 2025 data (Feb. 19, 2026)", "fr": "Service des coroners, données 2025 (en anglais)", "url": "https://news.gov.bc.ca/releases/2026PSSG0011-000138"},
+        {"en": "BC Coroners Service statistical reports", "fr": "Rapports statistiques du Service des coroners (en anglais)", "url": "https://www2.gov.bc.ca/gov/content/life-events/death/coroners-service/statistical-reports"}
+      ],
+      "factcheck": "Check the labels: 128 is the Coroners Service's South Vancouver Island health service delivery area, and 94 is the Greater Victoria local health area, not the City of Victoria. 343 (Island Health), 1,826 (B.C.) and about 21% are correct."},
+    "7": {"status": "target", "cadence": "annual_standin", "asof": {"en": "2025 (Statistics Canada, July 2026)", "fr": "2025 (Statistique Canada, juillet 2026)"},
+      "short": {"en": "Crime in the city", "fr": "La criminalité en ville"},
+      "fig": {"en": "152.65", "fr": "152,65"}, "figlabel": {"en": "City crime-severity index, 2024", "fr": "indice de gravité de la criminalité, Ville, 2024"},
+      "sources": [
+        {"en": "Statistics Canada Table 35-10-0063 (CSI by police service)", "fr": "Statistique Canada, tableau 35-10-0063", "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510006301"},
+        {"en": "Statistics Canada Table 35-10-0184 (incidents by police service)", "fr": "Statistique Canada, tableau 35-10-0184", "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510018401"},
+        {"en": "Victoria News, July 24, 2026", "fr": "Victoria News, 24 juillet 2026 (en anglais)", "url": "https://vicnews.com/2026/07/24/victoria-sees-small-bump-in-2025-crime-stats/"}
+      ],
+      "factcheck": "Numbers do not match Statistics Canada. City of Victoria (municipal) CSI is now 152.17 for 2024 (152.65 was the first release, later revised), down 10.8%, and 161.18 for 2025: up 9.0 points (+5.9%), not 4.7 points. The 4.7 is the Victoria metro area's % change. 181 robberies (+21%) is also the metro area. City of Victoria: 126 robberies in 2025, up from 106 (+19%). These are Statistics Canada figures, not VicPD's."},
+    "8": {"status": "target", "cadence": "quarterly", "asof": {"en": "July 2026 report", "fr": "rapport de juillet 2026"},
+      "short": {"en": "Emergency wait for a bed", "fr": "Attente d’un lit à l’urgence"},
+      "fig": {"en": "15 hours", "fr": "15 heures"}, "figlabel": {"en": "median wait for a bed, all Island sites (target: 10)", "fr": "attente médiane d’un lit, tous les sites (cible : 10)"},
+      "sources": [
+        {"en": "Island Health: Wait Time in ED for an Inpatient Bed (PDF)", "fr": "Island Health : attente d’un lit à l’urgence (PDF, en anglais)", "url": "https://www.islandhealth.ca/sites/default/files/performance-measures/documents/wait-time-in-ed-for-inpatient-bed.pdf"},
+        {"en": "Island Health performance measures", "fr": "Mesures de rendement d’Island Health (en anglais)", "url": "https://www.islandhealth.ca/about-us/accountability/performance-measures"}
+      ],
+      "factcheck": "Minor: the report was published in July 2026, but its data run to March 2026 (fiscal 2025/26 year to date). 15 hours, red, and the 10-hour target are correct."},
+    "9": {"status": "target", "cadence": "quarterly", "asof": {"en": "March 2026", "fr": "mars 2026"},
+      "short": {"en": "Time to planned surgery", "fr": "Délai pour une chirurgie"},
+      "fig": {"en": "40.7%", "fr": "40,7 %"}, "figlabel": {"en": "of scheduled surgeries waited past their benchmark", "fr": "des chirurgies ont dépassé leur délai de référence"},
+      "sources": [
+        {"en": "Island Health: Surgeries Waiting Longer Than Clinical Benchmark (PDF)", "fr": "Island Health : chirurgies au-delà du délai de référence (PDF, en anglais)", "url": "https://www.islandhealth.ca/sites/default/files/performance-measures/documents/surgeries-waiting-longer-than-clinical-benchmark.pdf"},
+        {"en": "B.C. surgical wait times", "fr": "Délais d’attente en chirurgie en C.-B. (en anglais)", "url": "https://swt.hlth.gov.bc.ca/"},
+        {"en": "CIHI benchmarks (26 and 16 weeks)", "fr": "Délais de référence de l’ICIS", "url": "https://www.cihi.ca/en/wait-times-for-priority-procedures-in-canada-2025"}
+      ]},
+    "10": {"status": "target", "cadence": "quarterly_foi", "asof": {"en": "April 2026", "fr": "avril 2026"},
+      "short": {"en": "A family doctor", "fr": "Un médecin de famille"},
+      "fig": {"en": "388 days", "fr": "388 jours"}, "figlabel": {"en": "Island Health median wait on the registry", "fr": "attente médiane au registre, Island Health"},
+      "sources": [
+        {"en": "Hansard, April 28, 2026 (afternoon)", "fr": "Hansard, 28 avril 2026, après-midi (en anglais)", "url": "https://lims.leg.bc.ca/hdms/file/Debates/43rd2nd/20260428pm-Hansard-n166.html"}
+      ]},
+    "11": {"status": "promise", "cadence": "quarterly",
+      "short": {"en": "The riding office, on a clock", "fr": "Le bureau, montre en main"},
+      "fig": {"en": "Not published", "fr": "Non publié"}, "figlabel": {"en": "no MLA for this riding publishes these numbers", "fr": "aucun député de la circonscription ne publie ces chiffres"},
+      "sources": []},
+    "12": {"status": "target", "cadence": "none_yet", "asof": {"en": "2024–25", "fr": "2024-2025"},
+      "short": {"en": "Treatment beds", "fr": "Lits de traitement"},
+      "fig": {"en": "No count", "fr": "Aucun décompte"}, "figlabel": {"en": "no official South Island inventory of seats versus demand", "fr": "aucun inventaire officiel des places dans le sud de l’Île"},
+      "sources": [
+        {"en": "B.C.: Surrey and Prince George facilities (July 2026)", "fr": "C.-B. : établissements de Surrey et de Prince George (en anglais)", "url": "https://news.gov.bc.ca/releases/2026HLTH0029-000808"},
+        {"en": "B.C.: Surrey construction begins (Sept. 2026)", "fr": "C.-B. : début des travaux à Surrey (en anglais)", "url": "https://news.gov.bc.ca/releases/2026HLTH0034-001028"},
+        {"en": "Our Place Impact Report 2024–2025 (PDF)", "fr": "Rapport d’impact 2024-2025 d’Our Place (PDF, en anglais)", "url": "https://www.ourplacesociety.com/wp-content/uploads/2025/09/OPS-Impact-Report-2024-2025.pdf"}
+      ],
+      "factcheck": "Two issues. (1) Our Place's 2024–25 report says 99 men were in recovery at New Roads, and it opened a 20-bed program for women; that is about 120 at most, not 200+ (2025–26: 93 men and 27 women). (2) Surrey (60 beds) and Prince George (72 beds) are under construction and open from December 2027 (Prince George) and in spring 2028 (Surrey). 'Being opened' may read as already open."}
+  }
+}

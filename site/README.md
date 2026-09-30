@@ -78,3 +78,10 @@ Mobile-first. Body text 18px with line-height 1.55 and lines of about 62 charact
 - Media: "Joachim Agou is the Conservative Party of BC candidate…" was removed, because he is *seeking* the nomination.
 - Media-kit PDFs: they are in `assets/media/` (not Notion), and `<placeholder>MEDIAKIT</placeholder>` renders as the download links (see RESYNC.md "Media kit PDFs"). Staging shows them. Live has shown them since 2026-09-30 (`publish_media_kit_live: true`). Both PDFs still call him the candidate (EN medium bio: "is the Conservative Party of BC candidate"; FR: "est le candidat du Parti conservateur"). Joachim approved them as-is on 30 Sep 2026, so their exact hashes are allow-listed in `site.json` → `media_kit_approved`.
 - FR "(page en anglais)" notes were removed (home and FAQ), because those pages now exist in French.
+
+## Scorecard (`/scorecard/`, `/fr/scorecard/`; staging only until approved)
+Not from Notion. Joachim's public scorecard text, word for word, is in `content/en/scorecard.md` (his private notes, the pay-for talking points and the draft change log are not in the repo). `content/fr/scorecard.md` is a draft translation (FR title: "Bulletin").
+- `scorecard.json`: report-card summary per item (short title, headline figure, cadence, as-of), the source links under each "Today" row, `last_published` (null shows "—"), `fr_reviewed`, and open `factcheck` flags.
+- `scorecard.py` renders the page (own stylesheet `assets/css/scorecard.css`); build.py adds the "See the scorecard" links on Priorities and in the home priorities section, and `site.json` puts it in the footer.
+- `site.json` → `"publish_scorecard_live": false`: the live build leaves out both pages and every link to them. Staging always shows them. Even when true, the live build refuses to run while any `factcheck` flag is left in `scorecard.json` or `fr_reviewed` is false (both render as highlighted draft notes).
+- After editing: `python3 build.py --env staging && python3 tools/scorecard_check.py` (every sentence of `content/en/scorecard.md` must be on the page; add `--source <file>` to compare against Joachim's full text).
