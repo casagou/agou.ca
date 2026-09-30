@@ -120,6 +120,42 @@
       "find": "rue Hilda à Fairfield",
       "replace": "à Fairfield",
       "why": "Joachim's decision (2026-09-30): no street name on the site; keep the neighbourhood (Fairfield)."
+    },
+    {
+      "page": "en-faq",
+      "find": "The party said those tax cuts would be paid for by a balanced budget and by stopping spending that does not deliver. I'll use those figures until the party publishes a 2026 update, then I'll replace them.",
+      "replace": "The party said faster economic growth would pay for those tax cuts, and committed to balancing the budget in a second term. I'll use those figures until the party publishes a 2026 update, then I'll replace them. Source: [2024 costing appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf).",
+      "why": "Fact-check (2026-09-30, approved by Joachim): the old line was wrong. The costing appendix credits economic growth and promises a balanced budget in a second term. Also adds the source link. build.py refuses the old wording."
+    },
+    {
+      "page": "en-faq",
+      "find": "Ogden Point had 310 cruise-ship calls in 2025.",
+      "replace": "Ogden Point had 310 cruise-ship calls in 2025. Source: [Greater Victoria Harbour Authority, Oct 2025](https://gvha.ca/about-gvha/newsroom/victorias-2025-cruise-season-closes-strongly-on-saturday/).",
+      "why": "Fact-check (2026-09-30, approved by Joachim): every public number keeps a source."
+    },
+    {
+      "page": "en-faq",
+      "find": "rising to \\$3,000.",
+      "replace": "rising to \\$3,000. Sources: [2024 costing appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf), [2024 platform](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650).",
+      "why": "Fact-check (2026-09-30, approved by Joachim): every public number keeps a source."
+    },
+    {
+      "page": "en-faq",
+      "find": "(party plan; 2024 costing put the drivers' package",
+      "replace": "([party plan](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650); [2024 costing](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) put the drivers' package",
+      "why": "Fact-check (2026-09-30, approved by Joachim): every public number keeps a source."
+    },
+    {
+      "page": "en-faq",
+      "find": "(party plan; 2024 costing about \\$150 million",
+      "replace": "([party plan](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650); [2024 costing](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) about \\$150 million",
+      "why": "Fact-check (2026-09-30, approved by Joachim): every public number keeps a source."
+    },
+    {
+      "page": "en-faq",
+      "find": "The last published costing is the Conservative Party of B.C. 2024 platform appendix:",
+      "replace": "The last published costing is the [Conservative Party of B.C. 2024 platform appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf):",
+      "why": "Fact-check (2026-09-30, approved by Joachim): every public number keeps a source."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

@@ -28,6 +28,13 @@ The media-kit links on `/media/` and `/fr/media/` do **not** come from Notion, s
 - `/fr/media/` has no Notion page. build.py writes it (FR PDF, EN PDF, link to the English page). If a FR Notion media page is ever added, put `<placeholder>MEDIAKIT</placeholder>` in it through an exclusions rule in the same way.
 - `site.json` → `publish_media_kit_live` (currently `false`). Staging always shows the links. The live build leaves out the PDFs and links until this is `true`. Even then it runs pdftotext + pdfinfo on each PDF with the same forbidden-term and phone checks as the pages, and it refuses to build if any fail. Staging prints the hits as warnings and shows a yellow note on the media pages.
 
+### FAQ sources and the funding line (do not lose these on a re-sync)
+Joachim approved these on 2026-09-30 after a fact-check. They are `en-faq` rules in `site/exclusions.json`, so every re-sync reapplies them. Notion still has the old text.
+- **Funding line:** "The party said those tax cuts would be paid for by a balanced budget and by stopping spending that does not deliver." becomes "The party said faster economic growth would pay for those tax cuts, and committed to balancing the budget in a second term." plus a link to the 2024 costing appendix. The old line was wrong: the appendix credits economic growth and promises a balanced budget in a second term. `build.py` refuses the old wording ("paid for by a balanced budget", "stopping spending that does not deliver"), so it cannot go live even if someone adds it to Notion under different surrounding text.
+- **Source links:** 310 cruise calls → GVHA (Oct 2025). The $900M rebate, $60M drivers' package and $150M small-business figures, and the "2024 platform appendix" line, link to the costing appendix and/or the 2024 platform PDF.
+- **Every public number keeps a source.** If a rule warns that it no longer matches, update its `find` text so the link survives. Don't delete the rule. Better still, put the links in Notion itself; then the rule stops matching and can be removed.
+- The French FAQ does not have these answers yet. If they are added, use: « Le parti a dit qu'une croissance économique plus rapide financerait ces baisses d'impôt, et s'est engagé à équilibrer le budget au cours d'un second mandat. », with the same source links, through an `fr-faq` rule.
+
 ## 2. Redeploy staging (https://agou-staging.pages.dev)
 Deployment runs from casagou/Beacon-Hill, branch **`agou-site-staging`**, workflow `.github/workflows/agou-staging.yml`. It checks out agou.ca@staging, builds with `--env staging`, runs diffcheck, and deploys to the Cloudflare Pages project `agou-staging` with the repo's existing Cloudflare secret.
 Trigger it by pushing to that branch:

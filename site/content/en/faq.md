@@ -68,7 +68,7 @@
 <summary>How would you make housing more affordable?</summary>
 	Fixed permit timelines of 6 months for rezoning and 3 months for a building permit, or the province steps in (party plan); lower fees and paperwork on new homes; and no provincial income tax on up to \$3,000 a month of rent or mortgage interest (party plan).
 	Faster, cheaper approvals mean more homes get built, which eases rents over time. The tax relief helps renters and buyers now.
-	Trade-offs: faster approvals mean less municipal control, and the tax cut lowers provincial revenue. The party's 2024 costing put the rent-and-mortgage rebate at about \$900 million in Budget 2026, starting at \$1,500 a month and rising to \$3,000.
+	Trade-offs: faster approvals mean less municipal control, and the tax cut lowers provincial revenue. The party's 2024 costing put the rent-and-mortgage rebate at about \$900 million in Budget 2026, starting at \$1,500 a month and rising to \$3,000. Sources: [2024 costing appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf), [2024 platform](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650).
 	How you'll know: I'll publish permit times for every municipality in the region.
 </details>
 <details>
@@ -84,16 +84,16 @@
 <summary>What would you do to reduce the cost of living?</summary>
 	The costs I'd target are the ones government sets: ferries, rent relief through the tax system, and taxes.
 	- A BC Ferries charter with service targets, executive pay tied to results and a flat monthly fare for frequent travellers (party plan).
-	- No PST on affordable used cars (party plan; 2024 costing put the drivers' package at about \$60 million from 2026/27).
+	- No PST on affordable used cars ([party plan](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650); [2024 costing](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) put the drivers' package at about \$60 million from 2026/27).
 	- The rent and mortgage-interest tax relief above.
 	- A balanced budget, reported line by line.
-	- Cut the small-business tax from 2% to 1% (party plan; 2024 costing about \$150 million in Budget 2026).
+	- Cut the small-business tax from 2% to 1% ([party plan](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650); [2024 costing](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) about \$150 million in Budget 2026).
 	I can't promise grocery prices or market rents; those depend on factors outside provincial control.
 	How you'll know: quarterly ferry cancellation and on-time results.
 </details>
 <details>
 <summary>Where do you stand on cruise ships in James Bay?</summary>
-	Cruise ships are part of the harbour economy. They are also a real load on James Bay streets, buses and sidewalks. Ogden Point had 310 cruise-ship calls in 2025.
+	Cruise ships are part of the harbour economy. They are also a real load on James Bay streets, buses and sidewalks. Ogden Point had 310 cruise-ship calls in 2025. Source: [Greater Victoria Harbour Authority, Oct 2025](https://gvha.ca/about-gvha/newsroom/victorias-2025-cruise-season-closes-strongly-on-saturday/).
 	I want a cruise-day plan for traffic, buses and pedestrian safety, made with the City, the Greater Victoria Harbour Authority and residents — not a slogan for or against ships. That plan is mine. I would take it to the province where provincial roads, transit funding or harbour rules are involved.
 </details>
 ## What I could realistically accomplish
@@ -104,12 +104,12 @@
 </details>
 <details>
 <summary>How much would your proposals cost, and how would you pay for them?</summary>
-	The large items are party commitments. The last published costing is the Conservative Party of B.C. 2024 platform appendix:
+	The large items are party commitments. The last published costing is the [Conservative Party of B.C. 2024 platform appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf):
 	- Rent and mortgage rebate: about \$900 million in Budget 2026.
 	- Small-business tax cut to 1%: about \$150 million in Budget 2026.
 	- Get BC Building (infrastructure, incentives, faster approvals): about \$1.1 billion from 2026/27.
 	- No PST on affordable used vehicles: part of an estimated \$60 million drivers package from 2026/27.
-	The party said those tax cuts would be paid for by a balanced budget and by stopping spending that does not deliver. I'll use those figures until the party publishes a 2026 update, then I'll replace them.
+	The party said faster economic growth would pay for those tax cuts, and committed to balancing the budget in a second term. I'll use those figures until the party publishes a 2026 update, then I'll replace them. Source: [2024 costing appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf).
 	Items that are mine — cutting doctors' paperwork, South Island clinic hours, published treatment waits, spreading services, secure care, a James Bay cruise-day plan, public-service standards — are mostly rule and reporting changes. Where they need new staff or beds, I will not invent a dollar figure. I'll publish the cost when the Ministry or Island Health numbers exist, and I'll vote against a bill I cannot explain.
 </details>
 <details>
