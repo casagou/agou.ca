@@ -722,6 +722,7 @@ ABOUT_OLD = [  # About intro approved 2026-09-30 (EN+FR); the old paragraphs mus
     r"I have lived in Fairfield, in Victoria–Beacon Hill, since January 2023", r"My work has included leading teams",
     r"J['’]habite à Fairfield, dans Victoria–Beacon Hill, depuis janvier 2023", r"J['’]ai dirigé des équipes et géré des projets",
     r"Ran the pre-launch of a new restaurant", r"Development of test and trial procedures", r"Élaboration de procédures d['’]essais pour les systèmes",  # old career-history entries
+    r"Start with the numbers\.", r"Fix what does not work, or stop it", r"Partir des chiffres\.",  # old How I work list
 ]
 EXPERIENCE_OLD = r"(?i)(more than|over)\s+(12|twelve)\s+years|\b(12|twelve) years of experience|plus de (12|douze) ans"
 PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910"}

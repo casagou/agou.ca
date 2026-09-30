@@ -52,8 +52,8 @@ French (native), English (fluent), Spanish (limited working proficiency), Italia
 ## Why I am running
 I have lived in Fairfield since 2023. I hear the same problems from many neighbours: street disorder, rent and home prices, and long waits for a family doctor. As an engineer, I measure a problem, set a target, and report the result. I want the province to do the same for Victoria. I support the BC Conservative program, and I would bring this riding's numbers to the Legislature.
 ## How I work
-- Start with the numbers.
-- Set a target and a date.
-- Publish the result.
-- Fix what does not work, or stop it.
+- **Start with what's really happening.** Talk to the people affected and look at the real data before deciding anything.
+- **Set a clear target and a date.** Say what should change, by how much and by when.
+- **Report back in public.** Publish the results every quarter, good or bad, so you can check them yourself.
+- **Fix what isn't working, or end it.** If something doesn't deliver, change course instead of defending it.
 Nominate: [agou.ca/nominate](/nominate/)

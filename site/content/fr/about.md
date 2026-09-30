@@ -52,8 +52,8 @@ Français (langue maternelle), anglais (courant), espagnol (connaissance pratiqu
 ## Pourquoi je me présente
 J'habite à Fairfield depuis 2023. Beaucoup de voisins me font part des mêmes préoccupations : le désordre dans la rue, les loyers et le prix des logements, et les longues attentes pour avoir un médecin de famille. Comme ingénieur, je mesure un problème, je fixe une cible et je rends compte du résultat. Je veux que la province fasse la même chose pour Victoria. J'appuie le programme du Parti conservateur de la Colombie-Britannique, et je présenterais à l'Assemblée législative les données concernant notre circonscription.
 ## Ma façon de travailler
-- Partir des chiffres.
-- Fixer une cible et une date.
-- Publier le résultat.
-- Corriger ce qui ne fonctionne pas ou y mettre fin.
+- **Partir de la réalité du terrain.** Parler aux personnes concernées et examiner les données réelles avant de prendre toute décision.
+- **Fixer une cible claire et une échéance.** Préciser ce qui doit changer, dans quelle mesure et d'ici quand.
+- **Rendre des comptes publiquement.** Publier les résultats chaque trimestre, bons ou mauvais, pour que vous puissiez les vérifier vous-même.
+- **Corriger ce qui ne fonctionne pas ou y mettre fin.** Si une mesure ne donne pas les résultats attendus, changer de cap plutôt que de la défendre.
 S'inscrire pour signer mon formulaire de mise en candidature : [agou.ca/nominate](/fr/nominate/)
