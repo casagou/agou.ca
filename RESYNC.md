@@ -44,6 +44,14 @@ Joachim approved this on 2026-09-30 after a fact-check. Notion still has the old
 - If notion2md warns that a rule no longer matches (the Notion sentence changed), update its `find` text. Don't delete the rule. Better still, fix the sentence in Notion; then the rule stops matching and can be removed.
 - The same correction is on `/scorecard/` item 7 (see `site/scorecard.json` → `approved_edits`).
 
+### Review-batch guard
+`site.json` → `review_batch_approved` is `false` while the 30 Sep 2026 design batch (header, forms, sections, actions, FAQ index, Instagram link) is on staging for Joachim's review. `build.py --env live` refuses to run until it is `true`. To publish something else before then, build it from a branch without the batch (for example main's source commit plus cherry-picks).
+
+### Site-made additions a re-sync keeps (not from Notion)
+- "More photos on Instagram ↗" after the Media photo (`site.json` → `more_photos_after`).
+- Buttons and reading links: the leading "→" on Notion call-to-action lines is dropped when rendering, not in content/.
+- Read more toggles, Home shortcuts and the FAQ topic index are generated at build time from the headings and sections, so they follow whatever Notion contains.
+
 ## 2. Redeploy staging (https://agou-staging.pages.dev)
 Deployment runs from casagou/Beacon-Hill, branch **`agou-site-staging`**, workflow `.github/workflows/agou-staging.yml`. It checks out agou.ca@staging, builds with `--env staging`, runs diffcheck, and deploys to the Cloudflare Pages project `agou-staging` with the repo's existing Cloudflare secret.
 Trigger it by pushing to that branch:

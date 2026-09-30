@@ -260,7 +260,16 @@
     },
     "updated": "Last updated:",
     "faq_q": "Questions?",
-    "faq_link": "Frequently asked questions"
+    "faq_link": "Frequently asked questions",
+    "read_more": "Read more",
+    "show_less": "Show less",
+    "shortcuts_label": "Jump to",
+    "faq_index": "Topics",
+    "form_common": {
+      "err_title": "Please fix the following:",
+      "tick": "Please tick "
+    },
+    "more_photos": "More photos on Instagram"
   },
   "fr": {
     "site_name": "Joachim Agou – Victoria–Beacon Hill",
@@ -523,6 +532,15 @@
     },
     "updated": "Dernière mise à jour :",
     "faq_q": "Des questions?",
-    "faq_link": "Foire aux questions"
+    "faq_link": "Foire aux questions",
+    "read_more": "Lire la suite",
+    "show_less": "Afficher moins",
+    "shortcuts_label": "Accès rapide",
+    "faq_index": "Thèmes",
+    "form_common": {
+      "err_title": "Veuillez corriger ce qui suit :",
+      "tick": "Veuillez cocher "
+    },
+    "more_photos": "Plus de photos sur Instagram"
   }
 }

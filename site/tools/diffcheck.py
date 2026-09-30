@@ -38,6 +38,7 @@ def plain(line):
     s = re.sub(r'<mention-page url="[^"]+"/>', "", s)
     s = re.sub(r"^#+ ", "", s); s = re.sub(r"^- ", "", s)
     s = re.sub(r"\s*\{color=\"[a-z_]+\"\}", "", s)
+    s = re.sub(r"^\[\*\*→\s*", "[**", s)  # leading arrow on Notion call-to-action lines is presentational (site buttons have no leading arrow)
     s = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", s)
     s = s.replace("**", "").replace("\\$", "$").replace("\\[", "[").replace("\\]", "]")
     s = re.sub(r"(?<!\w)\*|\*(?!\w)", "", s)

@@ -96,6 +96,7 @@ def render(md, lang, ctx, toc_levels=("h2",)):
     i = 0
     list_open = False
     section_open = False
+    last_h2 = 0
 
     def close_list():
         nonlocal list_open
@@ -112,7 +113,7 @@ def render(md, lang, ctx, toc_levels=("h2",)):
             if section_open: out.append("</section>")
             t = s[3:].strip(); hid = slugify(re.sub(r"\*", "", t)); heads.append((hid, t))
             out.append(f'<section class="block" aria-labelledby="{hid}"><h2 id="{hid}">{inline(t, ctx)}</h2>')
-            section_open = True; i += 1; continue
+            last_h2 = len(out); section_open = True; i += 1; continue
         if s.startswith("### "):
             close_list(); t = s[4:].strip(); out.append(f'<h3 id="{slugify(t)}">{inline(t, ctx)}</h3>'); i += 1; continue
         if s.startswith("<callout"):
@@ -143,7 +144,10 @@ def render(md, lang, ctx, toc_levels=("h2",)):
             close_list(); out.append(f'<p class="pagelink"><a href="{esc(m.group(1))}">{esc(m.group(2))} <span aria-hidden="true">→</span></a></p>'); i += 1; continue
         m = re.match(r"!\[(.*)\]\((\S+)\)$", s)
         if m:
-            close_list(); out.append(picture(m.group(2), m.group(1), lang)); i += 1; continue
+            close_list(); out.append(picture(m.group(2), m.group(1), lang))
+            if SITE["images"].get(pathlib.PurePosixPath(m.group(2).split("?")[0]).name) in SITE.get("more_photos_after", []):
+                out.append(f'<p class="readlink"><a href="{esc(SITE["social"]["Instagram"])}" rel="noopener">{esc(UI[lang]["more_photos"])} <span aria-hidden="true">↗</span></a></p>')
+            i += 1; continue
         if s == "---":
             close_list(); out.append("<hr>"); i += 1; continue
         if re.match(r"^- ", s) and not ln.startswith("\t"):
@@ -155,8 +159,14 @@ def render(md, lang, ctx, toc_levels=("h2",)):
             out.append(f"<li>{item}{''.join(extra)}</li>"); i = j; continue
         close_list()
         s2 = re.sub(r'<mention-page url="([^"]+)"/>', lambda mm: f'[{mention_title(mm.group(1))}]({mm.group(1)})', s)
-        cls = ' class="cta-line"' if re.match(r"^\[\*\*→", s2) else ""
-        out.append(f"<p{cls}>{inline(s2, ctx)}</p>"); i += 1
+        mr = re.match(r"^\[\*\*→\s*(.*?)\*\*\]\((/(?:fr/)?(?:faq|about|priorities|media)/)\)$", s2)
+        if mr:  # a reading/navigation link, not an action: text link with one trailing arrow
+            out.append(f'<p class="pagelink"><a href="{esc(mr.group(2))}">{inline(mr.group(1), ctx)} <span aria-hidden="true">→</span></a></p>'); i += 1; continue
+        if re.match(r"^\[\*\*→", s2):
+            kind = "primary" if not any('class="btn primary"' in o for o in out[last_h2:]) else "sec"
+            a = re.sub(r"^<a ", f'<a class="btn {kind}" ', inline(re.sub(r"^\[\*\*→\s*", "[**", s2), ctx))
+            out.append(f'<p class="cta-line">{a}</p>'); i += 1; continue
+        out.append(f"<p>{inline(s2, ctx)}</p>"); i += 1
     close_list()
     if section_open: out.append("</section>")
     htmls = "\n".join(out)
@@ -166,6 +176,40 @@ def render(md, lang, ctx, toc_levels=("h2",)):
         toc = '<nav class="toc" aria-label="' + esc(UI[lang]["toc"]) + '"><ul>' + "".join(f'<li><a href="#{h}">{inline(t, ctx)}</a></li>' for h, t in after) + "</ul></nav>"
         htmls = htmls.replace("<!--TOC-->", toc)
     return htmls, heads
+
+
+def collapse(html, lang, keep_chars=320, min_hidden=300):
+    """Presentation only: in each <section class="block">, keep the first children visible (about keep_chars of text),
+    put the rest in a region toggled by a 'Read more' button. Without JS the region stays visible (the button is hidden).
+    Trailing call-to-action / page links stay visible. Text is unchanged (diffcheck still sees every line)."""
+    U = UI[lang]; lines = html.split("\n"); out = []; i = 0; n = 0
+    while i < len(lines):
+        ln = lines[i]
+        if not ln.startswith('<section class="block"'):
+            out.append(ln); i += 1; continue
+        j = i + 1; kids = []
+        bal = lambda s: len(re.findall(r"<(div|details|figure|ul|nav|picture)\b", s)) - len(re.findall(r"</(div|details|figure|ul|nav|picture)>", s))
+        while j < len(lines) and lines[j] != "</section>":
+            k = j; chunk = [lines[j]]
+            while bal("\n".join(chunk)) > 0 and k + 1 < len(lines):
+                k += 1; chunk.append(lines[k])
+            kids.append("\n".join(chunk)); j = k + 1
+        tail = []
+        while kids and re.match(r'<p class="(cta-line|pagelink)"', kids[-1]):
+            tail.insert(0, kids.pop())
+        txt = lambda h: len(re.sub(r"<[^>]+>", "", h))
+        vis = []
+        while kids and (not vis or sum(map(txt, vis)) < keep_chars):
+            vis.append(kids.pop(0))
+        if kids and sum(map(txt, kids)) >= min_hidden and not any("<details" in k or "<nav" in k for k in kids):
+            n += 1; rid = f"rm-{slugify(re.sub(r'<[^>]+>', '', ln))[:40]}-{n}"
+            vis += [f'<div class="rm-more" id="{rid}">' + "\n".join(kids) + "</div>",
+                    f'<p class="rm"><button type="button" class="rm-toggle" aria-expanded="true" aria-controls="{rid}" data-more="{esc(U["read_more"])}" data-less="{esc(U["show_less"])}" hidden>{esc(U["show_less"])}</button></p>']
+        else:
+            vis += kids
+        out += [ln] + vis + tail + (["</section>"] if j < len(lines) else [])
+        i = j + 1
+    return "\n".join(out)
 
 
 def mention_title(u):
@@ -289,14 +333,15 @@ def shell(lang, page, title, desc, main_html, env, extra_head="", robots_overrid
         return ' aria-current="page"' if k == key else ""
     items = []
     for k in SITE["main_nav"]:
+        if k in HIDDEN: continue
         p = BYKEY[k]
         kids = p.get("children") or []
         sub = ""
         if kids:
             sub = '<ul class="subnav">' + "".join(f'<li><a href="{url(lang, c)}"{cur(c)}>{esc(BYKEY[c]["nav"][lang])}</a></li>' for c in kids) + "</ul>"
         active = ' class="active"' if key in kids else ""
-        items.append(f'<li{" class=\"has-sub\"" if kids else ""}><a href="{url(lang, k)}"{cur(k)}{active}>{esc(p["nav"][lang])}</a>{sub}</li>')
-    navs = "".join(items)
+        items.append(f'<li{" class=\"has-sub\"" if kids else ""}><a href="{url(lang, k)}"{cur(k)}{active}>{esc(p.get("nav_short", p["nav"])[lang])}</a>{sub}</li>')
+    navs = f'<li class="nav-cta"><a class="btn primary" href="{url(lang, "volunteer")}">{esc(U["cta_volunteer"])}</a></li>' + "".join(items)
     staging = f'<div class="staging" role="note">{esc(U["staging"])}</div>' if env == "staging" else ""
     evbase = f' data-lang-switch data-base="{opath}"' if key == "events" else ""
     cta_v = url(lang, "volunteer"); cta_d = url(lang, "donate")
@@ -406,10 +451,12 @@ def build_page(lang, page, env):
             body = body[:j] + scorecard.home_link(sys.modules[__name__], lang) + body[j:]
         PAGE_STATE["hero_map"] = False
         body = body.replace(f'<section class="block" aria-labelledby="{slugify(donate_h)}">', follow + f'\n<section class="block" aria-labelledby="{slugify(donate_h)}">', 1)
+        # the callout's link is the page's main action: a primary button (same wording)
+        hero_callout = re.sub(r'<a href="([^"]+)">', r'<a class="btn primary hero-cta" href="\1">', render(callout, lang, {"self": self_path})[0], count=1)
         hero = (f'<div class="hero"><div class="wrap hero-grid"><div class="hero-text">'
                 f'<h1>{esc(U["home_title"])}</h1><p class="hero-sub">{inline(sub, ctx)}</p><p class="tagline">{inline(tagline, ctx)}</p>'
-                f'{render(callout, lang, {"self": self_path})[0]}</div>{hero_media}</div></div>')
-        main = hero + f'<div class="wrap content">{body}{updated_for(lang, "home")}</div>'
+                f'{hero_callout}</div>{hero_media}</div></div>')
+        main = hero + shortcuts(lang) + home_layout(collapse(body, lang), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
         title = f"Joachim Agou – Victoria–Beacon Hill" if lang == "en" else "Joachim Agou – Victoria–Beacon Hill (français)"
         desc = re.sub(r"[*]", "", sub) + ". " + re.sub(r"[*]", "", tagline)
         return shell(lang, page, title, desc, main, env)
@@ -436,8 +483,14 @@ def build_page(lang, page, env):
     if page.get("title"):
         h1 = page["title"][lang]
     body, heads = render(md, lang, ctx) if md else ("", [])
+    if key == "priorities":
+        body = collapse(body, lang)
     if key == "priorities" and "scorecard" not in HIDDEN:
         body = scorecard.priorities_link(sys.modules[__name__], lang) + body
+    if key == "faq" and heads:
+        idx = "".join(f'<li><a href="#{h}">{inline(t_, ctx)}</a></li>' for h, t_ in heads)
+        body = (f'<div class="faq-layout"><nav class="faq-index" aria-label="{esc(U["faq_index"])}"><p class="faq-index-t" aria-hidden="true">{esc(U["faq_index"])}</p><ul>{idx}</ul></nav>'
+                f'<div class="faq-main">{body}</div></div>')
     if key == "get-involved":
         body = hub(lang, home)
     if key in ("how-to-vote", "donate", "volunteer", "events", "nominate") and body and not body.lstrip().startswith("<section"):
@@ -454,17 +507,46 @@ def build_page(lang, page, env):
         body = photo_slot("about-portrait", lang, "about-photo") + body
     if page.get("form") in ("volunteer", "nominate", "lawnsign"):
         body += form_block(page["form"], lang)
-        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": page["form"], "text": UI[lang][page["form"]]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
+        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": page["form"], "text": UI[lang][page["form"]], "common": UI[lang]["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     if page.get("form") == "events":
         T = U["events"]
         body = f'<div data-hide-on-detail>{body}</div><section class="block" id="events-list" aria-live="polite"><div id="listView"><div id="list"><p class="note">{esc(T["loading"])}</p></div></div><article id="detailView" class="detail" hidden></article></section>'
-        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": "events", "live_url": LIVE + self_path, "text": T}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
+        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": "events", "live_url": LIVE + self_path, "text": T, "common": U["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     main = f'<div class="page-head"><div class="wrap"><h1>{esc(h1)}</h1></div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
     desc = first_text(md) if md else U["lawnsign"]["intro"] if key == "lawn-sign" else ""
     if key == "lawn-sign": desc = U["lawnsign"]["intro"]
     title = f"{h1} – Joachim Agou – Victoria–Beacon Hill"
     out = shell(lang, page, title, desc, main, env)
     return out.replace("</body>", extra + "</body>", 1) if extra else out
+
+
+def shortcuts(lang):
+    """Compact row of section shortcuts under the home hero (existing pages)."""
+    items = "".join(f'<li><a href="{url(lang, k)}">{esc(BYKEY[k]["nav"][lang])}</a></li>' for k in ("priorities", "get-involved", "events", "how-to-vote"))
+    return f'<nav class="shortcuts" aria-label="{esc(UI[lang]["shortcuts_label"])}"><div class="wrap"><ul>{items}</ul></div></nav>'
+
+
+def home_layout(body, lang):
+    """Home: open reading sections, one pale-blue band with the ways to help as cards, then Events and Follow along side by side."""
+    parts = re.split(r"\n?(?=<section class=\"block)", body)
+    secs = [s for s in parts if s.strip()]
+    sid = lambda s: re.search(r'aria-labelledby="([^"]+)"', s).group(1)
+    by = {sid(s): s for s in secs}
+    pick = lambda k: slugify(page_section_title(k, lang))
+    help_ids = [i for i in (pick("nominate"), pick("volunteer"), pick("donate")) if i in by]
+    side_ids = [i for i in (pick("events"), "follow") if i in by]
+    order = [sid(s) for s in secs]
+    first = [i for i in order[:2]]
+    rest = [i for i in order if i not in first + help_ids + side_ids]
+    card = lambda s: s.replace('<section class="block"', '<section class="block card-sec"', 1)
+    h = f'<div class="wrap home">' + "\n".join(by[i] for i in first) + "</div>"
+    if help_ids:
+        h += f'<div class="band band-sky"><div class="wrap"><div class="grid-help">' + "\n".join(card(by[i]) for i in help_ids) + "</div></div></div>"
+    h += f'<div class="wrap home">'
+    if side_ids:
+        h += '<div class="grid-2">' + "\n".join(by[i] for i in side_ids) + "</div>"
+    h += "\n".join(by[i] for i in rest) + "</div>"
+    return h
 
 
 def pdf_kb(name):
@@ -475,7 +557,7 @@ def mediakit_block(lang):
     """Media kit download links (rule in RESYNC.md: Notion's PDF attachments become <placeholder>MEDIAKIT</placeholder>, rendered here)."""
     T = UI[lang]["mediakit"]; K = SITE["media_kit"]; other = T["other_lang"]
     main_f, other_f = K[lang], K[other]
-    h = (f'<div class="mediakit"><p class="cta-line"><a href="/assets/media/{main_f}" type="application/pdf" hreflang="{lang}">'
+    h = (f'<div class="mediakit"><p class="cta-line"><a class="btn primary" href="/assets/media/{main_f}" type="application/pdf" hreflang="{lang}">'
          f'<strong>{esc(T["main"].format(kb=pdf_kb(main_f)))}</strong></a></p>'
          f'<p class="mk-other"><a href="/assets/media/{other_f}" type="application/pdf" hreflang="{other}" lang="{other}">{esc(T["other"].format(kb=pdf_kb(other_f)))}</a></p>')
     errs = sorted({w.split(":")[0] for es in MEDIAKIT["errs"].values() for w in es})
@@ -578,7 +660,7 @@ def hub(lang, home):
             first = next(l for l in sec.split("\n") if l.strip() and not l.startswith(("[", "<", "!", "-")))
             text = inline(first, {})
         cards.append(f'<li class="hub-card"><h2 id="h-{c}"><a href="{url(lang, c)}">{esc(p["nav"][lang])}</a></h2><p>{text}</p>'
-                     f'<a class="btn {("donate" if SITE.get("promote_donate") else "sec quiet") if c == "donate" else "primary"}" href="{url(lang, c)}" aria-describedby="h-{c}">{esc(p["nav"][lang])} <span aria-hidden="true">→</span></a></li>')
+                     f'<a class="btn {("donate" if SITE.get("promote_donate") else "sec") if c == "donate" else "primary" if c == "nominate" else "sec"}" href="{url(lang, c)}" aria-describedby="h-{c}">{esc(p["nav"][lang])}</a></li>')
     return '<ul class="hub">' + "".join(cards) + "</ul>"
 
 
@@ -644,6 +726,9 @@ if __name__ == "__main__":
         SITE["footer_nav"] = [k for k in SITE["footer_nav"] if k not in HIDDEN]
         for p in PAGES:
             if p.get("children"): p["children"] = [k for k in p["children"] if k not in HIDDEN]
+    if a.env == "live" and not SITE.get("review_batch_approved", True):
+        sys.exit("Live build refused: staging contains the 30 Sep 2026 review batch (header, forms, sections, actions, FAQ index), not yet approved by Joachim. "
+                 "Set site.json review_batch_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
     dist = ROOT / a.out
     if dist.exists(): shutil.rmtree(dist)
     shutil.copytree(ROOT / "assets", dist / "assets")

@@ -1,8 +1,20 @@
 (function () {
   "use strict";
+  document.documentElement.classList.add("js");
+  /* Read more / Show less: content is visible without JS; JS collapses it and shows the toggle button. */
+  document.querySelectorAll(".rm-toggle").forEach(function (b) {
+    var r = document.getElementById(b.getAttribute("aria-controls"));
+    if (!r) return;
+    function set(open) {
+      b.setAttribute("aria-expanded", String(open));
+      b.textContent = open ? b.getAttribute("data-less") : b.getAttribute("data-more");
+      r.hidden = !open;
+    }
+    b.hidden = false; set(false);
+    b.addEventListener("click", function () { set(b.getAttribute("aria-expanded") !== "true"); }); // focus stays on the button
+  });
   var btn = document.getElementById("menu-btn"), nav = document.getElementById("site-nav");
   if (!btn || !nav) return;
-  document.documentElement.classList.add("js");
   function set(open) {
     btn.setAttribute("aria-expanded", String(open));
     btn.querySelector(".lbl").textContent = open ? btn.getAttribute("data-close") : btn.getAttribute("data-open");
@@ -11,4 +23,6 @@
   btn.addEventListener("click", function () { set(btn.getAttribute("aria-expanded") !== "true"); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") { set(false); btn.focus(); } });
   window.matchMedia("(min-width: 1024px)").addEventListener("change", function (m) { if (m.matches) set(false); });
+  // an in-page link in the open menu (or any nav link) closes it
+  nav.addEventListener("click", function (e) { if (e.target.closest("a") && btn.getAttribute("aria-expanded") === "true") set(false); });
 })();

@@ -165,6 +165,10 @@
       "nav": {
         "en": "Frequently asked questions",
         "fr": "Foire aux questions"
+      },
+      "nav_short": {
+        "en": "FAQ",
+        "fr": "FAQ"
       }
     },
     {
@@ -216,7 +220,8 @@
     "priorities",
     "get-involved",
     "events",
-    "how-to-vote"
+    "how-to-vote",
+    "faq"
   ],
   "promote_donate": false,
   "_promote_donate_doc": "ONE-LINE SWITCH. false = Donate is a quiet item inside Get involved only (people are sent to Bert Chen). true = adds a yellow Donate button in the header and in the phone's bottom bar, and a yellow Donate button on the Get involved page. Rebuild after changing.",
@@ -260,5 +265,11 @@
     "e59fa2ccf2909598f22e168bf290e6d35670e2582ad30e02d90041e0d4e58c86": "joachim-agou-media-kit-en.pdf: approved as-is by Joachim on 30 Sep 2026 (content-check hit: 'candidate' wording in the medium bio)",
     "bd2ddfec9cc5a4a00b4ee29a3a5029a8874034e071580f5f8cf3b66cdd3e4aab": "joachim-agou-media-kit-fr.pdf: approved as-is by Joachim on 30 Sep 2026 (content-check hit: 'candidate' wording in the medium bio)"
   },
-  "_media_kit_approved_doc": "sha256 of PDF files Joachim approved as-is. build.py skips the PDF content scan only for a file whose exact hash is listed; any other or changed file is scanned (and blocks the live build if it fails)."
+  "_media_kit_approved_doc": "sha256 of PDF files Joachim approved as-is. build.py skips the PDF content scan only for a file whose exact hash is listed; any other or changed file is scanned (and blocks the live build if it fails).",
+  "more_photos_after": [
+    "joachim-agou-speaking"
+  ],
+  "_more_photos_doc": "After these images (any page, any re-sync), build.py adds the reading link 'More photos on Instagram ↗' (ui.json more_photos) to social.Instagram, same tab, rel=noopener. Not from Notion.",
+  "review_batch_approved": false,
+  "_review_batch_doc": "30 Sep 2026 staging review batch (mobile header + FAQ in menu, forms, read more + shortcuts, action hierarchy, section treatments, desktop alignment, FAQ index, Instagram link). The live build refuses to run until Joachim approves and this is set to true."
 }

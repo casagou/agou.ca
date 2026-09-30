@@ -69,7 +69,38 @@ Joachim chose "JOA" on 2026-09-30 (the "never Joa" text rule does not apply to t
 Set it to `true` and rebuild: a Donate button appears in the header, and the Donate item on Get involved becomes a full button. Nothing else needs to change.
 
 ## Design rules this build follows
-Mobile-first. Body text 18px with line-height 1.55 and lines of about 62 characters at most. Every button and link target is at least 48px. The header is not sticky, and there are no popups, modals, cookie banners (no trackers), autoplay or bottom bars. `prefers-reduced-motion` turns off transitions and smooth scrolling. Colours meet WCAG AA. Every page shows a "Last updated" date (`site.json` → `updated`).
+Mobile-first. Body text 18px with line-height 1.55 and lines of about 62 characters at most. Every button and link target is at least 48px. Below 1024px the header is a shallow 56px bar that stays at the top (solid white, no blur, safe-area insets respected, `scroll-padding-top` so anchors and focused fields are not covered); on desktop it is not sticky. There are no popups, modals, cookie banners (no trackers), autoplay or bottom bars. `prefers-reduced-motion` turns off transitions and smooth scrolling. Colours meet WCAG AA. Every page shows a "Last updated" date (`site.json` → `updated`).
+
+### Header
+- Phones and tablets (below 1024px): a 56px bar. On the left, "Joachim Agou" with "Victoria–Beacon Hill" under it (never wrapped, never shrunk). On the right, the FR/EN switch and a "Menu" button whose label is always visible. From 480px wide, Volunteer is also in the bar. Below 480px it is the first item of the menu, as a primary button.
+- Main menu: About, Priorities, Get involved (with sub-items), Events, How to vote, FAQ (`site.json` → `main_nav`; the short label "FAQ" comes from `nav_short`). The footer still links to the FAQ. At 1024px the desktop nav fits on one row in EN and FR.
+
+### Section treatments
+- **Open** (`.block`): the default for reading. No box. It sits on the page background, and spacing (44px, or 56px on desktop) separates sections.
+- **Card** (`.card-sec`, `.hub-card`, `.ev`, `.formblock`, `.map-card`): white with a pale border and 12px radius. Used only for grouped actions: the ways to help on Home, Get involved cards, event cards, forms and the map.
+- **Band** (`.band-sky`): a full-width pale-blue strip (`--sky` #edf3fa) for a major transition. It is used once, on Home, for the ways to help (Become a nominator, Volunteer, Donate as cards). Text on the band is #1b1f24 (14.8:1) or #4a5561 (6.8:1), and links are #1a4c8b (7.7:1). All pass AA.
+- No new colours, shadows, gradients or animation. Page titles on text pages use the same 800px container as the reading column, so the title and body text share one left edge. The FAQ at 1100px and wider uses 1052px (reading column plus a 220px topic list).
+
+### Actions
+- **Primary** (`.btn.primary`, blue #1a4c8b, white text 8.6:1): the one main action of a section, such as the hero "Sign up to nominate (takes 1 minute)", the first Notion call-to-action line in a section, the form submit, the media-kit download, and the Nominate card on Get involved. On phones it is full width.
+- **Secondary** (`.btn.sec`, outlined): the other actions, such as the second call-to-action line in a section (e.g. "Request a lawn sign") and the other Get involved cards.
+- **Reading and navigation links** (`.pagelink`, `.readlink`): bold text links with one trailing → to pages on this site, or ↗ to other sites. Notion call-to-action lines that point to the FAQ, About, Priorities or Media become reading links.
+- Buttons never have arrows. The leading "→" in Notion's `[**→ …**]` lines is dropped when rendering (`tools/diffcheck.py` treats it as presentational).
+- Focus: a 3px navy outline (yellow on navy backgrounds).
+
+### Read more (Home and Priorities)
+`collapse()` in build.py keeps the start of a long section visible (about 320 characters, at least one block) and puts the rest behind a "Read more" / "Lire la suite" button (`aria-expanded`, `aria-controls`; the label changes to "Show less" / "Afficher moins", and focus stays on the button). Without JS everything stays visible and the button stays hidden. The trailing call-to-action and page links always stay visible, so the link to the full About page remains. The text is unchanged, so diffcheck still finds every line. Home also has a row of shortcuts under the hero (Priorities, Get involved, Events, How to vote).
+
+### Forms (front end)
+- One form surface. The section is the card, and the form inside has no second box. On phones up to 640px the card runs edge to edge, so fields sit 16px from the screen edge (358px wide at 390px). Fields stay in a single column up to 640px. Fields are 52px tall with 18px text.
+- Errors: a summary at the submit button ("Please fix the following:"). Each item is a link that focuses its field. Each field also gets a message under it (an "!" icon plus words), `aria-invalid="true"`, and `aria-describedby` pointing to the message. The message clears when the field is edited. The loading ("Sending…") and success states are unchanged.
+- Fields, payloads and RPCs are unchanged (front end only).
+
+### FAQ page
+A "Topics" / "Thèmes" index links to each group heading. On phones it shows as chips at the top. From 1100px it becomes a sticky list to the right of the reading column. Each question row is a full-width `<summary>` at least 56px tall, with a circled +/− indicator and a visible focus outline.
+
+### "More photos on Instagram"
+After the photo "Joachim Agou presenting a test program" (Media, Photos), build.py adds the reading link "More photos on Instagram ↗" / "Plus de photos sur Instagram ↗". It links to `site.json` → `social.Instagram` (same tab, `rel="noopener"`, no embed and no tracking). It is not in Notion. `site.json` → `more_photos_after` lists the images it follows, so a Notion re-sync keeps it.
 
 ## Content exclusions (from `exclusions.json`)
 - "Most people call me Joa." (EN/FR): the site says Joachim, never Joa.
