@@ -45,13 +45,13 @@ Je publierai ces 12 chiffres chaque trimestre, je dirai s’ils ont bougé et j�
 
 **6. Les décès liés aux drogues toxiques**  
 **Cible :** 40 % de décès en moins dans le Grand Victoria d’ici la fin du mandat par rapport à 2025. Les chiffres de Victoria, de l’Île et de la C.-B. publiés côte à côte. Les décès ont déjà baissé d’environ 21 % dans la province en 2025; la cible s’ajoute à cette baisse, ce n’est pas un tour d’honneur pour une tendance qui a commencé sans moi.  
-**Aujourd’hui :** 128 décès dans le Grand Victoria en 2025 (94 dans la Ville de Victoria); 343 sur l’Île; 1 826 en C.-B.  
+**Aujourd’hui :** 128 décès dans le Sud de l’île de Vancouver en 2025 (94 dans la zone locale de santé du Grand Victoria); 343 sur l’Île; 1 826 en C.-B.  
 **Source / fréquence :** Service des coroners de la C.-B. — données préliminaires mensuelles, confirmées chaque année.  
 **Mon levier :** Voter pour la capacité de traitement et pour maintenir en détention les trafiquants et les récidivistes violents lorsque la loi le permet. Je ne peux pas promettre un nombre de décès.
 
 **7. La criminalité dans notre ville**  
 **Cible :** La criminalité dans la Ville de Victoria plus basse qu’en 2024 d’ici la fin de la deuxième année, puis en baisse chaque année par la suite. Les infractions violentes répétées au centre-ville publiées chaque trimestre.  
-**Aujourd’hui :** Indice de gravité de la criminalité de la Ville : 152,65 en 2024 (en baisse de 11 %), puis en hausse de 4,7 points en 2025. Vols qualifiés à Victoria : +21 % en 2025 (181 incidents), selon les chiffres de la VicPD publiés en juillet 2026. Notre ville reste l’exception dans la région.  
+**Aujourd’hui :** Indice de gravité de la criminalité de la Ville : 152,17 en 2024 (en baisse de 11 %), puis 161,18 en 2025 (en hausse de 6 %). Vols qualifiés dans la Ville : +19 % en 2025 (126 incidents), selon Statistique Canada, juillet 2026. Notre ville reste l’exception dans la région.  
 **Source / fréquence :** Indice de gravité de la criminalité de Statistique Canada — annuel, en juillet. **Pas trimestriel.**  
 **Indicateur trimestriel :** Chiffres trimestriels de la VicPD pour les vols qualifiés, les voies de fait, les introductions par effraction et les méfaits dans la Ville de Victoria.  
 **Mon levier :** Voter pour des lois sur la mise en liberté sous caution et les récidivistes, et pour les shérifs et le temps d’audience qui permettent de mener les causes à procès. Ce n’est pas moi qui fixe l’indice.
@@ -82,6 +82,6 @@ Je publierai ces 12 chiffres chaque trimestre, je dirai s’ils ont bougé et j�
 
 **12. Des lits de traitement qui desservent le Grand Victoria**  
 **Cible :** Un décompte public des lits de rétablissement et des lits de soins sécurisés qui desservent la région — combien il y en a, leur taux d’occupation, la durée de l’attente, combien de personnes ont encore un logement 12 mois plus tard. Puis augmenter ce nombre jusqu’à ce que l’attente soit courte.  
-**Aujourd’hui :** De nouveaux lits de traitement fermés sont en voie d’ouverture à Surrey et à Prince George. La communauté thérapeutique de rétablissement d’Our Place a accueilli plus de 200 personnes en 2024-2025. Il n’existe aucun inventaire officiel des places par rapport à la demande dans le sud de l’Île. Ce chiffre n’existe pas tant que quelqu’un ne le publie pas.  
+**Aujourd’hui :** De nouveaux lits de traitement fermés sont en construction à Surrey (60 lits, ouverture prévue au printemps 2028) et à Prince George (72 lits, à partir de décembre 2027). La communauté thérapeutique de rétablissement d’Our Place a soutenu environ 120 personnes en 2025-2026. Il n’existe aucun inventaire officiel des places par rapport à la demande dans le sud de l’Île. Ce chiffre n’existe pas tant que quelqu’un ne le publie pas.  
 **Source / fréquence :** Aucune pour l’instant. Je déposerai une question écrite dès la première session et je publierai la réponse, ou l’absence de réponse, sur cette page. Ensuite : chaque trimestre.  
 **Mon levier :** Voter pour le financement des immobilisations et du fonctionnement. Plaider pour les soins sécurisés, avec des garanties médicales et juridiques, pour les personnes atteintes d’une dépendance grave qui représentent un danger pour elles-mêmes ou pour le public. Voilà ce que je défendrai.

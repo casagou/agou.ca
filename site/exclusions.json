@@ -156,6 +156,18 @@
       "find": "The last published costing is the Conservative Party of B.C. 2024 platform appendix:",
       "replace": "The last published costing is the [Conservative Party of B.C. 2024 platform appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf):",
       "why": "Fact-check (2026-09-30, approved by Joachim): every public number keeps a source."
+    },
+    {
+      "page": "en-priorities",
+      "find": "Robberies in Victoria rose 21% in 2025 ([Victoria News, 24 Jul 2026](https://vicnews.com/2026/07/24/victoria-sees-small-bump-in-2025-crime-stats/)).",
+      "replace": "Robberies in Victoria rose 19% in 2025 ([Statistics Canada, Table 35-10-0184](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510018401)).",
+      "why": "Fact-check (2026-09-30, approved by Joachim): the 21% (181) figure is the Victoria metro area. City of Victoria (VicPD municipal) robberies: 106 in 2024, 126 in 2025 (+19%), Statistics Canada Table 35-10-0184. Lasting override: Notion still has the old line; see RESYNC.md."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "Les vols qualifiés ont augmenté de 21 % à Victoria en 2025 ([Victoria News, 24 juillet 2026](https://vicnews.com/2026/07/24/victoria-sees-small-bump-in-2025-crime-stats/)).",
+      "replace": "Les vols qualifiés ont augmenté de 19 % à Victoria en 2025 ([Statistique Canada, tableau 35-10-0184](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3510018401)).",
+      "why": "Fact-check (2026-09-30, approved by Joachim): the 21% (181) figure is the Victoria metro area. City of Victoria (VicPD municipal) robberies: 106 in 2024, 126 in 2025 (+19%), Statistics Canada Table 35-10-0184. Lasting override: Notion still has the old line; see RESYNC.md."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

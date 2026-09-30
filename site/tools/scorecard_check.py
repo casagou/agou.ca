@@ -28,7 +28,9 @@ print(f"scorecard: {n} sentences checked, {len(bad)} not found on the page")
 for b in bad: print("  NOT FOUND:", b[:140])
 if "--source" in sys.argv:
     src = pathlib.Path(sys.argv[sys.argv.index("--source") + 1]).read_text()
-    missing = [l for l in md.split("\n") if l.strip() and l not in src.split("\n")]
+    import json
+    approved = {l.rstrip() for k, v in json.loads((ROOT / "scorecard.json").read_text()).get("approved_edits", {}).items() if not k.startswith("_") for l in v}
+    missing = [l for l in md.split("\n") if l.strip() and l not in src.split("\n") and l.rstrip() not in approved]
     print(f"content/en/scorecard.md vs source: {len(missing)} line(s) not verbatim")
     for l in missing: print("  CHANGED:", l[:140])
     bad += missing

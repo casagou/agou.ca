@@ -45,13 +45,13 @@ I will publish these 12 numbers every quarter, say whether they moved, and print
 
 **6. Deaths from toxic drugs**  
 **Target:** 40% fewer deaths in Greater Victoria by the end of the term versus 2025. Victoria, Island, and B.C. numbers printed side by side. Deaths already fell about 21% province-wide in 2025; the target is on top of that, not a victory lap for a trend that started without me.  
-**Today:** 128 deaths in Greater Victoria in 2025 (94 in the City of Victoria); 343 on the Island; 1,826 in B.C.  
+**Today:** 128 deaths in South Vancouver Island in 2025 (94 in the Greater Victoria local health area); 343 on the Island; 1,826 in B.C.  
 **Source / cadence:** BC Coroners Service — monthly preliminary, annual confirmed.  
 **My lever:** Vote for treatment capacity and for keeping dealers and repeat violent offenders in custody where the law allows. I cannot promise a death count.
 
 **7. Crime in this city**  
 **Target:** City of Victoria crime lower than 2024 by the end of year two, then down each year after. Repeat violent offences in the core published every quarter.  
-**Today:** City crime-severity index 152.65 in 2024 (down 11%), then up 4.7 points in 2025. Robberies in Victoria +21% in 2025 (181 incidents), per VicPD figures reported July 2026. This city is still the regional outlier.  
+**Today:** City crime-severity index 152.17 in 2024 (down 11%), then 161.18 in 2025 (up 6%). Robberies in the city +19% in 2025 (126 incidents), Statistics Canada, July 2026. This city is still the regional outlier.  
 **Source / cadence:** Statistics Canada CSI — annual, July. **Not quarterly.**  
 **Quarterly stand-in:** VicPD quarterly counts for robbery, assault, break-and-enter, and mischief in the City of Victoria.  
 **My lever:** Vote for bail and repeat-offender law, and for the sheriffs and court time that get cases to trial. I do not set the index.
@@ -82,6 +82,6 @@ I will publish these 12 numbers every quarter, say whether they moved, and print
 
 **12. Treatment beds that serve Greater Victoria**  
 **Target:** A public count of recovery beds and secure-care beds that serve this region — how many, how full, how long the wait, how many people still have housing 12 months later. Then grow the count until the wait is short.  
-**Today:** New locked treatment beds are being opened in Surrey and Prince George. Our Place’s therapeutic recovery community served 200+ people in 2024–25. There is no official South Island inventory of seats versus demand. That number does not exist until someone publishes it.  
+**Today:** New locked treatment beds are being built in Surrey (60 beds, opening spring 2028) and Prince George (72 beds, from December 2027). Our Place’s therapeutic recovery community supported about 120 people in 2025–26. There is no official South Island inventory of seats versus demand. That number does not exist until someone publishes it.  
 **Source / cadence:** None yet. I will table a written question in the first sitting and print the answer, or the non-answer, on this page. After that: quarterly.  
 **My lever:** Vote for the capital and the operating money. Argue for secure care, with medical and legal safeguards, for people with severe addiction who are a danger to themselves or the public. That is what I will argue for.

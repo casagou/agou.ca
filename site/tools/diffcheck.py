@@ -76,7 +76,10 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
             problems.append(f"{name} ({page.relative_to(dist)}): NOT FOUND: {p[:140]!r}")
     for u in re.findall(r"\]\((https?://[^)\s]+)\)", main_part):
         if "notion.com" in u or "agou.ca" in u or "prod-files-secure" in u: continue
-        if u not in hrefs: problems.append(f"{name}: link missing on page: {u}")
+        if u not in hrefs:
+            if any(r["page"] in (name, "*") and u in r["find"] and u not in r["replace"] for r in EXCL):
+                excluded.append(f"{name}: link {u} replaced on purpose (exclusions.json)"); continue
+            problems.append(f"{name}: link missing on page: {u}")
     # contact block (every page footer)
     for l in contact.split("\n"):
         p = plain(l)

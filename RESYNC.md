@@ -36,6 +36,14 @@ Joachim approved these on 2026-09-30 after a fact-check. They are `en-faq` rules
 - **Every public number keeps a source.** If a rule warns that it no longer matches, update its `find` text so the link survives. Don't delete the rule. Better still, put the links in Notion itself; then the rule stops matching and can be removed.
 - The French FAQ does not have these answers yet. If they are added, use: « Le parti a dit qu'une croissance économique plus rapide financerait ces baisses d'impôt, et s'est engagé à équilibrer le budget au cours d'un second mandat. », with the same source links, through an `fr-faq` rule.
 
+### Priorities robbery figure (do not lose this on a re-sync)
+Joachim approved this on 2026-09-30 after a fact-check. Notion still has the old line, so `en-priorities` and `fr-priorities` rules in `site/exclusions.json` rewrite it on every re-sync.
+- EN: "Robberies in Victoria rose 21% in 2025 (Victoria News)" becomes "Robberies in Victoria rose 19% in 2025", with a link to [Statistics Canada Table 35-10-0184](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510018401). FR: « Les vols qualifiés ont augmenté de 19 % à Victoria en 2025 », linking to the same table in French.
+- Why: the 21% (181 robberies) is the Victoria **metro area** (Table 35-10-0177). The City of Victoria figure (VicPD, municipal) is 106 robberies in 2024 and 126 in 2025, +19% in incidents (+17.9% per capita). That is in Table 35-10-0184, by police service.
+- `build.py` refuses the old wording ("Robberies in Victoria rose 21%", "vols qualifiés ont augmenté de 21 %", "181 incidents"). `tools/diffcheck.py` treats the replaced Victoria News link as an intentional difference.
+- If notion2md warns that a rule no longer matches (the Notion sentence changed), update its `find` text. Don't delete the rule. Better still, fix the sentence in Notion; then the rule stops matching and can be removed.
+- The same correction is on `/scorecard/` item 7 (see `site/scorecard.json` → `approved_edits`).
+
 ## 2. Redeploy staging (https://agou-staging.pages.dev)
 Deployment runs from casagou/Beacon-Hill, branch **`agou-site-staging`**, workflow `.github/workflows/agou-staging.yml`. It checks out agou.ca@staging, builds with `--env staging`, runs diffcheck, and deploys to the Cloudflare Pages project `agou-staging` with the repo's existing Cloudflare secret.
 Trigger it by pushing to that branch:

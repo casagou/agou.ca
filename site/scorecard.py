@@ -167,7 +167,7 @@ def scorecard_page(B, lang, page, env):
         fc = f'<p class="sc-fc"><mark class="todo" lang="en"><strong>{esc(T["en"]["factcheck"])}</strong> {esc(m["factcheck"])}</mark></p>' if m.get("factcheck") else ""
         det.append(f'<article class="sc-item is-{st}" id="item-{it["n"]}" aria-labelledby="item-{it["n"]}-h" tabindex="-1">'
                    f'<header class="sc-ihead"><span class="sc-num big" aria-hidden="true">{it["n"]}</span><div><h3 id="item-{it["n"]}-h"><span class="vh">{it["n"]}. </span>{inl(it["title"])}</h3>'
-                   f'<p class="sc-meta">{chip(st, lang)} <span class="sc-cad">{esc(L["cad"][m["cadence"]])}</span>{" · " + asof if asof else ""}</p></div></header>'
+                   f'<p class="sc-meta">{chip(st, lang)} <span class="sc-cad">{esc(L["cad"][m["cadence"]])}</span>{"<span class=\"sc-asofw\">·" + NB + asof + "</span>" if asof else ""}</p></div></header>'
                    f'<dl class="sc-rows">{"".join(rows)}</dl>{fc}'
                    f'<p class="sc-back"><a href="#report-card"><span aria-hidden="true">↑</span> {esc(L["back"])}</a></p></article>')
     details = f'<section class="sc-details" aria-labelledby="det-h"><h2 id="det-h">{esc(L["details_h"])}</h2>{"".join(det)}</section>'
