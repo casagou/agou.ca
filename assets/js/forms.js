@@ -162,8 +162,23 @@
     var dayLong = function (s) { var p = parts(s); return FR ? p.weekday + " " + p.day + " " + p.month : p.weekday + " " + p.month + " " + p.day; };
     var dayShort = function (s) { var p = parts(s); return FR ? p.day + " " + p.month : p.month + " " + p.day; };
     var clock = function (s) { var p = parts(s); return FR ? p.hour + " h " + p.minute : p.hour + ":" + p.minute + " " + String(p.dayPeriod || "").toLowerCase(); };
-    function timeLine(e) { return dayShort(e.starts_at) + " @ " + clock(e.starts_at) + " - " + (ymd(e.starts_at) === ymd(e.ends_at) ? "" : dayShort(e.ends_at) + " @ ") + clock(e.ends_at); }
-    function heading(e) { var d = dayLong(e.starts_at); if (FR) d = d.charAt(0).toUpperCase() + d.slice(1); return d + " | " + T.riding + " | " + e.title; }
+    var dayFull = function (s) { var p = parts(s); return FR ? cap(p.weekday) + " " + p.day + " " + p.month : p.weekday + ", " + p.month + " " + p.day; }; // "Sunday, October 4" / "Dimanche 4 octobre"
+    var cap = function (s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; };
+    var NB = "\u00a0";
+    // "11:15 am – 12:30 pm" (same day) or "Oct 4, 11:15 am – Oct 5, 1:00 am"
+    function timeRange(e) {
+      var same = ymd(e.starts_at) === ymd(e.ends_at);
+      return (same ? "" : dayShort(e.starts_at) + ", ") + clock(e.starts_at).replace(/ /g, NB) + " – " + (same ? "" : dayShort(e.ends_at) + ", ") + clock(e.ends_at).replace(/ /g, NB);
+    }
+    function timeLine(e) { return dayShort(e.starts_at) + " · " + timeRange(e); }
+    // Title as written in the campaign app, with "|" shown as an em dash: "Coffee with Joachim — North Park"
+    var evTitle = function (e) { return String(e.title || "").replace(/\s*\|\s*/g, NB + "— ").trim(); }; // the dash stays with the words before it
+    function tile(s, cls) { // "SUN / 4 / OCT" block (decorative: the full date is also in the text next to it)
+      var o = {}; new Intl.DateTimeFormat(LOC, { timeZone: TZ, weekday: "short", day: "numeric", month: "short" }).formatToParts(new Date(s)).forEach(function (p) { o[p.type] = p.value; });
+      var up = function (x) { return String(x || "").replace(/\./g, "").toUpperCase(); };
+      return el("span", { class: "dtile" + (cls ? " " + cls : ""), "aria-hidden": "true" },
+        el("span", { class: "dt-wd", text: up(o.weekday) }), el("span", { class: "dt-d", text: o.day }), el("span", { class: "dt-m", text: up(o.month) }));
+    }
     function inline(text) {
       var out = [], re = /\*\*([^*]+)\*\*|(https?:\/\/[^\s<>"]+[^\s<>".,;:!?)])/g, last = 0, m;
       while ((m = re.exec(text))) {
@@ -189,9 +204,55 @@
       return box;
     }
     var plain = function (s) { return String(s || "").replace(/\*\*([^*]+)\*\*/g, "$1").replace(/^\s*[-*•]\s+/gm, "").replace(/\s+/g, " ").trim(); };
-    function excerpt(s) { var t = plain(s); return t.length > 200 ? t.slice(0, 200).replace(/\s+\S*$/, "") + "…" : t; }
-    var whereText = function (e) { return [e.location_name, e.address].filter(Boolean).join(", "); };
-    var mapUrl = function (e) { return whereText(e) ? "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(whereText(e)) : ""; };
+    var whereText = function (e) { return [venue(e), e.address].filter(Boolean).join(", "); }; // calendar LOCATION: venue + street address, so calendar apps find the right place
+    // Maps. With lat/lng (campaign_events, migration 41) every link goes to the exact pin. Without them, the street
+    // address alone is searched. The old link searched "location_name, address" as free text, and Google answered with a
+    // list of guesses (other markets, the other Bubby Rose's), not a pin.
+    var hasPin = function (e) { return typeof e.lat === "number" && typeof e.lng === "number"; };
+    var ll = function (e) { return e.lat.toFixed(6) + "," + e.lng.toFixed(6); };
+    function venue(e) { // "Fernwood Square, on the public sidewalk outside Little June" -> "Little June"
+      var s = String(e.location_name || ""), m = /\b(?:outside|beside|at)\s+(?:the\s+(?=[A-Z][a-z]+\s+[A-Z]))?(.+)$/.exec(s);
+      return ((m ? m[1] : s.split(",")[0]) || "").replace(/\s*\(.*?\)\s*$/, "").trim();
+    }
+    var mapUrl = function (e) {
+      if (hasPin(e)) return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(ll(e));
+      return e.address ? "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(e.address) : "";
+    };
+    var dirUrl = function (e) {
+      if (hasPin(e)) return "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(ll(e));
+      return e.address ? "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(e.address) : "";
+    };
+    var appleUrl = function (e) {
+      var q = venue(e) || e.address || "";
+      if (hasPin(e)) return "https://maps.apple.com/?ll=" + ll(e) + "&q=" + encodeURIComponent(q);
+      return e.address ? "https://maps.apple.com/?q=" + encodeURIComponent(e.address) : "";
+    };
+    function mapImg(e) { // static OSM map made by tools/make_event_maps.py; only if it was drawn for this exact pin
+      var m = (CFG.maps || {})[String(e.id)];
+      if (!m || !hasPin(e) || Math.abs(m.lat - e.lat) > 1e-6 || Math.abs(m.lng - e.lng) > 1e-6) return null;
+      var b = "/assets/img/events/event-" + e.id + "-", q = "?v=" + m.v;
+      var img = el("img", { src: b + "phone-2x.png" + q, srcset: b + "phone-2x.png" + q + " 2x, " + b + "phone-3x.png" + q + " 3x",
+        width: "358", height: "224", alt: T.map_alt.replace("{v}", venue(e) || e.location_name || ""), loading: "lazy", decoding: "async" });
+      var pic = el("picture", null, el("source", { media: "(min-width: 700px)", srcset: b + "desk-2x.png" + q + " 2x", width: "640", height: "320" }), img);
+      return el("figure", { class: "evmap" },
+        el("a", { href: mapUrl(e), target: "_blank", rel: "noopener noreferrer", "aria-label": T.map_open }, pic),
+        el("figcaption", null, el("a", { href: "https://www.openstreetmap.org/copyright", target: "_blank", rel: "noopener noreferrer", text: "© OpenStreetMap contributors" })));
+    }
+    // The description repeats the practical facts that are now shown above it; those paragraphs are left out.
+    var REPEAT = /^\s*(?:\*\*)?(?:where to find me|when|where|rsvp is optional|où me trouver|quand|où)\b/i;
+    function spotLine(e) {
+      var m = /(?:^|\n)\s*(?:\*\*)?Where to find me:?(?:\*\*)?\s*([^\n]+)/i.exec(String(e.description || ""));
+      return m ? m[1].trim() : [e.location_name, e.address].filter(Boolean).join(", ");
+    }
+    function bodyText(e) {
+      return String(e.description || "").replace(/\r\n?/g, "\n").split(/\n\s*\n/).filter(function (b) { return b.trim() && !REPEAT.test(b); })
+        .map(function (b) { // long paragraphs: at most two sentences each
+          if (b.length < 240 || /^\s*[-*•]\s/m.test(b)) return b;
+          var ss = b.match(/[^.!?]+[.!?]+["”’)]*\s*|[^.!?]+$/g) || [b], out = [];
+          for (var i = 0; i < ss.length; i += 2) out.push(ss.slice(i, i + 2).join("").trim());
+          return out.join("\n\n");
+        }).join("\n\n");
+    }
     var eventUrl = function (e) { return LIVE + "?e=" + e.id; };
     var utc = function (s) { return new Date(s).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, ""); };
     var icsEsc = function (s) { return String(s || "").replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/([,;])/g, "\\$1"); };
@@ -200,25 +261,34 @@
       var desc = plain(e.description) + (e.description ? "\n\n" : "") + eventUrl(e);
       var ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//agou.ca//Events//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "BEGIN:VEVENT",
         "UID:event-" + e.id + "@agou.ca", "DTSTAMP:" + utc(new Date()), "DTSTART:" + utc(e.starts_at), "DTEND:" + utc(e.ends_at),
-        "SUMMARY:" + icsEsc(e.title), whereText(e) ? "LOCATION:" + icsEsc(whereText(e)) : null, "DESCRIPTION:" + icsEsc(desc), "URL:" + eventUrl(e),
+        "SUMMARY:" + icsEsc(evTitle(e)), whereText(e) ? "LOCATION:" + icsEsc(whereText(e)) : null, "DESCRIPTION:" + icsEsc(desc), "URL:" + eventUrl(e),
         "END:VEVENT", "END:VCALENDAR"].filter(Boolean).map(icsFold).join("\r\n") + "\r\n";
       var a = el("a", { href: URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" })), download: "agou-event-" + e.id + ".ics" });
       document.body.append(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
     }
     function googleCal(e) {
-      var q = new URLSearchParams({ action: "TEMPLATE", text: e.title, dates: utc(e.starts_at) + "/" + utc(e.ends_at), ctz: TZ,
+      var q = new URLSearchParams({ action: "TEMPLATE", text: evTitle(e), dates: utc(e.starts_at) + "/" + utc(e.ends_at), ctz: TZ,
         details: (plain(e.description) ? plain(e.description).slice(0, 1200) + "\n\n" : "") + eventUrl(e), location: whereText(e) });
       return "https://calendar.google.com/calendar/render?" + q.toString();
     }
     function renderList() {
       var box = $("list"); box.textContent = "";
       if (!EVENTS.length) { box.append(el("p", { class: "note", text: T.empty })); return; }
-      EVENTS.forEach(function (e) {
-        var a = el("a", { href: "?e=" + e.id, text: heading(e) });
+      var now = Date.now(), up = function (e) { return new Date(e.ends_at).getTime() >= now; };
+      var list = EVENTS.slice().sort(function (a, b) { return (up(b) - up(a)) || (new Date(a.starts_at) - new Date(b.starts_at)) || (a.id - b.id); });
+      var ul = el("ul", { class: "evlist" });
+      list.forEach(function (e) {
+        var a = el("a", { href: "?e=" + e.id, text: evTitle(e) });
         a.addEventListener("click", function (ev) { if (ev.metaKey || ev.ctrlKey || ev.shiftKey) return; ev.preventDefault(); history.pushState({ e: e.id }, "", "?e=" + e.id); route(); window.scrollTo(0, 0); });
-        var ex = excerpt(e.description);
-        box.append(el("section", { class: "ev" }, el("h3", null, a), ex ? el("p", { class: "ex", text: ex }) : null, el("span", { class: "badge", text: timeLine(e) })));
+        var du = dirUrl(e), past = !up(e);
+        ul.append(el("li", { class: "evc" + (past ? " past" : "") }, tile(e.starts_at),
+          el("div", { class: "evc-body" },
+            el("h3", null, a),
+            el("p", { class: "evc-when" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e), past ? el("span", { class: "evc-ended", text: " · " + T.ended }) : null),
+            e.neighbourhood ? el("p", { class: "evc-nb", text: e.neighbourhood }) : null,
+            du && !past ? el("p", { class: "readlink evc-dir" }, el("a", { href: du, target: "_blank", rel: "noopener noreferrer", text: T.directions_short + " ↗" })) : null)));
       });
+      box.append(ul);
     }
     var baseTitle = document.title, baseDesc = (document.querySelector('meta[name="description"]') || {}).content || "";
     function setMeta(title, desc, url) {
@@ -231,7 +301,8 @@
       var s = $("ld"); if (!s) { s = el("script", { id: "ld", type: "application/ld+json" }); document.head.append(s); }
       s.textContent = JSON.stringify(list.map(function (e) { return { "@context": "https://schema.org", "@type": "Event", name: e.title, startDate: e.starts_at, endDate: e.ends_at,
         eventStatus: "https://schema.org/EventScheduled", eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-        location: { "@type": "Place", name: e.location_name || e.address || T.riding, address: e.address || e.location_name || "Victoria, BC" },
+        location: Object.assign({ "@type": "Place", name: venue(e) || e.location_name || e.address || T.riding, address: e.address || e.location_name || "Victoria, BC" },
+          hasPin(e) ? { geo: { "@type": "GeoCoordinates", latitude: e.lat, longitude: e.lng } } : {}),
         description: plain(e.description).slice(0, 500), url: eventUrl(e), organizer: { "@type": "Organization", name: "Joachim Agou campaign", url: LIVE } }; }));
     }
     function backLink() {
@@ -249,7 +320,7 @@
       var btn = el("button", { id: "btn", type: "submit", class: "btn primary block", text: T.button });
       var msg = el("div", { id: "msg", class: "msg", role: "status", "aria-live": "polite", tabindex: "-1" });
       var f = el("form", { id: "rsvp", class: "card form", novalidate: "", hidden: "" },
-        el("h2", { text: T.rsvp }), el("p", { class: "opt", text: e.title + " · " + timeLine(e) }),
+        el("h2", { text: T.rsvp }), el("p", { class: "opt", text: evTitle(e) + " · " + timeLine(e) }),
         el("div", { class: "row" }, el("div", null, field("first_name", T.first_name, "text", { autocomplete: "given-name", autocapitalize: "words", required: "", maxlength: "80" })),
           el("div", null, field("last_name", T.last_name, "text", { autocomplete: "family-name", autocapitalize: "words", required: "", maxlength: "80" }))),
         field("email", T.email, "email", { autocomplete: "email", autocapitalize: "off", spellcheck: "false", required: "", maxlength: "200", inputmode: "email" }),
@@ -283,29 +354,48 @@
       var box = $("detailView"); box.textContent = "";
       var e = EVENTS.find(function (x) { return String(x.id) === String(id); });
       if (!e) { box.append(backLink(), el("p", { class: "note", text: T.gone })); setMeta(baseTitle, baseDesc, LIVE); return; }
-      setMeta(e.title + " – " + dayLong(e.starts_at) + " – Joachim Agou", (plain(e.description) || heading(e)).slice(0, 160), eventUrl(e));
+      setMeta(evTitle(e) + " – " + cap(dayLong(e.starts_at)) + " – Joachim Agou", (spotLine(e) || plain(e.description)).slice(0, 160), eventUrl(e));
       jsonLd([e]);
-      var where = whereText(e), mu = mapUrl(e);
-      box.append(backLink(), el("h2", { class: "evtitle", text: heading(e) }), el("span", { class: "badge", text: timeLine(e) }));
-      if (e.description) box.append(el("div", { class: "card" }, renderMd(e.description)));
-      var info = el("div", { class: "card" }, el("div", { class: "when" }, el("b", { text: T.when }),
-        el("p", { text: dayLong(e.starts_at) + ", " + clock(e.starts_at) + " – " + (ymd(e.starts_at) === ymd(e.ends_at) ? "" : dayLong(e.ends_at) + ", ") + clock(e.ends_at) + " " + T.pacific })));
-      if (where) info.append(el("div", { class: "where" }, el("b", { text: T.where }),
-        e.location_name ? el("p", { text: e.location_name }) : null, e.address ? el("p", { text: e.address }) : null,
-        mu ? el("p", null, el("a", { href: mu, target: "_blank", rel: "noopener noreferrer", class: "more", text: T.maps })) : null));
-      box.append(info);
-      var acts = el("div", { class: "actions" }), rsvpBtn = null;
-      if (e.rsvp_open) { rsvpBtn = el("button", { type: "button", class: "btn primary", "aria-expanded": "false", "aria-controls": "rsvp", text: T.rsvp }); acts.append(rsvpBtn); }
+      var past = new Date(e.ends_at).getTime() < Date.now();
+      // 1. what and when: date tile + title + time range and neighbourhood
+      box.append(backLink(), el("header", { class: "evhead" }, tile(e.starts_at, "big"),
+        el("div", null, el("h2", { class: "evtitle", text: evTitle(e) }),
+          el("p", { class: "evwhen" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e),
+            e.neighbourhood && evTitle(e).indexOf(e.neighbourhood) < 0 ? el("span", { class: "evnb", text: " · " + e.neighbourhood }) : null,
+            past ? el("span", { text: " · " + T.ended }) : null))));
+      // 2. where to find him, then the actions: directions (primary), calendar (secondary), Apple Maps (text link)
+      var spot = spotLine(e);
+      if (spot) box.append(el("p", { class: "evspot" }, el("strong", { text: T.find_me + " " }), spot));
+      var acts = el("div", { class: "actions evacts" }), du = dirUrl(e), au = appleUrl(e);
+      if (du) acts.append(el("a", { href: du, target: "_blank", rel: "noopener noreferrer", class: "btn primary", text: T.directions }));
       var calBtn = el("button", { type: "button", class: "btn sec", "aria-expanded": "false", "aria-haspopup": "true", text: T.add_cal });
       var menu = el("div", { class: "calmenu", hidden: "" });
       var ics = el("button", { type: "button", text: T.ics });
       ics.addEventListener("click", function () { downloadIcs(e); menu.hidden = true; calBtn.setAttribute("aria-expanded", "false"); });
       menu.append(el("a", { href: googleCal(e), target: "_blank", rel: "noopener noreferrer", text: T.gcal }), ics);
       calBtn.addEventListener("click", function () { menu.hidden = !menu.hidden; calBtn.setAttribute("aria-expanded", String(!menu.hidden)); });
-      acts.append(el("div", { class: "cal" }, calBtn, menu));
-      if (e.signup_url && /^https?:\/\//i.test(e.signup_url)) acts.append(el("a", { href: e.signup_url, target: "_blank", rel: "noopener noreferrer", class: "btn sec", text: T.signup }));
+      if (!past) acts.append(el("div", { class: "cal" }, calBtn, menu));
       box.append(acts);
-      if (rsvpBtn) { var f = rsvpForm(e); box.append(f); rsvpBtn.addEventListener("click", function () { f.hidden = false; rsvpBtn.setAttribute("aria-expanded", "true"); f.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" }); setTimeout(function () { if ($("first_name")) $("first_name").focus({ preventScroll: true }); }, 300); }); }
+      if (au) box.append(el("p", { class: "readlink evapple" }, el("a", { href: au, target: "_blank", rel: "noopener noreferrer", text: T.apple + " ↗" })));
+      var fig = mapImg(e); if (fig) box.append(fig);
+      // 3. the facts, once, in one tidy block
+      var facts = el("dl", { class: "evfacts" },
+        el("dt", { text: T.when }), el("dd", { text: dayFull(e.starts_at) + ", " + timeRange(e).replace(new RegExp(NB, "g"), " ") + " " + T.pacific }));
+      var addr = e.address ? e.address.replace(/,\s*(Victoria),\s*BC$/i, ", $1") : "";
+      var place = venue(e) || e.location_name || "";
+      if (place || addr) facts.append(el("dt", { text: T.where }), el("dd", null, place, place && addr ? el("br") : null, addr || null));
+      box.append(facts);
+      // 4. the welcome, in short paragraphs
+      var txt = bodyText(e);
+      if (txt) box.append(renderMd(txt));
+      // 5. RSVP: optional and quiet
+      if (e.signup_url && /^https?:\/\//i.test(e.signup_url)) box.append(el("p", { class: "readlink" }, el("a", { href: e.signup_url, target: "_blank", rel: "noopener noreferrer", text: T.signup })));
+      if (e.rsvp_open) {
+        var rsvpBtn = el("button", { type: "button", class: "linkbtn", "aria-expanded": "false", "aria-controls": "rsvp", text: T.rsvp_link });
+        box.append(el("div", { class: "evrsvp" }, el("p", { text: T.rsvp_quiet }), rsvpBtn));
+        var f = rsvpForm(e); box.append(f);
+        rsvpBtn.addEventListener("click", function () { f.hidden = false; rsvpBtn.setAttribute("aria-expanded", "true"); f.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" }); setTimeout(function () { if ($("first_name")) $("first_name").focus({ preventScroll: true }); }, 300); });
+      }
     }
     function currentId() { var q = new URLSearchParams(location.search).get("e"); if (q) return q; var h = location.hash.replace(/^#/, ""); return /^\d+$/.test(h) ? h : null; }
     function updateLangLink() { var a = document.querySelector("a[data-lang-switch]"); if (a) { var id = currentId(); a.href = a.getAttribute("data-base") + (id ? "?e=" + id : ""); } }
