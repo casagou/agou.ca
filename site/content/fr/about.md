@@ -8,7 +8,7 @@ Je suis ingénieur professionnel; mon expérience couvre l'aérospatiale, la dé
 	- **Ingénieur en essais et évaluation (IVVQ)** — Entrepreneur de la défense au service de la Marine royale canadienne, Mill Bay (C.-B.) · avril 2026 – aujourd'hui
 		Planification des essais, rédaction des procédures et conduite des essais des systèmes de bord de navires de la Marine royale canadienne, notamment en chantier naval et lors d'essais en mer.
 	- **Fondateur et chef de la direction** — Casagou Inc., Victoria (C.-B.) · juillet 2023 – aujourd'hui
-		Petite entreprise de services professionnels de Victoria. Ses activités comprennent JOA Aero Engineering, mon cabinet de génie-conseil (P.Eng.) depuis juin 2025, Eventia Media (vidéo événementielle, d’entreprise et commémorative, diffusion en direct et photo aérienne par drone) et Casagou Ops (systèmes d’affaires et automatisation).
+		Petite entreprise de services professionnels de Victoria. Ses activités comprennent Joa Aero Engineering, mon cabinet de génie-conseil (P.Eng.) depuis juin 2025, Eventia Media (vidéo événementielle, d’entreprise et commémorative, diffusion en direct et photo aérienne par drone) et Casagou Ops (systèmes d’affaires et automatisation).
 	- **Administrateur, comptabilité et opérations** — Sarah Mae Ives Social Media Inc., Vancouver (C.-B.) · septembre 2023 – janvier 2026
 		Gestion quotidienne de la trésorerie et de la facturation pour plus de 100 comptes clients. Direction d'une équipe de 4 à 6 personnes.
 	- **Gestionnaire de projet, restauration (préparation de l'ouverture)** — Victoria (C.-B.) · avril 2024 – août 2024

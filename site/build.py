@@ -796,7 +796,7 @@ NOTION_TITLES = {  # page titles as in Notion
 FORBIDDEN = [
     (r"Thales", "employer name (Thales)"), (r"\bNATO\b|OTAN", "NATO"), (r"AJISS", "AJISS"), (r"clearance|habilitation de sécurité", "security clearance"),
     (r"(?i:a city that works|\bune ville qui fonctionne|acitythatworks)|\bACTW\b", "A City That Works (hard rule: never on agou.ca)"),
-    (r"\bJoa\b", "the nickname Joa"), (r"Victoria-Beacon Hill", "hyphen instead of en dash in Victoria–Beacon Hill"),
+    (r"\bJoa\b(?! Aero Engineering\b)", "the nickname Joa (only the exact business name 'Joa Aero Engineering' is allowed; joa.aero is lowercase and not matched)"), (r"Victoria-Beacon Hill", "hyphen instead of en dash in Victoria–Beacon Hill"),
     (r"is the Conservative Party of BC candidate|Party of BC candidate in|est le candidat du Parti", "wording that implies he is the confirmed candidate"),
     (r"date of birth|date de naissance|\bborn on\b", "date of birth"),
     (r"\bACTW\b|candidate site", "drafting-note wording (ACTW / 'candidate site') from the /province/ source; see RESYNC.md"),
@@ -910,7 +910,7 @@ if __name__ == "__main__":
         sys.exit("Live build refused: the complete FR FAQ translation (30 Sep 2026) is on staging for Joachim's review. "
                  "Set site.json fr_faq_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
     if a.env == "live" and not SITE.get("fr_edits_approved", True):
-        sys.exit("Live build refused: staging contains Joachim's 30 Sep 2026 FR corrections and About career-history changes (navy role, JOA Aero Engineering, 15 years), not yet approved. "
+        sys.exit("Live build refused: staging contains Joachim's 30 Sep 2026 FR corrections and About career-history changes (navy role, Joa Aero Engineering, 15 years), not yet approved. "
                  "Set site.json fr_edits_approved to true after approval, or publish from a branch without them (see RESYNC.md).")
     if a.env == "live" and not SITE.get("seo_batch_approved", True):
         sys.exit("Live build refused: staging contains the 30 Sep 2026 SEO/social metadata batch (seo.json titles and descriptions, new og:image, JSON-LD, sitemap), not yet approved by Joachim. "

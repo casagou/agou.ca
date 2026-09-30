@@ -119,7 +119,7 @@ After the photo "Joachim Agou presenting a test program" (Media, Photos), build.
 ## Content exclusions (from `exclusions.json`)
 - "Most people call me Joa." (EN/FR): the site says Joachim, never Joa.
 - The Thales Canada job line (EN/FR): current employer is not shown.
-- "Joa Aero Engineering (…)," (EN/FR): the business name contains "Joa". Joachim can approve or rename it.
+- "Joa Aero Engineering" is spelled that way on Joachim's instruction (30 Sep 2026). The nickname check blocks "Joa" everywhere except that exact business name (joa.aero, lowercase, is not matched).
 - Media: "Joachim Agou is the Conservative Party of BC candidate…" was removed, because he is *seeking* the nomination.
 - Media-kit PDFs: they are in `assets/media/` (not Notion), and `<placeholder>MEDIAKIT</placeholder>` renders as the download links (see RESYNC.md "Media kit PDFs"). Staging shows them. Live has shown them since 2026-09-30 (`publish_media_kit_live: true`). Both PDFs still call him the candidate (EN medium bio: "is the Conservative Party of BC candidate"; FR: "est le candidat du Parti conservateur"). Joachim approved them as-is on 30 Sep 2026, so their exact hashes are allow-listed in `site.json` → `media_kit_approved`.
 - FR "(page en anglais)" notes were removed (home and FAQ), because those pages now exist in French.
