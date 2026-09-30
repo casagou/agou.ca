@@ -26,7 +26,7 @@ The Province writes the laws that run most of daily life in BC. Here's the list,
 
 Ottawa's list is shorter than most people think, but it holds the biggest levers.
 
-- Criminal law. The Criminal Code, bail and sentencing rules, drug laws (the Controlled Drugs and Substances Act), firearms law, and parole for sentences of 2 years or more.
+- Criminal law. The Criminal Code, bail and sentencing rules, drug laws (the Controlled Drugs and Substances Act), firearms law, and parole (in BC, the Parole Board of Canada decides it for all sentences).
 - Immigration and citizenship. Annual targets, visas, refugees, study and work permits. The Province nominates some economic immigrants through the Provincial Nominee Program, but Ottawa sets the numbers and issues the papers.
 - Money. The Bank of Canada, interest rates, banking rules, the dollar.
 - Federal benefits. Employment Insurance, Old Age Security, the Canada Pension Plan, the Canada Child Benefit, the GST credit.
@@ -50,9 +50,9 @@ What this means in practice: if a council drags its feet on housing or refuses t
 Some of the biggest files don't sit neatly in one box. This is where politicians hide, so here's who holds which end.
 
 - Healthcare. The Province runs it. Ottawa pays under a quarter of the bill through the Canada Health Transfer and attaches conditions under the Canada Health Act. When the ER is full, that's a provincial problem with a federal cheque behind it.
-- Public safety. Ottawa writes the Criminal Code and the bail rules. The Province prosecutes and runs the courts and jails. It also pays for most policing, and cities pay for their own officers. A repeat offender back on the street the same day is usually a bail story (federal law) or a court delay story (provincial resources), and often both.
+- Public safety. Ottawa writes the Criminal Code and the bail rules. The Province prosecutes and runs the courts and jails. It also pays for policing in rural areas and small towns, and cities pay for their own officers. A repeat offender back on the street the same day is usually a bail story (federal law) or a court delay story (provincial resources), and often both.
 - Housing. Ottawa funds. The Province sets tenancy law, the zoning floor and the building code. Cities issue the permits. Nobody gets to blame the others alone.
-- Addiction and mental health. Drug law is federal. Treatment, detox beds, supportive housing and involuntary care are provincial. The decriminalization pilot that started in 2023 was a federal exemption the Province asked for.
+- Addiction and mental health. Drug law is federal. Treatment, detox beds, supportive housing and involuntary care are provincial. The decriminalization pilot that started in 2023 was a federal exemption the Province asked for. It ended on January 31, 2026.
 - Immigration. Ottawa sets the numbers. The Province pays for the classrooms, hospital beds, roads and housing pressure that follow, and it picks a share of economic immigrants through the Provincial Nominee Program.
 - Childcare. Federal money under the $10-a-day agreement, provincial delivery and licensing.
 - Indigenous relations. Federal on paper under the Constitution. In practice the Province negotiates BC treaties and manages most Crown land. It also passed its own Declaration Act in 2019.
@@ -105,3 +105,6 @@ That's how government in BC actually works. It's also how we're asking you to ho
 - Province of BC news release, consumer carbon tax eliminated April 1, 2025 (https://news.gov.bc.ca/releases/2025FIN0014-000255)
 - Health Canada, 2022 exemption allowing BC to decriminalize personal possession (https://www.canada.ca/en/health-canada/news/2022/05/bc-receives-exemption-to-decriminalize-possession-of-some-illegal-drugs-for-personal-use.html)
 - BCCDC, Decriminalization in BC (https://www.bccdc.ca/health-info/prevention-public-health/decriminalization-in-bc)
+- Province of BC, Decriminalizing people who use drugs in B.C. (the exemption expired on January 31, 2026) (https://www2.gov.bc.ca/gov/content/overdose/decriminalization)
+- Province of BC, Police Resources in British Columbia, 2024 (who pays for policing) (https://www2.gov.bc.ca/assets/gov/law-crime-and-justice/criminal-justice/police/publications/statistics/police-resources/police-resources-in-bc-2024.pdf)
+- Province of BC, Parole Board of Canada hearing (parole for provincial and federal sentences in BC) (https://www2.gov.bc.ca/gov/content/justice/criminal-justice/bcs-criminal-justice-system/if-you-are-convicted-of-a-crime/parole/parole-board-of-canada-hearing)
