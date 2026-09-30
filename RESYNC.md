@@ -11,6 +11,7 @@ Notion pages (ids are also in `site/site.json` → `notion`):
 | about | 3e8e245a-e5f3-81ab-a121-efa7bf13cc57 | 8e3e245a-e5f3-83f3-afca-01c296ec9ce6 |
 | priorities | 3e8e245a-e5f3-8181-b6b1-dbc98a2cde9a | b03e245a-e5f3-8201-ae89-010013ebc80e |
 | media | 3ebe245a-e5f3-8157-9873-c06a8d0db06d | (none, FR media page is a placeholder) |
+| faq | 3ebe245a-e5f3-8138-8df6-f42979a5ca5f | 3ebe245a-e5f3-81d3-8683-d40f8909891f |
 
 1. Fetch the page (Notion MCP `notion-fetch <id>`, or copy its text) and save the full text as `site/notion-raw/<lang>-<key>.txt`, e.g. `en-about.txt`. Keep it verbatim. You may strip query strings from signed image URLs.
 2. `cd site && python3 tools/notion2md.py en-about` (no argument = all pages). This regenerates `content/<lang>/<key>.md` and applies `exclusions.json`. If a rule no longer matches, you get a warning. Update the rule; do not hand-edit content/.
@@ -34,7 +35,7 @@ See `site/README.md`: "Photo slots", "Donate switch" (`site.json` → `promote_d
 
 ## 4. Publish to live (only after Joachim approves; not done)
 Option A (keeps the current GitHub Pages "deploy from branch" setup):
-1. `cd site && python3 build.py --env live`. This writes `dist/` with canonical https://agou.ca URLs, sitemap.xml, robots.txt allowing indexing, `CNAME` (agou.ca) and `.nojekyll`, and no staging banner or noindex.
+1. Make sure no Notion red `[TO COMPLETE]` notes remain (the live build stops if any do). `cd site && python3 build.py --env live`. This writes `dist/` with canonical https://agou.ca URLs, sitemap.xml, robots.txt allowing indexing, `CNAME` (agou.ca) and `.nojekyll`, and no staging banner or noindex.
 2. On a new branch from `main`, replace the root site files with the contents of `site/dist/`. Keep `CNAME` = `agou.ca`. The new build replaces `/volunteer/`, `/nominate/`, `/events/`, `/lawn-sign/` at the same URLs and with the same RPCs.
 3. Open a PR, check the preview, and merge after approval. GitHub Pages redeploys main within a few minutes.
 4. Check https://agou.ca/, /fr/, and each form (a ZZTEST submission, then delete it in the app or with SQL).

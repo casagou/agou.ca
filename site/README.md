@@ -8,10 +8,12 @@ Content lives in Notion. This folder holds a verbatim snapshot of it (`notion-ra
 - Re-sync from Notion, redeploy staging and publish: **see `../RESYNC.md`.**
 
 ## Pages (EN at `/…`, FR at `/fr/…`)
-`/` · `/about/` · `/priorities/` · `/get-involved/` (hub: volunteer, lawn-sign, nominate, donate) · `/volunteer/` · `/lawn-sign/` · `/nominate/` · `/donate/` · `/events/` (`?e=<id>`) · `/how-to-vote/` · `/media/` · `/contact/` · `/privacy/` (DRAFT)
+`/` · `/about/` · `/priorities/` · `/get-involved/` (hub: volunteer, lawn-sign, nominate, donate) · `/volunteer/` · `/lawn-sign/` · `/nominate/` · `/donate/` · `/events/` (`?e=<id>`) · `/how-to-vote/` · `/faq/` · `/media/` · `/contact/` · `/privacy/` (DRAFT)
 
 - Main nav: About · Priorities · Get involved · Events · How to vote. The EN/FR switch is always in the header. The primary CTA is Volunteer.
-- Footer: contact, social links (Instagram, X, Facebook from Notion), Media · Contact · Privacy, and the authorization line.
+- Footer: contact, social links (Instagram, X, Facebook from Notion), Frequently asked questions · Media · Contact · Privacy, and the authorization line.
+- FAQ (`/faq/`, from Notion) is also linked from How to vote, Get involved and the home page "Questions?" section.
+- Notion red text (e.g. `[TO COMPLETE: …]` in the FAQ) is shown highlighted on staging so reviewers see it. `build.py --env live` refuses to build while any is left: finish or delete it in Notion, then re-sync.
 
 ## Files
 | Path | What it is |
@@ -61,4 +63,4 @@ Mobile-first. Body text 18px with line-height 1.55 and lines of about 62 charact
 - "Joa Aero Engineering (…)," (EN/FR): the business name contains "Joa". Joachim can approve or rename it.
 - Media: "Joachim Agou is the Conservative Party of BC candidate…" was removed, because he is *seeking* the nomination.
 - Both media-kit PDFs are withheld (they call him the candidate). A placeholder is shown until corrected PDFs exist.
-- FR "(page en anglais)" notes were removed, because those pages now exist in French.
+- FR "(page en anglais)" notes were removed (home and FAQ), because those pages now exist in French.
