@@ -471,8 +471,13 @@ def mediakit_block(lang):
 def pdf_check(dist):
     """Run the same content checks on the text of every PDF in dist/ (needs pdftotext from poppler-utils)."""
     import subprocess
+    import hashlib
     res = {}
+    approved = SITE.get("media_kit_approved", {})
     for f in sorted(dist.rglob("*.pdf")):
+        h = hashlib.sha256(f.read_bytes()).hexdigest()
+        if h in approved:
+            print(f"PDF approved as-is (sha256 {h[:12]}…, scan skipped): {f.relative_to(dist)}"); res[f] = []; continue
         try:
             txt = subprocess.check_output(["pdftotext", "-enc", "UTF-8", str(f), "-"], text=True)
             meta = subprocess.check_output(["pdfinfo", "-enc", "UTF-8", str(f)], text=True)

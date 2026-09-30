@@ -242,6 +242,11 @@
     "en": "joachim-agou-media-kit-en.pdf",
     "fr": "joachim-agou-media-kit-fr.pdf"
   },
-  "publish_media_kit_live": false,
-  "_media_kit_doc": "Media-kit PDFs in assets/media/ (not from Notion; the Notion PDF attachments are replaced by <placeholder>MEDIAKIT</placeholder> in exclusions.json, and build.py renders that token as the download links). Staging always shows them. publish_media_kit_live: false = the live build keeps the placeholder text, leaves the PDFs out of dist/ and fails if any page links to them. true = live shows the links, but the live build still refuses to run if pdftotext finds forbidden wording or an unlisted phone number in a PDF."
+  "publish_media_kit_live": true,
+  "_media_kit_doc": "Media-kit PDFs in assets/media/ (not from Notion; the Notion PDF attachments are replaced by <placeholder>MEDIAKIT</placeholder> in exclusions.json, and build.py renders that token as the download links). Staging always shows them. publish_media_kit_live: false = the live build keeps the placeholder text, leaves the PDFs out of dist/ and fails if any page links to them. true = live shows the links, but the live build still refuses to run if pdftotext finds forbidden wording or an unlisted phone number in a PDF.",
+  "media_kit_approved": {
+    "e59fa2ccf2909598f22e168bf290e6d35670e2582ad30e02d90041e0d4e58c86": "joachim-agou-media-kit-en.pdf: approved as-is by Joachim on 30 Sep 2026 (content-check hit: 'candidate' wording in the medium bio)",
+    "bd2ddfec9cc5a4a00b4ee29a3a5029a8874034e071580f5f8cf3b66cdd3e4aab": "joachim-agou-media-kit-fr.pdf: approved as-is by Joachim on 30 Sep 2026 (content-check hit: 'candidate' wording in the medium bio)"
+  },
+  "_media_kit_approved_doc": "sha256 of PDF files Joachim approved as-is. build.py skips the PDF content scan only for a file whose exact hash is listed; any other or changed file is scanned (and blocks the live build if it fails)."
 }
