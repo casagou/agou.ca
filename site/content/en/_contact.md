@@ -4,3 +4,4 @@
 Financial agent: Bert Chen · [bert@bertchen.ca](mailto:bert@bertchen.ca) · [778-996-9910](tel:+17789969910)
 Auditor: Chan Nowosad Boates, Chartered Professional Accountants, Campbell River
 *Authorized by Bert Chen, financial agent, *[*bert@bertchen.ca*](mailto:bert@bertchen.ca)*, *[*778-996-9910*](tel:+17789969910)*.*
+<page url="/faq/">Frequently asked questions</page>

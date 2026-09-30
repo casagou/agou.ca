@@ -32,22 +32,28 @@ def slugify(s):
 # ---------------- inline markdown ----------------
 def inline(t, ctx):
     out, i = [], 0
-    pat = re.compile(r"\[((?:[^\[\]]|\[[^\]]*\])*)\]\(([^)\s]+)\)|\*\*(.+?)\*\*|(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])")
+    pat = re.compile(r"<span color=\"red\">(.+?)</span>|(?<!\\)\[((?:[^\[\]]|\[[^\]]*\])*)\]\(([^)\s]+)\)|\*\*(.+?)\*\*|(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])")
     for m in pat.finditer(t):
-        out.append(esc(t[i:m.start()].replace("\\$", "$")))
-        if m.group(1) is not None:
-            href = m.group(2)
+        out.append(esc(unesc(t[i:m.start()])))
+        if m.group(1) is not None:  # Notion red text = an open draft note ("[TO COMPLETE: ...]"); shown highlighted on staging, blocks a live build
+            out.append(f'<mark class="todo">{inline(m.group(1), ctx)}</mark>')
+        elif m.group(2) is not None:
+            href = m.group(3)
             if ctx.get("self") and href.rstrip("/") == ctx["self"].rstrip("/"):
                 href = ctx.get("self_anchor", "#main")
             ext = href.startswith("http")
-            out.append(f'<a href="{esc(href)}"{" rel=\"noopener\"" if ext else ""}>{inline(m.group(1), ctx)}</a>')
-        elif m.group(3) is not None:
-            out.append(f"<strong>{inline(m.group(3), ctx)}</strong>")
+            out.append(f'<a href="{esc(href)}"{" rel=\"noopener\"" if ext else ""}>{inline(m.group(2), ctx)}</a>')
+        elif m.group(4) is not None:
+            out.append(f"<strong>{inline(m.group(4), ctx)}</strong>")
         else:
-            out.append(f"<em>{inline(m.group(4), ctx)}</em>")
+            out.append(f"<em>{inline(m.group(5), ctx)}</em>")
         i = m.end()
-    out.append(esc(t[i:].replace("\\$", "$")))
+    out.append(esc(unesc(t[i:])))
     return "".join(out)
+
+
+def unesc(s):
+    return s.replace("\\$", "$").replace("\\[", "[").replace("\\]", "]")
 
 
 def picture(name, alt, lang, caption=True, eager=False):
@@ -238,6 +244,7 @@ def footer(lang, ctx):
     contact = lines[:fa_i]; fa = lines[fa_i:fa_i + 3]; rest = lines[fa_i + 3:]
     contact_html = "".join(f"<p>{inline(l, ctx)}</p>" for l in contact if "instagram.com" not in l)
     fa_html = f'<div class="fa-box"><p class="fa-title">{inline(fa[0], ctx)}</p>' + "".join(f"<p>{inline(l, ctx)}</p>" for l in fa[1:]) + "</div>"
+    rest = [l for l in rest if not re.match(r'<page url="([^"]+)">', l.strip()) or re.match(r'<page url="([^"]+)">', l.strip()).group(1) not in [url(lang, k) for k in SITE["footer_nav"]]]
     rest_html = "".join(f"<p>{inline(re.sub(r'<mention-page url=\"([^\"]+)\"/>', lambda m: f'[{mention_title(m.group(1))}]({m.group(1)})', l), ctx)}</p>" for l in rest)
     nav = "".join(f'<li><a href="{url(lang, k)}">{esc(BYKEY[k]["nav"][lang])}</a></li>' for k in SITE["footer_nav"])
     contact_h = "Contact" if lang == "en" else "Coordonnées"
@@ -396,6 +403,8 @@ def build_page(lang, page, env):
         links = "".join(f'<li><a href="{esc(u_)}" rel="noopener">{esc(t)}</a></li>' for t, u_ in V["links"])
         body = (f'<section class="block keydates" aria-labelledby="kd"><h2 id="kd">{esc(V["title"])}</h2><p class="src">{esc(V["source"])}</p><ul class="facts">{facts}</ul>'
                 f'<h3>{esc(V["links_title"])}</h3><ul class="links">{links}</ul></section>' + body + map_block(lang))
+    if key in ("how-to-vote", "get-involved"):
+        body += faq_block(lang)
     if key == "about":
         body = photo_slot("about-portrait", lang, "about-photo") + body
     if page.get("form") in ("volunteer", "nominate", "lawnsign"):
@@ -411,6 +420,12 @@ def build_page(lang, page, env):
     title = f"{h1} – Joachim Agou – Victoria–Beacon Hill"
     out = shell(lang, page, title, desc, main, env)
     return out.replace("</body>", extra + "</body>", 1) if extra else out
+
+
+def faq_block(lang):
+    U = UI[lang]
+    return (f'<section class="block" aria-labelledby="faq-q"><h2 id="faq-q">{esc(U["faq_q"])}</h2>'
+            f'<p class="pagelink"><a href="{url(lang, "faq")}">{esc(U["faq_link"])} <span aria-hidden="true">→</span></a></p></section>')
 
 
 def map_block(lang):
@@ -470,6 +485,7 @@ NOTION_TITLES = {  # page titles as in Notion
     "about": {"en": "About Joachim", "fr": "À propos de Joachim"},
     "priorities": {"en": "My priorities and proposals", "fr": "Mes priorités et propositions"},
     "media": {"en": "Media", "fr": "Médias"},
+    "faq": {"en": "Frequently asked questions", "fr": "Foire aux questions"},
 }
 
 # ---------------- checks ----------------
@@ -532,6 +548,8 @@ if __name__ == "__main__":
         (dist / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{u}</loc></url>\n" for u in locs) + "</urlset>\n")
         (dist / "CNAME").write_text("agou.ca\n"); (dist / ".nojekyll").write_text("")
     errs = check(dist)
+    if a.env == "live":
+        errs += [f"{f.relative_to(dist)}: open draft note (Notion red text, e.g. [TO COMPLETE]); finish it in Notion first" for f in sorted(dist.rglob("*.html")) if 'class="todo"' in f.read_text()]
     n = len(list(dist.rglob("index.html")))
     if errs:
         print("BUILD CHECK FAILED:\n  " + "\n  ".join(errs)); sys.exit(1)

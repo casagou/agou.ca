@@ -30,7 +30,7 @@ def page_text(path):
 def plain(line):
     s = line.strip()
     if not s or s == "---" or s.startswith(("<callout", "</callout", "<details", "</details", "<table_of_contents", "<pdf")): return None
-    s = re.sub(r"</?summary>", "", s)
+    s = re.sub(r"</?summary>", "", s); s = re.sub(r"</?span[^>]*>", "", s)
     m = re.match(r'<page url="[^"]+">(.*)</page>', s)
     if m: return m.group(1)
     m = re.match(r"!\[(.*)\]\(", s)
@@ -39,11 +39,11 @@ def plain(line):
     s = re.sub(r"^#+ ", "", s); s = re.sub(r"^- ", "", s)
     s = re.sub(r"\s*\{color=\"[a-z_]+\"\}", "", s)
     s = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", s)
-    s = s.replace("**", "").replace("\\$", "$")
+    s = s.replace("**", "").replace("\\$", "$").replace("\\[", "[").replace("\\]", "]")
     s = re.sub(r"(?<!\w)\*|\*(?!\w)", "", s)
     return re.sub(r"\s+", " ", s).strip()
 
-TARGET = {"home": "", "about": "about/", "priorities": "priorities/", "media": "media/"}
+TARGET = {"home": "", "about": "about/", "priorities": "priorities/", "media": "media/", "faq": "faq/"}
 removed_lines = set()
 for r in EXCL:
     for l in r["find"].split("\n"):
@@ -56,7 +56,7 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
     lines = text.split("\n")
     if "---" in lines[:6]: lines = lines[lines.index("---") + 1:]
     body = "\n".join(lines)
-    m = re.search(r"\n---\n## (Contact|Coordonnées)", body)
+    m = re.search(r"\n---\n## (Contact|Coordonnées)|\n---\n(?=\*(Authorized|Autorisé) )", body)
     main_part, contact = (body[:m.start()], body[m.end():]) if m else (body, "")
     page = dist / ("fr/" if lang == "fr" else "") / TARGET[key] / "index.html"
     ptxt, hrefs = page_text(page)

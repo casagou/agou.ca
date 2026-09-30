@@ -222,3 +222,4 @@ details[open].more-details summary::before { content:"–"; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition:none !important; animation:none !important; scroll-behavior:auto !important; } }
 @media print { .site-header, .staging { display:none; } }
 .srclink { white-space:nowrap; font-size:.92rem; }
+mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4px; border:1px dashed #8a6d00; font-size:.95em; }

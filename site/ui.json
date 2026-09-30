@@ -250,7 +250,9 @@
       "link": "Check your address with Elections BC (Where to Vote lookup)",
       "alt": "Victoria–Beacon Hill riding boundary. Boundary: Elections BC (2023). Map data © OpenStreetMap contributors."
     },
-    "updated": "Last updated:"
+    "updated": "Last updated:",
+    "faq_q": "Questions?",
+    "faq_link": "Frequently asked questions"
   },
   "fr": {
     "site_name": "Joachim Agou – Victoria–Beacon Hill",
@@ -502,6 +504,8 @@
       "link": "Vérifiez votre adresse auprès d'Elections BC (recherche « Where to Vote »)",
       "alt": "Limites de la circonscription de Victoria–Beacon Hill. Limites : Elections BC (2023). Données cartographiques © contributeurs d'OpenStreetMap."
     },
-    "updated": "Dernière mise à jour :"
+    "updated": "Dernière mise à jour :",
+    "faq_q": "Des questions?",
+    "faq_link": "Foire aux questions"
   }
 }

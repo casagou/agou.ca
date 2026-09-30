@@ -76,6 +76,8 @@ def convert(name, report):
     if m:
         contact = text[m.end():]
         text = text[:m.start() + 1]
+    # 3b. trailing '---' + authorization line (pages without a Contact block, e.g. FAQ): the footer shows it on every page
+    text = re.sub(r"\n---\n\*(Authorized|Autorisé) [^\n]*\n?$", "\n", text)
     # 4. colour tags, signed URLs
     text = re.sub(r"\s*\{color=\"[a-z_]+\"\}", "", text)
     text = re.sub(r"(\(https://prod-files-secure\.s3[^)?]+)\?[^)]*\)", r"\1)", text)

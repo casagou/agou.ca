@@ -36,6 +36,8 @@ Venez prendre un café et me dire ce qui compte pour vous. Chaque événement a 
 ## Faire un don
 Les dons en ligne seront bientôt possibles. Pour contribuer dès maintenant, communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910). Il vous expliquera comment donner et vous remettra votre reçu fiscal.
 En 2026, vous pouvez donner jusqu'à 1 513,29 \$ au total à un parti, à ses associations de circonscription et à ses candidats. Seules les personnes ayant la citoyenneté canadienne ou la résidence permanente et vivant en C.-B. peuvent contribuer.
+## Des questions?
+[**→ Foire aux questions**](/fr/faq/)
 ## Renseignements pour voter
 **Inscrivez-vous ou mettez à jour vos renseignements d'ici le jeudi 1er octobre** pour recevoir votre carte « Where to Vote » par la poste. Vous pouvez aussi vous inscrire au moment de voter. [S'inscrire pour voter](https://elections.bc.ca/2026-provincial-election/register-to-vote/)
 **Vote par anticipation : du vendredi 16 au mercredi 21 octobre, de 8 h à 20 h.** Aucune raison nécessaire. Vous pouvez voter à n'importe quel bureau de vote par anticipation.

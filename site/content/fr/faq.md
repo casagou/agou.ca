@@ -1,0 +1,72 @@
+## La campagne
+<details>
+<summary>Qui est Joachim Agou?</summary>
+	Je suis papa, ingénieur professionnel (P.Eng.) et entrepreneur, et j'habite à Fairfield. Je vis au Canada depuis 2011, à Québec, Montréal, Ottawa et Toronto, et je me suis installé à Victoria en 2023. <mention-page url="/fr/about/"/>
+</details>
+<details>
+<summary>Êtes-vous le candidat conservateur de la C.-B.?</summary>
+	Je suis candidat à l'investiture du Parti conservateur de la C.-B. pour devenir député de Victoria–Beacon Hill. Les mises en candidature se terminent le samedi 3 octobre, à 13 h.
+</details>
+<details>
+<summary>Quelles sont vos priorités?</summary>
+	Quatre priorités : des soins de santé accessibles, des logements abordables, un coût de la vie plus bas et un centre-ville qui fonctionne. <mention-page url="/fr/priorities/"/>
+</details>
+<details>
+<summary>Comment saurai-je si vous tenez vos promesses?</summary>
+	Chaque engagement est assorti d'un chiffre. Chaque trimestre, je publierai un rapport à la circonscription sur ce qui a été promis, ce qui a été fait et ce que ça a coûté.
+</details>
+<details>
+<summary>Quelle est votre position sur la Declaration on the Rights of Indigenous Peoples Act (DRIPA)?</summary>
+	J'appuie la réconciliation et j'appuie des droits de propriété clairs. Les citoyens, les Premières Nations et les entreprises doivent savoir qui peut construire, posséder et décider sur un territoire. Aujourd'hui, les règles sont floues, et cette incertitude ralentit le logement et l'investissement, et finit devant les tribunaux. J'appuie le plan du parti de remplacer la loi actuelle par des règles claires, élaborées avec les Premières Nations, qui protègent les droits de propriété de tous.
+</details>
+<details>
+<summary>Participerez-vous aux débats entre candidats?</summary>
+	Oui. Je participerai à tout débat ou forum entre candidats de la circonscription auquel je serai invité.
+</details>
+<details>
+<summary>Pouvez-vous venir à ma porte, dans mon immeuble ou mon groupe?</summary>
+	Oui. Écrivez à [joachim@agou.ca](mailto:joachim@agou.ca) ou appelez au [672-922-7017](tel:+16729227017) et nous fixerons un moment.
+</details>
+<details>
+<summary>Y a-t-il un bureau de campagne?</summary>
+	Non. C'est moi qui viens à vous. Joignez-moi par courriel ou par téléphone, ou venez à un événement.
+</details>
+## Appuyer et aider
+<details>
+<summary>Que veut dire appuyer une candidature?</summary>
+	C'est une signature sur un formulaire d'Elections BC qui permet à un candidat de figurer sur le bulletin de vote. Ce n'est pas un engagement à voter pour moi. Vous devez être électeur admissible et habiter Victoria–Beacon Hill, et vous ne pouvez appuyer qu'un seul candidat à cette élection. Ça prend environ 1 minute, et je vous apporte le formulaire. [Inscrivez-vous pour appuyer ma candidature](/fr/nominate/)
+</details>
+<details>
+<summary>Comment devenir bénévole?</summary>
+	Frapper aux portes, faire des appels, installer une pancarte ou aider le jour de l'élection. [Inscrivez-vous comme bénévole](/fr/volunteer/)
+</details>
+<details>
+<summary>Puis-je avoir une pancarte?</summary>
+	Oui. Si vous êtes locataire, il vous faut la permission de votre propriétaire. [Demander une pancarte](/fr/lawn-sign/)
+</details>
+<details>
+<summary>Où puis-je vous rencontrer?</summary>
+	Venez à un « Café avec Joachim » ou à un autre événement. [Voir les prochains événements](/fr/events/)
+</details>
+<details>
+<summary>Comment faire un don?</summary>
+	Les dons en ligne seront bientôt possibles. Pour contribuer dès maintenant, communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910). En 2026, vous pouvez donner jusqu'à 1 513,29 \$ au total à un parti, à ses associations de circonscription et à ses candidats.
+</details>
+## Voter
+<details>
+<summary>Est-ce que j'habite Victoria–Beacon Hill?</summary>
+	La circonscription comprend James Bay, Fairfield, le centre-ville, Rockland, North Park, la majeure partie de Fernwood, et une partie de Burnside, Jubilee et Gonzales. Vérifiez votre adresse sur [wheretovote.elections.bc.ca](https://wheretovote.elections.bc.ca/).
+</details>
+<details>
+<summary>Quand et où puis-je voter?</summary>
+	Le vote par anticipation a lieu du vendredi 16 au mercredi 21 octobre, de 8 h à 20 h. Le jour du scrutin est le samedi 24 octobre, de 8 h à 20 h. Vous pouvez aussi voter dès maintenant au bureau du directeur du scrutin, 101-722 Johnson St. Tous les détails sont dans Renseignements pour voter, sur la page d'accueil.
+</details>
+<details>
+<summary>Puis-je voter par la poste?</summary>
+	Oui. Demandez une trousse à [Elections BC](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) ou au 1-800-661-8683 au plus tard le dimanche 18 octobre. Elections BC doit la recevoir avant 20 h le 24 octobre.
+</details>
+## Coordonnées
+<details>
+<summary>Comment vous joindre?</summary>
+	[joachim@agou.ca](mailto:joachim@agou.ca) ou [672-922-7017](tel:+16729227017). Médias : voir la page Médias (en anglais).
+</details>

@@ -17,6 +17,10 @@
     "media": {
       "en": "3ebe245a-e5f3-8157-9873-c06a8d0db06d",
       "fr": null
+    },
+    "faq": {
+      "en": "3ebe245a-e5f3-8138-8df6-f42979a5ca5f",
+      "fr": "3ebe245a-e5f3-81d3-8683-d40f8909891f"
     }
   },
   "images": {
@@ -148,6 +152,14 @@
       }
     },
     {
+      "key": "faq",
+      "slug": "faq/",
+      "nav": {
+        "en": "Frequently asked questions",
+        "fr": "Foire aux questions"
+      }
+    },
+    {
       "key": "media",
       "slug": "media/",
       "nav": {
@@ -202,6 +214,7 @@
   "promote_donate": false,
   "_promote_donate_doc": "ONE-LINE SWITCH. false = Donate is a quiet item inside Get involved only (people are sent to Bert Chen). true = adds a yellow Donate button in the header and in the phone's bottom bar, and a yellow Donate button on the Get involved page. Rebuild after changing.",
   "footer_nav": [
+    "faq",
     "media",
     "contact",
     "privacy"
@@ -220,6 +233,8 @@
     "contact": "2026-09-30",
     "privacy": "2026-09-30",
     "how-to-vote": "2026-09-30",
-    "forms": "2026-09-30"
+    "forms": "2026-09-30",
+    "en-faq": "2026-09-30",
+    "fr-faq": "2026-09-30"
   }
 }
