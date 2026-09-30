@@ -13,3 +13,7 @@ Edit the wording in `events/index.html` the same way (TEXT block).
 - `/lawn-sign` → lawn sign request form (rpc `submit_lawn_sign_request`, table `lawn_sign_requests`; public cannot read, organizers/admin manage status, delivery volunteer, dates and notes in the campaign app, ☰ → Lawn signs). noindex like /volunteer. Migration: casagou/Beacon-Hill `supabase/migrations/40_lawn_sign_requests.sql`.
 
 Edit the wording in `lawn-sign/index.html` the same way (TEXT block).
+
+## New bilingual site (branch `staging`, not live yet)
+`site/` holds the new EN/FR site built from Notion (static, no trackers). Preview: https://agou-staging.pages.dev (noindex).
+See `site/README.md` (structure, forms, photo slots, `promote_donate`, exclusions) and `RESYNC.md` (re-sync from Notion, redeploy staging, publish to live).
