@@ -357,3 +357,8 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 .sc-prio-lead a, .sc-rel a { display:inline-flex; align-items:center; min-height:48px; font-weight:700; }
 .sc-rel { margin:10px 0 0; font-size:.95rem; }
 .sc-rel-t { display:block; color:var(--muted); font-weight:600; }
+/* "Who controls what? See what the Province actually controls →" (Priorities; the page itself uses province.css) */
+.pv-link { margin:0 0 28px; font-size:1.05rem; }
+.pv-link a { display:inline-flex; align-items:center; min-height:48px; font-weight:700; }
+.sc-how .pv-link { margin:6px 0 0; }
+.sc-prio-lead + .pv-link { margin-top:-20px; }

@@ -47,6 +47,15 @@ Joachim approved this on 2026-09-30 after a fact-check. Notion still has the old
 ### Review-batch guard
 `site.json` → `review_batch_approved` is `false` while the 30 Sep 2026 design batch (header, forms, sections, actions, FAQ index, Instagram link) is on staging for Joachim's review. `build.py --env live` refuses to run until it is `true`. To publish something else before then, build it from a branch without the batch (for example main's source commit plus cherry-picks).
 
+### "What the Province actually controls" (/province/, /fr/province/): not from Notion
+A Notion re-sync never touches this page. Its text comes from Joachim's message of 30 Sep 2026.
+- EN text: `site/content/en/province.md`. This is Joachim's text word for word, with three approved changes: the byline line ("Sep 30, 2026 · @Joachim Agou") and the drafting note ("Separation of powers. Page copy for the … candidate site …") are left out, and "Victoria-Beacon Hill" becomes "Victoria–Beacon Hill". The site never says "the candidate" or "ACTW", and `build.py` refuses both "ACTW" and "candidate site". Section headings are `## `, tables are `[TABLE: A | B | C]` followed by `a | b | c` rows, and sources are `- text (https://…)`. `province.py` bolds the lead words before the first ". " of each bullet. Don't add the bold in the text file.
+- The full source text is kept outside the repo at `/workspace/agou-site/province-controls-source.md`. After any edit, run `python3 build.py --env staging && python3 tools/province_check.py --source /workspace/agou-site/province-controls-source.md`. It must report 0 sentences not found and 0 lines that differ.
+- To change the text: change it only when Joachim sends new wording. Update the source file and `content/en/province.md` together, then update `site.json` → `updated.province`.
+- FR: `site/content/fr/province.md` is a draft translation. It shows a "Traduction provisoire" banner while `site.json` → `province_fr_reviewed` is `false`. Keep it in step with the EN file when the EN text changes.
+- Live switch: `site.json` → `publish_province_live` is `false` until Joachim approves. The live build then leaves out both pages and every link to them: the menu item under Priorities, the "Who controls what?" line on Priorities and in the scorecard's "How this page works", the footer, and the sitemap. With `publish_province_live` set to `true`, the live build still refuses to run while `province_fr_reviewed` is `false`.
+- Fact-check (30 Sep 2026): the claims the check flagged are listed in the page's commit message and the report to Joachim. Nothing was changed in his text. Apply fixes only when he approves them.
+
 ### Site-made additions a re-sync keeps (not from Notion)
 - "More photos on Instagram ↗" after the Media photo (`site.json` → `more_photos_after`).
 - Buttons and reading links: the leading "→" on Notion call-to-action lines is dropped when rendering, not in content/.

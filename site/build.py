@@ -6,6 +6,7 @@ Interface/form wording comes from ui.json. Page list, photo slots and social lin
 No framework, no dependencies (Python 3 standard library only)."""
 import argparse, html, json, re, shutil, pathlib, sys
 import scorecard  # /scorecard/ page (scorecard.py, scorecard.json, content/<lang>/scorecard.md)
+import province  # /province/ page (province.py, content/<lang>/province.md; not from Notion)
 
 ROOT = pathlib.Path(__file__).resolve().parent
 SITE = json.loads((ROOT / "site.json").read_text())
@@ -433,6 +434,8 @@ def build_page(lang, page, env):
     key = page["key"]; U = UI[lang]
     if key == "scorecard":  # /scorecard/: own layout, see scorecard.py
         return scorecard.scorecard_page(sys.modules[__name__], lang, page, env)
+    if key == "province":  # /province/: own layout, see province.py
+        return province.page(sys.modules[__name__], lang, page, env)
     self_path = url(lang, key)
     ctx = {"self": self_path, "self_anchor": "#form" if page.get("form") in ("volunteer", "nominate", "lawnsign") else "#events-list"}
     home = read(lang, "home")
@@ -491,6 +494,8 @@ def build_page(lang, page, env):
     body, heads = render(md, lang, ctx) if md else ("", [])
     if key == "priorities":
         body = collapse(body, lang)
+    if key == "priorities" and "province" not in HIDDEN:  # "Who controls what? See what the Province actually controls →"
+        body = province.line(sys.modules[__name__], lang, "prio") + body
     if key == "priorities" and "scorecard" not in HIDDEN:
         body = scorecard.priorities_link(sys.modules[__name__], lang) + scorecard.priorities_related(sys.modules[__name__], lang, body)
     if key == "faq" and heads:
@@ -687,6 +692,7 @@ FORBIDDEN = [
     (r"\bJoa\b", "the nickname Joa"), (r"Victoria-Beacon Hill", "hyphen instead of en dash in Victoria–Beacon Hill"),
     (r"is the Conservative Party of BC candidate|Party of BC candidate in|est le candidat du Parti", "wording that implies he is the confirmed candidate"),
     (r"date of birth|date de naissance|\bborn on\b", "date of birth"),
+    (r"\bACTW\b|candidate site", "drafting-note wording (ACTW / 'candidate site') from the /province/ source; see RESYNC.md"),
     (r"(?i)hilda", "Joachim's street name (keep only the neighbourhood; see exclusions.json)"),
     (r"[Rr]obberies in Victoria rose 21%|vols qualifiés ont augmenté de 21\s?%|181 incidents", "the retracted robbery figure (metro area, not the city; fact-check 2026-09-30, see exclusions.json)"),
     (r"paid for by a balanced budget|stopping spending that does not deliver", "the retracted FAQ funding line (fact-check 2026-09-30; see exclusions.json)"),
@@ -727,6 +733,11 @@ if __name__ == "__main__":
         HIDDEN.add("faq")
     if a.env == "live" and not SITE.get("publish_scorecard_live", False):
         HIDDEN.add("scorecard")
+    if a.env == "live" and not SITE.get("publish_province_live", False):
+        HIDDEN.add("province")
+    if a.env == "live" and SITE.get("publish_province_live") and not SITE.get("province_fr_reviewed"):
+        sys.exit("Live build refused: /fr/province/ is still a draft translation (site.json province_fr_reviewed is false). "
+                 "Have Joachim review it, set province_fr_reviewed to true, then build live (see RESYNC.md).")
     if HIDDEN:
         PAGES[:] = [p for p in PAGES if p["key"] not in HIDDEN]
         SITE["footer_nav"] = [k for k in SITE["footer_nav"] if k not in HIDDEN]

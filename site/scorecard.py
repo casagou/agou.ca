@@ -174,7 +174,8 @@ def scorecard_page(B, lang, page, env):
     legend = (f'<p class="sc-legend"><span>{chip("promise", lang)} {esc(L["legend_promise"])}</span> <span>{chip("target", lang)} {esc(L["legend_target"])}</span></p>')
     grid = (f'<section class="sc-report" id="report-card" aria-labelledby="rc-h"><h2 id="rc-h">{esc(L["card_h"])}</h2>'
             f'<p class="sc-intro">{esc(L["card_intro"])}</p>{legend}<ol class="sc-grid">{"".join(cards)}</ol></section>')
-    how_html = (f'<section class="block sc-how" aria-labelledby="how"><h2 id="how">{esc(how_h)}</h2>' + "".join(f"<p>{inl(p)}</p>" for p in how) + "</section>")
+    how_html = (f'<section class="block sc-how" aria-labelledby="how"><h2 id="how">{esc(how_h)}</h2>' + "".join(f"<p>{inl(p)}</p>" for p in how)
+                + (B.province.line(B, lang, "sc") if "province" not in B.HIDDEN else "") + "</section>")
     # details: each line links back to the priority it reports on
     PH = priority_heads(B, lang)
     def prio_link(n):
