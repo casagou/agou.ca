@@ -4,11 +4,11 @@ A static EN/FR site built from the Notion pages. No framework and no trackers. T
 Content lives in Notion. This folder holds a verbatim snapshot of it (`notion-raw/`), and `build.py` turns that snapshot into plain HTML in `dist/`.
 
 - **Staging:** https://agou-staging.pages.dev (noindex: meta tag, X-Robots-Tag header, and robots.txt Disallow)
-- **Live:** https://agou.ca still serves the old root pages. This site is **not** published yet (see RESYNC.md, "Publish to live").
+- **Live:** https://agou.ca serves this site (published 2026-09-30 from branch `staging`, see RESYNC.md "Publish to live"). Notion is for drafting only; agou.ca is the public site.
 - Re-sync from Notion, redeploy staging and publish: **see `../RESYNC.md`.**
 
 ## Pages (EN at `/…`, FR at `/fr/…`)
-`/` · `/about/` · `/priorities/` · `/get-involved/` (hub: volunteer, lawn-sign, nominate, donate) · `/volunteer/` · `/lawn-sign/` · `/nominate/` · `/donate/` · `/events/` (`?e=<id>`) · `/how-to-vote/` · `/faq/` · `/media/` · `/contact/` · `/privacy/` (DRAFT)
+`/` · `/about/` · `/priorities/` · `/get-involved/` (hub: volunteer, lawn-sign, nominate, donate) · `/volunteer/` · `/lawn-sign/` · `/nominate/` · `/donate/` · `/events/` (`?e=<id>`) · `/how-to-vote/` · `/faq/` · `/media/` · `/contact/` · `/privacy/`
 
 - Main nav: About · Priorities · Get involved · Events · How to vote. The EN/FR switch is always in the header. The primary CTA is Volunteer.
 - Footer: contact, social links (Instagram, X, Facebook from Notion), Frequently asked questions · Media · Contact · Privacy, and the authorization line.
@@ -21,7 +21,7 @@ Content lives in Notion. This folder holds a verbatim snapshot of it (`notion-ra
 | `notion-raw/<lang>-<key>.txt` | Notion page text exactly as fetched (source of truth for the snapshot) |
 | `tools/notion2md.py` | notion-raw → `content/<lang>/<key>.md` (strips Notion nav/contact blocks, applies `exclusions.json`, maps links) |
 | `exclusions.json` | Every intentional edit to Notion text, with the reason |
-| `content/<lang>/*.md` | Generated page bodies (privacy.md is hand-written, DRAFT) |
+| `content/<lang>/*.md` | Generated page bodies (privacy.md is hand-written; approved with the go-live on 2026-09-30) |
 | `site.json` | Pages, nav, photo slots, social links, `promote_donate`, "Last updated" dates |
 | `ui.json` | Interface and form wording EN/FR, How to vote facts with elections.bc.ca source links |
 | `build.py` | `python3 build.py --env staging|live` → `dist/` (and runs content checks: forbidden terms, phone whitelist, authorization line) |
@@ -49,6 +49,10 @@ The design is complete without photos. The slots are set in `site.json` → `pho
 | `about-portrait` | Top of About | Nothing is shown |
 
 To fill a slot, save a JPG (at least 1600px wide, real campaign photo) as `assets/img/photos/<slot>.jpg` and set `"hero": "hero.jpg"`. Then rebuild. Text always stays on a solid background, never over a photo.
+
+## FAQ switch (held back from live)
+`site.json` → `"publish_faq_live": false`. The live build leaves out `/faq/` and `/fr/faq/` and every link to them (footer nav, How to vote, Get involved, the home "Questions?" section and the Contact page link). The build fails if any link to them is left. Staging always shows the FAQ.
+To publish it: finish every `[TO COMPLETE]` note in Notion, re-sync `en-faq`/`fr-faq`, set `"publish_faq_live": true`, then build live and publish. The live build refuses to run while any TO COMPLETE note remains.
 
 ## Donate switch
 `site.json` → `"promote_donate": false` (the default). Donate is a quiet item in Get involved and points people to the financial agent (Bert).

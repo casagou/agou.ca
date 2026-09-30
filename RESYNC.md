@@ -33,7 +33,7 @@ git commit --allow-empty -m "redeploy agou staging" && git push
 ## 3. Photos, Donate switch and exclusions
 See `site/README.md`: "Photo slots", "Donate switch" (`site.json` → `promote_donate`) and "Content exclusions".
 
-## 4. Publish to live (only after Joachim approves; not done)
+## 4. Publish to live (first done 2026-09-30, PR on casagou/agou.ca; repeat for every update)
 Option A (keeps the current GitHub Pages "deploy from branch" setup):
 1. Make sure no Notion red `[TO COMPLETE]` notes remain (the live build stops if any do). `cd site && python3 build.py --env live`. This writes `dist/` with canonical https://agou.ca URLs, sitemap.xml, robots.txt allowing indexing, `CNAME` (agou.ca) and `.nojekyll`, and no staging banner or noindex.
 2. On a new branch from `main`, replace the root site files with the contents of `site/dist/`. Keep `CNAME` = `agou.ca`. The new build replaces `/volunteer/`, `/nominate/`, `/events/`, `/lawn-sign/` at the same URLs and with the same RPCs.
@@ -42,4 +42,16 @@ Option A (keeps the current GitHub Pages "deploy from branch" setup):
 
 Option B: switch GitHub Pages to "GitHub Actions" and add a workflow that runs `build.py --env live` and uploads `site/dist`. This keeps the source and the build separate. It needs a Pages settings change on the repo.
 
-Rollback: revert the merge commit on `main`.
+Exactly as done for the first publish:
+```
+cd site && python3 build.py --env live           # must print "content checks passed"
+git -C <agou.ca clone> checkout -b publish-YYYYMMDD origin/main
+# replace the root with the build (keeps nothing else; README.md is re-added below)
+cd <agou.ca clone> && git rm -rq . && cp -a <staging clone>/site/dist/. . && git checkout origin/main -- README.md
+git add -A && git commit -m "agou.ca: publish site from staging <sha>" && git push -u origin HEAD
+gh pr create --base main --fill && gh pr merge --merge
+```
+Then wait for the Pages build (`gh api repos/casagou/agou.ca/pages/builds/latest`) and check https://agou.ca.
+Only built files go on `main` (never `site/`), because GitHub Pages serves everything in the root, including the Notion snapshot.
+
+Rollback: `git revert -m 1 <merge commit>` on `main` and push (or open a revert PR from the PR page). Pages rebuilds the previous site in about a minute.

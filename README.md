@@ -14,6 +14,6 @@ Edit the wording in `events/index.html` the same way (TEXT block).
 
 Edit the wording in `lawn-sign/index.html` the same way (TEXT block).
 
-## New bilingual site (branch `staging`, not live yet)
+## Bilingual site source (branch `staging`; published to agou.ca)
 `site/` holds the new EN/FR site built from Notion (static, no trackers). Preview: https://agou-staging.pages.dev (noindex).
 See `site/README.md` (structure, forms, photo slots, `promote_donate`, exclusions) and `RESYNC.md` (re-sync from Notion, redeploy staging, publish to live).

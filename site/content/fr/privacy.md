@@ -1,4 +1,3 @@
-<draft>ÉBAUCHE à faire réviser par Joachim Agou et Bert Chen, agent financier. Pas encore approuvée. Cet avis repose uniquement sur le texte de consentement des formulaires de la campagne.</draft>
 ## Ce que recueillent les formulaires et pourquoi
 - **Bénévolat :** vos prénom et nom, courriel, téléphone et, si vous le souhaitez, votre adresse. La campagne de Joachim Agou (Parti conservateur de la C.-B., Victoria–Beacon Hill) peut communiquer avec vous par courriel, téléphone ou texto au sujet du bénévolat.
 - **Appuyer ma candidature :** vos nom complet, adresse résidentielle, téléphone et, si vous le souhaitez, votre courriel, le meilleur moment pour vous joindre et les séances de signature où vous pouvez venir. La campagne communique avec vous au sujet de la signature du formulaire de mise en candidature. Vos renseignements servent uniquement à cette mise en candidature.

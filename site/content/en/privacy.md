@@ -1,4 +1,3 @@
-<draft>DRAFT for review by Joachim Agou and Bert Chen, financial agent. Not yet approved. This notice is based only on the consent wording on the campaign's forms.</draft>
 ## What the forms collect and why
 - **Volunteer:** your first and last name, email, phone and, if you choose, your address. The Joachim Agou campaign (Conservative Party of BC, Victoria–Beacon Hill) may contact you by email, phone or text about volunteering.
 - **Nominate:** your full name, residential street address, phone, and, if you choose, your email, the best time to reach you and the signing sessions you can attend. The campaign contacts you about signing the nomination paper. Your information is used only for this nomination.

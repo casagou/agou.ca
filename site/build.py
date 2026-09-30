@@ -13,6 +13,7 @@ PAGES = SITE["pages"]
 BYKEY = {p["key"]: p for p in PAGES}
 LIVE = SITE["live_origin"]
 LANGS = ["en", "fr"]
+HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
 IMG = {  # local image name -> (files by width, width, height)
     "riding-map": ({800: "riding-map-800.jpg", 1600: "riding-map-1600.jpg"}, 1600, 1200),
     "joachim-agou-speaking": ({800: "joachim-agou-speaking-800.jpg", 1600: "joachim-agou-speaking-1600.jpg"}, 1600, 1000),
@@ -244,7 +245,9 @@ def footer(lang, ctx):
     contact = lines[:fa_i]; fa = lines[fa_i:fa_i + 3]; rest = lines[fa_i + 3:]
     contact_html = "".join(f"<p>{inline(l, ctx)}</p>" for l in contact if "instagram.com" not in l)
     fa_html = f'<div class="fa-box"><p class="fa-title">{inline(fa[0], ctx)}</p>' + "".join(f"<p>{inline(l, ctx)}</p>" for l in fa[1:]) + "</div>"
-    rest = [l for l in rest if not re.match(r'<page url="([^"]+)">', l.strip()) or re.match(r'<page url="([^"]+)">', l.strip()).group(1) not in [url(lang, k) for k in SITE["footer_nav"]]]
+    skip = {url(lang, k) for k in SITE["footer_nav"]} | hidden_urls()
+    rest = [l for l in rest if not re.match(r'<page url="([^"]+)">', l.strip()) or re.match(r'<page url="([^"]+)">', l.strip()).group(1) not in skip]
+    rest = [re.sub(r'^<page url="([^"]+)">(.*)</page>$', r"[\2](\1)", l.strip()) for l in rest]
     rest_html = "".join(f"<p>{inline(re.sub(r'<mention-page url=\"([^\"]+)\"/>', lambda m: f'[{mention_title(m.group(1))}]({m.group(1)})', l), ctx)}</p>" for l in rest)
     nav = "".join(f'<li><a href="{url(lang, k)}">{esc(BYKEY[k]["nav"][lang])}</a></li>' for k in SITE["footer_nav"])
     contact_h = "Contact" if lang == "en" else "Coordonnées"
@@ -356,7 +359,7 @@ def build_page(lang, page, env):
     ctx = {"self": self_path, "self_anchor": "#form" if page.get("form") in ("volunteer", "nominate", "lawnsign") else "#events-list"}
     home = read(lang, "home")
     if key == "home":
-        md = home
+        md = drop_hidden_sections(home, lang)
         top, rest = md.split("\n## ", 1)
         rest = "## " + rest
         tl = [l for l in top.split("\n") if l.strip()]
@@ -378,7 +381,8 @@ def build_page(lang, page, env):
     if key == "get-involved":
         h1 = page["title"][lang]; md = ""
     elif key == "contact":
-        md = "\n".join(l for l in read(lang, "_contact").split("\n") if not re.match(r"^\*(Authorized|Autorisé)", l.strip()))
+        md = "\n".join(l for l in read(lang, "_contact").split("\n") if not re.match(r"^\*(Authorized|Autorisé)", l.strip())
+                        and not any(f'<page url="{u}"' in l for u in hidden_urls()))
     elif key == "privacy":
         md = read(lang, "privacy")
     elif page.get("section"):
@@ -403,7 +407,7 @@ def build_page(lang, page, env):
         links = "".join(f'<li><a href="{esc(u_)}" rel="noopener">{esc(t)}</a></li>' for t, u_ in V["links"])
         body = (f'<section class="block keydates" aria-labelledby="kd"><h2 id="kd">{esc(V["title"])}</h2><p class="src">{esc(V["source"])}</p><ul class="facts">{facts}</ul>'
                 f'<h3>{esc(V["links_title"])}</h3><ul class="links">{links}</ul></section>' + body + map_block(lang))
-    if key in ("how-to-vote", "get-involved"):
+    if key in ("how-to-vote", "get-involved") and "faq" not in HIDDEN:
         body += faq_block(lang)
     if key == "about":
         body = photo_slot("about-portrait", lang, "about-photo") + body
@@ -420,6 +424,23 @@ def build_page(lang, page, env):
     title = f"{h1} – Joachim Agou – Victoria–Beacon Hill"
     out = shell(lang, page, title, desc, main, env)
     return out.replace("</body>", extra + "</body>", 1) if extra else out
+
+
+def hidden_urls():
+    return {url(l, k) for k in HIDDEN for l in LANGS}
+
+
+def drop_hidden_sections(md, lang):
+    """Remove '## ...' sections whose only content is links to pages left out of this build (e.g. home 'Questions?' -> FAQ)."""
+    if not HIDDEN: return md
+    hu = hidden_urls(); parts = re.split(r"(?m)^(?=## )", md); keep = []
+    for part in parts:
+        body = [l for l in part.split("\n")[1:] if l.strip()] if part.startswith("## ") else None
+        links = [re.findall(r"\]\(([^)\s]+)\)|<page url=\"([^\"]+)\"", l) for l in body] if body else []
+        if body and all(ls and all((x or y) in hu for x, y in ls) for ls in links):
+            continue
+        keep.append(part)
+    return "".join(keep)
 
 
 def faq_block(lang):
@@ -527,6 +548,13 @@ if __name__ == "__main__":
         BUILD_ID = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, text=True).strip()
     except Exception:
         BUILD_ID = datetime.datetime.now().strftime("%Y%m%d%H%M")
+    if a.env == "live" and not SITE.get("publish_faq_live", True):
+        HIDDEN.add("faq")
+    if HIDDEN:
+        PAGES[:] = [p for p in PAGES if p["key"] not in HIDDEN]
+        SITE["footer_nav"] = [k for k in SITE["footer_nav"] if k not in HIDDEN]
+        for p in PAGES:
+            if p.get("children"): p["children"] = [k for k in p["children"] if k not in HIDDEN]
     dist = ROOT / a.out
     if dist.exists(): shutil.rmtree(dist)
     shutil.copytree(ROOT / "assets", dist / "assets")
@@ -548,6 +576,9 @@ if __name__ == "__main__":
         (dist / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(f"  <url><loc>{u}</loc></url>\n" for u in locs) + "</urlset>\n")
         (dist / "CNAME").write_text("agou.ca\n"); (dist / ".nojekyll").write_text("")
     errs = check(dist)
+    if HIDDEN:
+        hu = hidden_urls()
+        errs += [f"{f.relative_to(dist)}: links to a page left out of this build ({u})" for f in sorted(dist.rglob("*.html")) for u in hu if f'href="{u}"' in f.read_text()]
     if a.env == "live":
         errs += [f"{f.relative_to(dist)}: open draft note (Notion red text, e.g. [TO COMPLETE]); finish it in Notion first" for f in sorted(dist.rglob("*.html")) if 'class="todo"' in f.read_text()]
     n = len(list(dist.rglob("index.html")))
