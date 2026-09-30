@@ -223,3 +223,15 @@ details[open].more-details summary::before { content:"–"; }
 @media print { .site-header, .staging { display:none; } }
 .srclink { white-space:nowrap; font-size:.92rem; }
 mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4px; border:1px dashed #8a6d00; font-size:.95em; }
+/* ---------- riding map card (tools/make_map.py; self-hosted images, no scripts) ---------- */
+.map-card { margin:0; background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; color:var(--ink); }
+.map-card img { display:block; width:100%; height:auto; background:#cfe2f1; }
+.map-card figcaption { padding:12px 16px 14px; border-top:1px solid var(--line); }
+.map-card figcaption p { margin:0; max-width:none; }
+.map-card .map-q { font-weight:700; color:var(--navy); font-size:1.05rem; }
+.map-card .map-link a { display:inline-block; padding:12px 0; line-height:1.4; font-weight:700; color:var(--blue); }
+.map-card .map-attr { font-size:.8rem; color:var(--muted); }
+.hero .map-card a { color:var(--blue); }
+.hero-map { width:100%; }
+@media (min-width:800px) { .hero-grid:has(.hero-map) { grid-template-columns:1fr 1.05fr; gap:44px; } }
+.hero-photo .map-card figcaption { display:block; }
