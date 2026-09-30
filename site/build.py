@@ -143,7 +143,7 @@ def render(md, lang, ctx, toc_levels=("h2",)):
     if "<!--TOC-->" in htmls:
         pos = htmls.index("<!--TOC-->")
         after = [h for h in heads if f'id="{h[0]}"' in htmls[pos:]]
-        toc = '<nav class="toc" aria-label="' + esc(UI[lang]["toc"]) + '"><ol>' + "".join(f'<li><a href="#{h}">{inline(t, ctx)}</a></li>' for h, t in after) + "</ol></nav>"
+        toc = '<nav class="toc" aria-label="' + esc(UI[lang]["toc"]) + '"><ul>' + "".join(f'<li><a href="#{h}">{inline(t, ctx)}</a></li>' for h, t in after) + "</ul></nav>"
         htmls = htmls.replace("<!--TOC-->", toc)
     return htmls, heads
 
