@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Events – Joachim Agou – Victoria–Beacon Hill</title>
-<meta name="description" content="Upcoming events with Joachim Agou, Conservative Party of BC candidate in Victoria–Beacon Hill. Come meet Joa, RSVP and add events to your calendar.">
+<meta name="description" content="Upcoming events with Joachim Agou, seeking the Conservative Party of BC nomination in Victoria–Beacon Hill. Come meet Joachim, RSVP and add events to your calendar.">
 <!-- Indexable on purpose (unlike /nominate and /volunteer): public events should be findable. -->
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://agou.ca/events/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Joachim Agou – Victoria–Beacon Hill">
 <meta property="og:title" content="Events – Joachim Agou – Victoria–Beacon Hill">
-<meta property="og:description" content="Upcoming events with Joachim Agou, Conservative Party of BC candidate in Victoria–Beacon Hill. RSVP and add them to your calendar.">
+<meta property="og:description" content="Upcoming events with Joachim Agou, seeking the Conservative Party of BC nomination in Victoria–Beacon Hill. RSVP and add them to your calendar.">
 <meta property="og:url" content="https://agou.ca/events/">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#1a4c8b">
@@ -273,7 +273,7 @@ function route() {
   const id = currentId();
   $("listView").hidden = !!id; $("detailView").hidden = !id;
   if (id) renderDetail(id);
-  else { setMeta("Events – Joachim Agou – Victoria–Beacon Hill", "Upcoming events with Joachim Agou, Conservative Party of BC candidate in Victoria–Beacon Hill. Come meet Joa, RSVP and add events to your calendar.", "https://agou.ca/events/"); renderList(); jsonLd(EVENTS); }
+  else { setMeta("Events – Joachim Agou – Victoria–Beacon Hill", "Upcoming events with Joachim Agou, seeking the Conservative Party of BC nomination in Victoria–Beacon Hill. Come meet Joachim, RSVP and add events to your calendar.", "https://agou.ca/events/"); renderList(); jsonLd(EVENTS); }
 }
 window.addEventListener("popstate", route);
 window.addEventListener("hashchange", route);
