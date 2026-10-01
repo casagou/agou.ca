@@ -454,7 +454,7 @@ def json_ld(lang, key, title, desc, canonical, env):
         crumbs = [(BYKEY["home"]["nav"][lang], home)]
         parent = next((p["key"] for p in PAGES if key in (p.get("children") or [])), None)
         if parent: crumbs.append((BYKEY[parent]["nav"][lang], LIVE + url(lang, parent)))
-        crumbs.append((BYKEY[key]["nav"][lang], canonical))
+        crumbs.append((UI[lang]["nominations_closed"]["title"] if key == "nominate" and NOMINATIONS_CLOSED else BYKEY[key]["nav"][lang], canonical))
         graph = [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": i, "name": n, "item": u} for i, (n, u) in enumerate(crumbs, 1)]}]
     data = {"@context": "https://schema.org", "@graph": graph}
     return '<script type="application/ld+json">' + json.dumps(data, ensure_ascii=False).replace("</", "<\\/") + "</script>\n"
