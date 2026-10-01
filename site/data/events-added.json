@@ -54,6 +54,414 @@
       "title": "Meet Joachim | Moss Street Market",
       "starts_at": "2026-10-17T17:00:00+00:00",
       "ends_at": "2026-10-17T21:00:00+00:00"
+    },
+    "15": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Morning Commute at Douglas & Fort",
+      "starts_at": "2026-10-05T14:30:00+00:00",
+      "ends_at": "2026-10-05T15:30:00+00:00"
+    },
+    "16": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Fernwood Square",
+      "starts_at": "2026-10-05T18:45:00+00:00",
+      "ends_at": "2026-10-05T20:00:00+00:00"
+    },
+    "17": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Fort Street Antique Row Walkabout",
+      "starts_at": "2026-10-05T21:30:00+00:00",
+      "ends_at": "2026-10-05T23:00:00+00:00"
+    },
+    "18": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Cook Street Village",
+      "starts_at": "2026-10-06T02:00:00+00:00",
+      "ends_at": "2026-10-06T03:00:00+00:00"
+    },
+    "19": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Morning Commute at the Legislature (Government & Belleville)",
+      "starts_at": "2026-10-06T14:30:00+00:00",
+      "ends_at": "2026-10-06T15:30:00+00:00"
+    },
+    "20": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | James Bay (Menzies St)",
+      "starts_at": "2026-10-06T18:45:00+00:00",
+      "ends_at": "2026-10-06T20:00:00+00:00"
+    },
+    "21": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Cook Street Village Walkabout",
+      "starts_at": "2026-10-06T21:30:00+00:00",
+      "ends_at": "2026-10-06T23:00:00+00:00"
+    },
+    "22": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Habit Coffee",
+      "starts_at": "2026-10-07T01:50:00+00:00",
+      "ends_at": "2026-10-07T02:50:00+00:00"
+    },
+    "23": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Morning Commute at Cook & Fairfield",
+      "starts_at": "2026-10-07T14:30:00+00:00",
+      "ends_at": "2026-10-07T15:30:00+00:00"
+    },
+    "24": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | North Park",
+      "starts_at": "2026-10-07T18:45:00+00:00",
+      "ends_at": "2026-10-07T20:00:00+00:00"
+    },
+    "25": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Lower Johnson Walkabout",
+      "starts_at": "2026-10-07T21:30:00+00:00",
+      "ends_at": "2026-10-07T23:00:00+00:00"
+    },
+    "26": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Government & Johnson",
+      "starts_at": "2026-10-08T02:00:00+00:00",
+      "ends_at": "2026-10-08T03:00:00+00:00"
+    },
+    "27": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Morning Commute at the Johnson Street Bridge",
+      "starts_at": "2026-10-08T14:30:00+00:00",
+      "ends_at": "2026-10-08T15:30:00+00:00"
+    },
+    "28": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Fort Street (Harris Green)",
+      "starts_at": "2026-10-08T18:45:00+00:00",
+      "ends_at": "2026-10-08T20:00:00+00:00"
+    },
+    "29": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | James Bay Village Walkabout",
+      "starts_at": "2026-10-08T21:30:00+00:00",
+      "ends_at": "2026-10-08T23:00:00+00:00"
+    },
+    "30": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Cook Street Village",
+      "starts_at": "2026-10-09T02:00:00+00:00",
+      "ends_at": "2026-10-09T03:00:00+00:00"
+    },
+    "31": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Morning Commute at Pandora & Cook",
+      "starts_at": "2026-10-09T14:30:00+00:00",
+      "ends_at": "2026-10-09T15:30:00+00:00"
+    },
+    "32": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Fairfield Plaza",
+      "starts_at": "2026-10-09T18:45:00+00:00",
+      "ends_at": "2026-10-09T20:00:00+00:00"
+    },
+    "33": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Fernwood Square Walkabout",
+      "starts_at": "2026-10-09T21:30:00+00:00",
+      "ends_at": "2026-10-09T23:00:00+00:00"
+    },
+    "34": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Habit Coffee",
+      "starts_at": "2026-10-10T01:50:00+00:00",
+      "ends_at": "2026-10-10T02:50:00+00:00"
+    },
+    "35": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Fernwood Square",
+      "starts_at": "2026-10-10T15:30:00+00:00",
+      "ends_at": "2026-10-10T16:40:00+00:00"
+    },
+    "36": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Cook Street Village",
+      "starts_at": "2026-10-10T21:30:00+00:00",
+      "ends_at": "2026-10-10T22:45:00+00:00"
+    },
+    "37": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Thanksgiving Morning Walk on Dallas Road",
+      "starts_at": "2026-10-12T16:30:00+00:00",
+      "ends_at": "2026-10-12T17:45:00+00:00"
+    },
+    "38": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Cook Street Village",
+      "starts_at": "2026-10-12T19:30:00+00:00",
+      "ends_at": "2026-10-12T20:45:00+00:00"
+    },
+    "39": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Morning Commute at Douglas & Yates",
+      "starts_at": "2026-10-13T14:30:00+00:00",
+      "ends_at": "2026-10-13T15:30:00+00:00"
+    },
+    "40": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Fernwood Square",
+      "starts_at": "2026-10-13T18:45:00+00:00",
+      "ends_at": "2026-10-13T20:00:00+00:00"
+    },
+    "41": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Dallas Road Waterfront Walk",
+      "starts_at": "2026-10-13T21:30:00+00:00",
+      "ends_at": "2026-10-13T23:00:00+00:00"
+    },
+    "42": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Government & Johnson",
+      "starts_at": "2026-10-14T02:00:00+00:00",
+      "ends_at": "2026-10-14T03:00:00+00:00"
+    },
+    "43": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Morning Commute at Fort & Cook",
+      "starts_at": "2026-10-14T14:30:00+00:00",
+      "ends_at": "2026-10-14T15:30:00+00:00"
+    },
+    "44": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | James Bay (Menzies St)",
+      "starts_at": "2026-10-14T18:45:00+00:00",
+      "ends_at": "2026-10-14T20:00:00+00:00"
+    },
+    "45": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Cook Street Village Walkabout",
+      "starts_at": "2026-10-14T21:30:00+00:00",
+      "ends_at": "2026-10-14T23:00:00+00:00"
+    },
+    "46": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Cook Street Village",
+      "starts_at": "2026-10-15T02:00:00+00:00",
+      "ends_at": "2026-10-15T03:00:00+00:00"
+    },
+    "47": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Morning Commute at the Johnson Street Bridge",
+      "starts_at": "2026-10-15T14:30:00+00:00",
+      "ends_at": "2026-10-15T15:30:00+00:00"
+    },
+    "48": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | North Park",
+      "starts_at": "2026-10-15T18:45:00+00:00",
+      "ends_at": "2026-10-15T20:00:00+00:00"
+    },
+    "49": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Harris Green Walkabout",
+      "starts_at": "2026-10-15T21:30:00+00:00",
+      "ends_at": "2026-10-15T23:00:00+00:00"
+    },
+    "50": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Habit Coffee",
+      "starts_at": "2026-10-16T01:50:00+00:00",
+      "ends_at": "2026-10-16T02:50:00+00:00"
+    },
+    "51": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Advance Voting Morning at Douglas & Fort",
+      "starts_at": "2026-10-16T14:30:00+00:00",
+      "ends_at": "2026-10-16T15:30:00+00:00"
+    },
+    "52": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Fort Street (Harris Green)",
+      "starts_at": "2026-10-16T18:45:00+00:00",
+      "ends_at": "2026-10-16T20:00:00+00:00"
+    },
+    "53": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Lower Johnson Walkabout",
+      "starts_at": "2026-10-16T21:30:00+00:00",
+      "ends_at": "2026-10-16T23:00:00+00:00"
+    },
+    "54": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Cook Street Village",
+      "starts_at": "2026-10-17T02:00:00+00:00",
+      "ends_at": "2026-10-17T03:00:00+00:00"
+    },
+    "55": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Cook Street Village",
+      "starts_at": "2026-10-17T15:30:00+00:00",
+      "ends_at": "2026-10-17T16:40:00+00:00"
+    },
+    "82": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Cook Street Village & Fairfield walkabout",
+      "starts_at": "2026-10-17T17:00:00+00:00",
+      "ends_at": "2026-10-17T19:00:00+00:00"
+    },
+    "56": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Lower Johnson Walkabout",
+      "starts_at": "2026-10-17T21:30:00+00:00",
+      "ends_at": "2026-10-17T23:00:00+00:00"
+    },
+    "57": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Government & Johnson",
+      "starts_at": "2026-10-18T02:00:00+00:00",
+      "ends_at": "2026-10-18T03:00:00+00:00"
+    },
+    "58": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | North Park",
+      "starts_at": "2026-10-18T16:00:00+00:00",
+      "ends_at": "2026-10-18T17:00:00+00:00"
+    },
+    "59": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Sunday Walk on Dallas Road",
+      "starts_at": "2026-10-18T20:30:00+00:00",
+      "ends_at": "2026-10-18T22:00:00+00:00"
+    },
+    "60": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Fairfield Plaza",
+      "starts_at": "2026-10-18T22:30:00+00:00",
+      "ends_at": "2026-10-19T00:00:00+00:00"
+    },
+    "61": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Cook Street Village",
+      "starts_at": "2026-10-19T02:00:00+00:00",
+      "ends_at": "2026-10-19T03:00:00+00:00"
+    },
+    "62": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Advance Voting Morning at Cook & Fairfield",
+      "starts_at": "2026-10-19T14:30:00+00:00",
+      "ends_at": "2026-10-19T15:30:00+00:00"
+    },
+    "63": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Fairfield Plaza",
+      "starts_at": "2026-10-19T18:45:00+00:00",
+      "ends_at": "2026-10-19T20:00:00+00:00"
+    },
+    "64": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Fort Street Antique Row Walkabout",
+      "starts_at": "2026-10-19T21:30:00+00:00",
+      "ends_at": "2026-10-19T23:00:00+00:00"
+    },
+    "65": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Government & Johnson",
+      "starts_at": "2026-10-20T02:00:00+00:00",
+      "ends_at": "2026-10-20T03:00:00+00:00"
+    },
+    "66": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Advance Voting Morning at the Legislature",
+      "starts_at": "2026-10-20T14:30:00+00:00",
+      "ends_at": "2026-10-20T15:30:00+00:00"
+    },
+    "67": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | North Park",
+      "starts_at": "2026-10-20T18:45:00+00:00",
+      "ends_at": "2026-10-20T20:00:00+00:00"
+    },
+    "68": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Cook Street Village Walkabout",
+      "starts_at": "2026-10-20T21:30:00+00:00",
+      "ends_at": "2026-10-20T23:00:00+00:00"
+    },
+    "69": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Habit Coffee",
+      "starts_at": "2026-10-21T01:50:00+00:00",
+      "ends_at": "2026-10-21T02:50:00+00:00"
+    },
+    "70": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Last Advance Voting Day at Douglas & Yates",
+      "starts_at": "2026-10-21T14:30:00+00:00",
+      "ends_at": "2026-10-21T15:30:00+00:00"
+    },
+    "71": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Cook Street Village",
+      "starts_at": "2026-10-21T18:45:00+00:00",
+      "ends_at": "2026-10-21T20:00:00+00:00"
+    },
+    "72": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Harris Green Walkabout",
+      "starts_at": "2026-10-21T21:30:00+00:00",
+      "ends_at": "2026-10-21T23:00:00+00:00"
+    },
+    "73": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Government & Johnson",
+      "starts_at": "2026-10-22T02:00:00+00:00",
+      "ends_at": "2026-10-22T03:00:00+00:00"
+    },
+    "74": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Morning Commute at the Johnson Street Bridge",
+      "starts_at": "2026-10-22T14:30:00+00:00",
+      "ends_at": "2026-10-22T15:30:00+00:00"
+    },
+    "75": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | Fernwood Square",
+      "starts_at": "2026-10-22T18:45:00+00:00",
+      "ends_at": "2026-10-22T20:00:00+00:00"
+    },
+    "76": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | James Bay Village Walkabout",
+      "starts_at": "2026-10-22T21:30:00+00:00",
+      "ends_at": "2026-10-22T23:00:00+00:00"
+    },
+    "77": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Ask Joachim Anything at Cook Street Village",
+      "starts_at": "2026-10-23T02:00:00+00:00",
+      "ends_at": "2026-10-23T03:00:00+00:00"
+    },
+    "78": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Final Morning Commute at Douglas & Fort",
+      "starts_at": "2026-10-23T14:30:00+00:00",
+      "ends_at": "2026-10-23T15:30:00+00:00"
+    },
+    "79": {
+      "added": "2026-10-01",
+      "title": "Coffee with Joachim | James Bay (Menzies St)",
+      "starts_at": "2026-10-23T18:45:00+00:00",
+      "ends_at": "2026-10-23T20:00:00+00:00"
+    },
+    "80": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Lower Johnson Walkabout",
+      "starts_at": "2026-10-23T21:30:00+00:00",
+      "ends_at": "2026-10-23T23:00:00+00:00"
+    },
+    "81": {
+      "added": "2026-10-01",
+      "title": "Meet Joachim | Final Ask Joachim Anything at Habit Coffee",
+      "starts_at": "2026-10-24T01:50:00+00:00",
+      "ends_at": "2026-10-24T02:50:00+00:00"
     }
   }
 }

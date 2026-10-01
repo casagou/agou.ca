@@ -1,11 +1,11 @@
 [out:json][timeout:120];
 (
-  way["highway"](48.4050,-123.3790,48.4335,-123.3390);
-  way["building"](48.4050,-123.3790,48.4335,-123.3390);
-  way["leisure"~"^(park|pitch|playground|garden)$"](48.4050,-123.3790,48.4335,-123.3390);
-  relation["leisure"="park"](48.4050,-123.3790,48.4335,-123.3390);
-  way["landuse"~"^(grass|cemetery|recreation_ground)$"](48.4050,-123.3790,48.4335,-123.3390);
-  way["amenity"="parking"](48.4050,-123.3790,48.4335,-123.3390);
-  way["amenity"="marketplace"](48.4050,-123.3790,48.4335,-123.3390);
+  way["highway"](48.4050,-123.3790,48.4335,-123.3300);
+  way["building"](48.4050,-123.3790,48.4335,-123.3300);
+  way["leisure"~"^(park|pitch|playground|garden)$"](48.4050,-123.3790,48.4335,-123.3300);
+  relation["leisure"="park"](48.4050,-123.3790,48.4335,-123.3300);
+  way["landuse"~"^(grass|cemetery|recreation_ground)$"](48.4050,-123.3790,48.4335,-123.3300);
+  way["amenity"="parking"](48.4050,-123.3790,48.4335,-123.3300);
+  way["amenity"="marketplace"](48.4050,-123.3790,48.4335,-123.3300);
 );
 out geom;
