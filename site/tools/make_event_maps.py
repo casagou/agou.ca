@@ -43,6 +43,7 @@ ROADS = {  # class: (css width, fill, casing)
 for k in ("primary", "secondary", "tertiary"): ROADS[k + "_link"] = ROADS[k]
 PATHS = ("footway", "path", "steps", "cycleway")
 NAVY, BLUE, MUTED = "#123a6d", "#1a4c8b", "#4a5561"
+NO_LABEL = re.compile(r"(?i)hilda")   # Joachim's own street: drawn, never labelled (same rule as build.py's text scan)
 
 def load_osm():
     return json.loads(gzip.open(ROOT / "data/osm-events.json.gz").read())["elements"]
@@ -65,7 +66,9 @@ def venue(e):
     s = e.get("location_name") or ""
     m = re.search(r"\b(?:outside|beside|at)\s+(?:the\s+(?=[A-Z][a-z]+\s+[A-Z]))?(.+)$", s)
     v = (m.group(1) if m else s.split(",")[0]).strip()
-    return re.sub(r"\s*\(.*?\)\s*$", "", v)
+    v = re.sub(r"\s*\(.*?\)\s*$", "", v)
+    v = re.sub(r"^the\s+(?=[a-z])", "", v)                # 'at the foot of Cook St' -> 'Foot of Cook St'
+    return v[:1].upper() + v[1:]
 
 def fill(ax, geom, **kw):
     for g in getattr(geom, "geoms", [geom]):
@@ -119,7 +122,7 @@ def render(osm, ev, variant, scale):
             continue
         if hw not in ROADS: continue
         roads.append((hw, ln))
-        if t.get("name") and hw != "service": named.setdefault(t["name"], []).append(ln)
+        if t.get("name") and hw != "service" and not NO_LABEL.search(t["name"]): named.setdefault(t["name"], []).append(ln)
     order = ["service", "pedestrian", "living_street", "unclassified", "residential", "tertiary_link", "tertiary", "secondary_link", "secondary", "primary_link", "primary"]
     for z, cls in enumerate(order):
         wd, f, c = ROADS[cls]
