@@ -22,6 +22,7 @@ CAL_ON = lambda env: env == "staging" or bool(SITE.get("events_calendar_live"))
 VOL_WARM = lambda env: env == "staging" or bool(SITE.get("volunteer_warm_live"))  # warmer /volunteer/ (welcome note, help + availability checkboxes); staging only until Joachim approves  # calendar view, New badges, menu badge, home New-event line
 VIC = SITE.get("victoria_photos", {})  # real Victoria photos (Wikimedia Commons; tools/make_vic_photos.py); staging only until site.json victoria_photos_live
 VIC_ON = lambda env: env == "staging" or bool(SITE.get("victoria_photos_live"))
+BLANK_GIF = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="  # 1x1 transparent: <source> for "not on this screen"
 VIC_VARIANTS = {"strip": (3, 1, (480, 800, 1200)), "tile": (4, 3, (240, 360, 480)), "thumb": (1, 1, (80, 160, 240))}  # same as tools/make_vic_photos.py
 NOMINATIONS_CLOSED = bool(SITE.get("nominations_closed"))  # site.json: nominations complete (Joachim, 30 Sep 2026); see README "Nominations closed"
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
@@ -130,9 +131,11 @@ def headshot(sizes, eager=False, link=False, caption=False, bg="main"):
     return f'<figure class="fig headshot">{img}{cap}</figure>'
 
 
-def vic_picture(pid, var, lang, sizes, cls="vphoto"):
+def vic_picture(pid, var, lang, sizes, cls="vphoto", min_width=None):
     """A Victoria photo (site.json victoria_photos) as <picture>: AVIF, then WebP, JPEG fallback; width/height set (no layout
-    shift); always lazy (none of them is above the fold on a phone). The photo's credit goes in this page's footer."""
+    shift); always lazy (none of them is above the fold on a phone). The photo's credit goes in this page's footer.
+    min_width: show it only from that viewport width; below it the first <source> picks a 1x1 data: GIF, so phones download
+    nothing (the CSS hides the tile there too)."""
     P = VIC["photos"][pid]; aw, ah, widths = VIC_VARIANTS[var]
     if var not in P["focus"]: sys.exit(f"victoria_photos: {pid} has no {var!r} crop (add it to focus, run tools/make_vic_photos.py)")
     f = lambda w, ext: f"/assets/img/vic/{pid}-{var}-{w}.{ext}"
@@ -142,7 +145,8 @@ def vic_picture(pid, var, lang, sizes, cls="vphoto"):
     ss = lambda ext: ", ".join(f"{f(w, ext)} {w}w" for w in widths)
     W = widths[-1]; H = round(W * ah / aw)
     if pid not in PAGE_STATE["vic_used"]: PAGE_STATE["vic_used"].append(pid)
-    return (f'<picture class="{cls}"><source type="image/avif" srcset="{ss("avif")}" sizes="{sizes}"><source type="image/webp" srcset="{ss("webp")}" sizes="{sizes}">'
+    skip = f'<source media="(max-width: {min_width - 0.02}px)" srcset="{BLANK_GIF}">' if min_width else ""
+    return (f'<picture class="{cls}">{skip}<source type="image/avif" srcset="{ss("avif")}" sizes="{sizes}"><source type="image/webp" srcset="{ss("webp")}" sizes="{sizes}">'
             f'<img src="{f(widths[1], "jpg")}" srcset="{ss("jpg")}" sizes="{sizes}" width="{W}" height="{H}" alt="{esc(P["alt"][lang])}" loading="lazy" decoding="async"></picture>')
 
 
@@ -160,12 +164,22 @@ def vic_credits(lang):
     return "".join(out)
 
 
-def vic_band(lang):
-    """Home: three small neighbourhood photos under the hero, each linking to the riding map section."""
+VBAND_DESKTOP = 768  # px: from here the home band shows victoria_photos.home_desktop too (one row of 6, full content width)
+
+def vic_band(lang, env="staging"):
+    """Home: small neighbourhood photos under the hero, each linking to the riding map section. Phones: the 3 'home' tiles
+    (unchanged). With home_band6_live (always on staging), from 768px: one row of 6 equal tiles across the content width
+    ('home' + 'home_desktop', ul.six); the extra 3 are hidden and never downloaded below 768px (vic_picture min_width).
+    Without it (live until Joachim approves): exactly the previous 3-tile band."""
     V = UI[lang]["vic"]; target = "#riding-map"
-    tiles = "".join(f'<li><a href="{target}">{vic_picture(pid, "tile", lang, "(min-width: 800px) 240px, calc((100vw - 64px) / 3)")}'
-                    f'<span class="vband-l">{esc(VIC["photos"][pid]["place"][lang])}</span></a></li>' for pid in VIC["home"])
-    return (f'<section class="vband" aria-label="{esc(V["band_label"])}"><div class="wrap"><ul>{tiles}</ul>'
+    six = bool(VIC.get("home_desktop")) and (env == "staging" or bool(SITE.get("home_band6_live")))
+    sizes = (f"(min-width: 1120px) 171px, (min-width: {VBAND_DESKTOP}px) calc((100vw - 96px) / 6), calc((100vw - 64px) / 3)" if six
+             else "(min-width: 800px) 240px, calc((100vw - 64px) / 3)")
+    tile = lambda pid, extra: (f'<li{" class=\"vband-d\"" if extra else ""}><a href="{target}">'
+                               f'{vic_picture(pid, "tile", lang, sizes, min_width=VBAND_DESKTOP if extra else None)}'
+                               f'<span class="vband-l">{esc(VIC["photos"][pid]["place"][lang])}</span></a></li>')
+    tiles = "".join(tile(pid, False) for pid in VIC["home"]) + ("".join(tile(pid, True) for pid in VIC["home_desktop"]) if six else "")
+    return (f'<section class="vband" aria-label="{esc(V["band_label"])}"><div class="wrap"><ul{" class=\"six\"" if six else ""}>{tiles}</ul>'
             f'<p class="vband-map"><a href="{target}">{esc(V["band_map"])} <span aria-hidden="true">↓</span></a></p></div></section>')
 
 
@@ -702,7 +716,7 @@ def build_page(lang, page, env):
                 f'{intro}{hero_callout}</div>{hero_media}</div>'
                 + (f'<div class="wrap">{hero_src}</div>' if hero_src else "") + '</div>')
         newev = events_cal.home_line(lang, SITE, UI, url(lang, "events")) if CAL_ON(env) else ""
-        main = newev + hero + shortcuts(lang) + (vic_band(lang) if vic else "") + home_layout(collapse(body, lang), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
+        main = newev + hero + shortcuts(lang) + (vic_band(lang, env) if vic else "") + home_layout(collapse(body, lang), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
         title = f"Joachim Agou – Victoria–Beacon Hill" if lang == "en" else "Joachim Agou – Victoria–Beacon Hill (français)"
         desc = re.sub(r"[*]", "", sub) + ". " + re.sub(r"[*]", "", tagline)
         return shell(lang, page, title, desc, main, env)
