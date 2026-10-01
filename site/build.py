@@ -708,13 +708,18 @@ def build_page(lang, page, env):
                    f'<blockquote class="vw-note"><p>{esc(VT["welcome"])}</p><footer>– {esc(VT["welcome_sign"])}</footer></blockquote></div></section>')
         body = body.replace('</section>', f'<p class="vreassure">{esc(VT["reassure"])}</p>'
                             f'<p class="vnext" id="vnext" hidden data-events="{url(lang, "events")}"></p></section>', 1)
+        # Joachim (1 Oct 2026): the lead's "Every hour helps." / "Chaque heure compte." duplicated the reassurance line
+        # ("…even two hours helps."), so the warm page drops that sentence and keeps "Knock on doors, make calls, …".
+        # Home and Get involved keep the full Notion line.
+        body = re.sub(r'\s*(?:Every hour helps|Chaque heure compte)\.', "", body, count=1)
+        if re.search(r"Every hour helps|Chaque heure compte", body): sys.exit("volunteer page: 'Every hour helps' / 'Chaque heure compte' still in the lead (removed 1 Oct 2026)")
         body = welcome + body
     if page.get("form") in ("volunteer", "nominate", "lawnsign") and not (key == "nominate" and NOMINATIONS_CLOSED):
         body += form_block(page["form"], lang, warm)
         if warm:
             body += (f'<section class="block vlawn"><h2>{esc(VT["lawnsign_t"])}</h2>'
                      f'<p class="cta-line"><a class="btn sec" href="{url(lang, "lawn-sign")}"><strong>{esc(VT["lawnsign_btn"])}</strong></a></p></section>')
-        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": page["form"], "warm": warm, "text": UI[lang][page["form"]], "common": UI[lang]["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
+        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": page["form"], "warm": warm, "text": {k: v for k, v in UI[lang][page["form"]].items() if k != "draft_tag"}, "common": UI[lang]["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     if page.get("form") == "events":
         T = U["events"]
         cal = CAL_ON(env)
