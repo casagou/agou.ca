@@ -453,8 +453,8 @@
   "_volunteer_warm_doc": "Warmer /volunteer/ (welcome note, reassurance line, help + availability checkboxes, call-within-a-day line) approved by Joachim 1 Oct 2026 10:49 PT, with the lead's 'Every hour helps.' sentence (FR 'Chaque heure compte.') cut. Set volunteer_warm_live false to hold it back from live builds.",
   "victoria_photos_live": true,
   "_victoria_photos_live_doc": "Real Victoria photos (Priorities strips, Events card thumbnails, Volunteer street scene, Home neighbourhood band, footer credits) approved by Joachim as-is 1 Oct 2026 12:26 PT and published live. Set to false to leave them out of live builds (no markup, no files, no footer credits).",
-  "home_band6_live": false,
-  "_home_band6_live_doc": "Home band desktop row of 6 (victoria_photos.home_desktop: Cook Street Village, Rockland, Harris Green), on staging since 1 Oct 2026 13:10 PT, waiting for Joachim's OK. false = live builds show only the 3 'home' tiles (unchanged).",
+  "home_band6_live": true,
+  "_home_band6_live_doc": "Home band desktop row of 6 (victoria_photos.home_desktop: Cook Street Village, Rockland, Harris Green). Approved by Joachim and published live 1 Oct 2026 13:16 PT. false = live builds show only the 3 'home' tiles.",
   "victoria_photos": {
     "_doc": "Real Victoria photos (Wikimedia Commons, CC BY / CC BY-SA; licence and author checked on each file page on 1 Oct 2026). tools/make_vic_photos.py downloads the originals (not kept in the repo) and writes assets/img/vic/<id>-<variant>-<w>.{avif,webp,jpg} without metadata. build.py places them (Priorities strips, Events card thumbnails, Volunteer street scene, Home neighbourhood band: 'home' = the 3 tiles on every screen, 'home_desktop' = 3 more tiles shown from 768px only and never downloaded on phones; live builds leave home_desktop out while home_band6_live is false) and lists each photo's credit in the footer of the pages that show it. Live builds leave all of it out while victoria_photos_live is false. See README 'Victoria photos'.",
     "photos": {
