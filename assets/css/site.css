@@ -173,6 +173,8 @@ details[open].more-details summary::before { content:"−"; }
 .hub-card h2 { font-size:1.3rem; margin:0 0 8px; } .hub-card h2 a { color:var(--navy); text-decoration:none; }
 .hub-card p { flex:1; }
 .hub-card .btn { align-self:flex-start; }
+.hub + .block { margin-top:44px; }  /* Get involved: "Questions?" after the card grid (1 Oct 2026) */
+@media (min-width:800px) { .hub + .block { margin-top:56px; } }
 @media (max-width:560px) { .hub-card .btn { align-self:stretch; } }
 
 /* social */

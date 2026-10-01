@@ -9,6 +9,9 @@
 .sc-wrap > section { margin-bottom:30px; }
 .sc-wrap h2 { color:var(--navy); font-size:1.45rem; line-height:1.25; margin:0 0 12px; }
 .sc-frdraft { margin:0 0 18px; max-width:none; }
+/* clear space above each section heading that follows a card grid (Joachim, 1 Oct 2026 13:47 PT): same rhythm as .block (44px, 56px from 800px) */
+.sc-main > section + section { margin-top:44px; }
+@media (min-width:800px) { .sc-main > section + section { margin-top:56px; } }
 
 /* chips */
 .chip { display:inline-flex; align-items:center; gap:4px; padding:2px 9px; border-radius:999px; font-size:.74rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; line-height:1.5; white-space:nowrap; vertical-align:.1em; }
