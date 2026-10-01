@@ -106,11 +106,13 @@ def nav_badge(lang, site, ui):
 
 
 def home_line(lang, site, ui, events_url):
-    """'New event: <title>, <date>' under the home hero, for the next upcoming new event (+ how many more are new)."""
+    """'New event: <title>, <date>' above the home hero: the most recently added upcoming event (+ how many more are new).
+    Static: site.js hides it when that event ends or stops being new; the next build picks the next one."""
     nu = new_upcoming(site)
     if not nu: return ""
     T = ui[lang]["new_events"]
-    e = nu[0]; d = datetime.datetime.fromisoformat(e["starts_at"]).astimezone(TZ).date()
+    e = sorted(nu, key=lambda x: (-x["added"].toordinal(), x["starts_at"]))[0]  # the most recently added, then the soonest
+    d = datetime.datetime.fromisoformat(e["starts_at"]).astimezone(TZ).date()
     more = len(nu) - 1
     more_html = ""
     if more:
