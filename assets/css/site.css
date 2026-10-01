@@ -495,6 +495,8 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 .vband-l { display:flex; align-items:center; min-height:40px; font-size:.95rem; line-height:1.2; }
 .vband li a:hover .vband-l { text-decoration:underline; }
 .vband-map { margin:0; }
+.vband li.vband-d { display:none; }  /* desktop-only tiles (victoria_photos.home_desktop); their <picture> loads a data: GIF below 768px */
+@media (min-width:768px) { .vband ul.six { grid-template-columns:repeat(6, 1fr); max-width:none; } .vband li.vband-d { display:block; } }
 .vband-map a { display:inline-block; padding:12px 0; line-height:1.4; font-weight:700; color:var(--blue); }
 .evc-ph { flex:0 0 80px; }
 .evc-ph img { display:block; width:80px; height:80px; object-fit:cover; border-radius:8px; background:var(--sky); }
