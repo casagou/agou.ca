@@ -450,5 +450,283 @@
   "_seo_batch_doc": "30 Sep 2026 SEO/social batch: seo.json (per-page titles and descriptions), og-joachim-agou-{en,fr}.png (tools/make_og.py), twitter tags, JSON-LD (Person, WebSite, BreadcrumbList; Event in forms.js), sitemap with hreflang + lastmod, build SEO check. Approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future SEO batch back from live builds.",
   "volunteer_warm_live": true,
   "volunteer_welcome_approved": true,
-  "_volunteer_warm_doc": "Warmer /volunteer/ (welcome note, reassurance line, help + availability checkboxes, call-within-a-day line) approved by Joachim 1 Oct 2026 10:49 PT, with the lead's 'Every hour helps.' sentence (FR 'Chaque heure compte.') cut. Set volunteer_warm_live false to hold it back from live builds."
+  "_volunteer_warm_doc": "Warmer /volunteer/ (welcome note, reassurance line, help + availability checkboxes, call-within-a-day line) approved by Joachim 1 Oct 2026 10:49 PT, with the lead's 'Every hour helps.' sentence (FR 'Chaque heure compte.') cut. Set volunteer_warm_live false to hold it back from live builds.",
+  "victoria_photos_live": false,
+  "_victoria_photos_live_doc": "Real Victoria photos (1 Oct 2026, staging only): Priorities strips, Events card thumbnails, Volunteer street scene, Home neighbourhood band. false: live builds leave them out (no markup, no files, no footer credits). Set to true only after Joachim approves.",
+  "victoria_photos": {
+    "_doc": "Real Victoria photos (Wikimedia Commons, CC BY / CC BY-SA; licence and author checked on each file page on 1 Oct 2026). tools/make_vic_photos.py downloads the originals (not kept in the repo) and writes assets/img/vic/<id>-<variant>-<w>.{avif,webp,jpg} without metadata. build.py places them (Priorities strips, Events card thumbnails, Volunteer street scene, Home neighbourhood band) and lists each photo's credit in the footer of the pages that show it. Live builds leave all of it out while victoria_photos_live is false. See README 'Victoria photos'.",
+    "photos": {
+      "royal-jubilee": {
+        "title": "Royal Jubilee Hospital, Victoria, Canada 02",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Royal_Jubilee_Hospital,_Victoria,_Canada_02.jpg",
+        "author": "Michal Klajban",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "Brick wing of Royal Jubilee Hospital in Victoria under a blue sky",
+          "fr": "Aile en brique de l’hôpital Royal Jubilee, à Victoria, sous un ciel bleu"
+        },
+        "place": {
+          "en": "Royal Jubilee Hospital",
+          "fr": "Hôpital Royal Jubilee"
+        },
+        "focus": {
+          "strip": [
+            0.55,
+            0.42,
+            1.0
+          ]
+        }
+      },
+      "fairfield-apartments": {
+        "title": "Fairfield (41504701520)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield_(41504701520).jpg",
+        "author": "Mike from Vancouver, Canada",
+        "licence": "CC BY-SA 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "alt": {
+          "en": "Low-rise apartment building with red balconies on a Fairfield street",
+          "fr": "Immeuble d’appartements de faible hauteur aux balcons rouges, dans une rue de Fairfield"
+        },
+        "place": {
+          "en": "Fairfield",
+          "fr": "Fairfield"
+        },
+        "focus": {
+          "strip": [
+            0.5,
+            0.45,
+            1.0
+          ]
+        }
+      },
+      "cook-street-village": {
+        "title": "The Root Cellar in Cook Street Village, Victoria, BC",
+        "source_url": "https://commons.wikimedia.org/wiki/File:The_Root_Cellar_in_Cook_Street_Village,_Victoria,_BC.jpg",
+        "author": "NevinThompson",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "The Root Cellar green grocer at dusk in Cook Street Village",
+          "fr": "L’épicerie The Root Cellar au crépuscule, dans Cook Street Village"
+        },
+        "place": {
+          "en": "Cook Street Village",
+          "fr": "Cook Street Village"
+        },
+        "focus": {
+          "strip": [
+            0.5,
+            0.6,
+            1.0
+          ],
+          "thumb": [
+            0.52,
+            0.62,
+            0.8
+          ]
+        }
+      },
+      "johnson-street": {
+        "title": "Victoria BC, Canada (Johnson Street)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Victoria_BC,_Canada_(Johnson_Street)_-_panoramio.jpg",
+        "author": "MARELBU",
+        "licence": "CC BY 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+        "alt": {
+          "en": "Heritage shopfronts along Johnson Street in downtown Victoria",
+          "fr": "Façades commerciales patrimoniales de la rue Johnson, au centre-ville de Victoria"
+        },
+        "place": {
+          "en": "Downtown",
+          "fr": "Centre-ville"
+        },
+        "focus": {
+          "strip": [
+            0.5,
+            0.55,
+            1.0
+          ],
+          "tile": [
+            0.5,
+            0.55,
+            0.9
+          ],
+          "thumb": [
+            0.5,
+            0.55,
+            0.75
+          ]
+        }
+      },
+      "inner-harbour": {
+        "title": "Inner Harbour and British Columbia Parliament Buildings, Victoria, at dusk 20240828 2",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Inner_Harbour_and_British_Columbia_Parliament_Buildings,_Victoria,_at_dusk_20240828_2.jpg",
+        "author": "DXR",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "Inner Harbour marina at dusk, with the Parliament Buildings behind",
+          "fr": "La marina de l’arrière-port au crépuscule, avec l’édifice du Parlement en arrière-plan"
+        },
+        "place": {
+          "en": "Inner Harbour",
+          "fr": "Arrière-port"
+        },
+        "focus": {
+          "strip": [
+            0.5,
+            0.47,
+            1.0
+          ]
+        }
+      },
+      "fishermans-wharf": {
+        "title": "House Boats at Fisherman's Wharf, Victoria, Canada (54880993536)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:House_Boats_at_Fisherman%27s_Wharf,_Victoria,_Canada_(54880993536).jpg",
+        "author": "Christoph Strässler",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "Colourful float homes at Fisherman’s Wharf in James Bay",
+          "fr": "Maisons flottantes colorées au quai Fisherman’s Wharf, à James Bay"
+        },
+        "place": {
+          "en": "James Bay",
+          "fr": "James Bay"
+        },
+        "focus": {
+          "tile": [
+            0.5,
+            0.5,
+            0.75
+          ],
+          "thumb": [
+            0.5,
+            0.52,
+            0.6
+          ]
+        }
+      },
+      "clover-point": {
+        "title": "Seating area in Clover Point Park, Victoria BC",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Seating_area_in_Clover_Point_Park,_Victoria_BC.jpg",
+        "author": "NevinThompson",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "Red chairs at Clover Point facing the Olympic Mountains across the strait",
+          "fr": "Chaises rouges à Clover Point, face aux monts Olympic, de l’autre côté du détroit"
+        },
+        "place": {
+          "en": "Fairfield",
+          "fr": "Fairfield"
+        },
+        "focus": {
+          "tile": [
+            0.45,
+            0.5,
+            1.0
+          ]
+        }
+      },
+      "fairfield-street": {
+        "title": "Fairfield (41504701360)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Fairfield_(41504701360).jpg",
+        "author": "Mike from Vancouver, Canada",
+        "licence": "CC BY-SA 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "alt": {
+          "en": "Older wooden houses under big street trees in Fairfield",
+          "fr": "Vieilles maisons en bois sous de grands arbres, dans une rue de Fairfield"
+        },
+        "place": {
+          "en": "Fairfield",
+          "fr": "Fairfield"
+        },
+        "focus": {
+          "strip": [
+            0.5,
+            0.42,
+            1.0
+          ],
+          "thumb": [
+            0.5,
+            0.45,
+            0.75
+          ]
+        }
+      },
+      "belfry-fernwood": {
+        "title": "Belfrytheatre",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Belfrytheatre.jpg",
+        "author": "JMV",
+        "licence": "CC BY 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+        "alt": {
+          "en": "The Belfry Theatre on Fernwood Square",
+          "fr": "Le théâtre Belfry, sur la place Fernwood"
+        },
+        "place": {
+          "en": "Fernwood",
+          "fr": "Fernwood"
+        },
+        "focus": {
+          "thumb": [
+            0.5,
+            0.35,
+            0.85
+          ]
+        }
+      },
+      "dallas-road": {
+        "title": "Victoria beach Vancouver island (43814620615)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Victoria_beach_Vancouver_island_(43814620615).jpg",
+        "author": "dronepicr",
+        "licence": "CC BY 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+        "alt": {
+          "en": "Waterfront path below Dallas Road, beside the Strait of Juan de Fuca",
+          "fr": "Sentier au bord de l’eau sous Dallas Road, le long du détroit de Juan de Fuca"
+        },
+        "place": {
+          "en": "Dallas Road",
+          "fr": "Dallas Road"
+        },
+        "focus": {
+          "thumb": [
+            0.42,
+            0.62,
+            0.75
+          ]
+        }
+      }
+    },
+    "priorities": {
+      "1": "royal-jubilee",
+      "2": "fairfield-apartments",
+      "3": "cook-street-village",
+      "4": "johnson-street",
+      "also": "inner-harbour"
+    },
+    "volunteer": "fairfield-street",
+    "home": [
+      "fishermans-wharf",
+      "clover-point",
+      "johnson-street"
+    ],
+    "events": {
+      "_doc": "Matched in forms.js against the public event data only (get_public_events): address first, then neighbourhood. Venues of public events and generic neighbourhood shots only.",
+      "address": {
+        "Dallas Rd": "dallas-road"
+      },
+      "neighbourhood": {
+        "James Bay": "fishermans-wharf",
+        "Cook Street Village": "cook-street-village",
+        "Fernwood": "belfry-fernwood",
+        "Downtown": "johnson-street",
+        "Fairfield": "fairfield-street"
+      }
+    }
+  }
 }

@@ -20,6 +20,9 @@ LIVE = SITE["live_origin"]
 LANGS = ["en", "fr"]
 CAL_ON = lambda env: env == "staging" or bool(SITE.get("events_calendar_live"))
 VOL_WARM = lambda env: env == "staging" or bool(SITE.get("volunteer_warm_live"))  # warmer /volunteer/ (welcome note, help + availability checkboxes); staging only until Joachim approves  # calendar view, New badges, menu badge, home New-event line
+VIC = SITE.get("victoria_photos", {})  # real Victoria photos (Wikimedia Commons; tools/make_vic_photos.py); staging only until site.json victoria_photos_live
+VIC_ON = lambda env: env == "staging" or bool(SITE.get("victoria_photos_live"))
+VIC_VARIANTS = {"strip": (3, 1, (480, 800, 1200)), "tile": (4, 3, (240, 360, 480)), "thumb": (1, 1, (80, 160, 240))}  # same as tools/make_vic_photos.py
 NOMINATIONS_CLOSED = bool(SITE.get("nominations_closed"))  # site.json: nominations complete (Joachim, 30 Sep 2026); see README "Nominations closed"
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
 MEDIAKIT = {"on": True, "env": "staging", "errs": {}}  # media-kit PDFs (site.json media_kit / publish_media_kit_live); set in __main__
@@ -78,7 +81,7 @@ def unesc(s):
     return s.replace("\\$", "$").replace("\\[", "[").replace("\\]", "]")
 
 
-PAGE_STATE = {"hero_map": False}  # set while building the home page when the hero already shows the riding map
+PAGE_STATE = {"hero_map": False, "vic_used": []}  # set while building the home page when the hero already shows the riding map
 
 
 def map_card(lang, eager=False):
@@ -125,6 +128,69 @@ def headshot(sizes, eager=False, link=False, caption=False, bg="main"):
     if link: img = f'<a href="/assets/img/{big}" class="figlink">{img}</a>'
     cap = f"<figcaption>{esc(HEADSHOT_ALT)}</figcaption>" if caption else ""
     return f'<figure class="fig headshot">{img}{cap}</figure>'
+
+
+def vic_picture(pid, var, lang, sizes, cls="vphoto"):
+    """A Victoria photo (site.json victoria_photos) as <picture>: AVIF, then WebP, JPEG fallback; width/height set (no layout
+    shift); always lazy (none of them is above the fold on a phone). The photo's credit goes in this page's footer."""
+    P = VIC["photos"][pid]; aw, ah, widths = VIC_VARIANTS[var]
+    if var not in P["focus"]: sys.exit(f"victoria_photos: {pid} has no {var!r} crop (add it to focus, run tools/make_vic_photos.py)")
+    f = lambda w, ext: f"/assets/img/vic/{pid}-{var}-{w}.{ext}"
+    for w in widths:
+        for ext in ("avif", "webp", "jpg"):
+            if not (ROOT / f(w, ext).lstrip("/")).exists(): sys.exit(f"victoria photo missing: {f(w, ext)} (run tools/make_vic_photos.py)")
+    ss = lambda ext: ", ".join(f"{f(w, ext)} {w}w" for w in widths)
+    W = widths[-1]; H = round(W * ah / aw)
+    if pid not in PAGE_STATE["vic_used"]: PAGE_STATE["vic_used"].append(pid)
+    return (f'<picture class="{cls}"><source type="image/avif" srcset="{ss("avif")}" sizes="{sizes}"><source type="image/webp" srcset="{ss("webp")}" sizes="{sizes}">'
+            f'<img src="{f(widths[1], "jpg")}" srcset="{ss("jpg")}" sizes="{sizes}" width="{W}" height="{H}" alt="{esc(P["alt"][lang])}" loading="lazy" decoding="async"></picture>')
+
+
+def vic_strip(pid, lang, cls="vstrip"):
+    return f'<figure class="{cls}">{vic_picture(pid, "strip", lang, "(min-width: 860px) 800px, calc(100vw - 40px)")}</figure>'
+
+
+def vic_credits(lang):
+    """Footer credit for each Victoria photo on this page (CC BY / CC BY-SA: title, author, licence, and that it was cropped)."""
+    V = UI[lang]["vic"]; out = []
+    for pid in PAGE_STATE["vic_used"]:
+        P = VIC["photos"][pid]; colon = " :" if lang == "fr" else ":"
+        out.append(f'<p class="credit">{esc(V["credit_prefix"])} ({esc(P["place"][lang])}){colon} <a href="{esc(P["source_url"])}">{esc(P["title"])}</a>, '
+                   f'{esc(P["author"])}, <a href="{esc(P["licence_url"])}" rel="license">{esc(P["licence"])}</a>{esc(V["cropped"])}.</p>')
+    return "".join(out)
+
+
+def vic_band(lang):
+    """Home: three small neighbourhood photos under the hero, each linking to the riding map section."""
+    V = UI[lang]["vic"]; target = "#riding-map"
+    tiles = "".join(f'<li><a href="{target}">{vic_picture(pid, "tile", lang, "(min-width: 800px) 240px, calc((100vw - 64px) / 3)")}'
+                    f'<span class="vband-l">{esc(VIC["photos"][pid]["place"][lang])}</span></a></li>' for pid in VIC["home"])
+    return (f'<section class="vband" aria-label="{esc(V["band_label"])}"><div class="wrap"><ul>{tiles}</ul>'
+            f'<p class="vband-map"><a href="{target}">{esc(V["band_map"])} <span aria-hidden="true">↓</span></a></p></div></section>')
+
+
+def vic_priorities(body, lang):
+    """Priorities: a slim photo strip under each numbered priority heading and under 'Also for this riding'."""
+    for k, pid in VIC["priorities"].items():
+        if k == "also":
+            pat = r'<h2 id="[^"]+">(?:Also for this riding|D(?:\'|’|&#x27;)autres priorités pour la circonscription)</h2>'
+        else:
+            pat = rf'<h2 id="[^"]+">{re.escape(k)}\. [^<]*</h2>'
+        m = re.search(pat, body)
+        if not m: sys.exit(f"priorities ({lang}): heading for victoria_photos.priorities[{k!r}] not found (Notion heading changed?)")
+        body = body[:m.end()] + vic_strip(pid, lang) + body[m.end():]
+    return body
+
+
+def vic_events_cfg(lang):
+    """Events: forms.js shows a small venue photo on each list card, matched only against the public event data
+    (get_public_events): address first, then neighbourhood."""
+    E = VIC["events"]; ids = list(dict.fromkeys(list(E["address"].values()) + list(E["neighbourhood"].values())))
+    for pid in ids:
+        if pid not in PAGE_STATE["vic_used"]: PAGE_STATE["vic_used"].append(pid)
+        if "thumb" not in VIC["photos"][pid]["focus"]: sys.exit(f"victoria_photos: {pid} needs a 'thumb' crop for the events page")
+    return {"base": "/assets/img/vic/", "widths": list(VIC_VARIANTS["thumb"][2]), "address": {k: v for k, v in E["address"].items()},
+            "neighbourhood": {k: v for k, v in E["neighbourhood"].items()}, "alt": {pid: VIC["photos"][pid]["alt"][lang] for pid in ids}}
 
 
 # ---------------- block markdown (Notion subset) ----------------
@@ -368,7 +434,7 @@ def footer(lang, ctx):
             f'<section aria-labelledby="fc"><h2 id="fc">{contact_h}</h2>{contact_html}<p class="soc-label">{esc(U["social_label"])}</p>{social_links("social")}{rest_html}</section>'
             f'<section aria-label="{esc(fa[0].strip("*"))}">{fa_html}</section>'
             f'<nav aria-label="{esc(U["footer_nav"])}"><ul class="fnav">{nav}</ul></nav>'
-            f'</div><div class="wrap">{auth}{bg_credit(lang)}</div></footer>')
+            f'</div><div class="wrap">{auth}{bg_credit(lang)}{vic_credits(lang)}</div></footer>')
 
 
 def bg_credit(lang):
@@ -587,6 +653,7 @@ def event_maps():
 
 def build_page(lang, page, env):
     key = page["key"]; U = UI[lang]
+    PAGE_STATE["vic_used"] = []; vic = VIC_ON(env) and bool(VIC)
     if key == "scorecard":  # /scorecard/: own layout, see scorecard.py
         return scorecard.scorecard_page(sys.modules[__name__], lang, page, env)
     if key == "province":  # /province/: own layout, see province.py
@@ -635,7 +702,7 @@ def build_page(lang, page, env):
                 f'{intro}{hero_callout}</div>{hero_media}</div>'
                 + (f'<div class="wrap">{hero_src}</div>' if hero_src else "") + '</div>')
         newev = events_cal.home_line(lang, SITE, UI, url(lang, "events")) if CAL_ON(env) else ""
-        main = newev + hero + shortcuts(lang) + home_layout(collapse(body, lang), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
+        main = newev + hero + shortcuts(lang) + (vic_band(lang) if vic else "") + home_layout(collapse(body, lang), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
         title = f"Joachim Agou – Victoria–Beacon Hill" if lang == "en" else "Joachim Agou – Victoria–Beacon Hill (français)"
         desc = re.sub(r"[*]", "", sub) + ". " + re.sub(r"[*]", "", tagline)
         return shell(lang, page, title, desc, main, env)
@@ -713,7 +780,9 @@ def build_page(lang, page, env):
         # Home and Get involved keep the full Notion line.
         body = re.sub(r'\s*(?:Every hour helps|Chaque heure compte)\.', "", body, count=1)
         if re.search(r"Every hour helps|Chaque heure compte", body): sys.exit("volunteer page: 'Every hour helps' / 'Chaque heure compte' still in the lead (removed 1 Oct 2026)")
-        body = welcome + body
+        body = welcome + (vic_strip(VIC["volunteer"], lang, "vstrip vstrip-vol") if vic else "") + body
+    if key == "volunteer" and vic and not warm:
+        body = vic_strip(VIC["volunteer"], lang, "vstrip vstrip-vol") + body
     if page.get("form") in ("volunteer", "nominate", "lawnsign") and not (key == "nominate" and NOMINATIONS_CLOSED):
         body += form_block(page["form"], lang, warm)
         if warm:
@@ -728,6 +797,7 @@ def build_page(lang, page, env):
         calv = events_cal.calendar_html(lang, SITE, UI) if cal else ""
         body = f'<div data-hide-on-detail>{body}</div><section class="block" id="events-list" aria-live="polite">{toggle}<div id="listView"><div id="list"><p class="note">{esc(T["loading"])}</p></div></div>{calv}<article id="detailView" class="detail" hidden></article></section>'
         cfg = {"form": "events", "live_url": LIVE + self_path, "text": T, "common": U["form_common"], "maps": event_maps()}
+        if vic: cfg["vic"] = vic_events_cfg(lang)
         if cal: cfg.update({"cal": SITE["calendar_month"], "new_until": events_cal.new_map(SITE), "new_label": UI[lang]["new_events"]["badge"]})
         extra = f'<script id="form-config" type="application/json">{json.dumps(cfg, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     lock = f'<p class="lockup">{esc(U["lockup"])}</p>' if key == "priorities" else ""  # two-line lockup: home, Priorities, Scorecard only
@@ -736,6 +806,7 @@ def build_page(lang, page, env):
         m_ = re.search(rf'<h2 id="{re.escape(rid)}">.*?</h2>', body)
         if not m_: sys.exit(f"priorities: '{U['lockup_block']}' section not found (needed for the lockup)")
         body = body[:m_.end()] + f'<p class="lockup lockup-block">{esc(U["lockup"])}</p>' + body[m_.end():]
+        if vic: body = vic_priorities(body, lang)
     main = f'<div class="page-head"><div class="wrap"><h1>{esc(h1)}</h1>{lock}</div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
     desc = first_text(md) if md else U["lawnsign"]["intro"] if key == "lawn-sign" else ""
     if key == "lawn-sign": desc = U["lawnsign"]["intro"]
@@ -1047,6 +1118,8 @@ if __name__ == "__main__":
     shutil.copytree(ROOT / "assets", dist / "assets")
     for f in (dist / "assets/img").glob("joachim-agou-headshot-bg-*"):  # only the chosen background option ships (site.json headshot_background)
         if not any(f.name.startswith(f"joachim-agou-headshot-bg-{v}-") for v in HS_USED): f.unlink()
+    if not (VIC_ON(a.env) and VIC):  # site.json victoria_photos_live false: no Victoria photo files on live
+        shutil.rmtree(dist / "assets/img/vic", ignore_errors=True)
     for f in (dist / "assets/img").glob("og-joachim-agou-photo-bg-*"):
         if not HS_BG or not f.name.startswith(f"og-joachim-agou-photo-bg-{HS_BG}-"): f.unlink()
     # favicon (JOA, tools/make_favicon.py): /favicon.ico at the root, one web manifest per language
@@ -1074,6 +1147,7 @@ if __name__ == "__main__":
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text(build_page(lang, p, a.env))
     # 404
+    PAGE_STATE["vic_used"] = []
     nf = shell("en", {"key": "home", "slug": ""}, "Page not found – Joachim Agou", "Page not found.",
                '<div class="page-head"><div class="wrap"><h1>Page not found</h1></div></div><div class="wrap content"><section class="block lead"><p><a href="/">Home</a> · <a href="/fr/" lang="fr">Accueil en français</a></p></section></div>', a.env, robots_override="noindex")
     (dist / "404.html").write_text(nf)
@@ -1097,6 +1171,8 @@ if __name__ == "__main__":
     if HIDDEN:
         hu = hidden_urls()
         errs += [f"{f.relative_to(dist)}: links to a page left out of this build ({u})" for f in sorted(dist.rglob("*.html")) for u in hu if f'href="{u}"' in f.read_text()]
+    if not VIC_ON(a.env):
+        errs += [f"{f.relative_to(dist)}: shows a Victoria photo, but victoria_photos_live is false" for f in sorted(dist.rglob("*.html")) if "/assets/img/vic/" in f.read_text()]
     if a.env == "live":
         errs += [f"{f.relative_to(dist)}: PDF fails content checks ({len(e)} hits, listed above)" for f, e in MEDIAKIT["errs"].items()]
         if not MEDIAKIT["on"]:
