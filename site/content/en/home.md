@@ -50,7 +50,7 @@ In 2026, you can give up to \$1,513.29 in total to a party, its riding associati
 - Monday to Friday, 9 a.m. to 5 p.m.
 - Saturday, 10 a.m. to 4 p.m.
 - Advance voting days, 8 a.m. to 8 p.m.
-- Closed Sundays, Wednesday 30 September and Monday 12 October (Thanksgiving)
+- Closed Wednesday 30 September and Monday 12 October (Thanksgiving)
 **Vote by mail:** request a package at [elections.bc.ca](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) or by calling 1-800-661-8683, by Sunday 18 October. Elections BC must receive it by 8 p.m. on 24 October. You can also drop it off at any district electoral office or voting place.
 **Not sure you live in the riding?** Check at [wheretovote.elections.bc.ca](https://wheretovote.elections.bc.ca/).
 Voting places are still being confirmed by Elections BC. Source: [Elections BC, Ways to Vote](https://elections.bc.ca/2026-provincial-election/ways-to-vote/).

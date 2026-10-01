@@ -648,6 +648,18 @@
       "find": "<details>\n<summary>Do you still hold French citizenship?</summary>\nI became a Canadian citizen in 2023. I was born in France. The Election Act requires a candidate to be a Canadian citizen. It does not require a candidate to hold only one citizenship.\nI will answer, in plain words, whether I still hold a French passport. I will not leave that as a rumour. This page will say so the day I state it on the record.\n</details>\n",
       "replace": "",
       "why": "Joachim, 1 Oct 2026: remove the question about French citizenship / a second nationality (its answer said he would answer later), EN and FR. FR: removed from the fr-faq translation rule."
+    },
+    {
+      "page": "en-home",
+      "find": "- Closed Sundays, Wednesday 30 September",
+      "replace": "- Closed Wednesday 30 September",
+      "why": "Elections BC (ways-to-vote, checked 1 Oct 2026) lists district electoral office hours Mon–Fri 9–5, Sat 10–4, advance voting days 8–8, and closures only on Wed 30 Sep and Mon 12 Oct; no Sunday closure, and Sun 18 Oct is an advance voting day (offices open 8 a.m.–8 p.m.). 'Closed Sundays' removed (Joachim approved, 1 Oct 2026)."
+    },
+    {
+      "page": "fr-home",
+      "find": "- Fermé le dimanche, le mercredi 30 septembre",
+      "replace": "- Fermé le mercredi 30 septembre",
+      "why": "Elections BC (ways-to-vote, checked 1 Oct 2026) lists district electoral office hours Mon–Fri 9–5, Sat 10–4, advance voting days 8–8, and closures only on Wed 30 Sep and Mon 12 Oct; no Sunday closure, and Sun 18 Oct is an advance voting day (offices open 8 a.m.–8 p.m.). 'Closed Sundays' removed (Joachim approved, 1 Oct 2026). FR twin of the en-home rule."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."
