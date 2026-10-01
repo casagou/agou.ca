@@ -425,6 +425,7 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 .mcal th abbr { text-decoration:none; }
 .mcal td { vertical-align:top; border:1px solid var(--line); padding:4px 5px 6px; height:104px; }
 .mcal td.out { background:var(--bg); }
+.mcal td.day.we:not(.has-kd) { background:#fafbfd; } .mcal th.we { color:var(--navy); }  /* Sat/Sun (class set from the date in events_cal.py) */
 .mcal td.has-kd { background:#fff8e1; }
 .mcal td.today { box-shadow:inset 0 0 0 3px var(--navy); }
 .mcal .dn { display:block; font-weight:700; color:var(--navy); text-decoration:none; }
