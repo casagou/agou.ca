@@ -45,11 +45,6 @@ Je sollicite cette investiture à cause du plan sur ce site, pas à cause d'une 
 <summary>Parlez-vous français?</summary>
 	Oui. Le français est ma langue maternelle. Je travaille en anglais et en français. J'accorde des entrevues dans les deux langues.
 </details>
-<details>
-<summary>Avez-vous encore la citoyenneté française?</summary>
-Je suis devenu citoyen canadien en 2023. Je suis né en France. L'Election Act exige qu'un candidat soit citoyen canadien. Il n'exige pas qu'il n'ait qu'une seule citoyenneté.
-Je répondrai clairement si je détiens encore un passeport français. Je ne laisserai pas cela comme une rumeur. Cette page le dira le jour où je le dirai publiquement.
-</details>
 
 <details>
 <summary>Quelles sont vos priorités?</summary>

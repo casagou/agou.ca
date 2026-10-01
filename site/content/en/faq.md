@@ -44,11 +44,6 @@ How long someone has lived on one block is not the test. Showing up, knowing the
 Yes. French is my first language. I work in English and French. Interviews are available in both.
 </details>
 <details>
-<summary>Do you still hold French citizenship?</summary>
-I became a Canadian citizen in 2023. I was born in France. The Election Act requires a candidate to be a Canadian citizen. It does not require a candidate to hold only one citizenship.
-I will answer, in plain words, whether I still hold a French passport. I will not leave that as a rumour. This page will say so the day I state it on the record.
-</details>
-<details>
 <summary>What are your priorities?</summary>
 Four priorities: health care you can get, homes people can afford, a lower cost of living, and a downtown that works. <mention-page url="/priorities/"/>
 </details>
