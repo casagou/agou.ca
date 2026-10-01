@@ -54,7 +54,7 @@ I will publish these 12 numbers every quarter, say whether they moved, and print
 **Today:** City crime-severity index 152.17 in 2024 (down 11%), then 161.18 in 2025 (up 6%). Robberies in the city +19% in 2025 (126 incidents), Statistics Canada, July 2026. This city is still the regional outlier.  
 **Source / cadence:** Statistics Canada CSI — annual, July. **Not quarterly.**  
 **Quarterly stand-in:** VicPD quarterly counts for robbery, assault, break-and-enter, and mischief in the City of Victoria.  
-**My lever:** Vote for bail and repeat-offender law, and for the sheriffs and court time that get cases to trial. I do not set the index.
+**My lever:** Vote to fund the sheriffs and court time that get cases to trial, which the Province pays for and runs. Bail and repeat-offender rules are federal law, in the Criminal Code: I will press Ottawa to amend them. I do not set the index.
 
 **8. Time stuck in emergency after you need a bed**  
 **Target:** Island Health’s own target: median wait from triage to an inpatient bed of 10 hours or less at Royal Jubilee and at Victoria General.  

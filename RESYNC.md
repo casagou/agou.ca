@@ -63,6 +63,14 @@ Joachim approved this on 2026-09-30 after a fact-check. Notion still has the old
 - If notion2md warns that a rule no longer matches (the Notion sentence changed), update its `find` text. Don't delete the rule. Better still, fix the sentence in Notion; then the rule stops matching and can be removed.
 - The same correction is on `/scorecard/` item 7 (see `site/scorecard.json` → `approved_edits`).
 
+### Priorities v2 (1 Oct 2026; staging only until approved)
+Joachim adopted his reviewer's notes ("update the priorities accordingly. Be meticulous"). The restructured text is on staging for his review. Sources, before/after and open questions: `/workspace/agou.ca-priorities-v2-review.md` on the box.
+- Priorities EN/FR: one whole-page `en-priorities` / `fr-priorities` rule at the end of `site/exclusions.json` (find = the page after the earlier rules, replace = the v2 text). Notion still has the old text. After approval, paste the approved text into Notion and delete the two rules. If Notion changes first, the rule stops matching and notion2md warns: re-base the `find` on the new text, don't delete the rule.
+- `<more/>` on its own line marks where a section's "Read more" starts: actions, "What changes for you" and "How you'll know" stay visible above it; evidence and implementation notes go below.
+- Scorecard item 7 lever (EN/FR): bail is federal law, so the lever is provincial funding of sheriffs and court time plus pressing Ottawa. The EN line is in `scorecard.json` → `approved_edits` under a key marked PROPOSED.
+- `build.py` `PRIORITIES_OLD` refuses the old wording (cancellations "are decisions", "flat monthly fare", "vote for bail law", "Last year 295", "biggest problem", the short housing-tax line).
+- `site.json` → `priorities_v2_approved: false`: `build.py --env live` refuses to run until Joachim approves.
+
 ### Review-batch guard
 `site.json` → `review_batch_approved` is `false` while the 30 Sep 2026 design batch (header, forms, sections, actions, FAQ index, Instagram link) is on staging for Joachim's review. `build.py --env live` refuses to run until it is `true`. To publish something else before then, build it from a branch without the batch (for example main's source commit plus cherry-picks).
 

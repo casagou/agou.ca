@@ -249,6 +249,8 @@ def render(md, lang, ctx, toc_levels=("h2",)):
             out.append(f'<details class="more-details"><summary>{inline(summ, ctx)}</summary><div class="details-body">{body}</div></details>'); i = j + 1; continue
         if s == "<table_of_contents/>":
             close_list(); out.append("<!--TOC-->"); i += 1; continue
+        if s == "<more/>":  # Priorities: explicit 'Read more' split (collapse() keeps everything above it visible)
+            close_list(); out.append("<!--MORE-->"); i += 1; continue
         if s.startswith("<draft>"):
             close_list(); out.append(f'<div class="draft" role="note">{esc(re.sub(r"</?draft>", "", s))}</div>'); i += 1; continue
         if s.startswith("<placeholder>"):
@@ -316,10 +318,13 @@ def collapse(html, lang, keep_chars=320, min_hidden=300):
         while kids and re.match(r'<p class="(cta-line|pagelink)"', kids[-1]):
             tail.insert(0, kids.pop())
         txt = lambda h: len(re.sub(r"<[^>]+>", "", h))
-        vis = []
-        while kids and (not vis or sum(map(txt, vis)) < keep_chars):
+        vis = []; explicit = "<!--MORE-->" in kids
+        if explicit:  # <more/> marker: everything above it stays visible (main actions, 'What changes for you', 'How you'll know'); the rest goes behind 'Read more'
+            k_ = kids.index("<!--MORE-->"); vis, kids = kids[:k_], kids[k_ + 1:]
+            if "<!--MORE-->" in kids: sys.exit(f"collapse: more than one <more/> marker in one section ({ln[:80]})")
+        while not explicit and kids and (not vis or sum(map(txt, vis)) < keep_chars):
             vis.append(kids.pop(0))
-        if kids and sum(map(txt, kids)) >= min_hidden and not any("<details" in k or "<nav" in k for k in kids):
+        if kids and (explicit or sum(map(txt, kids)) >= min_hidden) and not any("<details" in k or "<nav" in k for k in kids):
             n += 1; rid = f"rm-{slugify(re.sub(r'<[^>]+>', '', ln))[:40]}-{n}"
             vis += [f'<div class="rm-more" id="{rid}">' + "\n".join(kids) + "</div>",
                     f'<p class="rm"><button type="button" class="rm-toggle" aria-expanded="true" aria-controls="{rid}" data-more="{esc(U["read_more"])}" data-less="{esc(U["show_less"])}" hidden>{esc(U["show_less"])}</button></p>']
@@ -1034,6 +1039,17 @@ ABOUT_OLD = [  # About intro approved 2026-09-30 (EN+FR); the old paragraphs mus
     r"Ran the pre-launch of a new restaurant", r"Development of test and trial procedures", r"Élaboration de procédures d['’]essais pour les systèmes",  # old career-history entries
     r"Start with the numbers\.", r"Fix what does not work, or stop it", r"Partir des chiffres\.",  # old How I work list
 ]
+# Priorities v2 (1 Oct 2026, staging only until Joachim approves; site.json priorities_v2_approved): wording the review retired.
+# The build stops if any of it comes back on /priorities/ or /scorecard/ (EN or FR), e.g. through a Notion re-sync.
+PRIORITIES_OLD = [
+    (r"Those are decisions|Ce sont des décisions|aren['’]t market forces|pas les lois du marché", "the retired 'Those are decisions' ferry line (not every cancellation is a decision)"),
+    (r"flat monthly fare|tarif mensuel fixe", "a firm 'flat monthly fare' (the 2024 platform proposed consulting frequent users on a monthly flat-fee program or other measures)"),
+    (r"[Vv]ote for bail and repeat-offender law|[Vv]oter pour des lois sur la mise en liberté sous caution", "'vote for bail law' (bail is federal law; an MLA funds and administers the courts and presses Ottawa)"),
+    (r"Last year 295|L['’]an dernier, 295|report to the Commissioner, FY2025", "the undated ferry figure (say 'fiscal year ended March 31, 2025')"),
+    (r"public drug use as their biggest problem|comme leur principal problème", "'biggest problem' (the DVBA survey asked for top challenges; 73% named public drug use)"),
+    (r"(?i)no provincial income tax on up to|aucun impôt provincial sur le revenu sur les sommes versées en loyer ou en intérêts hypothécaires, jusqu['’]à 3 000", "the shortened housing tax line (give the full 2024 detail: $1,500 rising to $3,000, strata fees, tax relief not a payment)"),
+    (r"budgets? équilibrés? et honnêtes|honest budgets?[^.]{0,40}équilibr", "'honest budgets' rendered as 'budgets équilibrés'"),
+]
 EXPERIENCE_OLD = r"(?i)(more than|over)\s+(12|twelve)\s+years|\b(12|twelve) years of experience|plus de (12|douze) ans"
 PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910"}
 
@@ -1055,6 +1071,10 @@ def check(dist):
         rel_ = f.relative_to(dist).as_posix()
         if 'class="lockup' in t and rel_ not in ("index.html", "fr/index.html", "priorities/index.html", "fr/priorities/index.html", "scorecard/index.html", "fr/scorecard/index.html"):
             errs.append(f"{rel_}: the two-line lockup is only for home, Priorities and Scorecard")
+        if rel_ in ("priorities/index.html", "fr/priorities/index.html", "scorecard/index.html", "fr/scorecard/index.html"):
+            for pat, what in PRIORITIES_OLD:
+                if re.search(pat, plain_t): errs.append(f"{rel_}: contains {what}")
+            if "<!--MORE-->" in t: errs.append(f"{rel_}: a <more/> marker was not turned into a Read more region")
         for pat in ABOUT_OLD:
             if re.search(pat, plain_t):
                 errs.append(f"{f.relative_to(dist)}: contains the old About intro ('{pat}'; rewritten 2026-09-30, see exclusions.json)")
@@ -1124,6 +1144,9 @@ if __name__ == "__main__":
     if a.env == "live" and HS_BG and not SITE.get("headshot_background_approved"):
         sys.exit("Live build refused: staging shows a headshot background option (site.json headshot_background), not yet picked by Joachim. "
                  "Set headshot_background_approved to true after he picks, or publish from a branch without it (see RESYNC.md).")
+    if a.env == "live" and not SITE.get("priorities_v2_approved", True):
+        sys.exit("Live build refused: staging contains the Priorities v2 restructure (1 Oct 2026: Priorities EN/FR, scorecard item 7 lever), not yet approved by Joachim. "
+                 "Set site.json priorities_v2_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
     if a.env == "live" and not SITE.get("review_batch_approved", True):
         sys.exit("Live build refused: staging contains the 30 Sep 2026 review batch (header, forms, sections, actions, FAQ index), not yet approved by Joachim. "
                  "Set site.json review_batch_approved to true after approval, or publish from a branch without it (see RESYNC.md).")

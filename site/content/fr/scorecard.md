@@ -54,7 +54,7 @@ Je publierai ces 12 chiffres chaque trimestre, je dirai s’ils ont bougé et j�
 **Aujourd’hui :** Indice de gravité de la criminalité de la Ville : 152,17 en 2024 (en baisse de 11 %), puis 161,18 en 2025 (en hausse de 6 %). Vols qualifiés dans la Ville : +19 % en 2025 (126 incidents), selon Statistique Canada, juillet 2026. Notre ville reste l’exception dans la région.  
 **Source / fréquence :** Indice de gravité de la criminalité de Statistique Canada — annuel, en juillet. **Pas trimestriel.**  
 **Indicateur trimestriel :** Chiffres trimestriels de la VicPD pour les vols qualifiés, les voies de fait, les introductions par effraction et les méfaits dans la Ville de Victoria.  
-**Mon levier :** Voter pour des lois sur la mise en liberté sous caution et les récidivistes, et pour les shérifs et le temps d’audience qui permettent de mener les causes à procès. Ce n’est pas moi qui fixe l’indice.
+**Mon levier :** Voter pour financer les shérifs et le temps d’audience qui permettent de mener les causes à procès, que la Province paie et administre. Les règles sur la mise en liberté sous caution et les récidivistes relèvent du droit fédéral, dans le Code criminel : je presserai Ottawa de les modifier. Ce n’est pas moi qui fixe l’indice.
 
 **8. L’attente à l’urgence quand il vous faut un lit**  
 **Cible :** La cible d’Island Health elle-même : une attente médiane de 10 heures ou moins entre le triage et un lit d’hospitalisation, à l’hôpital Royal Jubilee et à l’hôpital Victoria General.  
