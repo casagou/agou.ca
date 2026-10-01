@@ -47,7 +47,57 @@
       "err_phone": "a phone number",
       "err_consent": "the consent checkbox",
       "err_send": "Sorry, something went wrong and your sign-up was not sent. Please check your details and try again, or email joachim@agou.ca.",
-      "honeypot": "Leave empty"
+      "honeypot": "Leave empty",
+      "welcome": "Come with me, even for one evening. I'm meeting neighbours across Victoria–Beacon Hill every week, and I'd love your help.",
+      "welcome_sign": "Joachim",
+      "draft_tag": "DRAFT: wording awaiting Joachim's approval",
+      "reassure": "No experience needed. We'll pair you with someone, and even two hours helps.",
+      "call": "Joachim or a team member will call you within a day.",
+      "thanks_warm": "Thank you for signing up! Joachim or a team member will call you within a day.",
+      "help_legend": "How would you like to help?",
+      "help_hint": "Choose any that interest you.",
+      "help": [
+        [
+          "door_knocking",
+          "Door knocking with Joachim"
+        ],
+        [
+          "phone_calls",
+          "Phone calls"
+        ],
+        [
+          "events",
+          "Events"
+        ],
+        [
+          "lawn_signs",
+          "Lawn sign drops"
+        ],
+        [
+          "election_day",
+          "Election day"
+        ]
+      ],
+      "avail_legend": "When are you usually available?",
+      "avail_hint": "Choose all that apply.",
+      "avail": [
+        [
+          "weekday_evenings",
+          "Weekday evenings"
+        ],
+        [
+          "weekends",
+          "Weekends"
+        ],
+        [
+          "weekdays",
+          "Weekdays"
+        ]
+      ],
+      "next_canvass": "Next door-knocking outing: {title}, {date}.",
+      "next_canvass_link": "See all events",
+      "lawnsign_t": "Want a sign on your lawn?",
+      "lawnsign_btn": "Request a lawn sign"
     },
     "nominate": {
       "title": "Nominate Joachim Agou",
@@ -360,7 +410,57 @@
       "err_phone": "un numéro de téléphone",
       "err_consent": "la case de consentement",
       "err_send": "Désolé, un problème est survenu et votre inscription n'a pas été envoyée. Vérifiez vos renseignements et réessayez, ou écrivez à joachim@agou.ca.",
-      "honeypot": "Laisser vide"
+      "honeypot": "Laisser vide",
+      "welcome": "Venez avec moi, ne serait-ce qu'une soirée. Je rencontre des voisins partout dans Victoria–Beacon Hill chaque semaine, et j'aimerais beaucoup avoir votre aide.",
+      "welcome_sign": "Joachim",
+      "draft_tag": "ÉBAUCHE : texte en attente de l'approbation de Joachim",
+      "reassure": "Aucune expérience nécessaire. Nous vous jumellerons avec quelqu'un, et même deux heures, ça aide.",
+      "call": "Joachim ou un membre de l'équipe vous appellera dans les 24 heures.",
+      "thanks_warm": "Merci de votre inscription! Joachim ou un membre de l'équipe vous appellera dans les 24 heures.",
+      "help_legend": "Comment aimeriez-vous aider?",
+      "help_hint": "Cochez tout ce qui vous intéresse.",
+      "help": [
+        [
+          "door_knocking",
+          "Porte-à-porte avec Joachim"
+        ],
+        [
+          "phone_calls",
+          "Appels téléphoniques"
+        ],
+        [
+          "events",
+          "Événements"
+        ],
+        [
+          "lawn_signs",
+          "Livraison de pancartes"
+        ],
+        [
+          "election_day",
+          "Jour du scrutin"
+        ]
+      ],
+      "avail_legend": "Quand êtes-vous habituellement disponible?",
+      "avail_hint": "Cochez tout ce qui s'applique.",
+      "avail": [
+        [
+          "weekday_evenings",
+          "Soirs de semaine"
+        ],
+        [
+          "weekends",
+          "Fins de semaine"
+        ],
+        [
+          "weekdays",
+          "Jours de semaine"
+        ]
+      ],
+      "next_canvass": "Prochaine sortie de porte-à-porte : {title}, {date}.",
+      "next_canvass_link": "Voir tous les événements",
+      "lawnsign_t": "Vous voulez une pancarte sur votre terrain?",
+      "lawnsign_btn": "Demander une pancarte"
     },
     "nominate": {
       "title": "Signer mon formulaire de mise en candidature",

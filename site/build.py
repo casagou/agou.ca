@@ -18,7 +18,8 @@ PAGES = SITE["pages"]
 BYKEY = {p["key"]: p for p in PAGES}
 LIVE = SITE["live_origin"]
 LANGS = ["en", "fr"]
-CAL_ON = lambda env: env == "staging" or bool(SITE.get("events_calendar_live"))  # calendar view, New badges, menu badge, home New-event line
+CAL_ON = lambda env: env == "staging" or bool(SITE.get("events_calendar_live"))
+VOL_WARM = lambda env: env == "staging" or bool(SITE.get("volunteer_warm_live"))  # warmer /volunteer/ (welcome note, help + availability checkboxes); staging only until Joachim approves  # calendar view, New badges, menu badge, home New-event line
 NOMINATIONS_CLOSED = bool(SITE.get("nominations_closed"))  # site.json: nominations complete (Joachim, 30 Sep 2026); see README "Nominations closed"
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
 MEDIAKIT = {"on": True, "env": "staging", "errs": {}}  # media-kit PDFs (site.json media_kit / publish_media_kit_live); set in __main__
@@ -280,7 +281,12 @@ def honeypot(T):
     return f'<div class="hp" aria-hidden="true"><label>{esc(T["honeypot"])} <input id="website" type="text" tabindex="-1" autocomplete="off"></label></div>'
 
 
-def form_html(kind, lang):
+def vol_checks(T, key, name):  # volunteer help / availability checkboxes (optional; values are the database keys)
+    cbs = "".join(f'<div class="cb"><input type="checkbox" name="{name}" id="{name}_{v}" value="{esc(v)}"><label for="{name}_{v}">{esc(l)}</label></div>' for v, l in T[key])
+    return f'<fieldset class="vchecks"><legend>{esc(T[key + "_legend"])} <span class="opt">{esc(T["optional"])}</span></legend><p class="hint">{esc(T[key + "_hint"])}</p>{cbs}</fieldset>'
+
+
+def form_html(kind, lang, warm=False):
     T = UI[lang][kind] if kind != "events" else UI[lang]["events"]
     if kind == "volunteer":
         body = (f'<div class="row"><div>{f_input("first_name", T["first_name"], attrs="autocomplete=\"given-name\" autocapitalize=\"words\" required maxlength=\"80\"")}</div>'
@@ -288,6 +294,7 @@ def form_html(kind, lang):
                 + f_input("email", T["email"], "email", 'autocomplete="email" autocapitalize="off" spellcheck="false" required maxlength="200" inputmode="email"')
                 + f_input("phone", T["phone"], "tel", 'autocomplete="tel" required maxlength="30" inputmode="tel"')
                 + f_input("address", T["address"], "text", f'autocomplete="street-address" maxlength="200" placeholder="{esc(T["address_ph"])}"', opt=T["optional"])
+                + (vol_checks(T, "help", "help") + vol_checks(T, "avail", "avail") if warm else "")
                 + f'<div class="cb"><input id="consent" type="checkbox" required><label for="consent">{esc(T["consent"])}</label></div>')
     elif kind == "nominate":
         sess = "".join(f'<div class="cb"><input type="checkbox" name="session" id="s{i}" value="{esc(v)}"><label for="s{i}">{esc(l)}</label></div>' for i, (v, l) in enumerate(T["sessions"]))
@@ -313,15 +320,18 @@ def form_html(kind, lang):
                 + f'<label class="f" for="delivery_notes">{esc(T["notes"])} <span class="opt">{esc(T["optional"])}</span></label><textarea id="delivery_notes" name="delivery_notes" maxlength="500" rows="3" autocomplete="off" placeholder="{esc(T["notes_ph"])}"></textarea>'
                 + f'<div class="cb req"><input id="permission" type="checkbox" required><label for="permission">{esc(T["permission"])}</label></div>'
                 + f'<div class="cb"><input id="consent" type="checkbox" required><label for="consent">{esc(T["consent"])}</label></div>')
-    btn = f'<button id="btn" class="btn primary block" type="submit">{esc(T["button"])}</button><div id="msg" class="msg" role="status" aria-live="polite" tabindex="-1"></div>'
+    call = f'<p class="vcall">{esc(T["call"])}</p>' if warm else ""
+    btn = call + f'<button id="btn" class="btn primary block" type="submit">{esc(T["button"])}</button><div id="msg" class="msg" role="status" aria-live="polite" tabindex="-1"></div>'
     return f'<form id="f" class="card form" novalidate>{body}{honeypot(T)}{btn}</form>'
 
 
-def form_block(kind, lang):
+def form_block(kind, lang, warm=False):
     T = UI[lang][kind]
     intro = f'<p>{esc(T["intro"])}</p>' + (f'<p>{esc(T["delivery"])}</p>' if kind == "lawnsign" else "")
-    return (f'<section class="block formblock" id="form" aria-labelledby="form-title"><h2 id="form-title">{esc(T["title"])}</h2>'
-            f'<p class="sub">{esc(T["sub"])}</p><div class="intro">{intro}</div>{form_html(kind, lang)}'
+    # warm volunteer page: no second "Volunteer…" heading (the page h1 already says it); the form keeps its accessible name
+    head = (f'<h2 id="form-title" class="vh">{esc(T["title"])}</h2>' if warm else f'<h2 id="form-title">{esc(T["title"])}</h2>')
+    return (f'<section class="block formblock" id="form" aria-labelledby="form-title">{head}'
+            f'<p class="sub">{esc(T["sub"])}</p><div class="intro">{intro}</div>{form_html(kind, lang, warm)}'
             f'<p class="privacy-note"><a href="{url(lang, "privacy")}">{esc(BYKEY["privacy"]["nav"][lang])}</a></p></section>')
 
 
@@ -687,9 +697,24 @@ def build_page(lang, page, env):
         h1 = U["nominations_closed"]["title"]
         body = (f'<section class="block lead"><p>{esc(U["nominations_closed"]["text"])}</p>'
                 f'<p><a class="btn primary" href="{url(lang, "volunteer")}">{esc(U["cta_volunteer"])}</a></p></section>')
+    warm = key == "volunteer" and VOL_WARM(env)
+    if warm:  # welcome note on top; "Sign up" button (#form) dropped; lawn sign link moved below the form
+        VT = U["volunteer"]
+        body = re.sub(r'<p class="cta-line"><a class="btn[^"]*" href="#form">.*?</p>\s*', "", body)
+        body = re.sub(r'\s*<p class="cta-line"><a class="btn[^"]*" href="[^"]*lawn-sign/">.*?</p>', "", body)
+        if "#form" in body or "lawn-sign/" in body: sys.exit("volunteer page: could not remove the Sign up / lawn sign buttons from the lead (Notion text changed?)")
+        draft = f'<p class="draft-tag">{esc(VT["draft_tag"])}</p>' if env == "staging" and not SITE.get("volunteer_welcome_approved") else ""
+        welcome = (f'<section class="block vwelcome">{draft}<div class="vw-in">{headshot("112px", eager=True, bg=HS_SECOND)}'
+                   f'<blockquote class="vw-note"><p>{esc(VT["welcome"])}</p><footer>– {esc(VT["welcome_sign"])}</footer></blockquote></div></section>')
+        body = body.replace('</section>', f'<p class="vreassure">{esc(VT["reassure"])}</p>'
+                            f'<p class="vnext" id="vnext" hidden data-events="{url(lang, "events")}"></p></section>', 1)
+        body = welcome + body
     if page.get("form") in ("volunteer", "nominate", "lawnsign") and not (key == "nominate" and NOMINATIONS_CLOSED):
-        body += form_block(page["form"], lang)
-        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": page["form"], "text": UI[lang][page["form"]], "common": UI[lang]["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
+        body += form_block(page["form"], lang, warm)
+        if warm:
+            body += (f'<section class="block vlawn"><h2>{esc(VT["lawnsign_t"])}</h2>'
+                     f'<p class="cta-line"><a class="btn sec" href="{url(lang, "lawn-sign")}"><strong>{esc(VT["lawnsign_btn"])}</strong></a></p></section>')
+        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": page["form"], "warm": warm, "text": UI[lang][page["form"]], "common": UI[lang]["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     if page.get("form") == "events":
         T = U["events"]
         cal = CAL_ON(env)

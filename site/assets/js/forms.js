@@ -68,7 +68,7 @@
   if (CFG.form === "volunteer") {
     $("f").addEventListener("submit", function (e) {
       e.preventDefault();
-      if (v("website")) { show("ok", T.thanks); return; } // bot
+      if (v("website")) { show("ok", CFG.warm ? T.thanks_warm : T.thanks); return; } // bot
       var errs = [];
       var P = T.err_prefix;
       if (!v("first_name")) errs.push(["first_name", P + T.err_first]);
@@ -79,13 +79,37 @@
       if (errs.length) { fail($("f"), $("msg"), errs); return; }
       ok($("f")); $("msg").className = "msg"; $("msg").textContent = "";
       var btn = $("btn"); btn.disabled = true; btn.textContent = T.sending;
-      rpc("submit_volunteer_signup", {
+      var body = {
         p_first_name: v("first_name"), p_last_name: v("last_name"), p_email: v("email"),
         p_phone: v("phone"), p_address: v("address"),
         p_consent: true, p_consent_text: T.consent, p_website: v("website")
-      }).then(function () { lock($("f"), btn); show("ok", T.thanks); })
+      };
+      if (CFG.warm) { // help + availability checkboxes (optional; rpc params added in migration 42, older calls unchanged)
+        var picked = function (n) { return Array.prototype.map.call(document.querySelectorAll('input[name="' + n + '"]:checked'), function (x) { return x.value; }); };
+        body.p_help = picked("help"); body.p_availability = picked("avail");
+      }
+      rpc("submit_volunteer_signup", body).then(function () { lock($("f"), btn); show("ok", CFG.warm ? T.thanks_warm : T.thanks); })
         .catch(function () { btn.disabled = false; btn.textContent = T.button; show("err", T.err_send); });
     });
+  }
+
+  /* Next door-knocking outing (warm volunteer page): the first upcoming public event whose title or description is about
+     door knocking / canvassing; the line stays hidden when there is none (or the request fails). */
+  if (CFG.form === "volunteer" && CFG.warm && $("vnext")) {
+    var KNOCK = /\bdoor|canvass|knock|porte[- ]?à[- ]?porte/i, now = Date.now();
+    rpc("get_public_events", {}).then(function (r) { return r.json(); }).then(function (list) {
+      var e = (list || []).filter(function (x) { return new Date(x.ends_at || x.starts_at).getTime() > now && KNOCK.test((x.title || "") + " " + (x.description || "")); })
+        .sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); })[0];
+      if (!e) return;
+      var FRL = T.next_canvass.indexOf("Prochaine") === 0, o = {};
+      new Intl.DateTimeFormat(FRL ? "fr-CA" : "en-CA", { timeZone: "America/Vancouver", weekday: "long", month: "long", day: "numeric" }).formatToParts(new Date(e.starts_at)).forEach(function (p) { o[p.type] = p.value; });
+      var when = FRL ? o.weekday + " " + o.day + " " + o.month : o.weekday + ", " + o.month + " " + o.day;
+      var title = String(e.title || "").replace(/\s*\|\s*/g, " — ").trim();
+      var p = $("vnext"), parts = T.next_canvass.split("{title}");
+      p.textContent = parts[0] + title + parts[1].replace("{date}", when) + " ";
+      var a = document.createElement("a"); a.href = p.getAttribute("data-events"); a.textContent = T.next_canvass_link; a.className = "readlink";
+      p.append(a); p.hidden = false;
+    }).catch(function () {});
   }
 
   /* ---------- Nominate (rpc submit_nominator_signup) ---------- */

@@ -447,5 +447,6 @@
   "fr_faq_approved": true,
   "fr_edits_approved": true,
   "seo_batch_approved": true,
-  "_seo_batch_doc": "30 Sep 2026 SEO/social batch: seo.json (per-page titles and descriptions), og-joachim-agou-{en,fr}.png (tools/make_og.py), twitter tags, JSON-LD (Person, WebSite, BreadcrumbList; Event in forms.js), sitemap with hreflang + lastmod, build SEO check. Approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future SEO batch back from live builds."
+  "_seo_batch_doc": "30 Sep 2026 SEO/social batch: seo.json (per-page titles and descriptions), og-joachim-agou-{en,fr}.png (tools/make_og.py), twitter tags, JSON-LD (Person, WebSite, BreadcrumbList; Event in forms.js), sitemap with hreflang + lastmod, build SEO check. Approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future SEO batch back from live builds.",
+  "volunteer_warm_live": false
 }
