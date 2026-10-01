@@ -96,7 +96,7 @@
   /* Next door-knocking outing (warm volunteer page): the first upcoming public event whose title or description is about
      door knocking / canvassing; the line stays hidden when there is none (or the request fails). */
   if (CFG.form === "volunteer" && CFG.warm && $("vnext")) {
-    var KNOCK = /\bdoor|canvass|knock|porte[- ]?à[- ]?porte/i, now = Date.now();
+    var KNOCK = /\bdoor[- ]?(?:knock|to[- ]?door)|\bknock(?:ing)? on doors|\bcanvass|porte[- ]?à[- ]?porte|frapper aux portes/i, now = Date.now(); // not "$5 at the door"
     rpc("get_public_events", {}).then(function (r) { return r.json(); }).then(function (list) {
       var e = (list || []).filter(function (x) { return new Date(x.ends_at || x.starts_at).getTime() > now && KNOCK.test((x.title || "") + " " + (x.description || "")); })
         .sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); })[0];
