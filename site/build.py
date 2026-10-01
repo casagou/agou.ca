@@ -991,6 +991,10 @@ if __name__ == "__main__":
     dist = ROOT / a.out
     if dist.exists(): shutil.rmtree(dist)
     shutil.copytree(ROOT / "assets", dist / "assets")
+    for f in (dist / "assets/img").glob("joachim-agou-headshot-bg-*"):  # only the chosen background option ships (site.json headshot_background)
+        if not HS_BG or not f.name.startswith(f"joachim-agou-headshot-bg-{HS_BG}-"): f.unlink()
+    for f in (dist / "assets/img").glob("og-joachim-agou-photo-bg-*"):
+        if not HS_BG or not f.name.startswith(f"og-joachim-agou-photo-bg-{HS_BG}-"): f.unlink()
     # favicon (JOA, tools/make_favicon.py): /favicon.ico at the root, one web manifest per language
     shutil.copy(ROOT / "assets/img/favicon.ico", dist / "favicon.ico")
     for ml, start, desc in (("en", "/", "Joachim Agou, seeking the BC Conservative nomination in Victoria–Beacon Hill"),

@@ -4,7 +4,7 @@ Older text-only card: og-joachim-agou-{en,fr}.png (make).
 Design system: navy #123a6d background, white text, yellow #ffd23f underline accent, no gradients.
 All text sits inside the central 630x630 square (x 285-915), so WhatsApp/iMessage square crops still read cleanly.
 Needs Pillow and the Roboto variable font. Usage: python3 tools/make_og.py"""
-import pathlib
+import json, pathlib
 from PIL import Image, ImageDraw, ImageFont
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 FONT = "/usr/share/fonts/truetype/sand-box/google/Roboto/Roboto-VariableFont_wdth,wght.ttf"
@@ -53,10 +53,12 @@ def make(lang):
 
 def make_photo(lang):
     """og-joachim-agou-photo-{lang}.jpg: headshot on the right (face whole, natural framing), the same text on navy on the left.
-    Uses assets/img/joachim-agou-headshot-1200.jpg (tools/make_headshot.py, no metadata)."""
+    Uses the headshot chosen by site.json headshot_background (assets/img/joachim-agou-headshot[-bg-X]-1200.jpg) (tools/make_headshot.py, no metadata)."""
     im = Image.new("RGB", (W, H), NAVY); d = ImageDraw.Draw(im)
     PW = 560  # photo panel width (right side, full height)
-    ph = Image.open(ROOT / "assets/img/joachim-agou-headshot-1200.jpg").convert("RGB").resize((H, H), Image.LANCZOS)
+    bg = json.loads((ROOT / "site.json").read_text()).get("headshot_background")  # chosen background option (null = original photo)
+    hs = f"joachim-agou-headshot-bg-{bg}" if bg else "joachim-agou-headshot"
+    ph = Image.open(ROOT / f"assets/img/{hs}-1200.jpg").convert("RGB").resize((H, H), Image.LANCZOS)
     cx_face = H // 2  # face is centred in the square original
     left = max(0, min(H - PW, cx_face - PW // 2))
     im.paste(ph.crop((left, 0, left + PW, H)), (W - PW, 0))
@@ -73,7 +75,7 @@ def make_photo(lang):
         elif kind == "url": d.text((TX, y), "agou.ca", font=url_f, fill=YELLOW)
         y += h
     assert d.textlength("Joachim Agou", font=name_f) <= W - PW - TX - 20
-    out = ROOT / f"assets/img/og-joachim-agou-photo-{lang}.jpg"
+    out = ROOT / f"assets/img/og-joachim-agou-photo{'-bg-' + bg if bg else ''}-{lang}.jpg"  # new name per background, so social caches pick it up
     im.save(out, "JPEG", quality=86, optimize=True, progressive=True)
     print(out.relative_to(ROOT), out.stat().st_size // 1024, "KB")
 
