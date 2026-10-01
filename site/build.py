@@ -7,6 +7,7 @@ No framework, no dependencies (Python 3 standard library only)."""
 import argparse, html, json, re, shutil, pathlib, sys
 import scorecard  # /scorecard/ page (scorecard.py, scorecard.json, content/<lang>/scorecard.md)
 import province  # /province/ page (province.py, content/<lang>/province.md; not from Notion)
+import events_cal  # Events calendar + 'New' events (events_cal.py; staging only until site.json events_calendar_live)
 
 ROOT = pathlib.Path(__file__).resolve().parent
 SITE = json.loads((ROOT / "site.json").read_text())
@@ -17,6 +18,7 @@ PAGES = SITE["pages"]
 BYKEY = {p["key"]: p for p in PAGES}
 LIVE = SITE["live_origin"]
 LANGS = ["en", "fr"]
+CAL_ON = lambda env: env == "staging" or bool(SITE.get("events_calendar_live"))  # calendar view, New badges, menu badge, home New-event line
 NOMINATIONS_CLOSED = bool(SITE.get("nominations_closed"))  # site.json: nominations complete (Joachim, 30 Sep 2026); see README "Nominations closed"
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
 MEDIAKIT = {"on": True, "env": "staging", "errs": {}}  # media-kit PDFs (site.json media_kit / publish_media_kit_live); set in __main__
@@ -400,7 +402,8 @@ def shell(lang, page, title, desc, main_html, env, extra_head="", robots_overrid
         if kids:
             sub = '<ul class="subnav">' + "".join(f'<li><a href="{url(lang, c)}"{cur(c)}>{esc(BYKEY[c]["nav"][lang])}</a></li>' for c in kids) + "</ul>"
         active = ' class="active"' if key in kids else ""
-        items.append(f'<li{" class=\"has-sub\"" if kids else ""}><a href="{url(lang, k)}"{cur(k)}{active}>{esc(p.get("nav_short", p["nav"])[lang])}</a>{sub}</li>')
+        badge = events_cal.nav_badge(lang, SITE, UI) if k == "events" and CAL_ON(env) else ""
+        items.append(f'<li{" class=\"has-sub\"" if kids else ""}><a href="{url(lang, k)}"{cur(k)}{active}>{esc(p.get("nav_short", p["nav"])[lang])}{badge}</a>{sub}</li>')
     navs = f'<li class="nav-cta"><a class="btn primary" href="{url(lang, "volunteer")}">{esc(U["cta_volunteer"])}</a></li>' + "".join(items)
     staging = f'<div class="staging" role="note">{esc(U["staging"])}</div>' if env == "staging" else ""
     evbase = f' data-lang-switch data-base="{opath}"' if key == "events" else ""
@@ -621,7 +624,8 @@ def build_page(lang, page, env):
                 f'<h1>{esc(U["home_title"])}</h1><p class="hero-sub">{inline(sub, ctx)}</p><p class="tagline">{inline(tagline, ctx)}</p><p class="lockup">{esc(U["lockup"])}</p>'
                 f'{intro}{hero_callout}</div>{hero_media}</div>'
                 + (f'<div class="wrap">{hero_src}</div>' if hero_src else "") + '</div>')
-        main = hero + shortcuts(lang) + home_layout(collapse(body, lang), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
+        newev = events_cal.home_line(lang, SITE, UI, url(lang, "events")) if CAL_ON(env) else ""
+        main = newev + hero + shortcuts(lang) + home_layout(collapse(body, lang), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
         title = f"Joachim Agou – Victoria–Beacon Hill" if lang == "en" else "Joachim Agou – Victoria–Beacon Hill (français)"
         desc = re.sub(r"[*]", "", sub) + ". " + re.sub(r"[*]", "", tagline)
         return shell(lang, page, title, desc, main, env)
@@ -688,8 +692,14 @@ def build_page(lang, page, env):
         extra = f'<script id="form-config" type="application/json">{json.dumps({"form": page["form"], "text": UI[lang][page["form"]], "common": UI[lang]["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     if page.get("form") == "events":
         T = U["events"]
-        body = f'<div data-hide-on-detail>{body}</div><section class="block" id="events-list" aria-live="polite"><div id="listView"><div id="list"><p class="note">{esc(T["loading"])}</p></div></div><article id="detailView" class="detail" hidden></article></section>'
-        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": "events", "live_url": LIVE + self_path, "text": T, "common": U["form_common"], "maps": event_maps()}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
+        cal = CAL_ON(env)
+        toggle = (f'<div class="viewtoggle" role="group" aria-label="{esc(T["view"])}" hidden><button type="button" data-view="list" aria-pressed="true">{esc(T["view_list"])}</button>'
+                  f'<button type="button" data-view="calendar" aria-pressed="false">{esc(T["view_cal"])}</button></div>') if cal else ""
+        calv = events_cal.calendar_html(lang, SITE, UI) if cal else ""
+        body = f'<div data-hide-on-detail>{body}</div><section class="block" id="events-list" aria-live="polite">{toggle}<div id="listView"><div id="list"><p class="note">{esc(T["loading"])}</p></div></div>{calv}<article id="detailView" class="detail" hidden></article></section>'
+        cfg = {"form": "events", "live_url": LIVE + self_path, "text": T, "common": U["form_common"], "maps": event_maps()}
+        if cal: cfg.update({"cal": SITE["calendar_month"], "new_until": events_cal.new_map(SITE), "new_label": UI[lang]["new_events"]["badge"]})
+        extra = f'<script id="form-config" type="application/json">{json.dumps(cfg, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     lock = f'<p class="lockup">{esc(U["lockup"])}</p>' if key == "priorities" else ""  # two-line lockup: home, Priorities, Scorecard only
     if key == "priorities":
         rid = slugify(U["lockup_block"])

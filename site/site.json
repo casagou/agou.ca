@@ -345,6 +345,103 @@
   "_more_photos_doc": "After these images (any page, any re-sync), build.py adds the reading link 'More photos on Instagram ↗' (ui.json more_photos) to social.Instagram, same tab, rel=noopener. Not from Notion.",
   "events_redesign_approved": true,
   "_events_redesign_doc": "30 Sep 2026 events redesign (date tiles, exact pins, Get directions / Apple Maps, static OSM maps, list cards): approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future events change back from live builds.",
+  "events_calendar_live": false,
+  "_events_calendar_live_doc": "1 Oct 2026 staging batch, waiting for Joachim's approval: Events 'List | Calendar' toggle with an October 2026 month view (key_dates + events from get_public_events), 'New' badges on events added in the last events_new_days days (list cards, calendar chips), the 'New' badge on the Events menu item and the 'New event' line on the home page. false = live builds leave all of it out (the live site stays as it is). Set to true after approval. See README 'Events calendar' and 'New events'.",
+  "events_new_days": 7,
+  "calendar_month": "2026-10",
+  "key_dates": [
+    {
+      "start": "2026-10-01",
+      "en": {
+        "short": "Register to vote (Where to Vote card)",
+        "long": "Register or update your voter information to make sure you receive a Where to Vote card."
+      },
+      "fr": {
+        "short": "Inscription des électeurs",
+        "long": "Inscrivez-vous ou mettez à jour vos renseignements d'électeur pour recevoir votre carte d'information électorale (« Where to Vote »)."
+      },
+      "sources": [
+        "https://elections.bc.ca/2026-provincial-election/"
+      ]
+    },
+    {
+      "start": "2026-10-03",
+      "en": {
+        "short": "Nominations close, 1 p.m.",
+        "long": "Candidate nominations close at 1 p.m. (Pacific time)."
+      },
+      "fr": {
+        "short": "Clôture des candidatures, 13 h",
+        "long": "Clôture des candidatures à 13 h (heure du Pacifique)."
+      },
+      "sources": [
+        "https://elections.bc.ca/2026-provincial-election/"
+      ]
+    },
+    {
+      "start": "2026-10-12",
+      "en": {
+        "short": "Thanksgiving: offices closed",
+        "long": "Thanksgiving Day: district electoral offices closed."
+      },
+      "fr": {
+        "short": "Action de grâces : bureaux fermés",
+        "long": "Action de grâces : bureaux des directeurs du scrutin fermés."
+      },
+      "sources": [
+        "https://elections.bc.ca/2026-provincial-election/",
+        "https://elections.bc.ca/2026-provincial-election/ways-to-vote/"
+      ]
+    },
+    {
+      "start": "2026-10-16",
+      "end": "2026-10-21",
+      "en": {
+        "short": "Advance voting, 8 a.m.–8 p.m.",
+        "long": "Advance voting, 8 a.m. to 8 p.m. (local time), at any advance voting location. No reason needed."
+      },
+      "fr": {
+        "short": "Vote par anticipation, 8 h à 20 h",
+        "long": "Vote par anticipation, de 8 h à 20 h (heure locale), à n'importe quel bureau de vote par anticipation. Aucune justification n'est requise."
+      },
+      "sources": [
+        "https://elections.bc.ca/2026-provincial-election/",
+        "https://elections.bc.ca/2026-provincial-election/ways-to-vote/"
+      ]
+    },
+    {
+      "start": "2026-10-18",
+      "en": {
+        "short": "Last day to request vote by mail",
+        "long": "Last day to request a vote-by-mail package online or by phone (1-800-661-8683)."
+      },
+      "fr": {
+        "short": "Dernier jour : vote par la poste",
+        "long": "Dernier jour pour demander une trousse de vote par la poste en ligne ou par téléphone (1-800-661-8683)."
+      },
+      "sources": [
+        "https://elections.bc.ca/2026-provincial-election/",
+        "https://elections.bc.ca/2026-provincial-election/ways-to-vote/"
+      ]
+    },
+    {
+      "start": "2026-10-24",
+      "en": {
+        "short": "Final Voting Day, 8 a.m.–8 p.m.",
+        "long": "Final Voting Day, 8 a.m. to 8 p.m. (Pacific time). Elections BC must receive vote-by-mail packages by 8 p.m."
+      },
+      "fr": {
+        "short": "Jour du scrutin, 8 h à 20 h",
+        "long": "Jour du scrutin, de 8 h à 20 h (heure du Pacifique). Elections BC doit recevoir les trousses de vote par la poste au plus tard à 20 h."
+      },
+      "sources": [
+        "https://elections.bc.ca/2026-provincial-election/",
+        "https://elections.bc.ca/2026-provincial-election/ways-to-vote/"
+      ]
+    }
+  ],
+  "_key_dates_doc": "Elections BC key dates shown on the Events calendar (October 2026). Each one checked on 1 Oct 2026 against the cited pages: https://elections.bc.ca/2026-provincial-election/ (Key dates table) and https://elections.bc.ca/2026-provincial-election/ways-to-vote/. Only dates from elections.bc.ca; build.py refuses a key date without an elections.bc.ca source. Not in October, so not shown: Writ Day 22 Sep, final count 6–10 Nov (planned), Return Day 18 Nov.",
+  "key_dates_checked": "2026-10-01",
   "review_batch_approved": true,
   "_review_batch_doc": "30 Sep 2026 design refresh (078cca5 + 3825943): approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future staging-only batch back from live builds.",
   "fr_faq_approved": true,

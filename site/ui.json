@@ -203,7 +203,26 @@
       "find_me": "Where to find me:",
       "rsvp_quiet": "RSVP is optional. Just come by.",
       "rsvp_link": "Let us know you’re coming",
-      "ended": "Ended"
+      "ended": "Ended",
+      "new": "New",
+      "view": "View",
+      "view_list": "List",
+      "view_cal": "Calendar",
+      "cal_h": "Calendar: October 2026",
+      "cal_caption": "October 2026: Elections BC key dates and campaign events",
+      "legend_key": "Elections BC key date",
+      "legend_ev": "Campaign event",
+      "key_h": "Key dates from Elections BC",
+      "key_note": "Checked on {d} against Elections BC. Always confirm at elections.bc.ca.",
+      "src": "Source",
+      "src2": "Elections BC: key dates",
+      "src3": "Elections BC: ways to vote",
+      "agenda_h": "October at a glance",
+      "agenda_note": "Tap a day with a marker to jump to it in this list.",
+      "after_oct": "Events after October are in the list view.",
+      "today": "Today",
+      "events_n": "events",
+      "legend_new": "Event added in the last 7 days"
     },
     "follow_title": "Follow along",
     "follow_text": "Photos and updates from the campaign:",
@@ -284,6 +303,13 @@
     "nominations_closed": {
       "title": "Thank you",
       "text": "Thank you. Nominations are complete."
+    },
+    "new_events": {
+      "badge": "New",
+      "nav_sr": ", new event",
+      "line": "New event",
+      "more_one": "1 more new event",
+      "more": "{n} more new events"
     }
   },
   "fr": {
@@ -490,7 +516,26 @@
       "find_me": "Où me trouver :",
       "rsvp_quiet": "Pas besoin de confirmer votre présence : passez simplement.",
       "rsvp_link": "Dites-nous que vous venez",
-      "ended": "Terminé"
+      "ended": "Terminé",
+      "new": "Nouveau",
+      "view": "Affichage",
+      "view_list": "Liste",
+      "view_cal": "Calendrier",
+      "cal_h": "Calendrier : octobre 2026",
+      "cal_caption": "Octobre 2026 : dates clés d'Elections BC et événements de la campagne",
+      "legend_key": "Date clé d'Elections BC",
+      "legend_ev": "Événement de la campagne",
+      "key_h": "Dates clés d'Elections BC",
+      "key_note": "Vérifiées le {d} auprès d'Elections BC. Confirmez toujours sur elections.bc.ca.",
+      "src": "Source",
+      "src2": "Elections BC : dates clés (en anglais)",
+      "src3": "Elections BC : façons de voter (en anglais)",
+      "agenda_h": "Octobre en un coup d'œil",
+      "agenda_note": "Touchez un jour marqué pour le retrouver dans cette liste.",
+      "after_oct": "Les événements après octobre figurent dans la liste.",
+      "today": "Aujourd'hui",
+      "events_n": "événements",
+      "legend_new": "Événement ajouté depuis moins de 7 jours"
     },
     "follow_title": "Suivez la campagne",
     "follow_text": "Photos et nouvelles de la campagne :",
@@ -571,6 +616,13 @@
     "nominations_closed": {
       "title": "Merci",
       "text": "Merci. Les signatures de mise en candidature sont complètes."
+    },
+    "new_events": {
+      "badge": "Nouveau",
+      "nav_sr": ", nouvel événement",
+      "line": "Nouvel événement",
+      "more_one": "1 autre nouvel événement",
+      "more": "{n} autres nouveaux événements"
     }
   }
 }

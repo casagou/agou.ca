@@ -271,6 +271,56 @@
         details: (plain(e.description) ? plain(e.description).slice(0, 1200) + "\n\n" : "") + eventUrl(e), location: whereText(e) });
       return "https://calendar.google.com/calendar/render?" + q.toString();
     }
+    // "New": added in the last N days (build.py events_cal.py: new_until = first day it is no longer new, Pacific time)
+    var todayPT = function () { return new Date().toLocaleDateString("en-CA", { timeZone: TZ }); };
+    var isNew = function (e) { var u = (CFG.new_until || {})[String(e.id)]; return !!u && todayPT() < u; };
+    var newBadge = function () { return el("span", { class: "newb", text: CFG.new_label || T.new }); };
+    var shortTitle = function (e) { var p = String(e.title || "").split("|"); return p[p.length - 1].trim(); };
+    function openEvent(e) { return function (ev) { if (ev.metaKey || ev.ctrlKey || ev.shiftKey) return; ev.preventDefault(); history.pushState({ e: e.id }, "", "?e=" + e.id); route(); window.scrollTo(0, 0); }; }
+    // Calendar (month grid made by build.py; the event chips and agenda lines are added here, from the same events as the list)
+    function renderCal() {
+      var box = $("calView"); if (!box || !CFG.cal) return;
+      box.querySelectorAll(".it.cev, .ag-day.ev-only").forEach(function (n) { n.remove(); });
+      var t = todayPT(), td = box.querySelector('td[data-date="' + t + '"]');
+      box.querySelectorAll("td.today").forEach(function (n) { n.classList.remove("today"); n.removeAttribute("aria-current"); });
+      if (td) { td.classList.add("today"); td.setAttribute("aria-current", "date"); }
+      var later = false, ag = box.querySelector(".agenda");
+      EVENTS.slice().sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); }).forEach(function (e) {
+        var d = ymd(e.starts_at); if (d.slice(0, 7) !== CFG.cal) { if (d.slice(0, 7) > CFG.cal) later = true; return; }
+        var cell = box.querySelector('td[data-date="' + d + '"]'); if (!cell) return;
+        var past = new Date(e.ends_at).getTime() < Date.now(), nw = isNew(e) && !past;
+        var a = el("a", { href: "?e=" + e.id, title: evTitle(e) }, el("span", { class: "tm", text: clock(e.starts_at).replace(/ /g, NB) }), " ", el("span", { class: "tt", text: shortTitle(e) }), nw ? [" ", newBadge()] : null);
+        a.addEventListener("click", openEvent(e));
+        cell.querySelector(".items").append(el("li", { class: "it cev" + (past ? " past" : "") }, el("span", { class: "mk", "aria-hidden": "true", text: "●" }), a));
+        if (!cell.querySelector(".dn-link")) {
+          var dl = cell.querySelector(".dn-txt").cloneNode(true); var link = el("a", { class: "dn dn-link", href: "#ag-" + d }); link.append.apply(link, Array.prototype.slice.call(dl.childNodes)); cell.insertBefore(link, cell.querySelector(".items"));
+        }
+        cell.classList.add("has-ev");
+        var day = $("ag-" + d);
+        if (!day) {
+          day = el("li", { class: "ag-day ev-only", id: "ag-" + d, "data-date": d }, el("p", { class: "ag-d", text: cap(dayFull(e.starts_at)) }), el("ul"));
+          var next = Array.prototype.find.call(ag.children, function (x) { return x.getAttribute("data-date") > d; });
+          ag.insertBefore(day, next || null);
+        }
+        var a2 = el("a", { href: "?e=" + e.id }, timeRange(e) + " · " + evTitle(e)); a2.addEventListener("click", openEvent(e));
+        day.querySelector("ul").append(el("li", { class: "it cev" + (past ? " past" : "") }, el("span", { class: "mk", "aria-hidden": "true", text: "●" }), " ", a2, nw ? [" ", newBadge()] : null));
+      });
+      var after = box.querySelector(".cal-after"); if (after) after.hidden = !later;
+    }
+    var VIEW = new URLSearchParams(location.search).get("view") === "calendar" ? "calendar" : "list";
+    function setView(v, push) {
+      VIEW = v;
+      var tg = document.querySelector(".viewtoggle"); if (!tg) return;
+      tg.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-view") === v)); });
+      if (push) history.replaceState({}, "", location.pathname + (v === "calendar" ? "?view=calendar" : ""));
+      route();
+    }
+    document.querySelectorAll(".viewtoggle button").forEach(function (b) { b.addEventListener("click", function () { setView(b.getAttribute("data-view"), true); }); });
+    (function () { // before the events load: show the toggle and the chosen view (without JS both stay visible, list first)
+      var cv = $("calView"), tg = document.querySelector(".viewtoggle"); if (!cv || !tg) return;
+      tg.hidden = false; cv.hidden = VIEW !== "calendar"; $("listView").hidden = VIEW === "calendar";
+      tg.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-view") === VIEW)); });
+    })();
     function renderList() {
       var box = $("list"); box.textContent = "";
       if (!EVENTS.length) { box.append(el("p", { class: "note", text: T.empty })); return; }
@@ -279,11 +329,11 @@
       var ul = el("ul", { class: "evlist" });
       list.forEach(function (e) {
         var a = el("a", { href: "?e=" + e.id, text: evTitle(e) });
-        a.addEventListener("click", function (ev) { if (ev.metaKey || ev.ctrlKey || ev.shiftKey) return; ev.preventDefault(); history.pushState({ e: e.id }, "", "?e=" + e.id); route(); window.scrollTo(0, 0); });
+        a.addEventListener("click", openEvent(e));
         var du = dirUrl(e), past = !up(e);
         ul.append(el("li", { class: "evc" + (past ? " past" : "") }, tile(e.starts_at),
           el("div", { class: "evc-body" },
-            el("h3", null, a),
+            el("h3", null, a, isNew(e) && !past ? [" ", newBadge()] : null),
             el("p", { class: "evc-when" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e), past ? el("span", { class: "evc-ended", text: " · " + T.ended }) : null),
             e.neighbourhood ? el("p", { class: "evc-nb", text: e.neighbourhood }) : null,
             du && !past ? el("p", { class: "readlink evc-dir" }, el("a", { href: du, target: "_blank", rel: "noopener noreferrer", text: T.directions_short + " ↗" })) : null)));
@@ -406,11 +456,15 @@
     function route() {
       if (!EVENTS) return;
       var id = currentId();
-      $("listView").hidden = !!id; $("detailView").hidden = !id;
+      var cv = $("calView"), tg = document.querySelector(".viewtoggle"), calMode = !!cv && VIEW === "calendar";
+      if (!id && cv) VIEW = new URLSearchParams(location.search).get("view") === "calendar" ? "calendar" : "list", calMode = VIEW === "calendar";
+      $("listView").hidden = !!id || calMode; $("detailView").hidden = !id;
+      if (cv) cv.hidden = !!id || !calMode;
+      if (tg) { tg.hidden = !!id; tg.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-view") === VIEW)); }); }
       document.querySelectorAll("[data-hide-on-detail]").forEach(function (n) { n.hidden = !!id; });
       updateLangLink();
       if (id) renderDetail(id);
-      else { setMeta(baseTitle, baseDesc, LIVE); renderList(); jsonLd(EVENTS); }
+      else { setMeta(baseTitle, baseDesc, LIVE); renderList(); renderCal(); jsonLd(EVENTS); }
     }
     window.addEventListener("popstate", route);
     window.addEventListener("hashchange", route);
