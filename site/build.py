@@ -30,6 +30,11 @@ HS_BG = SITE.get("headshot_background")
 if HS_BG:
     if HS_BG not in SITE["headshot_backgrounds"]: sys.exit(f"site.json headshot_background {HS_BG!r}: not in headshot_backgrounds")
     IMG["joachim-agou-headshot"] = ({w: f"joachim-agou-headshot-bg-{HS_BG}-{w}.jpg" for w in (400, 800, 1200)}, 1200, 1200)
+HS_SECOND = SITE.get("headshot_background_second")  # second headshot (B, Dallas Road): About photo + second download on Media; never on a page that already shows the main one twice
+if HS_SECOND and HS_SECOND not in SITE["headshot_backgrounds"]: sys.exit(f"site.json headshot_background_second {HS_SECOND!r}: not in headshot_backgrounds")
+HS_USED = [v for v in (HS_BG, HS_SECOND) if v]  # background options that ship (files + footer credits)
+def hs_files(bg):
+    return {w: (f"joachim-agou-headshot-bg-{bg}-{w}.jpg" if bg else f"joachim-agou-headshot-{w}.jpg") for w in (400, 800, 1200)}
 HEADSHOT_ALT = "Joachim Agou"  # plain alt text, EN and FR (photo slots and the Media page)
 esc = lambda s: html.escape(s, quote=True)
 
@@ -101,10 +106,11 @@ def picture(name, alt, lang, caption=True, eager=False):
     return f'<figure class="fig"><a href="/assets/img/{big}" class="figlink">{img}</a>{cap}</figure>'
 
 
-def headshot(sizes, eager=False, link=False, caption=False):
+def headshot(sizes, eager=False, link=False, caption=False, bg="main"):
     """The headshot as <picture>: WebP first, JPEG fallback, 400/800/1200w; explicit width/height (no layout shift);
     lazy unless eager (above the fold). link=True wraps it in a link to the 1200px JPEG (Media page download)."""
     files, w, h = IMG["joachim-agou-headshot"]
+    if bg != "main": files = hs_files(bg)
     for f in files.values():
         for ext in (".jpg", ".webp"):
             if not (ROOT / "assets/img" / f.replace(".jpg", ext)).exists(): sys.exit(f"headshot file missing: assets/img/{f.replace('.jpg', ext)} (run tools/make_headshot.py)")
@@ -355,8 +361,10 @@ def footer(lang, ctx):
 
 def bg_credit(lang):
     """Attribution the background photo's licence requires (CC BY / CC BY-SA): small footer line on every page that can show the headshot."""
-    if not HS_BG: return ""
-    c = SITE["headshot_backgrounds"][HS_BG]
+    return "".join(credit_line(SITE["headshot_backgrounds"][v], lang) for v in HS_USED)
+
+
+def credit_line(c, lang):
     return (f'<p class="credit">{esc(c["credit_prefix"][lang])} <a href="{esc(c["source_url"])}">{esc(c["title"])}</a>, '
             f'{esc(c["author"])}, <a href="{esc(c["licence_url"])}" rel="license">{esc(c["licence"])}</a>{esc(c["credit_suffix"][lang])}</p>')
 
@@ -541,6 +549,9 @@ def first_text(md, n=155):
 
 def photo_slot(slot, lang, cls):
     f = SITE["photos"].get(slot)
+    if f == "joachim-agou-headshot-second":  # About: the second headshot (B), so About and home differ
+        if not HS_SECOND: sys.exit(f"photo slot {slot}: joachim-agou-headshot-second needs site.json headshot_background_second")
+        return f'<div class="{cls} has-photo">{headshot("(min-width: 800px) 280px, 200px", eager=True, bg=HS_SECOND)}</div>'
     if f == "joachim-agou-headshot":  # hero: above the fold on desktop, so not lazy; About: top of the page, also not lazy
         sizes = "(min-width: 800px) 400px, 260px" if slot == "hero" else "(min-width: 800px) 280px, 200px"
         return f'<div class="{cls} has-photo">{headshot(sizes, eager=True)}</div>'
@@ -640,7 +651,10 @@ def build_page(lang, page, env):
     if key == "media" and lang == "en" and SITE["photos"].get("media") == "joachim-agou-headshot":  # headshot first under Photos (not from Notion), linked to the 1200px JPEG
         sp = '<figure class="fig"><a href="/assets/img/joachim-agou-speaking-'
         if sp not in body: sys.exit("media: Photos image not found (needed to place the headshot)")
-        body = body.replace(sp, headshot("(min-width: 800px) 400px, 100vw", link=True, caption=True) + sp, 1)
+        hs = headshot("(min-width: 800px) 400px, 100vw", link=True, caption=True)
+        if HS_SECOND:  # two downloadable headshots side by side: main (C) and second (B)
+            hs = f'<div class="headshot-pair">{hs}{headshot("(min-width: 800px) 400px, 100vw", link=True, caption=True, bg=HS_SECOND)}</div>'
+        body = body.replace(sp, hs + sp, 1)
     if key == "priorities":
         body = collapse(body, lang)
     if key == "priorities" and "province" not in HIDDEN:  # "Who controls what? See what the Province actually controls →"
@@ -992,7 +1006,7 @@ if __name__ == "__main__":
     if dist.exists(): shutil.rmtree(dist)
     shutil.copytree(ROOT / "assets", dist / "assets")
     for f in (dist / "assets/img").glob("joachim-agou-headshot-bg-*"):  # only the chosen background option ships (site.json headshot_background)
-        if not HS_BG or not f.name.startswith(f"joachim-agou-headshot-bg-{HS_BG}-"): f.unlink()
+        if not any(f.name.startswith(f"joachim-agou-headshot-bg-{v}-") for v in HS_USED): f.unlink()
     for f in (dist / "assets/img").glob("og-joachim-agou-photo-bg-*"):
         if not HS_BG or not f.name.startswith(f"og-joachim-agou-photo-bg-{HS_BG}-"): f.unlink()
     # favicon (JOA, tools/make_favicon.py): /favicon.ico at the root, one web manifest per language

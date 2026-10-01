@@ -218,11 +218,13 @@
   "photos": {
     "_doc": "Photo slots. Put a JPG in assets/img/photos/ named <slot>.jpg (e.g. hero.jpg) and set the slot to that file name; null = no photo (the design shows a clean colour panel instead). \"joachim-agou-headshot\" = Joachim's headshot (build.py headshot(): WebP + JPEG, 400/800/1200, alt 'Joachim Agou'). See README 'Photo slots'.",
     "hero": "joachim-agou-headshot",
-    "about-portrait": "joachim-agou-headshot",
+    "about-portrait": "joachim-agou-headshot-second",
     "media": "joachim-agou-headshot"
   },
   "headshot_background": "c",
   "headshot_background_approved": true,
+  "headshot_background_second": "b",
+  "_headshot_background_second_doc": "30 Sep 2026: Joachim also likes b (Dallas Road) wherever a second photo fits: the About photo slot (photos.about-portrait = joachim-agou-headshot-second, EN+FR) and a second downloadable headshot next to the main one on Media. Not used where it would duplicate the main headshot on the same page. Its CC BY-SA 2.0 credit (with the share-alike note) is in the footer next to the main one's. null = no second headshot.",
   "_headshot_background_doc": "30 Sep 2026: Joachim asked for a real Victoria background instead of the foliage behind his headshot (cutout by rembg isnet-general-use + matting; face untouched). Options a/b/c: files assets/img/joachim-agou-headshot-bg-{a,b,c}-{400,800,1200}.{jpg,webp} (tools/make_headshot.py <composite> joachim-agou-headshot-bg-X). null = original photo (joachim-agou-headshot-*). Joachim picked c (Parliament / Inner Harbour, blurred) on 30 Sep 2026 and approved it for live. While headshot_background_approved is false, live builds are refused. Only the chosen option ships (build.py removes the other bg files from dist). OG card: og-joachim-agou-photo-bg-c-{en,fr}.jpg (tools/make_og.py). The footer carries the licence credit of the chosen background (build.py bg_credit).",
   "headshot_backgrounds": {
     "a": {
@@ -249,8 +251,8 @@
       "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
       "source_url": "https://commons.wikimedia.org/wiki/File:Ocean_View_from_Beacon_Hill_Park_-_Victoria_-_BC_-_Canada_-_02_(16662595088)_(2).jpg",
       "credit_prefix": {
-        "en": "Photo background adapted from",
-        "fr": "Arrière-plan de la photo adapté de"
+        "en": "Second photo (About, Media) background adapted from",
+        "fr": "Arrière-plan de la deuxième photo (À propos, Médias) adapté de"
       },
       "credit_suffix": {
         "en": " (blurred). The headshot with this background is shared under CC BY-SA 2.0.",
@@ -265,8 +267,8 @@
       "licence_url": "https://creativecommons.org/licenses/by/2.0/",
       "source_url": "https://commons.wikimedia.org/wiki/File:Capitol_of_British_Columbia_(3729298803).jpg",
       "credit_prefix": {
-        "en": "Photo background adapted from",
-        "fr": "Arrière-plan de la photo adapté de"
+        "en": "Main photo background adapted from",
+        "fr": "Arrière-plan de la photo principale adapté de"
       },
       "credit_suffix": {
         "en": " (blurred).",
