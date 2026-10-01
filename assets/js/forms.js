@@ -345,6 +345,20 @@
       tg.hidden = false; cv.hidden = VIEW !== "calendar"; $("listView").hidden = VIEW === "calendar";
       tg.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-view") === VIEW)); });
     })();
+    // Small venue photo on each list card (site.json victoria_photos.events; staging only until victoria_photos_live).
+    // Matched against this event's own public fields only: street address first, then neighbourhood.
+    function venuePhoto(e) {
+      var V = CFG.vic; if (!V) return null;
+      var pid = null, k;
+      for (k in V.address) { if (String(e.address || "").indexOf(k) !== -1) { pid = V.address[k]; break; } }
+      if (!pid && e.neighbourhood && V.neighbourhood[e.neighbourhood]) pid = V.neighbourhood[e.neighbourhood];
+      if (!pid) return null;
+      var ss = function (ext) { return V.widths.map(function (w) { return V.base + pid + "-thumb-" + w + "." + ext + " " + w + "w"; }).join(", "); };
+      var sz = "80px";
+      return el("picture", { class: "evc-ph" },
+        el("source", { type: "image/avif", srcset: ss("avif"), sizes: sz }), el("source", { type: "image/webp", srcset: ss("webp"), sizes: sz }),
+        el("img", { src: V.base + pid + "-thumb-160.jpg", srcset: ss("jpg"), sizes: sz, width: "240", height: "240", alt: V.alt[pid] || "", loading: "lazy", decoding: "async" }));
+    }
     function renderList() {
       var box = $("list"); box.textContent = "";
       if (!EVENTS.length) { box.append(el("p", { class: "note", text: T.empty })); return; }
@@ -360,7 +374,8 @@
             el("h3", null, a, isNew(e) && !past ? [" ", newBadge()] : null),
             el("p", { class: "evc-when" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e), past ? el("span", { class: "evc-ended", text: " · " + T.ended }) : null),
             e.neighbourhood ? el("p", { class: "evc-nb", text: e.neighbourhood }) : null,
-            du && !past ? el("p", { class: "readlink evc-dir" }, el("a", { href: du, target: "_blank", rel: "noopener noreferrer", text: T.directions_short + " ↗" })) : null)));
+            du && !past ? el("p", { class: "readlink evc-dir" }, el("a", { href: du, target: "_blank", rel: "noopener noreferrer", text: T.directions_short + " ↗" })) : null),
+          venuePhoto(e)));
       });
       box.append(ul);
     }
