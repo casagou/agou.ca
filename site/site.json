@@ -214,9 +214,10 @@
     }
   ],
   "photos": {
-    "_doc": "Photo slots. Put a JPG in assets/img/photos/ named <slot>.jpg (e.g. hero.jpg) and set the slot to that file name; null = no photo (the design shows a clean colour panel instead). See README 'Photo slots'.",
-    "hero": null,
-    "about-portrait": null
+    "_doc": "Photo slots. Put a JPG in assets/img/photos/ named <slot>.jpg (e.g. hero.jpg) and set the slot to that file name; null = no photo (the design shows a clean colour panel instead). \"joachim-agou-headshot\" = Joachim's headshot (build.py headshot(): WebP + JPEG, 400/800/1200, alt 'Joachim Agou'). See README 'Photo slots'.",
+    "hero": "joachim-agou-headshot",
+    "about-portrait": "joachim-agou-headshot",
+    "media": "joachim-agou-headshot"
   },
   "social": {
     "_doc": "Only account URLs that appear in Notion (home page Contact block). Do not add guessed handles.",

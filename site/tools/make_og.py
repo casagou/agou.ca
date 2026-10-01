@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Social preview images (og:image), 1200x630 PNG, one per language: assets/img/og-joachim-agou-{en,fr}.png.
+"""Social preview images (og:image), 1200x630, one per language. Current: assets/img/og-joachim-agou-photo-{en,fr}.jpg (make_photo: headshot + text).
+Older text-only card: og-joachim-agou-{en,fr}.png (make).
 Design system: navy #123a6d background, white text, yellow #ffd23f underline accent, no gradients.
 All text sits inside the central 630x630 square (x 285-915), so WhatsApp/iMessage square crops still read cleanly.
 Needs Pillow and the Roboto variable font. Usage: python3 tools/make_og.py"""
@@ -50,5 +51,32 @@ def make(lang):
     print(out.relative_to(ROOT), out.stat().st_size // 1024, "KB; text x", min(diff), "-", max(diff), "(square", SQ, "-", SQ + H, ")")
 
 
+def make_photo(lang):
+    """og-joachim-agou-photo-{lang}.jpg: headshot on the right (face whole, natural framing), the same text on navy on the left.
+    Uses assets/img/joachim-agou-headshot-1200.jpg (tools/make_headshot.py, no metadata)."""
+    im = Image.new("RGB", (W, H), NAVY); d = ImageDraw.Draw(im)
+    PW = 560  # photo panel width (right side, full height)
+    ph = Image.open(ROOT / "assets/img/joachim-agou-headshot-1200.jpg").convert("RGB").resize((H, H), Image.LANCZOS)
+    cx_face = H // 2  # face is centred in the square original
+    left = max(0, min(H - PW, cx_face - PW // 2))
+    im.paste(ph.crop((left, 0, left + PW, H)), (W - PW, 0))
+    TX = 64; COLW = W - PW - 2 * TX + 8
+    name_f = font(76, 800); riding_f = font(36, 600); slog_f = font(33, 500); url_f = font(28, 700)
+    slog = wrap(d, SLOGAN[lang], slog_f, COLW)
+    blocks = [("name", 76), ("gap", 22), ("bar", 8), ("gap", 26), ("riding", 42), ("gap", 30)] + [("s", 44)] * len(slog) + [("gap", 32), ("url", 32)]
+    y = (H - sum(h for _, h in blocks)) // 2; si = 0
+    for kind, h in blocks:
+        if kind == "name": d.text((TX, y), "Joachim Agou", font=name_f, fill=WHITE)
+        elif kind == "bar": d.rectangle([TX, y, TX + 140, y + h - 1], fill=YELLOW)
+        elif kind == "riding": d.text((TX, y), "Victoria–Beacon Hill", font=riding_f, fill=PALE)
+        elif kind == "s": d.text((TX, y), slog[si], font=slog_f, fill=WHITE); si += 1
+        elif kind == "url": d.text((TX, y), "agou.ca", font=url_f, fill=YELLOW)
+        y += h
+    assert d.textlength("Joachim Agou", font=name_f) <= W - PW - TX - 20
+    out = ROOT / f"assets/img/og-joachim-agou-photo-{lang}.jpg"
+    im.save(out, "JPEG", quality=86, optimize=True, progressive=True)
+    print(out.relative_to(ROOT), out.stat().st_size // 1024, "KB")
+
+
 if __name__ == "__main__":
-    for l in ("en", "fr"): make(l)
+    for l in ("en", "fr"): make_photo(l)  # current og:image (seo.json); make(l) draws the older text-only card

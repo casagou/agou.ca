@@ -21,7 +21,10 @@ HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_li
 MEDIAKIT = {"on": True, "env": "staging", "errs": {}}  # media-kit PDFs (site.json media_kit / publish_media_kit_live); set in __main__
 IMG = {  # local image name -> (files by width, width, height)
     "joachim-agou-speaking": ({800: "joachim-agou-speaking-800.jpg", 1600: "joachim-agou-speaking-1600.jpg"}, 1600, 1000),
+    # headshot (Joachim, 30 Sep 2026): tools/make_headshot.py, no metadata; a .webp twin of each JPG is served first
+    "joachim-agou-headshot": ({400: "joachim-agou-headshot-400.jpg", 800: "joachim-agou-headshot-800.jpg", 1200: "joachim-agou-headshot-1200.jpg"}, 1200, 1200),
 }
+HEADSHOT_ALT = "Joachim Agou"  # plain alt text, EN and FR (photo slots and the Media page)
 esc = lambda s: html.escape(s, quote=True)
 
 
@@ -90,6 +93,23 @@ def picture(name, alt, lang, caption=True, eager=False):
            f'width="{w}" height="{h}" alt="{esc(alt)}" {"" if eager else "loading=\"lazy\" "}decoding="async">')
     cap = f"<figcaption>{esc(alt)}</figcaption>" if caption else ""
     return f'<figure class="fig"><a href="/assets/img/{big}" class="figlink">{img}</a>{cap}</figure>'
+
+
+def headshot(sizes, eager=False, link=False, caption=False):
+    """The headshot as <picture>: WebP first, JPEG fallback, 400/800/1200w; explicit width/height (no layout shift);
+    lazy unless eager (above the fold). link=True wraps it in a link to the 1200px JPEG (Media page download)."""
+    files, w, h = IMG["joachim-agou-headshot"]
+    for f in files.values():
+        for ext in (".jpg", ".webp"):
+            if not (ROOT / "assets/img" / f.replace(".jpg", ext)).exists(): sys.exit(f"headshot file missing: assets/img/{f.replace('.jpg', ext)} (run tools/make_headshot.py)")
+    srcset = lambda ext: ", ".join(f"/assets/img/{f.replace('.jpg', ext)} {wd}w" for wd, f in sorted(files.items()))
+    big = files[max(files)]
+    img = (f'<picture><source type="image/webp" srcset="{srcset(".webp")}" sizes="{sizes}">'
+           f'<img src="/assets/img/{files[800]}" srcset="{srcset(".jpg")}" sizes="{sizes}" width="{w}" height="{h}" alt="{esc(HEADSHOT_ALT)}" '
+           f'{"fetchpriority=\"high\"" if eager else "loading=\"lazy\""} decoding="async"></picture>')
+    if link: img = f'<a href="/assets/img/{big}" class="figlink">{img}</a>'
+    cap = f"<figcaption>{esc(HEADSHOT_ALT)}</figcaption>" if caption else ""
+    return f'<figure class="fig headshot">{img}{cap}</figure>'
 
 
 # ---------------- block markdown (Notion subset) ----------------
@@ -378,7 +398,7 @@ def shell(lang, page, title, desc, main_html, env, extra_head="", robots_overrid
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 {og_url}<meta property="og:image" content="{og_img}">
-<meta property="og:image:type" content="image/png">
+<meta property="og:image:type" content="{'image/jpeg' if OG[lang].endswith('.jpg') else 'image/png'}">
 <meta property="og:image:width" content="{OG['width']}"><meta property="og:image:height" content="{OG['height']}">
 <meta property="og:image:alt" content="{esc(OG['alt'][lang])}">
 <meta name="twitter:card" content="summary_large_image">
@@ -423,7 +443,7 @@ def json_ld(lang, key, title, desc, canonical, env):
     """schema.org JSON-LD: Person + WebSite on the home page; BreadcrumbList on the others (events add Event items in forms.js)."""
     home = LIVE + url(lang, "home")
     person = {"@type": "Person", "@id": LIVE + "/#joachim", "name": "Joachim Agou", "url": home,
-              "image": LIVE + "/assets/img/joachim-agou-speaking-1600.jpg", "knowsLanguage": ["en", "fr"],
+              "image": LIVE + "/assets/img/joachim-agou-headshot-1200.jpg", "knowsLanguage": ["en", "fr"],
               "sameAs": [u for n, u in SITE["social"].items() if not n.startswith("_")],
               "description": SEO["pages"]["home"][lang]["desc"]}
     if key == "home":
@@ -507,6 +527,9 @@ def first_text(md, n=155):
 
 def photo_slot(slot, lang, cls):
     f = SITE["photos"].get(slot)
+    if f == "joachim-agou-headshot":  # hero: above the fold on desktop, so not lazy; About: top of the page, also not lazy
+        sizes = "(min-width: 800px) 400px, 260px" if slot == "hero" else "(min-width: 800px) 280px, 200px"
+        return f'<div class="{cls} has-photo">{headshot(sizes, eager=True)}</div>'
     if f:
         if f in IMG:
             return f'<div class="{cls} has-photo">{picture(f, UI[lang]["photo_alt"], lang, caption=False, eager=slot == "hero")}</div>'
@@ -592,6 +615,10 @@ def build_page(lang, page, env):
     if page.get("title"):
         h1 = page["title"][lang]
     body, heads = render(md, lang, ctx) if md else ("", [])
+    if key == "media" and lang == "en" and SITE["photos"].get("media") == "joachim-agou-headshot":  # headshot first under Photos (not from Notion), linked to the 1200px JPEG
+        sp = '<figure class="fig"><a href="/assets/img/joachim-agou-speaking-'
+        if sp not in body: sys.exit("media: Photos image not found (needed to place the headshot)")
+        body = body.replace(sp, headshot("(min-width: 800px) 400px, 100vw", link=True, caption=True) + sp, 1)
     if key == "priorities":
         body = collapse(body, lang)
     if key == "priorities" and "province" not in HIDDEN:  # "Who controls what? See what the Province actually controls →"
