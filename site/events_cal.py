@@ -141,18 +141,19 @@ def calendar_html(lang, site, ui):
     kds = key_dates(site)
     src_name = {"https://elections.bc.ca/2026-provincial-election/": T["src2"], "https://elections.bc.ca/2026-provincial-election/ways-to-vote/": T["src3"]}
     def kd_on(d): return [k for k in kds if k["a"] <= d <= k["b"]]
-    cal = calendar.Calendar(firstweekday=6)  # Sunday first (Canadian convention)
-    head = "".join(f'<th scope="col"><abbr title="{esc(DAYS[lang][i])}">{esc(DAYS_ABBR[lang][i])}</abbr></th>' for i in range(7))
+    cal = calendar.Calendar(firstweekday=0)  # Monday first (Joachim, 1 Oct 2026); blank cells before the 1st come from the real weekday
+    order = [1, 2, 3, 4, 5, 6, 0]  # DAYS / DAYS_ABBR are Sunday-first lists: Mon … Sun
+    head = "".join(f'<th scope="col"{" class=\"we\"" if i in (6, 0) else ""}><abbr title="{esc(DAYS[lang][i])}">{esc(DAYS_ABBR[lang][i])}</abbr></th>' for i in order)
     rows = []
     for week in cal.monthdatescalendar(y, m):
         cells = []
         for d in week:
             if d.month != m:
-                cells.append('<td class="out" aria-hidden="true"></td>'); continue
-            ks = kd_on(d); iso = d.isoformat()
+                cells.append(f'<td class="out{" we" if d.weekday() >= 5 else ""}" aria-hidden="true"></td>'); continue
+            ks = kd_on(d); iso = d.isoformat(); we = " we" if d.weekday() >= 5 else ""  # Sat/Sun from the date, not the column
             items = "".join(f'<li class="it kd"><span class="mk" aria-hidden="true">◆</span><span class="tx">{esc(k[lang]["short"])}</span></li>' for k in ks)
             num = (f'<a class="dn dn-link" href="#ag-{iso}"><span class="vh">{esc(day_label(d, lang))}</span><span aria-hidden="true">{d.day}</span></a>' if ks else "")
-            cells.append(f'<td class="day{" has-kd" if ks else ""}" data-date="{iso}">'
+            cells.append(f'<td class="day{we}{" has-kd" if ks else ""}" data-date="{iso}">'
                          f'<span class="dn dn-txt"><span class="vh">{esc(day_label(d, lang))}</span><span aria-hidden="true">{d.day}</span></span>{num}'
                          f'<ul class="items">{items}</ul></td>')
         rows.append("<tr>" + "".join(cells) + "</tr>")
