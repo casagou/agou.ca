@@ -776,6 +776,11 @@
             0.5,
             0.45,
             1.0
+          ],
+          "thumb": [
+            0.5,
+            0.45,
+            0.85
           ]
         }
       },
@@ -798,6 +803,11 @@
             0.45,
             0.5,
             1.0
+          ],
+          "thumb": [
+            0.4,
+            0.48,
+            0.8
           ]
         }
       }
@@ -835,7 +845,9 @@
         "Fernwood": "belfry-fernwood",
         "Downtown": "johnson-street",
         "Fairfield": "fairfield-street",
-        "Fairfield / Gonzales": "fairfield-street"
+        "Fairfield / Gonzales": "fairfield-street",
+        "Harris Green": "fort-street-antique-row",
+        "Rockland": "craigdarroch"
       }
     }
   }
