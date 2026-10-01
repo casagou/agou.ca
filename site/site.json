@@ -578,6 +578,11 @@
             0.5,
             0.47,
             1.0
+          ],
+          "thumb": [
+            0.5,
+            0.38,
+            0.45
           ]
         }
       },
@@ -700,6 +705,50 @@
             0.75
           ]
         }
+      },
+      "crystal-garden": {
+        "title": "Crystal Gardens, Victoria, British Columbia, Canada 07",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Crystal_Gardens,_Victoria,_British_Columbia,_Canada_07.jpg",
+        "author": "Michal Klajban",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "The Crystal Garden on Douglas Street, beside the Victoria Conference Centre",
+          "fr": "Le Crystal Garden, rue Douglas, à côté du Victoria Conference Centre"
+        },
+        "place": {
+          "en": "Downtown",
+          "fr": "Centre-ville"
+        },
+        "focus": {
+          "thumb": [
+            0.45,
+            0.5,
+            0.75
+          ]
+        }
+      },
+      "ross-bay": {
+        "title": "Driftwood beach (1360196712)",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Driftwood_beach_(1360196712).jpg",
+        "author": "Caitriana Nicholson",
+        "licence": "CC BY-SA 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "alt": {
+          "en": "Driftwood on the beach at Ross Bay, with the Olympic Mountains across the strait",
+          "fr": "Bois flotté sur la plage de Ross Bay, avec les monts Olympic de l’autre côté du détroit"
+        },
+        "place": {
+          "en": "Ross Bay",
+          "fr": "Ross Bay"
+        },
+        "focus": {
+          "thumb": [
+            0.5,
+            0.55,
+            1.0
+          ]
+        }
       }
     },
     "priorities": {
@@ -718,6 +767,9 @@
     "events": {
       "_doc": "Matched in forms.js against the public event data only (get_public_events): address first, then neighbourhood. Venues of public events and generic neighbourhood shots only.",
       "address": {
+        "713 Douglas St": "crystal-garden",
+        "Government St & Belleville St": "inner-harbour",
+        "Ross Bay": "ross-bay",
         "Dallas Rd": "dallas-road"
       },
       "neighbourhood": {
@@ -725,7 +777,8 @@
         "Cook Street Village": "cook-street-village",
         "Fernwood": "belfry-fernwood",
         "Downtown": "johnson-street",
-        "Fairfield": "fairfield-street"
+        "Fairfield": "fairfield-street",
+        "Fairfield / Gonzales": "fairfield-street"
       }
     }
   }
