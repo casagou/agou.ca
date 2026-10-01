@@ -140,12 +140,7 @@
 ## Nominating and helping
 <details>
 <summary>What does nominating a candidate mean?</summary>
-	It's a signature on an Elections BC form that lets a candidate appear on the ballot. It's not a pledge to vote for me. You must be an eligible voter who lives in Victoria–Beacon Hill, and you can nominate only one candidate this election. It takes about 1 minute, and I bring the form to you. [Sign up to nominate](/nominate/)
-</details>
-<details>
-<summary>What happens if you don't get 75 nominators?</summary>
-	If I don't have 75 valid nominators from this riding by 1 p.m. on Saturday 3 October, Elections BC will not put me on the ballot. That deadline is real.
-	If you live in Victoria–Beacon Hill and can sign, it takes about a minute: [agou.ca/nominate](/nominate/). If I don't make the list, I will still publish what I heard at the door, and I will keep helping through the Victoria Conservative Association.
+	It's a signature on an Elections BC form that lets a candidate appear on the ballot. It's not a pledge to vote for me. You must be an eligible voter who lives in Victoria–Beacon Hill, and you can nominate only one candidate this election.
 </details>
 <details>
 <summary>How can I volunteer?</summary>

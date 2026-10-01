@@ -280,7 +280,11 @@
     },
     "more_photos": "More photos on Instagram",
     "lockup": "A number on every promise. A report every quarter.",
-    "lockup_block": "How I'll report to you"
+    "lockup_block": "How I'll report to you",
+    "nominations_closed": {
+      "title": "Thank you",
+      "text": "Thank you. Nominations are complete."
+    }
   },
   "fr": {
     "site_name": "Joachim Agou – Victoria–Beacon Hill",
@@ -563,6 +567,10 @@
     },
     "more_photos": "Plus de photos sur Instagram",
     "lockup": "Un indicateur chiffré pour chaque engagement. Un bilan public chaque trimestre.",
-    "lockup_block": "Comment je vous rendrai des comptes"
+    "lockup_block": "Comment je vous rendrai des comptes",
+    "nominations_closed": {
+      "title": "Merci",
+      "text": "Merci. Les signatures de mise en candidature sont complètes."
+    }
   }
 }

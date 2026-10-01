@@ -140,12 +140,7 @@
 ## Mise en candidature et aide à la campagne
 <details>
 <summary>Que signifie signer le formulaire de mise en candidature d'un candidat?</summary>
-	C'est une signature sur un formulaire d'Elections BC qui permet à un candidat de figurer sur le bulletin de vote. Ce n'est pas un engagement à voter pour moi. Vous devez être un électeur admissible qui habite Victoria–Beacon Hill. Vous ne pouvez signer le formulaire de mise en candidature que d'un seul candidat à cette élection. Cela prend environ 1 minute, et je vous apporte le formulaire. [S'inscrire pour signer mon formulaire de mise en candidature](/fr/nominate/)
-</details>
-<details>
-<summary>Que se passe-t-il si vous n'obtenez pas 75 signataires?</summary>
-	Si je n'ai pas 75 signataires valides de cette circonscription d'ici le samedi 3 octobre, à 13 h, Elections BC ne m'inscrira pas sur le bulletin de vote. Cette échéance est bien réelle.
-	Si vous habitez Victoria–Beacon Hill et pouvez signer, cela prend environ une minute : [agou.ca/nominate](/fr/nominate/). Si je ne figure pas sur la liste, je publierai quand même ce que j'ai entendu aux portes, et je continuerai d'aider par l'intermédiaire de la Victoria Conservative Association.
+	C'est une signature sur un formulaire d'Elections BC qui permet à un candidat de figurer sur le bulletin de vote. Ce n'est pas un engagement à voter pour moi. Vous devez être un électeur admissible qui habite Victoria–Beacon Hill. Vous ne pouvez signer le formulaire de mise en candidature que d'un seul candidat à cette élection.
 </details>
 <details>
 <summary>Comment devenir bénévole?</summary>

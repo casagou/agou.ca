@@ -51,6 +51,21 @@ for r in EXCL:
         p = plain(l)
         if p: removed_lines.add((r["page"], p))
 total = 0; problems = []; excluded = []
+# site.json nominations_closed (30 Sep 2026): the home nominator callout, the "Become a nominator" section and the
+# "75 nominators" source are left out on purpose (build.py); Notion still has them
+NOM_HEADS = {"Become a nominator", "Appuyer ma candidature", "Signer mon formulaire de mise en candidature"}  # Notion heading (FR renamed by exclusions.json)
+def nominate_lines(name, text):
+    if not SITE.get("nominations_closed") or not name.endswith("-home"): return set()
+    out = set(); lang = name[:2]; ls = text.split("\n")
+    i = next((k for k, l in enumerate(ls) if l.startswith("## ") and plain(l) in NOM_HEADS), None)
+    if i is not None:
+        j = next((k for k in range(i + 1, len(ls)) if ls[k].startswith("## ")), len(ls))
+        out |= {plain(l) for l in ls[i:j] if plain(l)}
+    c0 = next((k for k, l in enumerate(ls) if l.strip().startswith("<callout")), None)
+    if c0 is not None:
+        c1 = next(k for k in range(c0, len(ls)) if ls[k].strip().startswith("</callout"))
+        out |= {plain(l) for l in ls[c0:c1 + 1] if plain(l)}
+    return out
 for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
     name = raw.stem; lang, key = name.split("-", 1)
     text = raw.read_text()
@@ -66,6 +81,10 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
         if not p: continue
         total += 1
         if p in ptxt: continue
+        if p in nominate_lines(name, text):
+            excluded.append(f"{name}: {p[:110]!r}  -> nominations complete (site.json nominations_closed)"); continue
+        if p.startswith(("Sources", "Sources (en anglais)")) and SITE.get("nominations_closed") and re.sub(r"\s*·\s*(75 nominators|75 signataires)[^·]*$", "", p) in ptxt:
+            excluded.append(f"{name}: hero sources without the '75 nominators' source  -> nominations complete (site.json nominations_closed)"); continue
         mi = re.match(r"!\[.*\]\((\S+?)(\?[^)]*)?\)$", l.strip())
         if mi and SITE["images"].get(mi.group(1).rsplit("/", 1)[-1]) == "riding-map" and 'class="map-card"' in page.read_text():
             excluded.append(f"{name}: riding map image -> replaced by the site's own map card (tools/make_map.py), same boundary, with its own alt text and attribution"); continue

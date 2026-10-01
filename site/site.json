@@ -213,6 +213,8 @@
       }
     }
   ],
+  "nominations_closed": true,
+  "_nominations_closed_doc": "true since 30 Sep 2026 (Joachim: 96 signatures in the riding, 75 needed). Home: no nominator callout (Volunteer is the hero button), no Become a nominator section, no 75-nominators source; the riding map section follows Priorities. /nominate/ and /fr/nominate/ keep working with a thank-you note (ui.json nominations_closed), noindex, out of the menus, footer and sitemap; no form (the Supabase rpc submit_nominator_signup is untouched). The build fails if any other page links to them or asks people to sign. FAQ/About asks are removed by exclusions.json rules.",
   "photos": {
     "_doc": "Photo slots. Put a JPG in assets/img/photos/ named <slot>.jpg (e.g. hero.jpg) and set the slot to that file name; null = no photo (the design shows a clean colour panel instead). \"joachim-agou-headshot\" = Joachim's headshot (build.py headshot(): WebP + JPEG, 400/800/1200, alt 'Joachim Agou'). See README 'Photo slots'.",
     "hero": "joachim-agou-headshot",

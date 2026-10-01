@@ -52,4 +52,3 @@ I have lived in Fairfield since 2023. I hear the same problems from many neighbo
 - **Set a clear target and a date.** Say what should change, by how much and by when.
 - **Report back in public.** Publish the results every quarter, good or bad, so you can check them yourself.
 - **Fix what isn't working, or end it.** If something doesn't deliver, change course instead of defending it.
-Nominate: [agou.ca/nominate](/nominate/)

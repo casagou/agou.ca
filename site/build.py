@@ -17,6 +17,7 @@ PAGES = SITE["pages"]
 BYKEY = {p["key"]: p for p in PAGES}
 LIVE = SITE["live_origin"]
 LANGS = ["en", "fr"]
+NOMINATIONS_CLOSED = bool(SITE.get("nominations_closed"))  # site.json: nominations complete (Joachim, 30 Sep 2026); see README "Nominations closed"
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
 MEDIAKIT = {"on": True, "env": "staging", "errs": {}}  # media-kit PDFs (site.json media_kit / publish_media_kit_live); set in __main__
 IMG = {  # local image name -> (files by width, width, height)
@@ -558,6 +559,8 @@ def build_page(lang, page, env):
     home = read(lang, "home")
     if key == "home":
         md = drop_hidden_sections(home, lang)
+        if NOMINATIONS_CLOSED:  # no "Become a nominator" section (its riding map comes back as the map section below)
+            md = drop_section(md, page_section_title("nominate", lang))
         top, rest = md.split("\n## ", 1)
         rest = "## " + rest
         tl = [l for l in top.split("\n") if l.strip()]
@@ -567,7 +570,10 @@ def build_page(lang, page, env):
         c1 = next(k for k, l in enumerate(tl) if l.strip().startswith("</callout>"))
         intro = "".join(f'<p class="hero-intro">{inline(l.strip(), ctx)}</p>' for l in tl[2:c0])
         callout = "\n".join(tl[c0:c1 + 1])
-        hero_src = "".join(f'<p class="hero-src">{inline(l.strip(), ctx)}</p>' for l in tl[c1 + 1:])
+        src_lines = tl[c1 + 1:]
+        if NOMINATIONS_CLOSED:  # the "75 nominators, nominations close…" source was only there for the callout
+            src_lines = [re.sub(r"\s*·\s*\[75 (?:nominators|signataires)[^\]]*\]\([^)]*\)", "", l) for l in src_lines]
+        hero_src = "".join(f'<p class="hero-src">{inline(l.strip(), ctx)}</p>' for l in src_lines)
         # Follow along section goes before Donate
         donate_h = page_section_title("donate", lang)
         follow = f'<section class="block follow" aria-labelledby="follow"><h2 id="follow">{esc(U["follow_title"])}</h2><p>{esc(U["follow_text"])}</p>{social_links("social big")}</section>'
@@ -584,6 +590,9 @@ def build_page(lang, page, env):
         body = body.replace(f'<section class="block" aria-labelledby="{slugify(donate_h)}">', follow + f'\n<section class="block" aria-labelledby="{slugify(donate_h)}">', 1)
         # the callout's link is the page's main action: a primary button (same wording)
         hero_callout = re.sub(r'<a href="([^"]+)">', r'<a class="btn primary hero-cta" href="\1">', render(callout, lang, {"self": self_path})[0], count=1)
+        if NOMINATIONS_CLOSED:  # the nominator callout is gone; Volunteer is the hero's main action (same label as the header button)
+            hero_callout = f'<p class="hero-actions"><a class="btn primary hero-cta" href="{url(lang, "volunteer")}">{esc(U["cta_volunteer"])}</a></p>'
+            body = body.replace(f'<section class="block" aria-labelledby="{slugify(donate_h)}">', map_block(lang) + f'\n<section class="block" aria-labelledby="{slugify(donate_h)}">', 1)
         hero = (f'<div class="hero"><div class="wrap hero-grid"><div class="hero-text">'
                 f'<h1>{esc(U["home_title"])}</h1><p class="hero-sub">{inline(sub, ctx)}</p><p class="tagline">{inline(tagline, ctx)}</p><p class="lockup">{esc(U["lockup"])}</p>'
                 f'{intro}{hero_callout}</div>{hero_media}</div>'
@@ -643,7 +652,11 @@ def build_page(lang, page, env):
         body += faq_block(lang)
     if key == "about":
         body = photo_slot("about-portrait", lang, "about-photo") + body
-    if page.get("form") in ("volunteer", "nominate", "lawnsign"):
+    if key == "nominate" and NOMINATIONS_CLOSED:  # URL kept so old links work: thank-you note only, no form (noindex, out of nav and sitemap)
+        h1 = U["nominations_closed"]["title"]
+        body = (f'<section class="block lead"><p>{esc(U["nominations_closed"]["text"])}</p>'
+                f'<p><a class="btn primary" href="{url(lang, "volunteer")}">{esc(U["cta_volunteer"])}</a></p></section>')
+    if page.get("form") in ("volunteer", "nominate", "lawnsign") and not (key == "nominate" and NOMINATIONS_CLOSED):
         body += form_block(page["form"], lang)
         extra = f'<script id="form-config" type="application/json">{json.dumps({"form": page["form"], "text": UI[lang][page["form"]], "common": UI[lang]["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     if page.get("form") == "events":
@@ -680,7 +693,7 @@ def home_layout(body, lang):
     help_ids = [i for i in (pick("nominate"), pick("volunteer"), pick("donate")) if i in by]
     side_ids = [i for i in (pick("events"), "follow") if i in by]
     order = [sid(s) for s in secs]
-    first = [i for i in order[:2]]
+    first = [i for i in order[:2]] + [i for i in order[2:] if i == "riding-map"]  # nominations closed: the riding map follows About and Priorities
     rest = [i for i in order if i not in first + help_ids + side_ids]
     card = lambda s: s.replace('<section class="block"', '<section class="block card-sec"', 1)
     h = f'<div class="wrap home">' + "\n".join(by[i] for i in first) + "</div>"
@@ -739,6 +752,14 @@ def pdf_check(dist):
 
 def hidden_urls():
     return {url(l, k) for k in HIDDEN for l in LANGS}
+
+
+def drop_section(md, title):
+    """Remove the '## title' section (heading and everything up to the next '## ')."""
+    parts = re.split(r"(?m)^(?=## )", md)
+    keep = [p_ for p_ in parts if not p_.startswith(f"## {title}\n")]
+    if len(keep) == len(parts): sys.exit(f"home: section '## {title}' not found")
+    return "".join(keep)
 
 
 def drop_hidden_sections(md, lang):
@@ -930,6 +951,12 @@ if __name__ == "__main__":
         SITE["footer_nav"] = [k for k in SITE["footer_nav"] if k not in HIDDEN]
         for p in PAGES:
             if p.get("children"): p["children"] = [k for k in p["children"] if k not in HIDDEN]
+    if NOMINATIONS_CLOSED:  # /nominate/ stays (thank-you note) but leaves every menu, the footer and the sitemap
+        SITE["main_nav"] = [k for k in SITE["main_nav"] if k != "nominate"]
+        SITE["footer_nav"] = [k for k in SITE["footer_nav"] if k != "nominate"]
+        for p in PAGES:
+            if p.get("children"): p["children"] = [k for k in p["children"] if k != "nominate"]
+        BYKEY["nominate"]["robots"] = "noindex"
     if a.env == "live" and not SITE.get("events_redesign_approved", True):
         sys.exit("Live build refused: staging contains the 30 Sep 2026 events redesign (date tiles, directions, static maps), not yet approved by Joachim. "
                  "Set site.json events_redesign_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
@@ -984,6 +1011,15 @@ if __name__ == "__main__":
         (dist / "CNAME").write_text("agou.ca\n"); (dist / ".nojekyll").write_text("")
     (dist / "sitemap.xml").write_text(sitemap())  # staging too, for review (its robots.txt still disallows everything)
     errs = check(dist) + seo_check(dist, a.env)
+    if NOMINATIONS_CLOSED:  # nothing may link to the retired Nominate page or ask people to sign (its own EN/FR pages excepted)
+        nom = {url(l, "nominate") for l in LANGS}; nom_pages = {dist / u.lstrip("/") / "index.html" for u in nom}
+        ask = re.compile(r"Sign up to nominate|Become a nominator|I need 75|Put a test engineer on the ballot|S'inscrire pour signer|Il me faut la signature|Mettre un ingénieur d'essais sur le bulletin")
+        for f in sorted(dist.rglob("*.html")):
+            if f in nom_pages: continue
+            t = f.read_text()
+            errs += [f"{f.relative_to(dist)}: links to the retired Nominate page ({u})" for u in nom if f'href="{u}"' in t]
+            errs += [f"{f.relative_to(dist)}: still asks people to nominate ({m!r})" for m in sorted(set(ask.findall(t)))]
+        if "/nominate/" in (dist / "sitemap.xml").read_text(): errs.append("sitemap.xml lists the retired Nominate page")
     if HIDDEN:
         hu = hidden_urls()
         errs += [f"{f.relative_to(dist)}: links to a page left out of this build ({u})" for f in sorted(dist.rglob("*.html")) for u in hu if f'href="{u}"' in f.read_text()]
