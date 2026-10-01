@@ -135,3 +135,10 @@ Not from Notion. Joachim's public scorecard text, word for word, is in `content/
 - `scorecard.py` renders the page (own stylesheet `assets/css/scorecard.css`); build.py adds the "See the scorecard" links on Priorities and in the home priorities section, and `site.json` puts it in the footer.
 - `site.json` → `"publish_scorecard_live"` (`true` since 2026-09-30; both EN and FR are live). When false, the live build leaves out both pages and every link to them. Staging always shows them. Even when true, the live build refuses to run while any `factcheck` flag is left in `scorecard.json` or `fr_reviewed` is false (both render as highlighted draft notes).
 - After editing: `python3 build.py --env staging && python3 tools/scorecard_check.py` (every sentence of `content/en/scorecard.md` must be on the page; add `--source <file>` to compare against Joachim's full text).
+
+## Headshot background options (30 Sep 2026, staging only)
+Joachim asked for a real Victoria background instead of the foliage behind his headshot. Three options are in `assets/img/joachim-agou-headshot-bg-{a,b,c}-*` (cutout with rembg isnet-general-use + matting; the face is untouched):
+- **a**: business-card style, light-blue line drawing of the Parliament Buildings / Inner Harbour on navy, adapted from "Capitol of British Columbia" by Rennett Stowe (CC BY 2.0).
+- **b**: Dallas Road / Beacon Hill Park waterfront, blurred: Adam Jones (CC BY-SA 2.0; share-alike, so the composite is CC BY-SA 2.0 too).
+- **c**: Parliament Buildings / Inner Harbour, blurred: Rennett Stowe (CC BY 2.0).
+`site.json headshot_background` picks one (null = original photo). The footer then shows the credit the licence requires (`headshot_backgrounds`, build.py `bg_credit`). Live builds are refused while `headshot_background_approved` is false. The OG card waits until Joachim picks. On phones the hero headshot is centred under the Volunteer button.

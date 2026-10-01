@@ -221,6 +221,59 @@
     "about-portrait": "joachim-agou-headshot",
     "media": "joachim-agou-headshot"
   },
+  "headshot_background": "a",
+  "headshot_background_approved": false,
+  "_headshot_background_doc": "30 Sep 2026: Joachim asked for a real Victoria background instead of the foliage behind his headshot (cutout by rembg isnet-general-use + matting; face untouched). Options a/b/c: files assets/img/joachim-agou-headshot-bg-{a,b,c}-{400,800,1200}.{jpg,webp} (tools/make_headshot.py <composite> joachim-agou-headshot-bg-X). null = original photo (joachim-agou-headshot-*). While headshot_background_approved is false, live builds are refused. The footer carries the licence credit of the chosen background (build.py bg_credit). The OG card is not changed yet.",
+  "headshot_backgrounds": {
+    "a": {
+      "what": "Business-card style: light-blue line drawing of the Parliament Buildings and Inner Harbour on navy, made from the photo (adapted work)",
+      "title": "Capitol of British Columbia",
+      "author": "Rennett Stowe",
+      "licence": "CC BY 2.0",
+      "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Capitol_of_British_Columbia_(3729298803).jpg",
+      "credit_prefix": {
+        "en": "Photo background: line drawing adapted from",
+        "fr": "Arrière-plan de la photo : dessin adapté de"
+      },
+      "credit_suffix": {
+        "en": ".",
+        "fr": "."
+      }
+    },
+    "b": {
+      "what": "Dallas Road / Beacon Hill Park waterfront, Olympic Mountains, softly blurred",
+      "title": "Ocean View from Beacon Hill Park, Victoria, BC",
+      "author": "Adam Jones",
+      "licence": "CC BY-SA 2.0",
+      "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ocean_View_from_Beacon_Hill_Park_-_Victoria_-_BC_-_Canada_-_02_(16662595088)_(2).jpg",
+      "credit_prefix": {
+        "en": "Photo background adapted from",
+        "fr": "Arrière-plan de la photo adapté de"
+      },
+      "credit_suffix": {
+        "en": " (blurred). The headshot with this background is shared under CC BY-SA 2.0.",
+        "fr": " (flouté). La photo avec cet arrière-plan est partagée sous CC BY-SA 2.0."
+      }
+    },
+    "c": {
+      "what": "Parliament Buildings / Inner Harbour, softly blurred",
+      "title": "Capitol of British Columbia",
+      "author": "Rennett Stowe",
+      "licence": "CC BY 2.0",
+      "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Capitol_of_British_Columbia_(3729298803).jpg",
+      "credit_prefix": {
+        "en": "Photo background adapted from",
+        "fr": "Arrière-plan de la photo adapté de"
+      },
+      "credit_suffix": {
+        "en": " (blurred).",
+        "fr": " (flouté)."
+      }
+    }
+  },
   "social": {
     "_doc": "Only account URLs that appear in Notion (home page Contact block). Do not add guessed handles.",
     "Instagram": "https://www.instagram.com/casagou/",

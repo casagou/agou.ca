@@ -385,10 +385,13 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 /* ---------- headshot (photo slots + Media; build.py headshot()) ---------- */
 .headshot { margin:0; }
 .headshot img { display:block; width:100%; height:auto; aspect-ratio:1/1; }
-.hero-photo.has-photo .headshot { max-width:260px; }
+.hero-photo.has-photo .headshot { max-width:260px; margin:0 auto; } /* phones: centred under the Volunteer button */
 .hero-photo.has-photo .headshot img { border-radius:var(--radius); border:0; }
 @media (min-width:800px) { .hero-photo.has-photo .headshot { max-width:400px; margin-left:auto; } }
 .about-photo .headshot { width:200px; margin:0 0 24px; }
 .about-photo .headshot img { border-radius:var(--radius); border:1px solid var(--line); }
 @media (min-width:800px) { .about-photo { float:right; margin:4px 0 20px 32px; } .about-photo .headshot { width:280px; margin:0; } }
 .content .fig.headshot { max-width:400px; margin:14px 0 16px; }
+
+.site-footer .credit { font-size:.8rem; opacity:.8; margin-top:6px; }
+.site-footer .credit a { color:inherit; }

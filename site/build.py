@@ -25,6 +25,11 @@ IMG = {  # local image name -> (files by width, width, height)
     # headshot (Joachim, 30 Sep 2026): tools/make_headshot.py, no metadata; a .webp twin of each JPG is served first
     "joachim-agou-headshot": ({400: "joachim-agou-headshot-400.jpg", 800: "joachim-agou-headshot-800.jpg", 1200: "joachim-agou-headshot-1200.jpg"}, 1200, 1200),
 }
+# headshot background options (30 Sep 2026, staging only until Joachim picks): site.json headshot_background = "a"/"b"/"c" (or null = original photo)
+HS_BG = SITE.get("headshot_background")
+if HS_BG:
+    if HS_BG not in SITE["headshot_backgrounds"]: sys.exit(f"site.json headshot_background {HS_BG!r}: not in headshot_backgrounds")
+    IMG["joachim-agou-headshot"] = ({w: f"joachim-agou-headshot-bg-{HS_BG}-{w}.jpg" for w in (400, 800, 1200)}, 1200, 1200)
 HEADSHOT_ALT = "Joachim Agou"  # plain alt text, EN and FR (photo slots and the Media page)
 esc = lambda s: html.escape(s, quote=True)
 
@@ -345,7 +350,15 @@ def footer(lang, ctx):
             f'<section aria-labelledby="fc"><h2 id="fc">{contact_h}</h2>{contact_html}<p class="soc-label">{esc(U["social_label"])}</p>{social_links("social")}{rest_html}</section>'
             f'<section aria-label="{esc(fa[0].strip("*"))}">{fa_html}</section>'
             f'<nav aria-label="{esc(U["footer_nav"])}"><ul class="fnav">{nav}</ul></nav>'
-            f'</div><div class="wrap">{auth}</div></footer>')
+            f'</div><div class="wrap">{auth}{bg_credit(lang)}</div></footer>')
+
+
+def bg_credit(lang):
+    """Attribution the background photo's licence requires (CC BY / CC BY-SA): small footer line on every page that can show the headshot."""
+    if not HS_BG: return ""
+    c = SITE["headshot_backgrounds"][HS_BG]
+    return (f'<p class="credit">{esc(c["credit_prefix"][lang])} <a href="{esc(c["source_url"])}">{esc(c["title"])}</a>, '
+            f'{esc(c["author"])}, <a href="{esc(c["licence_url"])}" rel="license">{esc(c["licence"])}</a>{esc(c["credit_suffix"][lang])}</p>')
 
 
 def shell(lang, page, title, desc, main_html, env, extra_head="", robots_override=None):
@@ -444,7 +457,7 @@ def json_ld(lang, key, title, desc, canonical, env):
     """schema.org JSON-LD: Person + WebSite on the home page; BreadcrumbList on the others (events add Event items in forms.js)."""
     home = LIVE + url(lang, "home")
     person = {"@type": "Person", "@id": LIVE + "/#joachim", "name": "Joachim Agou", "url": home,
-              "image": LIVE + "/assets/img/joachim-agou-headshot-1200.jpg", "knowsLanguage": ["en", "fr"],
+              "image": LIVE + "/assets/img/" + IMG["joachim-agou-headshot"][0][1200], "knowsLanguage": ["en", "fr"],
               "sameAs": [u for n, u in SITE["social"].items() if not n.startswith("_")],
               "description": SEO["pages"]["home"][lang]["desc"]}
     if key == "home":
@@ -969,6 +982,9 @@ if __name__ == "__main__":
     if a.env == "live" and not SITE.get("seo_batch_approved", True):
         sys.exit("Live build refused: staging contains the 30 Sep 2026 SEO/social metadata batch (seo.json titles and descriptions, new og:image, JSON-LD, sitemap), not yet approved by Joachim. "
                  "Set site.json seo_batch_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
+    if a.env == "live" and HS_BG and not SITE.get("headshot_background_approved"):
+        sys.exit("Live build refused: staging shows a headshot background option (site.json headshot_background), not yet picked by Joachim. "
+                 "Set headshot_background_approved to true after he picks, or publish from a branch without it (see RESYNC.md).")
     if a.env == "live" and not SITE.get("review_batch_approved", True):
         sys.exit("Live build refused: staging contains the 30 Sep 2026 review batch (header, forms, sections, actions, FAQ index), not yet approved by Joachim. "
                  "Set site.json review_batch_approved to true after approval, or publish from a branch without it (see RESYNC.md).")
