@@ -85,20 +85,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/lawn-sign/"/>
   </url>
   <url>
-    <loc>https://agou.ca/nominate/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/nominate/"/>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/nominate/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/nominate/"/>
-  </url>
-  <url>
-    <loc>https://agou.ca/fr/nominate/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/nominate/"/>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/nominate/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/nominate/"/>
-  </url>
-  <url>
     <loc>https://agou.ca/donate/</loc>
     <lastmod>2026-09-30</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/donate/"/>
