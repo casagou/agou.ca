@@ -1,6 +1,12 @@
 (function () {
   "use strict";
   document.documentElement.classList.add("js");
+  /* "New" badges made at build time (Events menu item, home New-event line): hide them once the event is no longer new or has ended. */
+  var todayPT = new Date().toLocaleDateString("en-CA", { timeZone: "America/Vancouver" });
+  document.querySelectorAll("[data-new-until]").forEach(function (n) {
+    var ends = n.getAttribute("data-new-ends");
+    if (todayPT >= n.getAttribute("data-new-until") || (ends && new Date(ends).getTime() < Date.now())) n.remove();
+  });
   /* Read more / Show less: content is visible without JS; JS collapses it and shows the toggle button. */
   document.querySelectorAll(".rm-toggle").forEach(function (b) {
     var r = document.getElementById(b.getAttribute("aria-controls"));

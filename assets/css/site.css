@@ -398,3 +398,68 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 .content .headshot-pair { display:grid; grid-template-columns:1fr; gap:16px; max-width:816px; margin:14px 0 16px; }
 .content .headshot-pair .fig.headshot { margin:0; max-width:400px; }
 @media (min-width:600px) { .content .headshot-pair { grid-template-columns:1fr 1fr; } }
+
+/* ---------- "New" badges (events_cal.py, forms.js) ---------- */
+.newb { display:inline-block; vertical-align:middle; background:#b3261e; color:#fff; font-size:.72rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; line-height:1; padding:4px 6px 3px; border-radius:999px; }
+.site-nav .nav-new { margin-left:6px; }
+.newev { background:#fff4f2; border-bottom:1px solid #f1c9c4; }
+.newev p { margin:0; padding:10px 0; font-weight:600; }
+.newev .newb { margin-right:6px; }
+.newev a { color:var(--navy); }
+.evc h3 .newb { margin-left:2px; }
+
+/* ---------- Events: List | Calendar toggle and month view ---------- */
+.viewtoggle { display:inline-flex; border:1px solid var(--blue); border-radius:999px; overflow:hidden; margin:0 0 16px; }
+.viewtoggle button { font:inherit; font-weight:700; min-height:44px; padding:0 18px; border:0; background:#fff; color:var(--blue); cursor:pointer; }
+.viewtoggle button[aria-pressed="true"] { background:var(--blue); color:#fff; }
+.viewtoggle button + button { border-left:1px solid var(--blue); }
+.calview h2 { margin-top:0; }
+.cal-legend { list-style:none; padding:0; margin:0 0 12px; display:flex; flex-wrap:wrap; gap:6px 18px; font-size:.92rem; color:var(--muted); }
+.cal-legend li { margin:0; }
+.mk { color:var(--navy); }
+.it.kd .mk, .mk.kd { color:#8a5a00; }
+.it.cev .mk, .mk.cev { color:var(--blue); }
+.cal-wrap { overflow-x:auto; }
+.mcal { width:100%; border-collapse:collapse; table-layout:fixed; background:#fff; }
+.mcal th { font-size:.85rem; font-weight:700; color:var(--muted); padding:6px 4px; text-align:left; border-bottom:2px solid var(--line); }
+.mcal th abbr { text-decoration:none; }
+.mcal td { vertical-align:top; border:1px solid var(--line); padding:4px 5px 6px; height:104px; }
+.mcal td.out { background:var(--bg); }
+.mcal td.has-kd { background:#fff8e1; }
+.mcal td.today { box-shadow:inset 0 0 0 3px var(--navy); }
+.mcal .dn { display:block; font-weight:700; color:var(--navy); text-decoration:none; }
+.mcal .dn-link { display:none; }
+.mcal .items { list-style:none; margin:2px 0 0; padding:0; }
+.mcal .it { margin:0 0 3px; font-size:.78rem; line-height:1.25; max-width:none; }
+.mcal .it.kd { font-weight:700; color:#5c3d00; }
+.mcal .it.cev a { color:var(--blue); text-decoration:none; display:inline; }
+.mcal .it.cev a:hover .tt { text-decoration:underline; }
+.mcal .it.cev .tm { font-weight:700; }
+.mcal .it.past { opacity:.6; }
+.mcal .it .newb { font-size:.6rem; padding:2px 4px 1px; }
+.agenda-box { display:none; }
+.agenda { list-style:none; padding:0; margin:0; }
+.ag-day { margin:0 0 10px; padding:8px 12px; background:#fff; border:1px solid var(--line); border-radius:10px; max-width:none; scroll-margin-top:90px; }
+.ag-day:target { box-shadow:0 0 0 3px var(--navy); }
+.ag-d { margin:0 0 4px; font-weight:700; color:var(--navy); }
+.ag-day ul { list-style:none; padding:0; margin:0; }
+.ag-day li { margin:0 0 4px; }
+.ag-day .it.past { opacity:.6; }
+.keydates-cal { margin-top:20px; }
+.kd-list { list-style:none; padding:0; margin:0; }
+.kd-list li { margin:0 0 12px; padding:0 0 12px; border-bottom:1px solid var(--line); max-width:none; }
+.kd-list p { margin:0; }
+.kd-when { font-weight:700; color:var(--navy); }
+.kd-src { font-size:.9rem; color:var(--muted); }
+@media (max-width:699px) {
+  /* phones: compact month overview (day number + markers), the day's items listed below (tap a marked day to jump there) */
+  .mcal td { height:auto; min-height:52px; padding:3px 2px 5px; text-align:center; }
+  .mcal th { text-align:center; font-size:.75rem; padding:4px 0; }
+  .mcal td.has-kd .dn-txt, .mcal td.has-ev .dn-txt { display:none; }
+  .mcal .dn-link { display:flex; align-items:center; justify-content:center; min-height:30px; text-decoration:underline; text-underline-offset:3px; }
+  .mcal .items { display:flex; flex-wrap:wrap; justify-content:center; gap:1px 3px; }
+  .mcal .it { font-size:.7rem; margin:0; }
+  .mcal .it .tx, .mcal .it a, .mcal .it.cev a { display:none; }
+  .mcal .it .mk { font-size:.8rem; }
+  .agenda-box { display:block; margin-top:16px; }
+}
