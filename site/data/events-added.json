@@ -5,49 +5,57 @@
       "added": "2026-09-30",
       "title": "Coffee with Joachim | James Bay Market Morning",
       "starts_at": "2026-10-03T16:00:00+00:00",
-      "ends_at": "2026-10-03T17:15:00+00:00"
+      "ends_at": "2026-10-03T17:15:00+00:00",
+      "title_fr": "Un café avec Joachim | Matinée au James Bay Market"
     },
     "6": {
       "added": "2026-09-30",
       "title": "Coffee with Joachim | Cook Street Village",
       "starts_at": "2026-10-03T20:45:00+00:00",
-      "ends_at": "2026-10-03T22:15:00+00:00"
+      "ends_at": "2026-10-03T22:15:00+00:00",
+      "title_fr": "Un café avec Joachim | Cook Street Village"
     },
     "7": {
       "added": "2026-09-30",
       "title": "Coffee with Joachim | Fernwood Square",
       "starts_at": "2026-10-04T16:30:00+00:00",
-      "ends_at": "2026-10-04T18:00:00+00:00"
+      "ends_at": "2026-10-04T18:00:00+00:00",
+      "title_fr": "Un café avec Joachim | Fernwood Square"
     },
     "8": {
       "added": "2026-09-30",
       "title": "Coffee with Joachim | North Park",
       "starts_at": "2026-10-04T18:15:00+00:00",
-      "ends_at": "2026-10-04T19:30:00+00:00"
+      "ends_at": "2026-10-04T19:30:00+00:00",
+      "title_fr": "Un café avec Joachim | North Park"
     },
     "9": {
       "added": "2026-09-30",
       "title": "Coffee with Joachim | Downtown & Harris Green",
       "starts_at": "2026-10-04T20:00:00+00:00",
-      "ends_at": "2026-10-04T21:30:00+00:00"
+      "ends_at": "2026-10-04T21:30:00+00:00",
+      "title_fr": "Un café avec Joachim | Centre-ville et Harris Green"
     },
     "11": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Otsukimi Market",
       "starts_at": "2026-10-03T22:30:00+00:00",
-      "ends_at": "2026-10-03T23:00:00+00:00"
+      "ends_at": "2026-10-03T23:00:00+00:00",
+      "title_fr": "Rencontrez Joachim | Otsukimi Market"
     },
     "12": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Moss Street Market",
       "starts_at": "2026-10-10T17:00:00+00:00",
-      "ends_at": "2026-10-10T21:00:00+00:00"
+      "ends_at": "2026-10-10T21:00:00+00:00",
+      "title_fr": "Rencontrez Joachim | Moss Street Market"
     },
     "13": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Royal Victoria Marathon",
       "starts_at": "2026-10-11T15:40:00+00:00",
-      "ends_at": "2026-10-11T17:30:00+00:00"
+      "ends_at": "2026-10-11T17:30:00+00:00",
+      "title_fr": "Rencontrez Joachim | Royal Victoria Marathon"
     },
     "14": {
       "added": "2026-10-01",
@@ -59,13 +67,15 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Morning Commute at Vancouver & Yates",
       "starts_at": "2026-10-05T14:30:00+00:00",
-      "ends_at": "2026-10-05T15:15:00+00:00"
+      "ends_at": "2026-10-05T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale à Vancouver et Yates"
     },
     "16": {
       "added": "2026-10-01",
       "title": "Coffee with Joachim | Fernwood Square",
       "starts_at": "2026-10-05T18:45:00+00:00",
-      "ends_at": "2026-10-05T19:30:00+00:00"
+      "ends_at": "2026-10-05T19:30:00+00:00",
+      "title_fr": "Un café avec Joachim | Fernwood Square"
     },
     "17": {
       "added": "2026-10-01",
@@ -83,19 +93,22 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Morning Commute at the Legislature (Government & Belleville)",
       "starts_at": "2026-10-06T14:30:00+00:00",
-      "ends_at": "2026-10-06T15:15:00+00:00"
+      "ends_at": "2026-10-06T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale près du Parlement (Government et Belleville)"
     },
     "20": {
       "added": "2026-10-01",
       "title": "Coffee with Joachim | James Bay (Menzies St)",
       "starts_at": "2026-10-06T18:45:00+00:00",
-      "ends_at": "2026-10-06T19:30:00+00:00"
+      "ends_at": "2026-10-06T19:30:00+00:00",
+      "title_fr": "Un café avec Joachim | James Bay (rue Menzies)"
     },
     "21": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Cook Street Village Walkabout",
       "starts_at": "2026-10-06T21:30:00+00:00",
-      "ends_at": "2026-10-06T23:00:00+00:00"
+      "ends_at": "2026-10-06T23:00:00+00:00",
+      "title_fr": "Rencontrez Joachim | Promenade dans Cook Street Village"
     },
     "22": {
       "added": "2026-10-01",
@@ -107,13 +120,15 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Morning Commute at Cook & Fairfield",
       "starts_at": "2026-10-07T14:30:00+00:00",
-      "ends_at": "2026-10-07T15:15:00+00:00"
+      "ends_at": "2026-10-07T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale à Cook et Fairfield"
     },
     "24": {
       "added": "2026-10-01",
       "title": "Coffee with Joachim | North Park",
       "starts_at": "2026-10-07T18:45:00+00:00",
-      "ends_at": "2026-10-07T19:30:00+00:00"
+      "ends_at": "2026-10-07T19:30:00+00:00",
+      "title_fr": "Un café avec Joachim | North Park"
     },
     "25": {
       "added": "2026-10-01",
@@ -131,13 +146,15 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Morning Commute at Government & Fisgard",
       "starts_at": "2026-10-08T14:30:00+00:00",
-      "ends_at": "2026-10-08T15:15:00+00:00"
+      "ends_at": "2026-10-08T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale à Government et Fisgard"
     },
     "28": {
       "added": "2026-10-01",
       "title": "Coffee with Joachim | Fort Street (Harris Green)",
       "starts_at": "2026-10-08T18:45:00+00:00",
-      "ends_at": "2026-10-08T19:30:00+00:00"
+      "ends_at": "2026-10-08T19:30:00+00:00",
+      "title_fr": "Un café avec Joachim | Rue Fort (Harris Green)"
     },
     "29": {
       "added": "2026-10-01",
@@ -155,13 +172,15 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Morning Commute at Pandora & Cook",
       "starts_at": "2026-10-09T14:30:00+00:00",
-      "ends_at": "2026-10-09T15:15:00+00:00"
+      "ends_at": "2026-10-09T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale à Pandora et Cook"
     },
     "32": {
       "added": "2026-10-01",
       "title": "Coffee with Joachim | Fairfield Plaza",
       "starts_at": "2026-10-09T18:45:00+00:00",
-      "ends_at": "2026-10-09T19:30:00+00:00"
+      "ends_at": "2026-10-09T19:30:00+00:00",
+      "title_fr": "Un café avec Joachim | Fairfield Plaza"
     },
     "33": {
       "added": "2026-10-01",
@@ -179,31 +198,36 @@
       "added": "2026-10-01",
       "title": "Coffee with Joachim | Fernwood Square",
       "starts_at": "2026-10-10T15:30:00+00:00",
-      "ends_at": "2026-10-10T16:40:00+00:00"
+      "ends_at": "2026-10-10T16:40:00+00:00",
+      "title_fr": "Un café avec Joachim | Fernwood Square"
     },
     "36": {
       "added": "2026-10-01",
       "title": "Coffee with Joachim | Cook Street Village",
       "starts_at": "2026-10-10T21:30:00+00:00",
-      "ends_at": "2026-10-10T22:45:00+00:00"
+      "ends_at": "2026-10-10T22:45:00+00:00",
+      "title_fr": "Un café avec Joachim | Cook Street Village"
     },
     "37": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Thanksgiving Morning Walk on Dallas Road",
       "starts_at": "2026-10-12T16:30:00+00:00",
-      "ends_at": "2026-10-12T17:45:00+00:00"
+      "ends_at": "2026-10-12T17:45:00+00:00",
+      "title_fr": "Rencontrez Joachim | Promenade matinale de l'Action de grâces sur Dallas Road"
     },
     "38": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Cook Street Village Walk",
       "starts_at": "2026-10-12T19:30:00+00:00",
-      "ends_at": "2026-10-12T20:45:00+00:00"
+      "ends_at": "2026-10-12T20:45:00+00:00",
+      "title_fr": "Rencontrez Joachim | Promenade dans Cook Street Village"
     },
     "39": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Morning Commute at Pandora & Fernwood",
       "starts_at": "2026-10-13T14:30:00+00:00",
-      "ends_at": "2026-10-13T15:15:00+00:00"
+      "ends_at": "2026-10-13T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale à Pandora et Fernwood"
     },
     "40": {
       "added": "2026-10-01",
@@ -227,7 +251,8 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Morning Commute at Fort & Linden",
       "starts_at": "2026-10-14T14:30:00+00:00",
-      "ends_at": "2026-10-14T15:15:00+00:00"
+      "ends_at": "2026-10-14T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale à Fort et Linden"
     },
     "44": {
       "added": "2026-10-01",
@@ -245,13 +270,15 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Cook Street Village Town Hall",
       "starts_at": "2026-10-15T01:30:00+00:00",
-      "ends_at": "2026-10-15T02:30:00+00:00"
+      "ends_at": "2026-10-15T02:30:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre publique à Cook Street Village"
     },
     "47": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Morning Commute at Menzies & Belleville",
       "starts_at": "2026-10-15T14:30:00+00:00",
-      "ends_at": "2026-10-15T15:15:00+00:00"
+      "ends_at": "2026-10-15T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale à Menzies et Belleville"
     },
     "48": {
       "added": "2026-10-01",
@@ -275,7 +302,8 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Advance Voting Morning at Pandora & Cook",
       "starts_at": "2026-10-16T14:30:00+00:00",
-      "ends_at": "2026-10-16T15:15:00+00:00"
+      "ends_at": "2026-10-16T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale pendant le vote par anticipation, à Pandora et Cook"
     },
     "52": {
       "added": "2026-10-01",
@@ -299,13 +327,15 @@
       "added": "2026-10-01",
       "title": "Coffee with Joachim | Cook Street Village",
       "starts_at": "2026-10-17T15:30:00+00:00",
-      "ends_at": "2026-10-17T16:40:00+00:00"
+      "ends_at": "2026-10-17T16:40:00+00:00",
+      "title_fr": "Un café avec Joachim | Cook Street Village"
     },
     "82": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Cook Street Village & Fairfield walkabout",
       "starts_at": "2026-10-17T17:00:00+00:00",
-      "ends_at": "2026-10-17T19:00:00+00:00"
+      "ends_at": "2026-10-17T19:00:00+00:00",
+      "title_fr": "Rencontrez Joachim | Promenade dans Cook Street Village et Fairfield"
     },
     "56": {
       "added": "2026-10-01",
@@ -323,19 +353,22 @@
       "added": "2026-10-01",
       "title": "Coffee with Joachim | North Park",
       "starts_at": "2026-10-18T16:00:00+00:00",
-      "ends_at": "2026-10-18T17:00:00+00:00"
+      "ends_at": "2026-10-18T17:00:00+00:00",
+      "title_fr": "Un café avec Joachim | North Park"
     },
     "59": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Sunday Walk on Dallas Road",
       "starts_at": "2026-10-18T20:30:00+00:00",
-      "ends_at": "2026-10-18T22:00:00+00:00"
+      "ends_at": "2026-10-18T22:00:00+00:00",
+      "title_fr": "Rencontrez Joachim | Promenade du dimanche sur Dallas Road"
     },
     "60": {
       "added": "2026-10-01",
       "title": "Coffee with Joachim | Fairfield Plaza",
       "starts_at": "2026-10-18T22:30:00+00:00",
-      "ends_at": "2026-10-19T00:00:00+00:00"
+      "ends_at": "2026-10-19T00:00:00+00:00",
+      "title_fr": "Un café avec Joachim | Fairfield Plaza"
     },
     "61": {
       "added": "2026-10-01",
@@ -347,7 +380,8 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Advance Voting Morning at Cook & Fairfield",
       "starts_at": "2026-10-19T14:30:00+00:00",
-      "ends_at": "2026-10-19T15:15:00+00:00"
+      "ends_at": "2026-10-19T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale pendant le vote par anticipation, à Cook et Fairfield"
     },
     "63": {
       "added": "2026-10-01",
@@ -371,7 +405,8 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Advance Voting Morning at the Legislature",
       "starts_at": "2026-10-20T14:30:00+00:00",
-      "ends_at": "2026-10-20T15:15:00+00:00"
+      "ends_at": "2026-10-20T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale pendant le vote par anticipation, près du Parlement"
     },
     "67": {
       "added": "2026-10-01",
@@ -395,13 +430,15 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Last Advance Voting Day at Vancouver & Yates",
       "starts_at": "2026-10-21T14:30:00+00:00",
-      "ends_at": "2026-10-21T15:15:00+00:00"
+      "ends_at": "2026-10-21T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Dernier jour du vote par anticipation, à Vancouver et Yates"
     },
     "71": {
       "added": "2026-10-01",
       "title": "Coffee with Joachim | Cook Street Village",
       "starts_at": "2026-10-21T18:45:00+00:00",
-      "ends_at": "2026-10-21T19:30:00+00:00"
+      "ends_at": "2026-10-21T19:30:00+00:00",
+      "title_fr": "Un café avec Joachim | Cook Street Village"
     },
     "72": {
       "added": "2026-10-01",
@@ -419,7 +456,8 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Morning Commute at Fort & Linden",
       "starts_at": "2026-10-22T14:30:00+00:00",
-      "ends_at": "2026-10-22T15:15:00+00:00"
+      "ends_at": "2026-10-22T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre matinale à Fort et Linden"
     },
     "75": {
       "added": "2026-10-01",
@@ -437,13 +475,15 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Cook Street Village Town Hall",
       "starts_at": "2026-10-23T01:30:00+00:00",
-      "ends_at": "2026-10-23T02:30:00+00:00"
+      "ends_at": "2026-10-23T02:30:00+00:00",
+      "title_fr": "Rencontrez Joachim | Rencontre publique à Cook Street Village"
     },
     "78": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Final Morning Commute at Pandora & Cook",
       "starts_at": "2026-10-23T14:30:00+00:00",
-      "ends_at": "2026-10-23T15:15:00+00:00"
+      "ends_at": "2026-10-23T15:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Dernière rencontre matinale à Pandora et Cook"
     },
     "79": {
       "added": "2026-10-01",
@@ -473,31 +513,36 @@
       "added": "2026-10-01",
       "title": "Meet Joachim | Royal Victoria Marathon Start Line",
       "starts_at": "2026-10-11T14:00:00+00:00",
-      "ends_at": "2026-10-11T15:20:00+00:00"
+      "ends_at": "2026-10-11T15:20:00+00:00",
+      "title_fr": "Rencontrez Joachim | Ligne de départ du Royal Victoria Marathon"
     },
     "87": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Marathon Cheer at the Foot of Cook Street",
       "starts_at": "2026-10-11T19:00:00+00:00",
-      "ends_at": "2026-10-11T20:15:00+00:00"
+      "ends_at": "2026-10-11T20:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Encouragements aux coureurs du marathon au pied de la rue Cook"
     },
     "85": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Fairfield Plaza",
       "starts_at": "2026-10-11T21:30:00+00:00",
-      "ends_at": "2026-10-11T22:45:00+00:00"
+      "ends_at": "2026-10-11T22:45:00+00:00",
+      "title_fr": "Rencontrez Joachim | Fairfield Plaza"
     },
     "86": {
       "added": "2026-10-01",
       "title": "Meet Joachim | Ross Bay Seawall",
       "starts_at": "2026-10-11T23:00:00+00:00",
-      "ends_at": "2026-10-12T00:15:00+00:00"
+      "ends_at": "2026-10-12T00:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | Promenade au bord de l'eau à Ross Bay"
     },
     "88": {
       "added": "2026-10-01",
       "title": "Meet Joachim | The Beagle Pub, Cook Street Village",
       "starts_at": "2026-10-11T02:15:00+00:00",
-      "ends_at": "2026-10-11T03:15:00+00:00"
+      "ends_at": "2026-10-11T03:15:00+00:00",
+      "title_fr": "Rencontrez Joachim | The Beagle Pub, Cook Street Village"
     },
     "89": {
       "added": "2026-10-01",

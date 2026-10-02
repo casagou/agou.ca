@@ -2,7 +2,7 @@
 <details>
 <summary>Qui êtes-vous?</summary>
 	Je suis papa, ingénieur professionnel (P.Eng.) et propriétaire d'une petite entreprise. J'habite à Fairfield, dans la circonscription, avec ma fille.
-	Je suis né à Nice, en France, je suis arrivé au Canada en 2011 et je suis devenu citoyen canadien en 2023. J'ai habité à Québec, à Montréal, à Ottawa et à Toronto, et je me suis installé à Victoria en 2023. Depuis plus de 15 ans, je mène à bien des projets d'ingénierie dans le respect des budgets et des délais. Aujourd'hui, je suis ingénieur d'essais et d'évaluation dans le secteur de la défense, et je dirige Casagou Inc., une entreprise de Victoria spécialisée en génie-conseil et en production de contenus.
+	Je suis né à Nice, en France, je suis arrivé au Canada en 2011 et je suis devenu citoyen canadien en 2023. J'ai habité à Québec, à Montréal, à Ottawa et à Toronto, et je me suis installé à Victoria en 2023. Depuis plus de 15 ans, je mène à bien des projets d'ingénierie dans le respect des budgets et des délais. Aujourd'hui, je suis ingénieur d'essais et d'évaluation dans le secteur de la défense, et je dirige Casagou Inc., une entreprise de Victoria de génie-conseil et de médias.
 	En savoir plus : <mention-page url="/fr/about/"/>
 </details>
 <details>
@@ -11,9 +11,9 @@
 	La période de mise en candidature auprès d'Elections BC se termine le samedi 3 octobre, à 13 h. La liste officielle des candidats est publiée par [Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/) (en anglais). Je mettrai cette réponse à jour le jour même où ma situation changera.
 </details>
 <details>
-<summary>L'investiture du parti est-elle la même chose que figurer sur le bulletin?</summary>
+<summary>L'investiture du parti est-elle la même chose que figurer sur le bulletin de vote?</summary>
 Non. Deux décisions distinctes.
-L'investiture est la décision du Parti conservateur de m'investir. La mise en candidature d'Elections BC est le formulaire qui inscrit un nom sur le bulletin : 75 personnes qui habitent Victoria–Beacon Hill, un dépôt de 250 $, déposé avant 13 h le samedi 3 octobre. Une signature n'est ni un vote ni une adhésion au parti. On ne peut proposer qu'un seul candidat à cette élection.
+L'investiture est la décision du Parti conservateur de m'investir. La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre. Une signature n'est ni un vote ni une adhésion au parti. On ne peut proposer qu'un seul candidat à cette élection.
 Sur le formulaire, on peut demander à Elections BC de retirer l'adresse de la copie publique. Les noms restent visibles. Source : [FAQ d'Elections BC sur la mise en candidature](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/).
 </details>
 
@@ -34,7 +34,7 @@ Je sollicite cette investiture à cause du plan sur ce site, pas à cause d'une 
 
 <details>
 <summary>Habitez-vous dans la circonscription? Quel est votre lien avec la communauté?</summary>
-	Oui. J'habite à Fairfield, où j'élève ma fille. Je vis au Canada depuis 2011. Après avoir habité à Québec, à Montréal, à Ottawa et à Toronto, je me suis installé à Victoria en 2023. Je dirige Casagou Inc., une petite entreprise de Victoria spécialisée en génie-conseil et en production de contenus. Je suis bénévole auprès de Chabad of Vancouver Island et vice-président par intérim de la Victoria Conservative Association.
+	Oui. J'habite à Fairfield, où j'élève ma fille. Je vis au Canada depuis 2011. Après avoir habité à Québec, à Montréal, à Ottawa et à Toronto, je me suis installé à Victoria en 2023. Je dirige Casagou Inc., une petite entreprise de Victoria de génie-conseil et de médias. Je suis bénévole auprès de Chabad of Vancouver Island et vice-président par intérim de la Victoria Conservative Association.
 </details>
 <details>
 <summary>Vous vous êtes installé ici seulement en 2023. Pourquoi devrions-nous vous faire confiance?</summary>
@@ -61,7 +61,7 @@ Je sollicite cette investiture à cause du plan sur ce site, pas à cause d'une 
 <details>
 <summary>Comment travaillerez-vous avec les nations Songhees et Esquimalt?</summary>
 Cette circonscription est sur le territoire des peuples lekwungen, les nations Songhees et Esquimalt. Je les rencontrerai. Une loi n'est pas une relation.
-La position provinciale que j'appuie est celle ci-dessus : des règles claires, écrites avec les Premières Nations, pour que chacun sache qui peut bâtir, qui est propriétaire et qui décide, et pour que les projets ne finissent pas devant les tribunaux par défaut.
+La position provinciale que j'appuie est celle ci-dessus : des règles claires, écrites avec les Premières Nations, pour que chacun sache qui peut construire sur un terrain, en être propriétaire et prendre les décisions le concernant, et pour que les projets ne finissent pas devant les tribunaux par défaut.
 </details>
 
 <details>
@@ -85,9 +85,9 @@ La position provinciale que j'appuie est celle ci-dessus : des règles claires, 
 	Coût : réduire la paperasse est un changement de règles, pas un nouveau programme. Le recours à des cliniques non gouvernementales pour des interventions chirurgicales financées par les fonds publics figure dans le programme 2024 du parti. Je publierai une note sur les coûts à l'échelle locale dès que le parti aura publié ses chiffres à jour pour 2026. D'ici là, je n'inventerai pas de chiffre.
 </details>
 <details>
-<summary>Que feriez-vous des attentes au Royal Jubilee?</summary>
-Island Health administre l'hôpital. Un député ne l'administre pas. L'attente médiane d'Island Health pour un lit à l'urgence, tous sites, est de 15 heures depuis le début de l'année, en date de mars 2026. La cible au Royal Jubilee et au Victoria General est de 10 heures. Source : le [bulletin](https://agou.ca/fr/scorecard/), d'après Island Health.
-Je publierai ce chiffre chaque trimestre. Je pousserai pour des heures de clinique le soir et la fin de semaine sur le sud de l'île, pour que le Jubilee ne soit pas la seule porte ouverte. Les heures supplémentaires exigent d'abord du personnel. Je n'inventerai pas un nombre de lits.
+<summary>Que feriez-vous pour réduire les délais d'attente à l'hôpital Royal Jubilee?</summary>
+Island Health administre l'hôpital. Un député ne l'administre pas. L'attente médiane d'Island Health pour un lit à l'urgence, tous établissements confondus, est de 15 heures depuis le début de l'année, en date de mars 2026. La cible au Royal Jubilee et au Victoria General est de 10 heures. Source : le [bulletin](https://agou.ca/fr/scorecard/), d'après Island Health.
+Je publierai ce chiffre chaque trimestre. Je demanderai l'élargissement des heures d'ouverture des cliniques en soirée et les fins de semaine dans le sud de l'île de Vancouver, pour que le Jubilee ne soit pas la seule porte ouverte. Les heures supplémentaires exigent d'abord du personnel. Je n'inventerai pas un nombre de lits.
 </details>
 
 <details>
@@ -99,8 +99,8 @@ Je publierai ce chiffre chaque trimestre. Je pousserai pour des heures de cliniq
 </details>
 <details>
 <summary>Qu'en est-il du contrôle des loyers et des locations de courte durée?</summary>
-Je ne propose pas une nouvelle loi de contrôle à la vacance. Le soulagement au logement sur ce site est l'allègement de l'impôt sur le revenu prévu au programme 2024 sur le loyer, les intérêts hypothécaires et les frais de copropriété, et plus de logements grâce à des permis plus rapides.
-Victoria a déjà les règles provinciales sur les locations de courte durée. Je ne demanderai pas de les assouplir dans cette circonscription tant que les logements familiaux sont aussi rares. Le bulletin situe le taux d'inoccupation des copropriétés locatives à environ 0,3 %. Source : le [bulletin](https://agou.ca/fr/scorecard/).
+Je ne propose pas de nouvelle loi qui maintiendrait l'encadrement des loyers d'un locataire à l'autre. Les mesures proposées sur ce site pour rendre le logement plus abordable sont l'allègement de l'impôt sur le revenu prévu au programme 2024 pour le loyer, les intérêts hypothécaires et les frais de copropriété, ainsi que la construction de davantage de logements grâce à des permis délivrés plus rapidement.
+Victoria a déjà les règles provinciales sur les locations de courte durée. Je ne demanderai pas de les assouplir dans cette circonscription tant que les logements locatifs assez grands pour les familles sont aussi rares. Le bulletin situe le taux d'inoccupation des copropriétés locatives à environ 0,3 %. Source : le [bulletin](https://agou.ca/fr/scorecard/).
 </details>
 
 <details>
@@ -115,7 +115,7 @@ Victoria a déjà les règles provinciales sur les locations de courte durée. J
 <details>
 <summary>Quelle est votre position sur l'approvisionnement plus sécuritaire et la décriminalisation?</summary>
 Je n'appuie pas l'approvisionnement plus sécuritaire sur ordonnance comme plan pour cette circonscription. Le sud de l'île de Vancouver a compté 128 décès liés aux drogues toxiques en 2025. Source : le [bulletin](https://agou.ca/fr/scorecard/), d'après le BC Coroners Service.
-Ce que je vais pousser : une désintoxication et un traitement avec du personnel, des attentes publiées chaque mois, et des soins dans un milieu sécurisé lorsqu'une personne ayant une dépendance grave est un danger pour elle-même ou pour autrui. Ce dernier point est ma position, que je défendrai au sein du parti. Le programme 2024 du parti proposait aussi une loi sur le traitement involontaire pour les personnes ayant une dépendance qui ne peuvent pas prendre seules des décisions vitales.
+Ce que je défendrai : des services de désintoxication et de traitement dotés du personnel nécessaire, avec des délais d'attente publiés chaque mois, et des soins dans un milieu sécurisé lorsqu'une personne ayant une dépendance grave est un danger pour elle-même ou pour autrui. Ce dernier point est ma position, que je défendrai au sein du parti. Le programme 2024 du parti proposait aussi une loi sur le traitement involontaire pour les personnes ayant une dépendance qui ne peuvent pas prendre seules les décisions nécessaires pour sauver leur vie.
 La décriminalisation n'a pas ouvert ces lits. Une règle sur la possession n'est pas un plan de traitement.
 </details>
 
@@ -134,12 +134,12 @@ La décriminalisation n'a pas ouvert ces lits. Une règle sur la possession n'es
 <details>
 <summary>Que couperait un budget équilibré, y compris des emplois dans la fonction publique?</summary>
 Je ne couperai pas les soins de santé ou l'éducation pour écrire un slogan. Je n'inventerai pas non plus un chiffre d'économies. En 2024, le parti s'engageait à équilibrer le budget au cours de son deuxième mandat, grâce à une croissance plus rapide, à des dépenses nouvelles stratégiques et à la réaffectation des dépenses inutiles vers les priorités, et indiquait qu'un retour immédiat à l'équilibre exigerait des compressions importantes dans les services de première ligne, ce qu'il refusait de faire (programme 2024 du parti). Le parti n'a pas encore publié de plan financier pour 2026. Un budget équilibré n'est pas une économie pour votre ménage; c'est ce qui permet de vérifier que les engagements sont financés.
-Près de la moitié de la fonction publique de la C.-B. travaille à Victoria. Tout changement pour lequel je voterai devra s'accompagner de normes de service publiées, et le personnel devra être prévenu avant. Cette norme est ma position. Si un projet de loi ne dit pas ce qu'il coupe, je voterai contre.
+Près de la moitié de la fonction publique de la C.-B. travaille à Victoria. Tout changement pour lequel je voterai devra s'accompagner de normes de service publiées, et le personnel devra être informé avant la mise en œuvre du changement. Cette norme est ma position. Si un projet de loi ne dit pas ce qu'il coupe, je voterai contre.
 </details>
 <details>
 <summary>Et le transport en commun, pas seulement les traversiers?</summary>
-BC Transit à Victoria est une décision de financement provincial et une décision de service local. Je pousserai pour des chiffres publiés sur la ponctualité et l'achalandage des lignes que cette circonscription utilise, y compris Douglas. Je n'inventerai pas un nouveau nombre d'autobus.
-Les autobus des jours de croisière à James Bay font partie du plan des jours de croisière, qui est le mien.
+À Victoria, le financement de BC Transit relève de la Province, tandis que les décisions sur le service relèvent des autorités locales. Je demanderai la publication de chiffres sur la ponctualité et le niveau d'occupation des autobus sur les lignes utilisées dans cette circonscription, notamment sur Douglas. Je n'inventerai pas un nouveau nombre d'autobus.
+Les autobus des jours d'escale des navires de croisière à James Bay font partie du plan pour les jours d'escale, qui est le mien.
 </details>
 <details>
 <summary>Quelle est votre position sur le climat?</summary>
@@ -148,15 +148,15 @@ Je ne voterai pas pour une nouvelle taxe provinciale pour payer un programme cli
 </details>
 <details>
 <summary>Qu'en est-il des écoles et des services de garde?</summary>
-Les deux sont provinciaux. Je n'annoncerai pas un nouveau programme sans un coût. Ce que je ferai : publier les chiffres de taille des classes et d'attente en garde pour cette circonscription dans le rapport trimestriel, et voter contre un projet de loi que je ne peux pas expliquer. Les parents de Fairfield et de James Bay ne devraient pas avoir à déposer eux-mêmes la demande d'accès à l'information.
+Les deux sont provinciaux. Je n'annoncerai pas de nouveau programme sans en préciser le coût. Ce que je ferai : publier chaque trimestre les données sur la taille des classes et les délais d'attente pour une place en service de garde dans cette circonscription, et voter contre un projet de loi que je ne peux pas expliquer. Les parents de Fairfield et de James Bay ne devraient pas avoir à déposer eux-mêmes la demande d'accès à l'information.
 </details>
 
 <details>
 <summary>Quelle est votre position sur les navires de croisière à James Bay?</summary>
 	Les navires de croisière font partie de l'économie portuaire. Ils représentent aussi une réelle charge pour les rues, les autobus et les trottoirs de James Bay. Ogden Point a accueilli 310 escales de navires de croisière en 2025. Source : [Greater Victoria Harbour Authority, octobre 2025](https://gvha.ca/about-gvha/newsroom/victorias-2025-cruise-season-closes-strongly-on-saturday/) (en anglais).
-	Je veux un plan pour les jours de croisière (circulation, autobus et sécurité des piétons), élaboré avec la Ville, la Greater Victoria Harbour Authority et les résidents — pas un slogan pour ou contre les navires. Ce plan est le mien. Je le porterais auprès de la province lorsque des routes provinciales, le financement du transport en commun ou la réglementation portuaire sont en jeu.
+	Je veux un plan pour les jours d'escale des navires de croisière (circulation, autobus et sécurité des piétons), élaboré avec la Ville, la Greater Victoria Harbour Authority et les résidents — pas un slogan pour ou contre les navires. Ce plan est le mien. Je le porterais auprès de la province lorsque des routes provinciales, le financement du transport en commun ou la réglementation portuaire sont en jeu.
 </details>
-## Ce que je pourrais réalistement accomplir
+## Ce que je pourrais accomplir en pratique
 <details>
 <summary>Que peut réellement changer un député provincial, et qu'est-ce qui dépasse son rôle?</summary>
 	Un député provincial vote sur les lois et en propose, examine le budget provincial, interroge les ministres et représente les résidents de sa circonscription auprès du gouvernement ([Assemblée législative, en anglais](https://members.leg.bc.ca/home/work-of-an-mla/role-of-an-mla/)). Un député provincial ne dirige pas les hôpitaux, ne fixe pas les loyers et ne tranche pas les affaires judiciaires.
@@ -170,18 +170,18 @@ Les deux sont provinciaux. Je n'annoncerai pas un nouveau programme sans un coû
 	- Get BC Building (infrastructures, incitatifs, approbations plus rapides) : environ 1,1 milliard de dollars à partir de 2026-2027.
 	- Aucune TVP sur les véhicules d'occasion abordables : fait partie d'un ensemble de mesures pour les automobilistes estimé à 60 millions de dollars à partir de 2026-2027.
 	En 2024, le parti a dit qu'une croissance économique plus rapide financerait ces baisses d'impôt, et s'est engagé à équilibrer le budget au cours d'un second mandat (programme 2024 du parti). J'utiliserai ces chiffres jusqu'à ce que le parti publie une mise à jour pour 2026, puis je les remplacerai. Source : [annexe d'évaluation des coûts 2024](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) (en anglais).
-	Les mesures qui sont les miennes — réduire la paperasse des médecins (aussi dans le programme 2024), les heures de clinique dans le sud de l'île, la publication des délais d'attente pour un traitement, la répartition des services, les soins dans un milieu sécurisé, un plan pour les jours de croisière à James Bay, des normes de service pour la fonction publique — sont surtout des changements de règles et de reddition de comptes. Lorsqu'elles exigent du personnel ou des lits supplémentaires, je n'inventerai pas de montant. Je publierai le coût dès que les chiffres du ministère ou d'Island Health existeront, et je voterai contre un projet de loi que je ne peux pas expliquer.
+	Les mesures qui sont les miennes — réduire la paperasse des médecins (aussi dans le programme 2024), l'élargissement des heures d'ouverture des cliniques dans le sud de l'île de Vancouver, la publication des délais d'attente pour un traitement, la répartition des services, les soins dans un milieu sécurisé, un plan pour les jours d'escale des navires de croisière à James Bay, des normes de service pour la fonction publique — sont surtout des changements de règles et de reddition de comptes. Lorsqu'elles exigent du personnel ou des lits supplémentaires, je n'inventerai pas de montant. Je publierai le coût dès que les chiffres du ministère ou d'Island Health existeront, et je voterai contre un projet de loi que je ne peux pas expliquer.
 </details>
 <details>
 <summary>Que feriez-vous en premier si vous étiez élu, et comment pourrions-nous mesurer les progrès?</summary>
-	Dans les 90 premiers jours : publier mon premier bilan trimestriel, avec des données de référence sur l'attente pour un médecin, les délais de délivrance des permis, les annulations de traversées et l'attente pour un traitement; ouvrir un bureau de circonscription avec des heures d'ouverture publiées et une cible de réponse de deux jours ouvrables; et militer pour la loi sur les délais de délivrance des permis.
+	Dans les 90 premiers jours : publier mon premier bilan trimestriel, avec des données de référence sur l'attente pour un médecin, les délais de délivrance des permis, les annulations de traversées et l'attente pour un traitement; ouvrir un bureau de circonscription avec des heures d'ouverture publiées et une cible de réponse dans un délai de deux jours ouvrables; et militer pour la loi sur les délais de délivrance des permis.
 	Ce qui dépend de moi : les bilans, le bureau et mes votes. Ce qui dépend d'autres personnes : les délais d'attente, les loyers et le service de traversier.
 </details>
 <details>
 <summary>Quelles propositions sont des engagements du parti, et lesquelles sont les vôtres?</summary>
 	Programme 2024 du parti (octobre 2024; la page du programme actuel du parti indique « coming soon » [à venir], ces propositions ne sont donc pas encore confirmées pour cette élection) : le recours à des cliniques non gouvernementales pour des interventions chirurgicales et des examens d'imagerie médicale financés par les fonds publics; des délais fixes pour les permis; l'allègement de l'impôt sur le revenu lié aux frais de logement (loyer, intérêts hypothécaires et frais de copropriété); la charte de BC Ferries, et la consultation des usagers réguliers sur un programme de forfait mensuel ou d'autres mesures; aucune TVP sur les voitures d'occasion abordables; ramener le taux d'imposition des petites entreprises de 2 % à 1 %.
-	Engagement actuel du parti (27 sept. 2026) : aucune nouvelle taxe et aucune hausse d'impôt.
-	Mes positions personnelles, que je défendrais au sein du parti : réduire la paperasse des médecins (le programme 2024 proposait aussi d'alléger le fardeau administratif des médecins), le retour au taux de 5,06 % et à l'indexation en maintenant le crédit bonifié de réduction d'impôt, une liste publique des économies, les heures de clinique dans le sud de l'île, la publication des délais d'attente pour un traitement, la répartition des services dans toute la région, l'accès à un logement avec soutien pour les personnes vivant sous tente et plus de shérifs et de juges (deux mesures aussi proposées dans le programme 2024), des soins dans un milieu sécurisé pour les dépendances graves (le programme 2024 proposait aussi le traitement involontaire), pas d'approvisionnement plus sécuritaire sur ordonnance comme plan pour cette circonscription (le programme 2024 s'y opposait aussi), le maintien ici des règles provinciales sur les locations de courte durée, la publication de l'attente pour un lit à l'urgence du Jubilee, le plan pour les jours de croisière à James Bay et des normes de service pour les fonctionnaires.
+	Engagement actuel du parti (27 sept. 2026) : aucun nouvel impôt ni aucune nouvelle taxe, et aucune hausse des impôts ou des taxes.
+	Mes positions personnelles, que je défendrais au sein du parti : réduire la paperasse des médecins (le programme 2024 proposait aussi d'alléger le fardeau administratif des médecins), le retour au taux de 5,06 % et à l'indexation en maintenant le crédit bonifié de réduction d'impôt, une liste publique des économies, l'élargissement des heures d'ouverture des cliniques dans le sud de l'île de Vancouver, la publication des délais d'attente pour un traitement, la répartition des services dans toute la région, l'accès à un logement avec soutien pour les personnes vivant sous tente et plus de shérifs et de juges (deux mesures aussi proposées dans le programme 2024), des soins dans un milieu sécurisé pour les dépendances graves (le programme 2024 proposait aussi le traitement involontaire), pas d'approvisionnement plus sécuritaire sur ordonnance comme plan pour cette circonscription (le programme 2024 s'y opposait aussi), le maintien ici des règles provinciales sur les locations de courte durée, la publication de l'attente pour un lit à l'urgence du Jubilee, le plan pour les jours d'escale des navires de croisière à James Bay et des normes de service pour les fonctionnaires.
 </details>
 <details>
 <summary>Que pourriez-vous accomplir si votre parti ne forme pas le gouvernement?</summary>
@@ -191,7 +191,7 @@ Les deux sont provinciaux. Je n'annoncerai pas un nouveau programme sans un coû
 <details>
 <summary>En quoi êtes-vous différent de Grace Lore et de Raj Sahota?</summary>
 Grace Lore est la députée néo-démocrate et a déposé sa candidature auprès d'Elections BC. Le Parti vert a annoncé la candidature de Raj Sahota. Sources : [liste des candidats d'Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/), [Parti vert de la C.-B., 24 septembre 2026](https://bcgreens.ca/announce-candidates-for-victoria-beacon-hill-and-juan-de-fuca-malahat/).
-Je ne me présente pas contre leurs biographies. Le test, ce sont les chiffres de la circonscription : attente pour un médecin de famille, temps pour obtenir un permis, décès liés aux drogues toxiques, devantures, et l'existence d'un rapport trimestriel. Lore est la députée. Ces chiffres sont le bilan.
+Je ne me présente pas contre leurs biographies. Le test, ce sont les chiffres de la circonscription : attente pour un médecin de famille, temps pour obtenir un permis, décès liés aux drogues toxiques, locaux commerciaux, et l'existence d'un rapport trimestriel. Lore est la députée. Ces chiffres sont le bilan.
 </details>
 
 ## Représentation et reddition de comptes

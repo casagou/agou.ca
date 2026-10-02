@@ -318,6 +318,13 @@
     "en-faq": "2026-10-01",
     "scorecard": "2026-10-01",
     "fr-faq": "2026-10-01",
+    "fr-media": "2026-10-01",
+    "fr-forms": "2026-10-01",
+    "fr-privacy": "2026-10-01",
+    "fr-lawn-sign": "2026-10-01",
+    "fr-how-to-vote": "2026-10-01",
+    "fr-province": "2026-10-01",
+    "fr-events": "2026-10-01",
     "province": "2026-09-30",
     "faq": "2026-10-01"
   },
@@ -418,8 +425,8 @@
         "long": "Last day to request a vote-by-mail package online or by phone (1-800-661-8683)."
       },
       "fr": {
-        "short": "Dernier jour : vote par la poste",
-        "long": "Dernier jour pour demander une trousse de vote par la poste en ligne ou par téléphone (1-800-661-8683)."
+        "short": "Demande de vote postal : date limite",
+        "long": "Date limite pour demander une trousse de vote postal en ligne ou par téléphone (1-800-661-8683)."
       },
       "sources": [
         "https://elections.bc.ca/2026-provincial-election/",
@@ -576,11 +583,11 @@
         "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
         "alt": {
           "en": "Inner Harbour marina at dusk, with the Parliament Buildings behind",
-          "fr": "La marina de l’arrière-port au crépuscule, avec l’édifice du Parlement en arrière-plan"
+          "fr": "La marina du port intérieur de Victoria au crépuscule, avec les édifices du Parlement en arrière-plan"
         },
         "place": {
           "en": "Inner Harbour",
-          "fr": "Arrière-port"
+          "fr": "Port intérieur"
         },
         "focus": {
           "strip": [

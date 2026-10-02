@@ -107,7 +107,10 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
             for u in re.findall(r"\((https://[^)]+)\)", l):
                 if u not in hrefs: problems.append(f"{name}: social link missing: {u}")
             continue
-        if p and p not in ptxt: problems.append(f"{name}: contact line not in footer: {p[:100]!r}")
+        if p and p not in ptxt:
+            hit = [r for r in EXCL if r["page"] == f"{name}:contact" and plain(r["find"]) and plain(r["find"]) in p]
+            if hit: excluded.append(f"{name}: contact {p[:80]!r}  -> {hit[0]['why']}"); continue
+            problems.append(f"{name}: contact line not in footer: {p[:100]!r}")
 print(f"Checked {total} Notion lines.")
 print("Intentional differences (exclusions.json):"); print("\n".join("  " + e for e in excluded) or "  none")
 print("Unexpected differences:"); print("\n".join("  " + p for p in problems) or "  none")

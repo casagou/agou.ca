@@ -53,6 +53,7 @@ def events():
         for e in live:
             k = str(e["id"]); rec = store["events"].get(k)
             snap = {"title": e["title"], "starts_at": e["starts_at"], "ends_at": e["ends_at"]}
+            if e.get("title_fr"): snap["title_fr"] = e["title_fr"]  # migration 46; the French home banner uses it
             if rec is None:
                 store["events"][k] = {"added": today().isoformat(), **snap}; changed = True
                 print(f"events: new event id {k} ({e['title']}) recorded as added {today()} in data/events-added.json (commit it)")
@@ -65,7 +66,7 @@ def events():
     out = []
     for k, r in store["events"].items():
         if k not in ids: continue
-        out.append({"id": int(k), "title": r["title"], "starts_at": r["starts_at"], "ends_at": r["ends_at"],
+        out.append({"id": int(k), "title": r["title"], "title_fr": r.get("title_fr") or "", "starts_at": r["starts_at"], "ends_at": r["ends_at"],
                     "added": datetime.date.fromisoformat(r["added"])})
     out.sort(key=lambda e: (e["starts_at"], e["id"]))
     _STATE["events"] = out
@@ -90,8 +91,9 @@ def new_upcoming(site):
     return [e for e in events() if until(e, site) > t and datetime.datetime.fromisoformat(e["ends_at"]) >= now]
 
 
-def title_of(e):
-    return " — ".join(p.strip() for p in e["title"].split("|"))
+def title_of(e, lang="en"):
+    t = (lang == "fr" and e.get("title_fr")) or e["title"]  # French site: title_fr, else the English title
+    return " — ".join(p.strip() for p in t.split("|"))
 
 
 def nav_badge(lang, site, ui):
@@ -119,7 +121,7 @@ def home_line(lang, site, ui, events_url):
         txt = T["more_one"] if more == 1 else T["more"].replace("{n}", str(more))
         more_html = f' <span class="newev-more">· <a href="{events_url}">{esc(txt)}</a></span>'
     return (f'<div class="newev" data-new-until="{until(e, site).isoformat()}" data-new-ends="{esc(e["ends_at"])}"><div class="wrap"><p>'
-            f'<span class="newb">{esc(T["line"])}</span> <a href="{events_url}?e={e["id"]}">{esc(title_of(e))}, {esc(day_label(d, lang))}</a>{more_html}</p></div></div>')
+            f'<span class="newb">{esc(T["line"])}</span> <a href="{events_url}?e={e["id"]}">{esc(title_of(e, lang))}, {esc(day_label(d, lang))}</a>{more_html}</p></div></div>')
 
 
 def key_dates(site):

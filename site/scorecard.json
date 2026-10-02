@@ -37,7 +37,7 @@
         },
         {
           "en": "Budget 2026 highlights ($76, 40%)",
-          "fr": "Faits saillants du Budget 2026 (en anglais)",
+          "fr": "Faits saillants du Budget 2026 (76 $, 40 %; en anglais)",
           "url": "https://www.bcbudget.gov.bc.ca/2026/highlights/"
         }
       ]
@@ -64,7 +64,7 @@
       "sources": [
         {
           "en": "Budget and Fiscal Plan 2026/27 (PDF, $3.5 billion: Table 1)",
-          "fr": "Budget et plan financier 2026-2027 (PDF, en anglais)",
+          "fr": "Budget et plan financier 2026-2027 (PDF, 3,5 milliards de dollars : tableau 1; en anglais)",
           "url": "https://www.bcbudget.gov.bc.ca/2026/pdf/2026_Budget_and_Fiscal_Plan.pdf"
         },
         {
@@ -79,7 +79,7 @@
       "cadence": "annual_standin",
       "short": {
         "en": "New homes, and what kind",
-        "fr": "Nouveaux logements, et lesquels"
+        "fr": "Nouveaux logements et types de logements"
       },
       "fig": {
         "en": "882",
@@ -129,7 +129,7 @@
         },
         {
           "en": "CMHC Victoria data tables 2025 (Excel, by bedroom)",
-          "fr": "Tableaux de données SCHL, Victoria 2025 (Excel, en anglais)",
+          "fr": "Tableaux de données de la SCHL, Victoria 2025 (Excel, par nombre de chambres; en anglais)",
           "url": "https://assets.cmhc-schl.gc.ca/sites/cmhc/professional/housing-markets-data-and-research/housing-data-tables/rental-market/rental-market-report-data-tables/2025/rmr-victoria-2025-en.xlsx"
         }
       ]
@@ -188,7 +188,7 @@
       "sources": [
         {
           "en": "BC Coroners Service, 2025 data (Feb. 19, 2026)",
-          "fr": "Service des coroners, données 2025 (en anglais)",
+          "fr": "Service des coroners, données 2025 (19 février 2026; en anglais)",
           "url": "https://news.gov.bc.ca/releases/2026PSSG0011-000138"
         },
         {
@@ -247,7 +247,7 @@
       },
       "figlabel": {
         "en": "median wait for a bed, all Island sites (target: 10)",
-        "fr": "attente médiane d’un lit, tous les sites (cible : 10)"
+        "fr": "attente médiane d’un lit, tous les établissements d’Island Health (cible : 10 heures)"
       },
       "sources": [
         {
@@ -279,7 +279,7 @@
       },
       "figlabel": {
         "en": "of scheduled surgeries waited past their benchmark",
-        "fr": "des chirurgies ont dépassé leur délai de référence"
+        "fr": "des chirurgies planifiées ont fait l’objet d’une attente dépassant le délai de référence"
       },
       "sources": [
         {
@@ -294,7 +294,7 @@
         },
         {
           "en": "CIHI benchmarks (26 and 16 weeks)",
-          "fr": "Délais de référence de l’ICIS",
+          "fr": "Délais de référence de l’ICIS (26 et 16 semaines)",
           "url": "https://www.cihi.ca/en/wait-times-for-priority-procedures-in-canada-2025"
         }
       ]
@@ -360,17 +360,17 @@
       },
       "figlabel": {
         "en": "no official South Island inventory of seats versus demand",
-        "fr": "aucun inventaire officiel des places dans le sud de l’Île"
+        "fr": "aucun inventaire officiel des places de traitement par rapport à la demande dans le sud de l’île de Vancouver"
       },
       "sources": [
         {
           "en": "B.C.: Surrey and Prince George facilities (July 2026)",
-          "fr": "C.-B. : établissements de Surrey et de Prince George (en anglais)",
+          "fr": "C.-B. : établissements de Surrey et de Prince George (juillet 2026; en anglais)",
           "url": "https://news.gov.bc.ca/releases/2026HLTH0029-000808"
         },
         {
           "en": "B.C.: Surrey construction begins (Sept. 2026)",
-          "fr": "C.-B. : début des travaux à Surrey (en anglais)",
+          "fr": "C.-B. : début des travaux à Surrey (septembre 2026; en anglais)",
           "url": "https://news.gov.bc.ca/releases/2026HLTH0034-001028"
         },
         {

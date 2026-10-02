@@ -52,7 +52,7 @@
       },
       "fr": {
         "title": "Bulletin",
-        "desc": "Le bulletin de Joachim pour Victoria–Beacon Hill : 12 chiffres publiés chaque trimestre, avec sources, dates et votes, pour lui demander des comptes."
+        "desc": "Le bulletin de Joachim pour Victoria–Beacon Hill : 12 chiffres publiés chaque trimestre, avec leurs sources, leurs dates de référence et ses votes."
       }
     },
     "province": {
@@ -62,7 +62,7 @@
       },
       "fr": {
         "title": "Ce que contrôle la Province",
-        "desc": "Ce que la Province de la C.-B. contrôle vraiment, ce qui relève d'Ottawa, et ce qui relève des villes et du district régional de la capitale, en termes simples."
+        "desc": "Ce que la Province de la C.-B. contrôle vraiment, ce qui relève d'Ottawa, des villes et du district régional de la capitale, en termes simples, avec des sources."
       }
     },
     "get-involved": {
@@ -72,7 +72,7 @@
       },
       "fr": {
         "title": "S'impliquer",
-        "desc": "Aidez Joachim Agou dans Victoria–Beacon Hill : bénévolat, pancarte gratuite, événements ou don. Choisissez ce qui vous convient."
+        "desc": "Aidez Joachim Agou dans Victoria–Beacon Hill : bénévolat, pancarte gratuite, événements ou don. Choisissez ce qui convient à votre emploi du temps."
       }
     },
     "volunteer": {
@@ -112,7 +112,7 @@
       },
       "fr": {
         "title": "Faire un don",
-        "desc": "Les dons en ligne à la campagne de Joachim Agou dans Victoria–Beacon Hill arrivent bientôt. Pour donner dès maintenant, écrivez à l'agent financier, Bert Chen."
+        "desc": "Les dons en ligne à la campagne de Joachim Agou dans Victoria–Beacon Hill arrivent bientôt. Pour donner dès maintenant, communiquez avec l'agent financier, Bert Chen."
       }
     },
     "events": {
@@ -142,7 +142,7 @@
       },
       "fr": {
         "title": "Foire aux questions",
-        "desc": "Réponses aux questions fréquentes sur la campagne de Joachim Agou dans Victoria–Beacon Hill : ses propositions, ce qu'un député peut faire, et comment aider."
+        "desc": "Questions fréquentes sur la campagne de Joachim Agou dans Victoria–Beacon Hill : ses propositions, ce qu'un député provincial peut réellement accomplir et comment aider."
       }
     },
     "media": {
@@ -151,8 +151,8 @@
         "desc": "Media kit for Joachim Agou, Victoria–Beacon Hill: short and full bios, fast facts, photos and PDF downloads. Interviews in English and French."
       },
       "fr": {
-        "title": "Médias",
-        "desc": "Dossier de presse de Joachim Agou, Victoria–Beacon Hill : téléchargez-le en PDF, en français ou en anglais. Entrevues en français et en anglais."
+        "title": "Médias et dossier de presse",
+        "desc": "Dossier de presse de Joachim Agou, Victoria–Beacon Hill : biographies, renseignements essentiels, photos et téléchargements PDF. Entrevues en français et en anglais."
       }
     },
     "contact": {
@@ -162,7 +162,7 @@
       },
       "fr": {
         "title": "Coordonnées",
-        "desc": "Joignez Joachim Agou dans Victoria–Beacon Hill par courriel ou téléphone, suivez-le sur Instagram, X et Facebook, ou écrivez à son agent financier, Bert Chen."
+        "desc": "Joignez Joachim Agou dans Victoria–Beacon Hill par courriel ou téléphone, suivez-le sur Instagram, X et Facebook, ou communiquez avec son agent financier, Bert Chen."
       }
     },
     "privacy": {

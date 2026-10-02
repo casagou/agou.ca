@@ -97,6 +97,16 @@ def fr_space(s):
     return re.sub(r"(\d) (\d{3})(?!\d)", lambda m: m.group(1) + NB + m.group(2), s)
 
 
+def asof_label(L, v, lang):
+    """'As of <date>'. French needs the right preposition (French review, 1 Oct 2026): « Pour l’année d’imposition 2026 »,
+    « En date des 25 et 26 mars 2025 », « En date d’octobre 2025 », « En date de mars 2026 ». English: unchanged."""
+    if lang != "fr": return f'{L["asof"]} {v}'
+    if v.startswith("année"): return "Pour l’" + v
+    if re.match(r"\d+ et \d+ ", v): return "En date des " + v
+    if re.match(r"[aeiouyéèêàâîôûhAEIOUYÉ]", v): return "En date d’" + v
+    return f'{L["asof"]} {v}'
+
+
 def tx(d, lang):
     s = d[lang]
     return fr_space(s) if lang == "fr" else s
@@ -155,7 +165,7 @@ def scorecard_page(B, lang, page, env):
         first = f'<strong>{esc(L["last_pub"])}</strong> {esc(lp)}'
     else:  # nothing published yet: show the baseline date (scorecard.json "baseline") instead of "Last published: —"
         y, m, d = map(int, SC["baseline"].split("-"))
-        first = f'<strong>{esc(tx({lang: L["baseline"]}, lang))}</strong> <time datetime="{SC["baseline"]}">{d} {B.MONTHS[lang][m - 1]} {y}</time>. {esc(L["baseline_next"])}'
+        first = f'<strong>{esc(tx({lang: L["baseline"]}, lang))}</strong> <time datetime="{SC["baseline"]}">{"1er" if lang == "fr" and d == 1 else d} {B.MONTHS[lang][m - 1]} {y}</time>. {esc(L["baseline_next"])}'
     status = (f'<div class="sc-status" role="note"><p>{first} · {esc(L["next_due"])}</p>'
               f'<p class="sc-votes">{chip("coming", lang)} {esc(L["votes_note"])}</p></div>')
     fr_note = ""
@@ -195,7 +205,7 @@ def scorecard_page(B, lang, page, env):
     det = []
     for it in items:
         m = meta[it["n"]]; st = m["status"]
-        asof = f'<span class="sc-asof">{esc(L["asof"])} {esc(tx(m["asof"], lang))}</span>' if m.get("asof") else ""
+        asof = f'<span class="sc-asof">{esc(asof_label(L, tx(m["asof"], lang), lang))}</span>' if m.get("asof") else ""
         rows = []
         for k, v in it["rows"]:
             extra = src_links(B, m, lang) if k == "today" else ""

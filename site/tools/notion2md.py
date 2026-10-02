@@ -101,6 +101,12 @@ def convert(name, report):
     report.append(f"{name}: wrote {out.relative_to(ROOT)}")
     if key == "home" and contact is not None:
         contact = re.sub(r"\s*\{color=\"[a-z_]+\"\}", "", contact)
+        for r in EXCL:  # rules for the footer contact block: "page": "<lang>-home:contact"
+            if r["page"] != f"{name}:contact": continue
+            if r["find"] in contact:
+                contact = contact.replace(r["find"], r["replace"]); report.append(f"{name}:contact: applied rule: {r['why']}  [removed: {r['find'].strip()[:90]!r}]")
+            else:
+                report.append(f"{name}:contact: WARNING rule not matched (Notion text changed? check by hand): {r['find'].strip()[:90]!r}")
         contact = re.sub(r"\]\((https?://[^)\s]+)\)", lambda mm: "](" + map_link(mm.group(1), lang) + ")", contact)
         contact = re.sub(r'<(page|mention-page) url="([^"]+)"', lambda mm: f'<{mm.group(1)} url="{map_link(mm.group(2), lang)}"', contact)
         (ROOT / "content" / lang / "_contact.md").write_text(contact.strip("\n") + "\n")

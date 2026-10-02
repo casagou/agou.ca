@@ -1,6 +1,6 @@
 Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative
 **Des rues plus sûres, des budgets honnêtes et un centre-ville qui fonctionne.**
-Après 9 ans du même gouvernement, la Colombie-Britannique affiche un déficit de 13,8 milliards de dollars, 1 personne sur 4 n'a pas de médecin de famille, et l'avenue Pandora montre ce qui arrive quand on laisse un problème de côté. Pendant tout ce temps, notre circonscription a siégé du côté du gouvernement. Elle a eu des annonces. Elle n'a pas eu de résultats.
+Après neuf ans sous le même gouvernement, la Colombie-Britannique affiche un déficit de 13,8 milliards de dollars, 1 personne sur 4 n'a pas de médecin de famille, et l'avenue Pandora montre ce qui arrive quand on laisse un problème de côté. Pendant tout ce temps, notre circonscription était représentée par le parti au pouvoir. Elle a eu droit à des annonces, mais pas à des résultats.
 <callout icon="✍️" color="blue_bg">
 	**Mettre un ingénieur d'essais sur le bulletin de vote.**
 	Il me faut la signature de 75 voisins d'ici le samedi 3 octobre, à 13 h. Cela prend 1 minute, et je me déplace chez vous.
@@ -8,8 +8,8 @@ Après 9 ans du même gouvernement, la Colombie-Britannique affiche un déficit 
 </callout>
 Sources (en anglais) : [déficit (rapport du premier trimestre, sept. 2026)](https://news.gov.bc.ca/releases/2026FIN0031-001066) · [médecins de famille (ministère de la Santé : 76 % avaient un médecin de famille ou une infirmière praticienne, juin 2025)](https://news.gov.bc.ca/releases/2025HLTH0077-000752) · [gouvernement depuis juillet 2017](https://news.gov.bc.ca/releases/2017PREM0061-001322) · [résultats de la circonscription, 2017-2024 (Elections BC)](https://elections.bc.ca/resources/results/) · [75 signataires, clôture des mises en candidature le 3 octobre à 13 h (Elections BC)](https://elections.bc.ca/2026-provincial-election/)
 ## À propos de moi
-Je suis ingénieur d'essais, et c'est ce travail que je ferai à l'Assemblée législative : un indicateur chiffré pour chaque promesse, un bilan public chaque trimestre. Si le ministère refuse de publier les chiffres de l'île, je présenterai une demande d'accès à l'information et je rendrai public le refus.
-Je suis papa, ingénieur professionnel (P.Eng.) et entrepreneur, et j'habite à Fairfield. Depuis plus de 15 ans, je dirige des équipes d'ingénierie et mène à bien des projets de plusieurs millions de dollars, dans le respect des budgets et des délais. Mon parcours va des installations d'essais de turbines à gaz sur trois continents à la robotique spatiale. Aujourd'hui, je suis ingénieur d'essais et d'évaluation dans le secteur de la défense, et je dirige Casagou Inc., une entreprise de Victoria spécialisée en génie-conseil et en production de contenus.
+Je suis ingénieur d'essais, et c'est ce travail que je ferai à l'Assemblée législative : un indicateur chiffré pour chaque promesse, un bilan public chaque trimestre. Si le ministère refuse de publier les chiffres de l'île de Vancouver, je présenterai une demande d'accès à l'information et je rendrai public le refus.
+Je suis papa, ingénieur professionnel (P.Eng.) et propriétaire d'une petite entreprise; j'habite à Fairfield. Depuis plus de 15 ans, je dirige des équipes d'ingénierie et mène à bien des projets de plusieurs millions de dollars, dans le respect des budgets et des délais. Mon parcours va des installations d'essais de turbines à gaz sur trois continents à la robotique spatiale. Aujourd'hui, je suis ingénieur d'essais et d'évaluation dans le secteur de la défense, et je dirige Casagou Inc., une entreprise de Victoria de génie-conseil et de médias.
 Né à Nice, en France, j'ai étudié le génie mécanique au Florida Institute of Technology, puis je suis arrivé au Canada en 2011 pour mener des recherches aux cycles supérieurs à l'Université Laval, à Québec. J'ai ensuite vécu à Montréal, à Ottawa et à Toronto. Je me suis installé à Victoria en 2023 pour y élever ma fille et suis devenu citoyen canadien la même année. Je parle français et anglais.
 Je suis vice-président par intérim de la Victoria Conservative Association et bénévole auprès de Chabad of Vancouver Island. Je me présente parce que, partout dans la circonscription, mes voisins me disent la même chose : ils ne trouvent pas de médecin de famille, les loyers dépassent leurs moyens, tout coûte plus cher et ils ne se sentent pas en sécurité au centre-ville.
 <page url="/fr/about/">À propos de Joachim</page>
@@ -31,7 +31,7 @@ Vous ne savez pas si vous habitez dans la circonscription? Vérifiez sur [wheret
 - Signer le formulaire d'Elections BC prend environ 1 minute. Je vous apporte le formulaire.
 [**→ S'inscrire pour signer mon formulaire de mise en candidature**](/fr/nominate/)
 ## Bénévolat
-Frapper aux portes, faire des appels, installer une pancarte ou aider le jour de l'élection.
+Faire du porte-à-porte, passer des appels, installer une pancarte ou aider le jour du scrutin.
 [**→ Inscrivez-vous comme bénévole**](/fr/volunteer/)
 [**→ Demander une pancarte**](/fr/lawn-sign/)
 ## Événements
@@ -54,3 +54,6 @@ En 2026, vous pouvez donner jusqu'à 1 513,29 \$ au total à un parti, à ses as
 **Vote par la poste :** demandez une trousse sur [elections.bc.ca](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) ou au 1-800-661-8683, au plus tard le dimanche 18 octobre. Elections BC doit la recevoir au plus tard à 20 h le 24 octobre. Vous pouvez aussi la déposer à un bureau du directeur du scrutin ou à un bureau de vote.
 **Vous ne savez pas si vous habitez la circonscription?** Vérifiez sur [wheretovote.elections.bc.ca](https://wheretovote.elections.bc.ca/).
 Les lieux de vote sont en cours de confirmation par Elections BC. Source : [Elections BC, Ways to Vote](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) (en anglais).
+**Renseignements complémentaires**
+<page url="/fr/media/">Médias</page>
+<page url="/">Joachim Agou — Victoria–Beacon Hill (English)</page>

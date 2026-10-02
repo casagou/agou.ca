@@ -128,6 +128,7 @@ After the photo "Joachim Agou presenting a test program" (Media, Photos), build.
 - Media: "Joachim Agou is the Conservative Party of BC candidate…" was removed, because he is *seeking* the nomination.
 - Media-kit PDFs: they are in `assets/media/` (not Notion), and `<placeholder>MEDIAKIT</placeholder>` renders as the download links (see RESYNC.md "Media kit PDFs"). Staging shows them. Live has shown them since 2026-09-30 (`publish_media_kit_live: true`). Both PDFs still call him the candidate (EN medium bio: "is the Conservative Party of BC candidate"; FR: "est le candidat du Parti conservateur"). Joachim approved them as-is on 30 Sep 2026, so their exact hashes are allow-listed in `site.json` → `media_kit_approved`.
 - FR "(page en anglais)" notes were removed (home and FAQ), because those pages now exist in French.
+- French review 2026-10-02 (staging only): rules whose "why" starts with "French review 2026-10-02" (home, about, FAQ, priorities, and `fr-home:contact` for the footer contact block). The French Media page is hand-written in `content/fr/media.md` (no French Notion page). See RESYNC.md "French review".
 
 ## Scorecard (`/scorecard/`, `/fr/scorecard/`; staging only until approved)
 Not from Notion. Joachim's public scorecard text, word for word, is in `content/en/scorecard.md` (his private notes, the pay-for talking points and the draft change log are not in the repo). `content/fr/scorecard.md` is the FR translation (FR title: "Bulletin"), approved by Joachim on 2026-09-30 (`fr_reviewed: true`).

@@ -141,3 +141,10 @@ Rollback: `git revert -m 1 <merge commit>` on `main` and push (or open a revert 
 ### Published live (1 Oct 2026, Joachim approved 5:51 PM PT)
 - `site.json`: `priorities_v2_approved` set to true. The new media-kit hashes (EN e8e47f6e…, FR df98916a…) were added to `media_kit_approved`.
 - The live build (32 pages, content checks passed) went out from staging f35abdf plus these flags in casagou/agou.ca PR #37, merge commit fec1dba.
+
+### French review (Joachim, 1 Oct 2026 6:32 PM PT), staging only
+- Source: Joachim's French review (`french-review-2026-10-02.md`). English is the master: every French sentence was checked against the current English, and English wins where they differ. Changelog with what was applied or skipped: `/workspace/fr-review/applied.md` on the build box.
+- Notion pages (home, about, faq, priorities): the edits are rules in `exclusions.json` whose "why" starts with "French review 2026-10-02". New: rules with `"page": "fr-home:contact"` apply to the footer contact block (tools/notion2md.py; diffcheck accepts them).
+- Hand-written French files edited directly: `content/fr/province.md`, `content/fr/scorecard.md`, `content/fr/privacy.md`, plus the new `content/fr/media.md` (no French Notion page exists; keep it in step with `content/en/media.md` by hand). Also `scorecard.json`, `seo.json`, `ui.json` and `site.json` (French fields only).
+- The home "Read more" split in French keeps the same paragraphs visible as English (`build.py` COLLAPSE_EN).
+- Events: Supabase migration `46_campaign_events_fr` adds `title_fr`, `description_fr` and `location_name_fr` to `public.campaign_events`. `get_public_events()` returns them as 3 extra columns at the end. **When Events adds a row, it must fill these three French fields.** The French site falls back to English if one is empty. Downtown shows as Centre-ville in French.

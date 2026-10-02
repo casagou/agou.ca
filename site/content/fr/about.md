@@ -1,11 +1,11 @@
 ## Qui je suis
 Je m'appelle Joachim Agou et je suis papa. Né à Nice, en France, je suis arrivé au Canada à 22 ans pour étudier le génie mécanique à l'Université Laval, en me concentrant sur la combustion et la dynamique des fluides numérique. Ma carrière m'a mené des turbines à gaz à Montréal aux essais industriels à Ottawa, puis au secteur spatial à Brampton. En janvier 2023, je me suis installé à Fairfield, dans Victoria–Beacon Hill, pour y élever ma famille, et je suis devenu citoyen canadien la même année.
 ## Parcours professionnel
-Je suis ingénieur professionnel; mon expérience couvre l'aérospatiale, la défense, l'énergie et le secteur spatial. Depuis plus de 15 ans, je dirige des équipes d'ingénierie et mène à bien des projets de plusieurs millions de dollars, dans le respect des budgets et des délais. Aujourd'hui, je soutiens la Marine en tant qu'entrepreneur de la défense.
+Je suis ingénieur professionnel et je possède plus de 15 ans d'expérience dans l'aérospatiale, la défense, l'énergie et le secteur spatial. Je dirige des équipes d'ingénierie et mène à bien des projets de plusieurs millions de dollars, dans le respect des budgets et des délais. Aujourd'hui, je travaille sous contrat pour soutenir la Marine.
 <details>
 <summary>Parcours professionnel détaillé</summary>
 	### Expérience professionnelle
-	- **Ingénieur en essais et évaluation (IVVQ)** — Entrepreneur de la défense au service de la Marine royale canadienne, Mill Bay (C.-B.) · avril 2026 – aujourd'hui
+	- **Ingénieur en essais et évaluation (IVVQ)** — Entreprise du secteur de la défense au service de la Marine royale canadienne, Mill Bay (C.-B.) · avril 2026 – aujourd'hui
 		Planification des essais, rédaction des procédures et conduite des essais des systèmes de bord de navires de la Marine royale canadienne, notamment en chantier naval et lors d'essais en mer.
 	- **Fondateur et chef de la direction** — Casagou Inc., Victoria (C.-B.) · juillet 2023 – aujourd'hui
 		Petite entreprise de services professionnels de Victoria. Ses activités comprennent Joa Aero Engineering, mon cabinet de génie-conseil (P.Eng.) depuis juin 2025, Eventia Media (vidéo événementielle, d’entreprise et commémorative, diffusion en direct et photo aérienne par drone) et Casagou Ops (systèmes d’affaires et automatisation).

@@ -298,16 +298,19 @@ def render(md, lang, ctx, toc_levels=("h2",)):
     return htmls, heads
 
 
-def collapse(html, lang, keep_chars=320, min_hidden=300):
+COLLAPSE_EN = {}  # (page, section index) -> number of children the English page keeps visible (French review: same split in FR)
+
+
+def collapse(html, lang, keep_chars=320, min_hidden=300, page=None):
     """Presentation only: in each <section class="block">, keep the first children visible (about keep_chars of text),
     put the rest in a region toggled by a 'Read more' button. Without JS the region stays visible (the button is hidden).
     Trailing call-to-action / page links stay visible. Text is unchanged (diffcheck still sees every line)."""
-    U = UI[lang]; lines = html.split("\n"); out = []; i = 0; n = 0
+    U = UI[lang]; lines = html.split("\n"); out = []; i = 0; n = 0; sec = -1
     while i < len(lines):
         ln = lines[i]
         if not ln.startswith('<section class="block"'):
             out.append(ln); i += 1; continue
-        j = i + 1; kids = []
+        j = i + 1; kids = []; sec += 1
         bal = lambda s: len(re.findall(r"<(div|details|figure|ul|nav|picture)\b", s)) - len(re.findall(r"</(div|details|figure|ul|nav|picture)>", s))
         while j < len(lines) and lines[j] != "</section>":
             k = j; chunk = [lines[j]]
@@ -322,8 +325,14 @@ def collapse(html, lang, keep_chars=320, min_hidden=300):
         if explicit:  # <more/> marker: everything above it stays visible (main actions, 'What changes for you', 'How you'll know'); the rest goes behind 'Read more'
             k_ = kids.index("<!--MORE-->"); vis, kids = kids[:k_], kids[k_ + 1:]
             if "<!--MORE-->" in kids: sys.exit(f"collapse: more than one <more/> marker in one section ({ln[:80]})")
-        while not explicit and kids and (not vis or sum(map(txt, vis)) < keep_chars):
+        en_n = COLLAPSE_EN.get((page, sec)) if lang == "fr" and page else None
+        if not explicit and en_n:  # French: keep visible the same paragraphs as the English page (French text runs longer)
+            while kids and len(vis) < en_n:
+                vis.append(kids.pop(0))
+        while not explicit and not en_n and kids and (not vis or sum(map(txt, vis)) < keep_chars):
             vis.append(kids.pop(0))
+        if lang == "en" and page and not explicit:
+            COLLAPSE_EN[(page, sec)] = len(vis)
         if kids and (explicit or sum(map(txt, kids)) >= min_hidden) and not any("<details" in k or "<nav" in k for k in kids):
             n += 1; rid = f"rm-{slugify(re.sub(r'<[^>]+>', '', ln))[:40]}-{n}"
             vis += [f'<div class="rm-more" id="{rid}">' + "\n".join(kids) + "</div>",
@@ -721,7 +730,7 @@ def build_page(lang, page, env):
                 f'{intro}{hero_callout}</div>{hero_media}</div>'
                 + (f'<div class="wrap">{hero_src}</div>' if hero_src else "") + '</div>')
         newev = events_cal.home_line(lang, SITE, UI, url(lang, "events")) if CAL_ON(env) else ""
-        main = newev + hero + shortcuts(lang) + (vic_band(lang, env) if vic else "") + home_layout(collapse(body, lang), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
+        main = newev + hero + shortcuts(lang) + (vic_band(lang, env) if vic else "") + home_layout(collapse(body, lang, page="home"), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
         title = f"Joachim Agou – Victoria–Beacon Hill" if lang == "en" else "Joachim Agou – Victoria–Beacon Hill (français)"
         desc = re.sub(r"[*]", "", sub) + ". " + re.sub(r"[*]", "", tagline)
         return shell(lang, page, title, desc, main, env)
@@ -748,7 +757,7 @@ def build_page(lang, page, env):
     if page.get("title"):
         h1 = page["title"][lang]
     body, heads = render(md, lang, ctx) if md else ("", [])
-    if key == "media" and lang == "en" and SITE["photos"].get("media") == "joachim-agou-headshot":  # headshot first under Photos (not from Notion), linked to the 1200px JPEG
+    if key == "media" and lang in ("en", "fr") and SITE["photos"].get("media") == "joachim-agou-headshot":  # headshot first under Photos (not from Notion), linked to the 1200px JPEG
         sp = '<figure class="fig"><a href="/assets/img/joachim-agou-speaking-'
         if sp not in body: sys.exit("media: Photos image not found (needed to place the headshot)")
         hs = headshot("(min-width: 800px) 400px, 100vw", link=True, caption=True)
@@ -962,10 +971,14 @@ def updated_for(lang, key):
     if p.get("form"):
         cands.append(U.get("forms"))
     if key == "media" and lang == "fr":
-        cands.append(U.get("en-media"))
+        cands.append(U.get("fr-media") or U.get("en-media"))
+    if lang == "fr" and U.get(f"fr-{key}") and key not in SITE["notion"]:  # French-only date for a hand-written page (fr-privacy, fr-lawn-sign, ...): the English page keeps its own
+        cands.append(U.get(f"fr-{key}"))
+    if lang == "fr" and p.get("form") and U.get("fr-forms"):
+        cands.append(U.get("fr-forms"))
     d = max(c for c in cands if c)
     y, m, dd = map(int, d.split("-"))
-    txt = f"{dd} {MONTHS[lang][m - 1]} {y}"
+    txt = f"{'1er' if lang == 'fr' and dd == 1 else dd} {MONTHS[lang][m - 1]} {y}"  # French: « 1er octobre » (French review, 1 Oct 2026)
     return f'<p class="updated">{esc(UI[lang]["updated"])} <time datetime="{d}">{txt}</time></p>'
 
 

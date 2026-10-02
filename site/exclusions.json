@@ -22,8 +22,8 @@
     {
       "page": "fr-about",
       "find": "\t- **Ingénieur en essais et évaluation** — Thales Canada, Mill Bay (C.-B.) · avril 2026 – aujourd'hui\n",
-      "replace": "\t- **Ingénieur en essais et évaluation** — Entrepreneur de la défense au service de la Marine royale canadienne, Mill Bay (C.-B.) · avril 2026 – aujourd'hui\n\t\tÉlaboration de procédures d'essais pour les systèmes de bord de navires de la Marine royale canadienne.\n",
-      "why": "Rule: never show Thales (current employer). Joachim (2026-09-30): show the role without the company name (FR of the EN entry). Staging only until fr_edits_approved."
+      "replace": "\t- **Ingénieur en essais et évaluation** — Entreprise du secteur de la défense au service de la Marine royale canadienne, Mill Bay (C.-B.) · avril 2026 – aujourd'hui\n\t\tÉlaboration de procédures d'essais pour les systèmes de bord de navires de la Marine royale canadienne.\n",
+      "why": "Rule: never show Thales (current employer). Joachim (2026-09-30): show the role without the company name (FR of the EN entry). Staging only until fr_edits_approved. French review 2026-10-02: « Entreprise du secteur de la défense »."
     },
     {
       "page": "en-about",
@@ -489,9 +489,9 @@
     },
     {
       "page": "fr-about",
-      "find": "\t- **Ingénieur en essais et évaluation** — Entrepreneur de la défense au service de la Marine royale canadienne, Mill Bay (C.-B.) · avril 2026 – aujourd'hui\n\t\tÉlaboration de procédures d'essais pour les systèmes de bord de navires de la Marine royale canadienne.\n\t- **Fondateur et chef de la direction** — Casagou Inc., Victoria (C.-B.) · juillet 2023 – aujourd'hui\n\t\tPetite entreprise de services professionnels de Victoria. Ses activités comprennent Joa Aero Engineering, mon cabinet de génie-conseil (P.Eng.) depuis juin 2025, ainsi qu'Eventia Media (production vidéo événementielle et d’entreprise, et diffusion en direct), Victoria Drone (photo et vidéo aériennes) et BC Funeral Videos (diffusion en direct de funérailles et vidéos hommage).\n\t- **Administrateur, comptabilité et opérations** — Sarah Mae Ives Social Media Inc., Vancouver (C.-B.) · septembre 2023 – janvier 2026\n\t\tGestion quotidienne de la trésorerie et de la facturation pour plus de 100 comptes clients. Direction d'une équipe de 4 à 6 personnes.\n\t- **Gestionnaire de projet, préparation de l'ouverture d'un restaurant** — Victoria (C.-B.) · avril 2024 – août 2024\n\t\tPréparation de l'ouverture d'un nouveau restaurant : choix du local, bail, permis, embauche, rénovations et contrats avec les fournisseurs. Tous les jalons ont été respectés dans les délais; l'ouverture a ensuite été annulée pour des raisons externes.\n\t- **Ingénieur principal, systèmes et projets, Robotique et espace** — MDA, Brampton (Ont.) · février 2022 – février 2023\n\t\tIngénierie des systèmes robotiques utilisés pour l'entretien en orbite et l'exploration planétaire. Coordination du travail quotidien des équipes de génie mécanique, de génie électrique, de développement logiciel et des opérations de mission.\n\t- **Ingénieur d'applications, turbines à gaz, intégrateur de systèmes** — MDS Gas Turbine Engine Solutions, Ottawa (Ont.) · décembre 2013 – février 2022\n\t\tLivraison de plus de 15 installations clés en main d'essai de turbines à gaz en Amérique du Nord, en Europe, en Asie et au Moyen-Orient, pour des clients comme Rolls-Royce, Siemens, Safran, la NASA et Air France. Gestion de projets de plusieurs millions de dollars, de leurs budgets, de leurs échéanciers et des approvisionnements.\n\t- **Ingénieur, combustion et émissions polluantes** — Siemens Canada (anciennement Rolls-Royce Canada), Recherche et technologie, Montréal (Qc) · janvier 2013 – décembre 2013\n\t\tMesure des émissions sur des bancs d'essai de turbines à gaz et évaluation de plus de 10 formulations de biocarburants.\n\t- **Assistant de recherche et d'enseignement aux cycles supérieurs** — Combustion Engineering Research Laboratory, Université Laval, Québec (Qc) · janvier 2011 – mai 2013\n\t\tRecherche sur les biocarburants pour turbines à gaz. Cours donnés en thermodynamique comme conférencier invité et encadrement de stagiaires internationaux.\n\t- **Étude indépendante, structures adaptatives** — Florida Institute of Technology, Melbourne (Floride) · janvier 2010 – juin 2010\n\t- **Responsable du groupe motopropulseur, Formula SAE** — Florida Tech Motorsports, Melbourne (Floride) · novembre 2008 – mai 2009\n\t\tLe projet a remporté le prix Best Mechanical Engineering Senior Design Project (avril 2009).",
-      "replace": "\t- **Ingénieur en essais et évaluation (IVVQ)** — Entrepreneur de la défense au service de la Marine royale canadienne, Mill Bay (C.-B.) · avril 2026 – aujourd'hui\n\t\tPlanification des essais, rédaction des procédures et conduite des essais des systèmes de bord de navires de la Marine royale canadienne, notamment en chantier naval et lors d'essais en mer.\n\t- **Fondateur et chef de la direction** — Casagou Inc., Victoria (C.-B.) · juillet 2023 – aujourd'hui\n\t\tPetite entreprise de services professionnels de Victoria. Ses activités comprennent Joa Aero Engineering, mon cabinet de génie-conseil (P.Eng.) depuis juin 2025, Eventia Media (vidéo événementielle, d’entreprise et commémorative, diffusion en direct et photo aérienne par drone) et Casagou Ops (systèmes d’affaires et automatisation).\n\t- **Administrateur, comptabilité et opérations** — Sarah Mae Ives Social Media Inc., Vancouver (C.-B.) · septembre 2023 – janvier 2026\n\t\tGestion quotidienne de la trésorerie et de la facturation pour plus de 100 comptes clients. Direction d'une équipe de 4 à 6 personnes.\n\t- **Gestionnaire de projet, restauration (préparation de l'ouverture)** — Victoria (C.-B.) · avril 2024 – août 2024\n\t\tDirection de la préparation de l'ouverture d'un nouveau restaurant, du choix du local, du bail et des permis jusqu'à l'embauche et aux rénovations. Tous les jalons ont été respectés dans les délais; l'ouverture a ensuite été annulée pour des raisons externes.\n\t- **Ingénieur principal, systèmes et projets, Robotique et opérations spatiales** — MDA, Brampton (Ont.) · février 2022 – février 2023\n\t\tIngénierie des systèmes robotiques utilisés pour l'entretien en orbite et l'exploration planétaire. Coordination du travail quotidien des équipes de génie mécanique, de génie électrique, de développement logiciel et des opérations de mission.\n\t- **Ingénieur d'applications, turbines à gaz, intégrateur de systèmes** — MDS Gas Turbine Engine Solutions, Ottawa (Ont.) · décembre 2013 – février 2022\n\t\tLivraison de plus de 15 installations clés en main d'essai de turbines à gaz en Amérique du Nord, en Europe, en Asie et au Moyen-Orient, pour des clients comme Rolls-Royce, Siemens, Safran, la NASA et Air France. Gestion de projets de plusieurs millions de dollars, de leurs budgets, de leurs échéanciers et des approvisionnements.\n\t- **Ingénieur, combustion et émissions polluantes, aérothermique** — Siemens Canada (anciennement Rolls-Royce Canada), Recherche et technologie, Montréal (Qc) · janvier 2013 – décembre 2013\n\t\tMesure des émissions sur des bancs d'essai de turbines à gaz et évaluation de plus de 10 formulations de biocarburants.\n\t- **Assistant de recherche et d'enseignement aux cycles supérieurs** — Combustion Engineering Research Laboratory, Université Laval, Québec (Qc) · janvier 2011 – mai 2013\n\t\tRecherche sur les biocarburants pour turbines à gaz. Cours donnés en thermodynamique comme conférencier invité et encadrement de stagiaires internationaux.\n\t- **Étude indépendante en génie mécanique** — Florida Institute of Technology, Melbourne (Floride) · janvier 2010 – juin 2010\n\t\tRecherche sur les structures adaptatives, à l'aide de simulations par éléments finis et de dynamique des fluides numérique.\n\t- **Formula SAE, responsable de l'ingénierie du groupe motopropulseur** — Florida Tech Motorsports, Melbourne (Floride) · novembre 2008 – mai 2009\n\t\tDirection de la conception et de l'intégration du groupe motopropulseur de la voiture de course, et conception de sa carrosserie en composite. Le projet a remporté le prix Best Mechanical Engineering Senior Design Project (avril 2009).\n\t- **Technicien de maintenance (stagiaire)** — Prestige Dentaire, Nice (France) · juin – juillet 2006\n\t\tAide au diagnostic, à l'entretien et à la réparation d'équipements de cabinets dentaires.",
-      "why": "Career history rebuilt from Joachim's Notion CV (2dde245ae5f380fd8002f8f32bec3cac) on 2026-09-30: roles in CV order (A City That Works never shown; VCA volunteer role held until Joachim decides), 1-2 short sentences each; current employer not named; Casagou lists JOA Aero Engineering, Eventia Media, Victoria Drone, BC Funeral Videos. Staging only until fr_edits_approved. If a Notion edit breaks the match, update this find (the build fails on the old long descriptions). Casagou businesses list edited by Joachim 30 Sep 2026: JOA Aero Engineering, Eventia Media (absorbs the funeral-video and drone brands, not named), Casagou Ops (one-liner from the Notion CV)."
+      "find": "\t- **Ingénieur en essais et évaluation** — Entreprise du secteur de la défense au service de la Marine royale canadienne, Mill Bay (C.-B.) · avril 2026 – aujourd'hui\n\t\tÉlaboration de procédures d'essais pour les systèmes de bord de navires de la Marine royale canadienne.\n\t- **Fondateur et chef de la direction** — Casagou Inc., Victoria (C.-B.) · juillet 2023 – aujourd'hui\n\t\tPetite entreprise de services professionnels de Victoria. Ses activités comprennent Joa Aero Engineering, mon cabinet de génie-conseil (P.Eng.) depuis juin 2025, ainsi qu'Eventia Media (production vidéo événementielle et d’entreprise, et diffusion en direct), Victoria Drone (photo et vidéo aériennes) et BC Funeral Videos (diffusion en direct de funérailles et vidéos hommage).\n\t- **Administrateur, comptabilité et opérations** — Sarah Mae Ives Social Media Inc., Vancouver (C.-B.) · septembre 2023 – janvier 2026\n\t\tGestion quotidienne de la trésorerie et de la facturation pour plus de 100 comptes clients. Direction d'une équipe de 4 à 6 personnes.\n\t- **Gestionnaire de projet, préparation de l'ouverture d'un restaurant** — Victoria (C.-B.) · avril 2024 – août 2024\n\t\tPréparation de l'ouverture d'un nouveau restaurant : choix du local, bail, permis, embauche, rénovations et contrats avec les fournisseurs. Tous les jalons ont été respectés dans les délais; l'ouverture a ensuite été annulée pour des raisons externes.\n\t- **Ingénieur principal, systèmes et projets, Robotique et espace** — MDA, Brampton (Ont.) · février 2022 – février 2023\n\t\tIngénierie des systèmes robotiques utilisés pour l'entretien en orbite et l'exploration planétaire. Coordination du travail quotidien des équipes de génie mécanique, de génie électrique, de développement logiciel et des opérations de mission.\n\t- **Ingénieur d'applications, turbines à gaz, intégrateur de systèmes** — MDS Gas Turbine Engine Solutions, Ottawa (Ont.) · décembre 2013 – février 2022\n\t\tLivraison de plus de 15 installations clés en main d'essai de turbines à gaz en Amérique du Nord, en Europe, en Asie et au Moyen-Orient, pour des clients comme Rolls-Royce, Siemens, Safran, la NASA et Air France. Gestion de projets de plusieurs millions de dollars, de leurs budgets, de leurs échéanciers et des approvisionnements.\n\t- **Ingénieur, combustion et émissions polluantes** — Siemens Canada (anciennement Rolls-Royce Canada), Recherche et technologie, Montréal (Qc) · janvier 2013 – décembre 2013\n\t\tMesure des émissions sur des bancs d'essai de turbines à gaz et évaluation de plus de 10 formulations de biocarburants.\n\t- **Assistant de recherche et d'enseignement aux cycles supérieurs** — Combustion Engineering Research Laboratory, Université Laval, Québec (Qc) · janvier 2011 – mai 2013\n\t\tRecherche sur les biocarburants pour turbines à gaz. Cours donnés en thermodynamique comme conférencier invité et encadrement de stagiaires internationaux.\n\t- **Étude indépendante, structures adaptatives** — Florida Institute of Technology, Melbourne (Floride) · janvier 2010 – juin 2010\n\t- **Responsable du groupe motopropulseur, Formula SAE** — Florida Tech Motorsports, Melbourne (Floride) · novembre 2008 – mai 2009\n\t\tLe projet a remporté le prix Best Mechanical Engineering Senior Design Project (avril 2009).",
+      "replace": "\t- **Ingénieur en essais et évaluation (IVVQ)** — Entreprise du secteur de la défense au service de la Marine royale canadienne, Mill Bay (C.-B.) · avril 2026 – aujourd'hui\n\t\tPlanification des essais, rédaction des procédures et conduite des essais des systèmes de bord de navires de la Marine royale canadienne, notamment en chantier naval et lors d'essais en mer.\n\t- **Fondateur et chef de la direction** — Casagou Inc., Victoria (C.-B.) · juillet 2023 – aujourd'hui\n\t\tPetite entreprise de services professionnels de Victoria. Ses activités comprennent Joa Aero Engineering, mon cabinet de génie-conseil (P.Eng.) depuis juin 2025, Eventia Media (vidéo événementielle, d’entreprise et commémorative, diffusion en direct et photo aérienne par drone) et Casagou Ops (systèmes d’affaires et automatisation).\n\t- **Administrateur, comptabilité et opérations** — Sarah Mae Ives Social Media Inc., Vancouver (C.-B.) · septembre 2023 – janvier 2026\n\t\tGestion quotidienne de la trésorerie et de la facturation pour plus de 100 comptes clients. Direction d'une équipe de 4 à 6 personnes.\n\t- **Gestionnaire de projet, restauration (préparation de l'ouverture)** — Victoria (C.-B.) · avril 2024 – août 2024\n\t\tDirection de la préparation de l'ouverture d'un nouveau restaurant, du choix du local, du bail et des permis jusqu'à l'embauche et aux rénovations. Tous les jalons ont été respectés dans les délais; l'ouverture a ensuite été annulée pour des raisons externes.\n\t- **Ingénieur principal, systèmes et projets, Robotique et opérations spatiales** — MDA, Brampton (Ont.) · février 2022 – février 2023\n\t\tIngénierie des systèmes robotiques utilisés pour l'entretien en orbite et l'exploration planétaire. Coordination du travail quotidien des équipes de génie mécanique, de génie électrique, de développement logiciel et des opérations de mission.\n\t- **Ingénieur d'applications, turbines à gaz, intégrateur de systèmes** — MDS Gas Turbine Engine Solutions, Ottawa (Ont.) · décembre 2013 – février 2022\n\t\tLivraison de plus de 15 installations clés en main d'essai de turbines à gaz en Amérique du Nord, en Europe, en Asie et au Moyen-Orient, pour des clients comme Rolls-Royce, Siemens, Safran, la NASA et Air France. Gestion de projets de plusieurs millions de dollars, de leurs budgets, de leurs échéanciers et des approvisionnements.\n\t- **Ingénieur, combustion et émissions polluantes, aérothermique** — Siemens Canada (anciennement Rolls-Royce Canada), Recherche et technologie, Montréal (Qc) · janvier 2013 – décembre 2013\n\t\tMesure des émissions sur des bancs d'essai de turbines à gaz et évaluation de plus de 10 formulations de biocarburants.\n\t- **Assistant de recherche et d'enseignement aux cycles supérieurs** — Combustion Engineering Research Laboratory, Université Laval, Québec (Qc) · janvier 2011 – mai 2013\n\t\tRecherche sur les biocarburants pour turbines à gaz. Cours donnés en thermodynamique comme conférencier invité et encadrement de stagiaires internationaux.\n\t- **Étude indépendante en génie mécanique** — Florida Institute of Technology, Melbourne (Floride) · janvier 2010 – juin 2010\n\t\tRecherche sur les structures adaptatives, à l'aide de simulations par éléments finis et de dynamique des fluides numérique.\n\t- **Formula SAE, responsable de l'ingénierie du groupe motopropulseur** — Florida Tech Motorsports, Melbourne (Floride) · novembre 2008 – mai 2009\n\t\tDirection de la conception et de l'intégration du groupe motopropulseur de la voiture de course, et conception de sa carrosserie en composite. Le projet a remporté le prix Best Mechanical Engineering Senior Design Project (avril 2009).\n\t- **Technicien de maintenance (stagiaire)** — Prestige Dentaire, Nice (France) · juin – juillet 2006\n\t\tAide au diagnostic, à l'entretien et à la réparation d'équipements de cabinets dentaires.",
+      "why": "Career history rebuilt from Joachim's Notion CV (2dde245ae5f380fd8002f8f32bec3cac) on 2026-09-30: roles in CV order (A City That Works never shown; VCA volunteer role held until Joachim decides), 1-2 short sentences each; current employer not named; Casagou lists JOA Aero Engineering, Eventia Media, Victoria Drone, BC Funeral Videos. Staging only until fr_edits_approved. If a Notion edit breaks the match, update this find (the build fails on the old long descriptions). Casagou businesses list edited by Joachim 30 Sep 2026: JOA Aero Engineering, Eventia Media (absorbs the funeral-video and drone brands, not named), Casagou Ops (one-liner from the Notion CV). French review 2026-10-02: « Entreprise du secteur de la défense »."
     },
     {
       "page": "en-about",
@@ -1134,6 +1134,276 @@
       "find": "aider le jour de l'élection. Chaque heure compte.",
       "replace": "aider le jour de l'élection.",
       "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-home",
+      "find": "Après 9 ans du même gouvernement,",
+      "replace": "Après neuf ans sous le même gouvernement,",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: H: idiomatic 'after 9 years of the same government'."
+    },
+    {
+      "page": "fr-home",
+      "find": "Pendant tout ce temps, notre circonscription a siégé du côté du gouvernement. Elle a eu des annonces. Elle n'a pas eu de résultats.",
+      "replace": "Pendant tout ce temps, notre circonscription était représentée par le parti au pouvoir. Elle a eu droit à des annonces, mais pas à des résultats.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: H: 'This riding sat on the government side the whole time. It got announcements. It didn't get results.'"
+    },
+    {
+      "page": "fr-home",
+      "find": "Je suis papa, ingénieur professionnel (P.Eng.) et entrepreneur, et j'habite à Fairfield.",
+      "replace": "Je suis papa, ingénieur professionnel (P.Eng.) et propriétaire d'une petite entreprise; j'habite à Fairfield.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: M: EN 'a small-business owner in Fairfield'."
+    },
+    {
+      "page": "fr-home",
+      "find": "refuse de publier les chiffres de l'île,",
+      "replace": "refuse de publier les chiffres de l'île de Vancouver,",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: L precision: 'the Island's numbers'."
+    },
+    {
+      "page": "fr-home",
+      "find": "une entreprise de Victoria spécialisée en génie-conseil et en production de contenus.",
+      "replace": "une entreprise de Victoria de génie-conseil et de médias.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: EN 'engineering consulting and media company'."
+    },
+    {
+      "page": "fr-home",
+      "find": "Frapper aux portes, faire des appels, installer une pancarte ou aider le jour de l'élection.",
+      "replace": "Faire du porte-à-porte, passer des appels, installer une pancarte ou aider le jour du scrutin.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: M: Canadian French for 'Knock on doors, make calls, put up a sign or help on election day'."
+    },
+    {
+      "page": "fr-home",
+      "find": "Source : [Elections BC, Ways to Vote](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) (en anglais).\n",
+      "replace": "Source : [Elections BC, Ways to Vote](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) (en anglais).\n**Renseignements complémentaires**\n<page url=\"/fr/media/\">Médias</page>\n<page url=\"/\">Joachim Agou — Victoria–Beacon Hill (English)</page>\n",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: B7/home: EN voting block ends with 'More information', Media and the Français link (also shown on How to vote)."
+    },
+    {
+      "page": "fr-home:contact",
+      "find": "Médias (en anglais) : <mention-page url=\"https://app.notion.com/p/3ebe245ae5f381579873c06a8d0db06d\"/>",
+      "replace": "[Médias](/fr/media/)",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: B1: the French Media page now exists; link it instead of the English page."
+    },
+    {
+      "page": "fr-about",
+      "find": "Je suis ingénieur professionnel; mon expérience couvre l'aérospatiale, la défense, l'énergie et le secteur spatial. Depuis plus de 15 ans, je dirige des équipes d'ingénierie et mène à bien des projets de plusieurs millions de dollars, dans le respect des budgets et des délais. Aujourd'hui, je soutiens la Marine en tant qu'entrepreneur de la défense.",
+      "replace": "Je suis ingénieur professionnel et je possède plus de 15 ans d'expérience dans l'aérospatiale, la défense, l'énergie et le secteur spatial. Je dirige des équipes d'ingénierie et mène à bien des projets de plusieurs millions de dollars, dans le respect des budgets et des délais. Aujourd'hui, je travaille sous contrat pour soutenir la Marine.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: B2/B3: match EN 'I'm a professional engineer with more than 15 years of experience… Today I support the navy as a defence contractor.'"
+    },
+    {
+      "page": "fr-faq",
+      "find": "<summary>L'investiture du parti est-elle la même chose que figurer sur le bulletin?</summary>",
+      "replace": "<summary>L'investiture du parti est-elle la même chose que figurer sur le bulletin de vote?</summary>",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ10."
+    },
+    {
+      "page": "fr-faq",
+      "find": "La mise en candidature d'Elections BC est le formulaire qui inscrit un nom sur le bulletin : 75 personnes qui habitent Victoria–Beacon Hill, un dépôt de 250 $, déposé avant 13 h le samedi 3 octobre.",
+      "replace": "La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ10: EN 'filed by 1 p.m.' (by, not before)."
+    },
+    {
+      "page": "fr-faq",
+      "find": "une entreprise de Victoria spécialisée en génie-conseil et en production de contenus.",
+      "replace": "une entreprise de Victoria de génie-conseil et de médias.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: EN 'engineering consulting and media company'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "une petite entreprise de Victoria spécialisée en génie-conseil et en production de contenus.",
+      "replace": "une petite entreprise de Victoria de génie-conseil et de médias.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: EN 'engineering consulting and media company'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "pour que chacun sache qui peut bâtir, qui est propriétaire et qui décide,",
+      "replace": "pour que chacun sache qui peut construire sur un terrain, en être propriétaire et prendre les décisions le concernant,",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: clearer 'who can build, own and decide on land'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "<summary>Que feriez-vous des attentes au Royal Jubilee?</summary>",
+      "replace": "<summary>Que feriez-vous pour réduire les délais d'attente à l'hôpital Royal Jubilee?</summary>",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ7."
+    },
+    {
+      "page": "fr-faq",
+      "find": "pour un lit à l'urgence, tous sites, est de",
+      "replace": "pour un lit à l'urgence, tous établissements confondus, est de",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ7: 'all sites'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Je pousserai pour des heures de clinique le soir et la fin de semaine sur le sud de l'île, pour que",
+      "replace": "Je demanderai l'élargissement des heures d'ouverture des cliniques en soirée et les fins de semaine dans le sud de l'île de Vancouver, pour que",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ7: EN 'push for the evening and weekend clinic hours on the South Island'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Je ne propose pas une nouvelle loi de contrôle à la vacance. Le soulagement au logement sur ce site est l'allègement de l'impôt sur le revenu prévu au programme 2024 sur le loyer, les intérêts hypothécaires et les frais de copropriété, et plus de logements grâce à des permis plus rapides.",
+      "replace": "Je ne propose pas de nouvelle loi qui maintiendrait l'encadrement des loyers d'un locataire à l'autre. Les mesures proposées sur ce site pour rendre le logement plus abordable sont l'allègement de l'impôt sur le revenu prévu au programme 2024 pour le loyer, les intérêts hypothécaires et les frais de copropriété, ainsi que la construction de davantage de logements grâce à des permis délivrés plus rapidement.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ3/FQ6: 'vacancy-control law'; 'housing relief on this site'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "tant que les logements familiaux sont aussi rares.",
+      "replace": "tant que les logements locatifs assez grands pour les familles sont aussi rares.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ4: EN 'family-sized rentals'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Ce que je vais pousser : une désintoxication et un traitement avec du personnel, des attentes publiées chaque mois, et des soins",
+      "replace": "Ce que je défendrai : des services de désintoxication et de traitement dotés du personnel nécessaire, avec des délais d'attente publiés chaque mois, et des soins",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ8: EN 'staffed detox and treatment, with waits published monthly'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "qui ne peuvent pas prendre seules des décisions vitales.",
+      "replace": "qui ne peuvent pas prendre seules les décisions nécessaires pour sauver leur vie.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'life-saving decisions'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "et le personnel devra être prévenu avant.",
+      "replace": "et le personnel devra être informé avant la mise en œuvre du changement.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'staff told before it happens'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "BC Transit à Victoria est une décision de financement provincial et une décision de service local. Je pousserai pour des chiffres publiés sur la ponctualité et l'achalandage des lignes que cette circonscription utilise, y compris Douglas.",
+      "replace": "À Victoria, le financement de BC Transit relève de la Province, tandis que les décisions sur le service relèvent des autorités locales. Je demanderai la publication de chiffres sur la ponctualité et le niveau d'occupation des autobus sur les lignes utilisées dans cette circonscription, notamment sur Douglas.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ2 + optional opener: EN 'on-time and crowding numbers'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Les autobus des jours de croisière à James Bay font partie du plan des jours de croisière, qui est le mien.",
+      "replace": "Les autobus des jours d'escale des navires de croisière à James Bay font partie du plan pour les jours d'escale, qui est le mien.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'cruise-day'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Je veux un plan pour les jours de croisière (circulation,",
+      "replace": "Je veux un plan pour les jours d'escale des navires de croisière (circulation,",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'cruise-day plan'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Je n'annoncerai pas un nouveau programme sans un coût. Ce que je ferai : publier les chiffres de taille des classes et d'attente en garde pour cette circonscription dans le rapport trimestriel,",
+      "replace": "Je n'annoncerai pas de nouveau programme sans en préciser le coût. Ce que je ferai : publier chaque trimestre les données sur la taille des classes et les délais d'attente pour une place en service de garde dans cette circonscription,",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ9."
+    },
+    {
+      "page": "fr-faq",
+      "find": "les heures de clinique dans le sud de l'île, la publication des délais d'attente pour un traitement, la répartition des services, les soins dans un milieu sécurisé, un plan pour les jours de croisière à James Bay,",
+      "replace": "l'élargissement des heures d'ouverture des cliniques dans le sud de l'île de Vancouver, la publication des délais d'attente pour un traitement, la répartition des services, les soins dans un milieu sécurisé, un plan pour les jours d'escale des navires de croisière à James Bay,",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'South Island clinic hours', 'cruise-day plan'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "une cible de réponse de deux jours ouvrables;",
+      "replace": "une cible de réponse dans un délai de deux jours ouvrables;",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional."
+    },
+    {
+      "page": "fr-faq",
+      "find": "aucune nouvelle taxe et aucune hausse d'impôt.",
+      "replace": "aucun nouvel impôt ni aucune nouvelle taxe, et aucune hausse des impôts ou des taxes.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: FQ11: EN 'no new taxes and no tax increases' (impôts and taxes)."
+    },
+    {
+      "page": "fr-faq",
+      "find": "une liste publique des économies, les heures de clinique dans le sud de l'île,",
+      "replace": "une liste publique des économies, l'élargissement des heures d'ouverture des cliniques dans le sud de l'île de Vancouver,",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'South Island clinic hours'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "le plan pour les jours de croisière à James Bay et des normes",
+      "replace": "le plan pour les jours d'escale des navires de croisière à James Bay et des normes",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'cruise-day plan'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "décès liés aux drogues toxiques, devantures,",
+      "replace": "décès liés aux drogues toxiques, locaux commerciaux,",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'storefronts'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "## Ce que je pourrais réalistement accomplir",
+      "replace": "## Ce que je pourrais accomplir en pratique",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional heading: 'What I could realistically accomplish'."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "- Voter pour payer du temps de bloc opératoire supplémentaire, public et non gouvernemental (ma position, ligne 9 du bulletin).",
+      "replace": "- Voter pour financer du temps de bloc opératoire supplémentaire dans les établissements publics et non gouvernementaux (ma position, ligne 9 du bulletin).",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: P-R5."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "**Pourquoi :** Les soins de santé ont été gérés, pas réglés.",
+      "replace": "**Pourquoi :** On a géré le système de santé sans en régler les problèmes.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: P-R1: 'managed, not fixed'."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "Le programme évaluait l'économie à un maximum de 1 800 \\$ par année au plein niveau (",
+      "replace": "Le programme estimait l'économie à un maximum de 1 800 \\$ par année une fois le plein niveau atteint (",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: P-R4 (EN 'at the full level'; the review's added '3 000 $ cap' wording not used, EN wins)."
+    },
+    {
+      "page": "fr-priorities",
+      "find": ", et l'évaluation des coûts du parti de 2024, à environ 900 millions de dollars dans le budget 2026 (",
+      "replace": ", et le parti évaluait le coût de la mesure à environ 900 millions de dollars dans le budget 2026 (",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: P-R4: the 2024 costing sentence had no verb."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "- **Traitement :** plus de lits de désintoxication et de traitement, avec le personnel nécessaire, dans le sud de l'île, avec les délais d'attente publiés chaque mois (ma position).",
+      "replace": "- **Traitement :** davantage de lits de désintoxication et de traitement dans le sud de l'île de Vancouver, avec le personnel nécessaire et des délais d'attente publiés chaque mois (ma position).",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "et où l'on se sent en sécurité sur Pandora.",
+      "replace": "et où vous vous sentez en sécurité en marchant dans la rue Pandora.",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: EN 'where you feel safe walking on Pandora'."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "y compris les infractions violentes répétées au centre-ville,",
+      "replace": "y compris les infractions violentes commises en récidive au centre-ville,",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'repeat violent offences' (as on the scorecard)."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "avec une nouvelle direction recherchée si elles ne sont pas respectées",
+      "replace": "et la recherche d'une nouvelle direction si ces attentes ne sont pas respectées",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "- **Responsabilité de la direction :**",
+      "replace": "- **Reddition de comptes de la direction :**",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'Executive accountability'."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "**Traversées et allers-retours sont deux comptes différents :**",
+      "replace": "**Les traversées et les allers-retours correspondent à deux modes de dénombrement différents :**",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "un plan pour les jours de croisière (circulation,",
+      "replace": "un plan pour les jours d'escale des navires de croisière (circulation,",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: Optional: 'cruise-day plan'."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "données au 30 juin 2020, en anglais",
+      "replace": "données en date de juin 2020, en anglais",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: P-R6: EN 'figures as of June 2020' (no day)."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."
