@@ -69,7 +69,10 @@ def party_rewrite(h, lang):
         extra = "" if "rel=" in attrs else ' rel="noopener"'
         if lang == "fr" and "hreflang=" not in attrs: extra += ' hreflang="en"'
         return f'<a {m.group(1)}href="{esc(_PU(key))}"{m.group(4).replace(" aria-current=\"page\"", "")}{extra}>'
-    return re.sub(r'<a ([^>]*?)href="(/fr)?/(volunteer|lawn-sign|donate)/"([^>]*)>', sub, h)
+    h = re.sub(r'<a ([^>]*?)href="(/fr)?/(volunteer|lawn-sign|donate)/"([^>]*)>', sub, h)
+    if lang == "fr":  # other links to the party's (English-only) site, e.g. its privacy policy
+        h = re.sub(r'<a ((?![^>]*hreflang=)[^>]*href="https://conservativebc\.ca/[^"]*"[^>]*)>', r'<a \1 hreflang="en">', h)
+    return h
 
 
 def party_page(lang, page, env):
