@@ -166,3 +166,7 @@ See `site/README.md` "Party links". If Notion's Home or FAQ volunteer, lawn-sign
 - `site.json`: `party_links_live` set to true. Everything on staging up to 89259f7 (consistency audit, French review, Needs-Joachim answers, party links, nominee wording, filing FAQ) went out from staging b8f4190 in casagou/agou.ca PR #38, merge commit 8278fde. Media-kit PDFs unchanged (still the e8e47f6e…/df98916a… files; their bios still say "seeking to represent" / « souhaite représenter »).
 - Migration 46 recorded in casagou/Beacon-Hill `supabase/migrations/46_campaign_events_fr.sql` (commit 9eba025; already applied, do not re-apply).
 - Rollback: `git revert -m 1 8278fde` on main and push.
+
+### Social links (2 Oct 2026, Joachim via Provincial Campaign Ops), live in PR #39 (merge 1c9d657)
+- `site.json` → `social.campaign` (facebook.com/joachimagou, instagram.com/joachimagou) and `social.personal` (@casagou Instagram, Facebook, X). Footer and Home "Follow along" render "Campaign: …" / "Personal: …" (FR « Campagne » / « Personnel »); Contact uses `exclusions.json` rules on `<lang>-home:contact`. JSON-LD sameAs lists all five; "More photos on Instagram" uses `social.campaign.Instagram`. The build fails if a footer lacks the two groups.
+- Rollback: `git revert -m 1 1c9d657` on main and push.
