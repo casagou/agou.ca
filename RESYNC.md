@@ -161,3 +161,8 @@ Rules in `exclusions.json` whose "why" starts with "Joachim (1 Oct 2026, 7:49 PM
 
 ### Party links (Joachim, 2 Oct 2026 12:28 AM PT), staging only
 See `site/README.md` "Party links". If Notion's Home or FAQ volunteer, lawn-sign or donate text changes, update `build.py` PARTY_MD; the build stops if a replacement no longer matches. To publish, set `site.json` `party_links_live` to true after Joachim approves.
+
+### Published live (2 Oct 2026, Joachim approved 1:20 AM PT: "Now you can publish as is.")
+- `site.json`: `party_links_live` set to true. Everything on staging up to 89259f7 (consistency audit, French review, Needs-Joachim answers, party links, nominee wording, filing FAQ) went out from staging b8f4190 in casagou/agou.ca PR #38, merge commit 8278fde. Media-kit PDFs unchanged (still the e8e47f6e…/df98916a… files; their bios still say "seeking to represent" / « souhaite représenter »).
+- Migration 46 recorded in casagou/Beacon-Hill `supabase/migrations/46_campaign_events_fr.sql` (commit 9eba025; already applied, do not re-apply).
+- Rollback: `git revert -m 1 8278fde` on main and push.
