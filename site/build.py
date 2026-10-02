@@ -896,6 +896,9 @@ def pdf_check(dist):
         except (OSError, subprocess.CalledProcessError) as e:
             res[f] = [f"cannot read PDF text ({e}); install poppler-utils"]; continue
         es = []
+        flat = re.sub(r"\s+", " ", txt)
+        for pat, what in PRIORITIES_OLD:
+            if re.search(pat, flat): es.append(f"contains {what}")
         for pat, what in FORBIDDEN:
             for m in re.finditer(pat, txt + "\n" + meta):
                 line = (txt + "\n" + meta)[:m.start()].rsplit("\n", 1)[-1] + (txt + "\n" + meta)[m.start():].split("\n", 1)[0]
@@ -1049,6 +1052,13 @@ PRIORITIES_OLD = [
     (r"public drug use as their biggest problem|comme leur principal problème", "'biggest problem' (the DVBA survey asked for top challenges; 73% named public drug use)"),
     (r"(?i)no provincial income tax on up to|aucun impôt provincial sur le revenu sur les sommes versées en loyer ou en intérêts hypothécaires, jusqu['’]à 3 000", "the shortened housing tax line (give the full 2024 detail: $1,500 rising to $3,000, strata fees, tax relief not a payment)"),
     (r"budgets? équilibrés? et honnêtes|honest budgets?[^.]{0,40}équilibr", "'honest budgets' rendered as 'budgets équilibrés'"),
+    # Round 2 (Joachim, 1 Oct 2026 5:27 PM PT): also checked on every page and in the media-kit PDFs
+    (r"custody where the law allows|detention of repeat violent offenders where the law allows|(?:maintenir|garder) en détention [^.]{0,80}lorsque la loi le permet|détention des récidivistes violents lorsque la loi le permet", "'custody where the law allows' (bail is federal; the MLA levers are provincial funding and administration, plus pressing Ottawa)"),
+    (r"Indexation restored from 2027|indexation à partir de 2027", "an indexation year (the year and the funding follow the party's published fiscal plan)"),
+    (r"A balanced (?:provincial )?budget, reported line by line|Un budget (?:provincial )?équilibré, présenté poste par poste|push for a balanced provincial budget|défendra un budget provincial équilibré", "a balanced budget listed as a cost-of-living measure (see Responsible spending; it is not a household saving)"),
+    (r"quarterly ferry cancellation and on-time results|chiffres trimestriels sur les annulations de traversées", "ferry reporting under cost of living (it is in Transport and BC Ferries, from BC Ferries' reports)"),
+    (r"(?i)the candidate announced by|le candidat annoncé par", "'the candidate announced by' (say 'The BC Greens have announced …')"),
+    (r"charter and flat fare|charte de BC Ferries et le tarif fixe", "'flat fare' as a firm party item (the 2024 platform proposed consulting frequent users)"),
 ]
 EXPERIENCE_OLD = r"(?i)(more than|over)\s+(12|twelve)\s+years|\b(12|twelve) years of experience|plus de (12|douze) ans"
 PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910"}
@@ -1071,7 +1081,7 @@ def check(dist):
         rel_ = f.relative_to(dist).as_posix()
         if 'class="lockup' in t and rel_ not in ("index.html", "fr/index.html", "priorities/index.html", "fr/priorities/index.html", "scorecard/index.html", "fr/scorecard/index.html"):
             errs.append(f"{rel_}: the two-line lockup is only for home, Priorities and Scorecard")
-        if rel_ in ("priorities/index.html", "fr/priorities/index.html", "scorecard/index.html", "fr/scorecard/index.html"):
+        if True:  # every page (round 2: FAQ, home and media must match Priorities v2 too)
             for pat, what in PRIORITIES_OLD:
                 if re.search(pat, plain_t): errs.append(f"{rel_}: contains {what}")
             if "<!--MORE-->" in t: errs.append(f"{rel_}: a <more/> marker was not turned into a Read more region")

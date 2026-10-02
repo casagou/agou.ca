@@ -12,7 +12,7 @@ I will publish these 12 numbers every quarter, say whether they moved, and print
 ---
 
 **1. The tax on your first dollars of income**  
-**Target:** Bottom provincial rate back to 5.06%. Indexation restored from 2027. Keep the enhanced B.C. tax reduction credit so lower-income filers are not asked to fund the reversal.  
+**Target:** Bottom provincial rate back to 5.06%. Indexation restored. The year and the funding follow the party’s published fiscal plan. Keep the enhanced B.C. tax reduction credit so lower-income filers are not asked to fund the reversal.  
 **Today:** 5.60% on the first $50,363 (2026 tax year). Brackets frozen 2027–2030. Average filer: +$76. More than 40% of filers came out ahead only because the tax reduction credit went up by $115. Reversing the rate without keeping that credit is a tax increase on those households.  
 **Source / cadence:** B.C. Ministry of Finance tax tables and Budget 2026. Annual.  
 **My lever:** Vote. I will not vote for a budget that raises rates. I will vote to restore 5.06% and indexation when the party prints the year and the offset.
@@ -47,7 +47,7 @@ I will publish these 12 numbers every quarter, say whether they moved, and print
 **Target:** 40% fewer deaths in Greater Victoria by the end of the term versus 2025. Victoria, Island, and B.C. numbers printed side by side. Deaths already fell about 21% province-wide in 2025; the target is on top of that, not a victory lap for a trend that started without me.  
 **Today:** 128 deaths in South Vancouver Island in 2025 (94 in the Greater Victoria local health area); 343 on the Island; 1,826 in B.C.  
 **Source / cadence:** BC Coroners Service — monthly preliminary, annual confirmed.  
-**My lever:** Vote for treatment capacity and for keeping dealers and repeat violent offenders in custody where the law allows. I cannot promise a death count.
+**My lever:** Vote for treatment capacity, and to fund the prosecutors, sheriffs and court time that bring dealers and repeat violent offenders to trial, which the Province pays for and runs. Bail is federal law, in the Criminal Code: I will press Ottawa to amend it. I cannot promise a death count.
 
 **7. Crime in this city**  
 **Target:** City of Victoria crime lower than 2024 by the end of year two, then down each year after. Repeat violent offences in the core published every quarter.  

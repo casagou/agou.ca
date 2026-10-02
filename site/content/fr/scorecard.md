@@ -12,7 +12,7 @@ Je publierai ces 12 chiffres chaque trimestre, je dirai s’ils ont bougé et j�
 ---
 
 **1. L’impôt sur vos premiers dollars de revenu**  
-**Cible :** Ramener le taux provincial de la première tranche à 5,06 %. Rétablir l’indexation à partir de 2027. Maintenir le crédit bonifié de réduction d’impôt de la C.-B. pour que les contribuables à faible revenu n’aient pas à financer ce retour en arrière.  
+**Cible :** Ramener le taux provincial de la première tranche à 5,06 %. Rétablir l’indexation. L’année et le financement suivent le plan financier publié par le parti. Maintenir le crédit bonifié de réduction d’impôt de la C.-B. pour que les contribuables à faible revenu n’aient pas à financer ce retour en arrière.  
 **Aujourd’hui :** 5,60 % sur les premiers 50 363 $ (année d’imposition 2026). Tranches gelées de 2027 à 2030. Contribuable moyen : +76 $. Plus de 40 % des contribuables s’en sortent gagnants uniquement parce que le crédit de réduction d’impôt a augmenté de 115 $. Revenir sur la hausse du taux sans maintenir ce crédit serait une hausse d’impôt pour ces ménages.  
 **Source / fréquence :** Tables d’imposition du ministère des Finances de la C.-B. et Budget 2026. Annuelle.  
 **Mon levier :** Mon vote. Je ne voterai pas pour un budget qui hausse les taux. Je voterai pour rétablir le taux de 5,06 % et l’indexation quand le parti aura fixé l’année et la mesure compensatoire.
@@ -47,7 +47,7 @@ Je publierai ces 12 chiffres chaque trimestre, je dirai s’ils ont bougé et j�
 **Cible :** 40 % de décès en moins dans le Grand Victoria d’ici la fin du mandat par rapport à 2025. Les chiffres de Victoria, de l’Île et de la C.-B. publiés côte à côte. Les décès ont déjà baissé d’environ 21 % dans la province en 2025; la cible s’ajoute à cette baisse, ce n’est pas un tour d’honneur pour une tendance qui a commencé sans moi.  
 **Aujourd’hui :** 128 décès dans le Sud de l’île de Vancouver en 2025 (94 dans la zone locale de santé du Grand Victoria); 343 sur l’Île; 1 826 en C.-B.  
 **Source / fréquence :** Service des coroners de la C.-B. — données préliminaires mensuelles, confirmées chaque année.  
-**Mon levier :** Voter pour la capacité de traitement et pour maintenir en détention les trafiquants et les récidivistes violents lorsque la loi le permet. Je ne peux pas promettre un nombre de décès.
+**Mon levier :** Voter pour la capacité de traitement, et pour financer les procureurs, les shérifs et le temps d’audience qui permettent de traduire en justice les trafiquants et les récidivistes violents, que la Province paie et administre. La mise en liberté sous caution relève du droit fédéral, dans le Code criminel : je presserai Ottawa de la modifier. Je ne peux pas promettre un nombre de décès.
 
 **7. La criminalité dans notre ville**  
 **Cible :** La criminalité dans la Ville de Victoria plus basse qu’en 2024 d’ici la fin de la deuxième année, puis en baisse chaque année par la suite. Les infractions violentes répétées au centre-ville publiées chaque trimestre.  

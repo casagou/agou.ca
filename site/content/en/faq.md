@@ -75,10 +75,10 @@ No. I come to you. Reach me by email or phone, or come to an event. If I'm elect
 ## My proposals
 <details>
 <summary>How would you improve access to family doctors and health care?</summary>
-Cut doctors' paperwork so clinics can take more patients. Add evening and weekend clinic hours on the South Island. Use publicly paid surgeries and scans at non-government clinics to shorten waits (party plan).
+Cut doctors' paperwork so clinics can take more patients (my position; the 2024 party platform also proposed reducing doctors' administrative burden). Add evening and weekend clinic hours on the South Island (my position). Use publicly paid surgeries and scans at non-government clinics to shorten waits (2024 party platform).
 An MLA does not run Island Health. As MLA, I'd push for these in the Legislature and in budget debates. Extra hours need staff, so doctors and nurses must be recruited first.
-How you'll know: I'll publish how many people are waiting in each Victoria-area care network, and for how long. <mention-page url="/priorities/"/>
-Cost: cutting paperwork is a rule change, not a new program. Publicly paid surgeries at non-government clinics are part of the party's health plan. I'll publish a local cost note once the party releases updated 2026 figures. Until then I will not invent a number.
+How you'll know: [scorecard](https://agou.ca/scorecard/) lines 8, 9 and 10, every quarter (the emergency wait for a bed, planned-surgery waits and the wait for a family doctor). I'll also publish how many people are waiting in each Victoria-area care network, and for how long. <mention-page url="/priorities/"/>
+Cost: cutting paperwork is a rule change, not a new program. Publicly paid surgeries at non-government clinics are in the party's 2024 platform. I'll publish a local cost note once the party releases updated 2026 figures. Until then I will not invent a number.
 </details>
 <details>
 <summary>What would you do about waits at Royal Jubilee?</summary>
@@ -87,45 +87,46 @@ I will publish that number every quarter. I will push for the evening and weeken
 </details>
 <details>
 <summary>How would you make housing more affordable?</summary>
-Fixed permit timelines of 6 months for rezoning and 3 months for a building permit, or the province steps in (party plan); lower fees and paperwork on new homes; and no provincial income tax on up to $3,000 a month of rent or mortgage interest (party plan).
-Faster, cheaper approvals mean more homes get built, which eases rents over time. The tax relief helps renters and buyers now.
+Approvals in months, not years: 6 months for a rezoning and development permit, 3 months for a building permit; if city hall doesn't give a clear yes or no in time, the Province issues the permits (2024 party platform). Lower fees and paperwork on new homes (my position). Income-tax relief on housing costs (2024 party platform): it starts at $1,500 a month of eligible housing costs (rent, mortgage interest and strata fees) and rises by $500 a year toward $3,000. Your eligible housing costs set how much provincial income tax you're relieved of. It is not a monthly payment.
+Faster, cheaper approvals count when they turn into finished homes, including family-sized ones, which eases rents over time. Under the 2024 proposal, the tax relief would lower provincial income tax for people who pay rent, mortgage interest or strata fees.
 Trade-offs: faster approvals mean less municipal control, and the tax cut lowers provincial revenue. The party's 2024 costing put the rent-and-mortgage rebate at about $900 million in Budget 2026, starting at $1,500 a month and rising to $3,000. Sources: [2024 costing appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf), [2024 platform](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650).
-How you'll know: I'll publish permit times for every municipality in the region.
+How you'll know: [scorecard](https://agou.ca/scorecard/) lines 3 and 4 (net new homes and how many have three or more bedrooms; rental vacancy). I'll also publish permit times for every municipality in the region, as a check on approvals.
 </details>
 <details>
 <summary>What about rent control and short-term rentals?</summary>
-I am not proposing a new vacancy-control law. The housing relief on this site is the tax relief on rent and mortgage interest, and more homes from faster permits.
+I am not proposing a new vacancy-control law. The housing relief on this site is the 2024 platform's income-tax relief on rent, mortgage interest and strata fees, and more homes from faster permits.
 Victoria already has the provincial short-term rental rules. I will not ask to loosen them in this riding while family-sized rentals are this scarce. The scorecard puts rented-condo vacancy at about 0.3%. Source: the [scorecard](https://agou.ca/scorecard/).
 </details>
 <details>
 <summary>What is your approach to public safety, homelessness, mental health and addiction?</summary>
 These are linked but different problems.
-- **Treatment:** more staffed detox and treatment beds on the South Island, with waits published monthly. Secure care for people with severe addiction who are a danger to themselves or others, with medical and legal safeguards — that last item is my position, which I would advocate for within the party.
+- **Treatment:** more staffed detox and treatment beds on the South Island, with waits published monthly. Secure care for people with severe addiction who are a danger to themselves or others, with medical and legal safeguards — that last item is my position; the 2024 party platform also proposed involuntary treatment legislation.
 - **Housing:** move people from tents into housing with support, and report how many stay housed after 12 months.
-- **Safety:** keep repeat violent offenders in custody where the law allows, and add sheriffs and judges so cases reach trial faster.
+- **Safety:** add sheriffs and judges so cases reach trial faster. The courts, prosecution and sheriffs are provincial, and I'll vote to fund them. Bail is federal law, so for repeat violent offenders I'll press Ottawa for amendments.
 - **Balance:** spread health services across the region, not only on a few downtown blocks.
-How you'll know: a quarterly report on repeat offences, time to trial, treatment waits and storefront vacancy.
+How you'll know: [scorecard](https://agou.ca/scorecard/) lines 5, 6, 7 and 12 (people sleeping outside, toxic-drug deaths, crime in the city including repeat violent offences downtown, and treatment beds), plus time to trial and downtown storefront vacancy in the same quarterly report.
 </details>
 <details>
 <summary>Where do you stand on safer supply and decriminalization?</summary>
 I do not support prescribed safer supply as the plan for this riding. South Vancouver Island had 128 toxic-drug deaths in 2025. Source: the [scorecard](https://agou.ca/scorecard/), from the BC Coroners Service.
-What I will push for is staffed detox and treatment, with waits published monthly, and secure care where someone with severe addiction is a danger to themselves or others. That secure-care item is my position, which I would advocate for within the party. It is not a party plan item.
+What I will push for is staffed detox and treatment, with waits published monthly, and secure care where someone with severe addiction is a danger to themselves or others. That secure-care item is my position, which I would advocate for within the party. The 2024 party platform also proposed involuntary treatment legislation for people with addiction who can't make life-saving decisions on their own.
 Decriminalization did not open those beds. A possession rule is not a treatment plan.
 </details>
 <details>
 <summary>What would you do to reduce the cost of living?</summary>
-The costs I'd target are the ones government sets: ferries, rent relief through the tax system, and taxes.
-- A BC Ferries charter with service targets, executive pay tied to results and a flat monthly fare for frequent travellers (party plan).
-- No PST on affordable used cars ([party plan](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650); [2024 costing](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) put the drivers' package at about $60 million from 2026/27).
-- The rent and mortgage-interest tax relief above.
-- A balanced budget, reported line by line.
-- Cut the small-business tax from 2% to 1% ([party plan](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650); [2024 costing](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) about $150 million in Budget 2026).
+The costs I'd target are the ones government sets: provincial income tax, ferry fares, and housing costs through the tax system.
+- Restore the lowest provincial income-tax rate to 5.06% and inflation indexing, and keep the enhanced B.C. tax reduction credit for lower-income taxpayers (my position, [scorecard](https://agou.ca/scorecard/) line 1). The year and the funding follow the party's published fiscal plan.
+- Publish a verifiable list of government savings (my position, scorecard line 2).
+- Ferry fares: consult commuters and other frequent users on a monthly flat-fee program or other measures (2024 party platform).
+- No PST on affordable used cars ([2024 party platform](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650); [2024 costing](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) put the drivers' package at about $60 million from 2026/27).
+- The income-tax relief on housing costs above (2024 party platform).
+- Cut the small-business tax from 2% to 1% ([2024 party platform](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650); [2024 costing](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) about $150 million in Budget 2026).
 I can't promise grocery prices or market rents; those depend on factors outside provincial control.
-How you'll know: quarterly ferry cancellation and on-time results.
+How you'll know: [scorecard](https://agou.ca/scorecard/) lines 1 and 2 (the tax rate, indexing and the credit; the savings list). Ferry reliability is reported separately, from BC Ferries' own reports (see Transport and BC Ferries on the Priorities page).
 </details>
 <details>
 <summary>What would a balanced budget cut, including jobs in the public service?</summary>
-I will not cut health care or education to write a slogan. I also will not invent a savings number. The party's last published costing said the tax cuts would be paid for by faster growth, with a balanced budget in a second term.
+I will not cut health care or education to write a slogan. I also will not invent a savings number. In 2024 the party committed to balance the budget in its second term, through faster growth, strategic new spending and moving wasteful spending to priority areas, and said an immediate return to balance would require severe cuts to front-line services, which it would not make (2024 party platform). The party has not yet published a 2026 fiscal plan. A balanced budget is not a saving for your household; it is how you can check that commitments are paid for.
 Almost half of B.C.'s public service works in Victoria. Any change I vote for has to come with published service standards, and with staff told before it happens. That standard is my position. If a bill does not say what it cuts, I will vote against it.
 </details>
 <details>
@@ -160,8 +161,8 @@ The large items are party commitments. The last published costing is the [Conser
 - Small-business tax cut to 1%: about $150 million in Budget 2026.
 - Get BC Building (infrastructure, incentives, faster approvals): about $1.1 billion from 2026/27.
 - No PST on affordable used vehicles: part of an estimated $60 million drivers package from 2026/27.
-The party said faster economic growth would pay for those tax cuts, and committed to balancing the budget in a second term. I'll use those figures until the party publishes a 2026 update, then I'll replace them. Source: [2024 costing appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf).
-Items that are mine — cutting doctors' paperwork, South Island clinic hours, published treatment waits, spreading services, secure care, a James Bay cruise-day plan, public-service standards — are mostly rule and reporting changes. Where they need new staff or beds, I will not invent a dollar figure. I'll publish the cost when the Ministry or Island Health numbers exist, and I'll vote against a bill I cannot explain.
+In 2024 the party said faster economic growth would pay for those tax cuts, and committed to balancing the budget in a second term (2024 party platform). I'll use those figures until the party publishes a 2026 update, then I'll replace them. Source: [2024 costing appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf).
+Items that are mine — cutting doctors' paperwork (also in the 2024 platform), South Island clinic hours, published treatment waits, spreading services, secure care, a James Bay cruise-day plan, public-service standards — are mostly rule and reporting changes. Where they need new staff or beds, I will not invent a dollar figure. I'll publish the cost when the Ministry or Island Health numbers exist, and I'll vote against a bill I cannot explain.
 </details>
 <details>
 <summary>What would you do first if elected, and how would we measure progress?</summary>
@@ -170,8 +171,9 @@ Within my control: the reports, the office and my votes. Dependent on others: wa
 </details>
 <details>
 <summary>Which proposals are party commitments, and which are your own?</summary>
-Party plan: publicly paid surgeries and scans at non-government clinics; fixed permit timelines; income tax relief on rent and mortgage interest; the BC Ferries charter and flat fare; no PST on affordable used cars; cut the small-business tax from 2% to 1%.
-My own positions, which I'd advocate for within the party: cutting doctors' paperwork, South Island clinic hours, published treatment waits, spreading services across the region, secure care for severe addiction, no prescribed safer supply as the plan for this riding, keeping the provincial short-term rental rules here, publishing the Jubilee emergency-bed wait, the James Bay cruise-day plan and service standards for public servants.
+2024 party platform (October 2024; the party's current platform page says "coming soon", so these are not yet confirmed for this election): publicly paid surgeries and scans at non-government clinics; fixed permit timelines; income-tax relief on housing costs (rent, mortgage interest and strata fees); the BC Ferries Charter, and consulting frequent users on a monthly flat-fee program or other measures; no PST on affordable used cars; cut the small-business tax from 2% to 1%.
+Current party commitment (27 Sep 2026): no new taxes and no tax increases.
+My own positions, which I'd advocate for within the party: cutting doctors' paperwork (the 2024 platform also proposed reducing doctors' administrative burden), restoring the 5.06% rate and indexing while keeping the enhanced tax reduction credit, a public savings list, South Island clinic hours, published treatment waits, spreading services across the region, secure care for severe addiction (the 2024 platform also proposed involuntary treatment), no prescribed safer supply as the plan for this riding (the 2024 platform also opposed it), keeping the provincial short-term rental rules here, publishing the Jubilee emergency-bed wait, the James Bay cruise-day plan and service standards for public servants.
 </details>
 <details>
 <summary>What could you accomplish if your party does not form government?</summary>
@@ -180,7 +182,7 @@ A backbench MLA cannot pass the full platform alone. I can still force numbers o
 </details>
 <details>
 <summary>How are you different from Grace Lore and Raj Sahota?</summary>
-Grace Lore is the NDP MLA and has filed with Elections BC. Raj Sahota is the candidate announced by the BC Greens. Sources: [Elections BC candidate list](https://elections.bc.ca/2026-provincial-election/candidate-list/), [BC Green Party, 24 September 2026](https://bcgreens.ca/announce-candidates-for-victoria-beacon-hill-and-juan-de-fuca-malahat/).
+Grace Lore is the NDP MLA and has filed with Elections BC. The BC Greens have announced Raj Sahota. Sources: [Elections BC candidate list](https://elections.bc.ca/2026-provincial-election/candidate-list/), [BC Green Party, 24 September 2026](https://bcgreens.ca/announce-candidates-for-victoria-beacon-hill-and-juan-de-fuca-malahat/).
 I am not running against their biographies. The test is the riding's numbers: family-doctor wait, permit times, toxic-drug deaths, storefronts, and whether a quarterly report exists. Lore has been the MLA. Those numbers are the record.
 </details>
 ## Representation and accountability
