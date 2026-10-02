@@ -984,6 +984,156 @@
       "find": "des soins dans un milieu sécurisé pour les dépendances graves, pas d'approvisionnement plus sécuritaire sur ordonnance comme plan pour cette circonscription,",
       "replace": "des soins dans un milieu sécurisé pour les dépendances graves (le programme 2024 proposait aussi le traitement involontaire), pas d'approvisionnement plus sécuritaire sur ordonnance comme plan pour cette circonscription (le programme 2024 s'y opposait aussi),",
       "why": "Priorities v2 round 2 (1 Oct 2026): the 2024 platform also proposed involuntary treatment (p.67, p.79) and ending 'unsafe supply' (p.5), so these are no longer described as 'not a party plan item'. Staging only until priorities_v2_approved."
+    },
+    {
+      "page": "en-faq",
+      "find": "Are you the BC Conservative candidate?",
+      "replace": "Have you won the BC Conservative nomination?",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-faq",
+      "find": "the tax cut lowers provincial revenue. The party's 2024 costing put the rent-and-mortgage rebate at about $900 million in Budget 2026, starting at $1,500 a month and rising to $3,000.",
+      "replace": "the tax relief lowers provincial revenue. The party's 2024 costing put the income-tax relief on housing costs at about $900 million in Budget 2026, starting at $1,500 a month and rising toward $3,000.",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-faq",
+      "find": "more staffed detox and treatment beds on the South Island, with waits published monthly. Secure care for people with severe addiction who are a danger to themselves or others, with medical and legal safeguards — that last item is my position; the 2024 party platform also proposed involuntary treatment legislation.",
+      "replace": "more staffed detox and treatment beds on the South Island, with waits published monthly (my position). Secure care for people with severe addiction who are a danger to themselves or others, with medical and legal safeguards (my position; the 2024 party platform also proposed involuntary treatment legislation).",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-faq",
+      "find": "move people from tents into housing with support, and report how many stay housed after 12 months.",
+      "replace": "move people from tents into housing with support, and report how many stay housed after 12 months (my position; the 2024 party platform also proposed moving campers into support services).",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-faq",
+      "find": "Bail is federal law, so for repeat violent offenders I'll press Ottawa for amendments.\n",
+      "replace": "Bail is federal law, so for repeat violent offenders I'll press Ottawa for amendments (my position; the 2024 party platform also proposed more sheriffs and judges).\n",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-faq",
+      "find": "spread health services across the region, not only on a few downtown blocks.",
+      "replace": "spread health services across the region, not only on a few downtown blocks (my position).",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-faq",
+      "find": "and a ferries charter with service targets.",
+      "replace": "and a BC Ferries Charter that sets out service and performance expectations (2024 party platform).",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-faq",
+      "find": "Source: [Greater Victoria Harbour Authority, Oct 2025](https://gvha.ca/about-gvha/newsroom/victorias-2025-cruise-season-closes-strongly-on-saturday/). Source: [Greater Victoria Harbour Authority, Oct 2025](https://gvha.ca/about-gvha/newsroom/victorias-2025-cruise-season-closes-strongly-on-saturday/).",
+      "replace": "Source: [Greater Victoria Harbour Authority, Oct 2025](https://gvha.ca/about-gvha/newsroom/victorias-2025-cruise-season-closes-strongly-on-saturday/).",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-faq",
+      "find": "The large items are party commitments.",
+      "replace": "The large items are from the party's 2024 platform.",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-faq",
+      "find": "Rent and mortgage rebate: about $900 million in Budget 2026.",
+      "replace": "Income-tax relief on housing costs (rent, mortgage interest and strata fees): about $900 million in Budget 2026.",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-faq",
+      "find": "published treatment waits, spreading services across the region, secure care for severe addiction (the 2024 platform also proposed involuntary treatment),",
+      "replace": "published treatment waits, spreading services across the region, moving people from tents into housing with support and more sheriffs and judges (both also proposed in the 2024 platform), secure care for severe addiction (the 2024 platform also proposed involuntary treatment),",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Êtes-vous le candidat du Parti conservateur de la Colombie-Britannique?",
+      "replace": "Avez-vous obtenu l'investiture du Parti conservateur de la Colombie-Britannique?",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "la baisse d'impôt réduit les revenus de la province. L'évaluation des coûts du parti de 2024 chiffrait la remise pour le loyer et les intérêts hypothécaires à environ 900 millions de dollars dans le Budget 2026, en commençant à 1 500 \\$ par mois pour passer ensuite à 3 000 \\$.",
+      "replace": "l'allègement fiscal réduit les revenus de la province. L'évaluation des coûts du parti de 2024 chiffrait l'allègement de l'impôt sur le revenu lié aux frais de logement à environ 900 millions de dollars dans le Budget 2026, en commençant à 1 500 \\$ par mois pour augmenter progressivement jusqu'à 3 000 \\$.",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "avec les délais d'attente publiés chaque mois. Des soins dans un milieu sécurisé, assortis de garanties médicales et juridiques, pour les personnes atteintes d'une dépendance grave qui représentent un danger pour elles-mêmes ou pour autrui — ce dernier point est ma position personnelle; le programme 2024 du parti proposait aussi une loi sur le traitement involontaire.",
+      "replace": "avec les délais d'attente publiés chaque mois (ma position). Des soins dans un milieu sécurisé, assortis de garanties médicales et juridiques, pour les personnes atteintes d'une dépendance grave qui représentent un danger pour elles-mêmes ou pour autrui (ma position; le programme 2024 du parti proposait aussi une loi sur le traitement involontaire).",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "et publier combien d'entre elles sont toujours logées après 12 mois.",
+      "replace": "et publier combien d'entre elles sont toujours logées après 12 mois (ma position; le programme 2024 du parti proposait aussi d'orienter les campeurs vers les services de soutien).",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "je presserai donc Ottawa d'y apporter des modifications.\n",
+      "replace": "je presserai donc Ottawa d'y apporter des modifications (ma position; le programme 2024 du parti proposait aussi plus de shérifs et de juges).\n",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "et pas seulement sur quelques rues du centre-ville.",
+      "replace": "et pas seulement sur quelques rues du centre-ville (ma position).",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "et une charte de BC Ferries avec des cibles de service.",
+      "replace": "et une charte de BC Ferries qui énonce les attentes en matière de service et de rendement (programme 2024 du parti).",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Les mesures importantes sont des engagements du parti.",
+      "replace": "Les mesures importantes viennent du programme 2024 du parti.",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Remise pour le loyer et les intérêts hypothécaires : environ 900 millions",
+      "replace": "Allègement de l'impôt sur le revenu lié aux frais de logement (loyer, intérêts hypothécaires et frais de copropriété) : environ 900 millions",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "la répartition des services dans toute la région, des soins dans un milieu sécurisé pour les dépendances graves (le programme 2024 proposait aussi le traitement involontaire),",
+      "replace": "la répartition des services dans toute la région, l'accès à un logement avec soutien pour les personnes vivant sous tente et plus de shérifs et de juges (deux mesures aussi proposées dans le programme 2024), des soins dans un milieu sécurisé pour les dépendances graves (le programme 2024 proposait aussi le traitement involontaire),",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "pendant que je suis député.\nJe ne fais pas ici une promesse de campagne de quitter cet emploi. C'est le commissaire, pas un slogan, qui décide ce qui doit cesser.\n\n\tSi j'étais élu, je respecterais la *Members' Conflict of Interest Act* de la Colombie-Britannique. Je déposerais la déclaration requise auprès du commissaire aux conflits d'intérêts et j'en publierais un résumé en langage clair. Je me récuserais lorsque les règles l'exigent. Je n'accepterais aucun nouveau contrat provincial par l'intermédiaire de Casagou Inc. tant que je serais député.\n",
+      "replace": "pendant que je suis député.\nJe ne fais pas ici une promesse de campagne de quitter cet emploi. C'est le commissaire, pas un slogan, qui décide ce qui doit cesser.\n",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Oui. Si vous êtes locataire, il vous faut la permission de votre propriétaire. [Demander",
+      "replace": "Oui. Si vous êtes locataire, il vous faut la permission de votre propriétaire. En copropriété, respectez les règlements de la copropriété. En appartement, une pancarte à la fenêtre est souvent la solution. [Demander",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "en-home",
+      "find": "help on election day. Every hour helps.",
+      "replace": "help on election day.",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
+    },
+    {
+      "page": "fr-home",
+      "find": "aider le jour de l'élection. Chaque heure compte.",
+      "replace": "aider le jour de l'élection.",
+      "why": "Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): mechanical alignment with the published Priorities v2 / FAQ wording and labels, FR parity, house rules. See /workspace/agou.ca-consistency-audit.md."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

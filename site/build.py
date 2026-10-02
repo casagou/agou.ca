@@ -1059,6 +1059,12 @@ PRIORITIES_OLD = [
     (r"quarterly ferry cancellation and on-time results|chiffres trimestriels sur les annulations de traversées", "ferry reporting under cost of living (it is in Transport and BC Ferries, from BC Ferries' reports)"),
     (r"(?i)the candidate announced by|le candidat annoncé par", "'the candidate announced by' (say 'The BC Greens have announced …')"),
     (r"charter and flat fare|charte de BC Ferries et le tarif fixe", "'flat fare' as a firm party item (the 2024 platform proposed consulting frequent users)"),
+    # Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): retired on every page
+    (r"(?i)rent[- ]and[- ]mortgage rebate|remise pour le loyer et les intérêts hypothécaires", "'rent and mortgage rebate' (it is income-tax relief on housing costs, not a payment)"),
+    (r"The large items are party commitments|Les mesures importantes sont des engagements du parti", "2024 platform items called 'party commitments' (label them 2024 party platform)"),
+    (r"Are you the BC Conservative candidate\?|Êtes-vous le candidat du Parti conservateur", "'the candidate' FAQ question (he is seeking the nomination)"),
+    (r"Every hour helps|Chaque heure compte", "'Every hour helps' (cut by Joachim on 1 Oct 2026)"),
+    (r"(?i)become a nominator|appui à sa candidature", "a nominator ask (nominations are complete)"),
 ]
 EXPERIENCE_OLD = r"(?i)(more than|over)\s+(12|twelve)\s+years|\b(12|twelve) years of experience|plus de (12|douze) ans"
 PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910"}

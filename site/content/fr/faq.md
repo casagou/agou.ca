@@ -6,7 +6,7 @@
 	En savoir plus : <mention-page url="/fr/about/"/>
 </details>
 <details>
-<summary>Êtes-vous le candidat du Parti conservateur de la Colombie-Britannique?</summary>
+<summary>Avez-vous obtenu l'investiture du Parti conservateur de la Colombie-Britannique?</summary>
 	Pas encore. Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative.
 	La période de mise en candidature auprès d'Elections BC se termine le samedi 3 octobre, à 13 h. La liste officielle des candidats est publiée par [Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/) (en anglais). Je mettrai cette réponse à jour le jour même où ma situation changera.
 </details>
@@ -94,7 +94,7 @@ Je publierai ce chiffre chaque trimestre. Je pousserai pour des heures de cliniq
 <summary>Comment rendriez-vous le logement plus abordable?</summary>
 	Approuver les logements en quelques mois, pas en plusieurs années : 6 mois pour un rezonage et un permis d'aménagement, 3 mois pour un permis de construire; si l'hôtel de ville ne donne pas un oui ou un non clair dans ce délai, la Province délivre les permis (programme 2024 du parti). Moins de frais et de paperasse pour les logements neufs (ma position). Un allègement de l'impôt sur le revenu lié aux frais de logement (programme 2024 du parti) : il commence à 1 500 \$ par mois de frais de logement admissibles (loyer, intérêts hypothécaires et frais de copropriété) et augmente de 500 \$ par année jusqu'à 3 000 \$. Vos frais de logement admissibles déterminent l'allègement de votre impôt provincial sur le revenu. Ce n'est pas un paiement mensuel.
 	Des approbations plus rapides et moins coûteuses comptent lorsqu'elles se traduisent par des logements achevés, y compris des logements familiaux, ce qui modère les loyers avec le temps. Selon la proposition de 2024, l'allègement fiscal réduirait l'impôt provincial sur le revenu des personnes qui paient un loyer, des intérêts hypothécaires ou des frais de copropriété.
-	Compromis : des approbations plus rapides signifient moins de contrôle municipal, et la baisse d'impôt réduit les revenus de la province. L'évaluation des coûts du parti de 2024 chiffrait la remise pour le loyer et les intérêts hypothécaires à environ 900 millions de dollars dans le Budget 2026, en commençant à 1 500 \$ par mois pour passer ensuite à 3 000 \$. Sources : [annexe d'évaluation des coûts 2024](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf), [programme 2024](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650) (en anglais).
+	Compromis : des approbations plus rapides signifient moins de contrôle municipal, et l'allègement fiscal réduit les revenus de la province. L'évaluation des coûts du parti de 2024 chiffrait l'allègement de l'impôt sur le revenu lié aux frais de logement à environ 900 millions de dollars dans le Budget 2026, en commençant à 1 500 \$ par mois pour augmenter progressivement jusqu'à 3 000 \$. Sources : [annexe d'évaluation des coûts 2024](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf), [programme 2024](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650) (en anglais).
 	Comment vous pourrez suivre les résultats : les lignes 3 et 4 du [bulletin](https://agou.ca/fr/scorecard/) (les nouveaux logements nets et combien ont trois chambres ou plus; le taux d'inoccupation des logements locatifs). Je publierai aussi les délais de délivrance des permis de chaque municipalité de la région, pour vérifier les approbations.
 </details>
 <details>
@@ -106,10 +106,10 @@ Victoria a déjà les règles provinciales sur les locations de courte durée. J
 <details>
 <summary>Quelle est votre approche en matière de sécurité publique, d'itinérance, de santé mentale et de dépendances?</summary>
 	Ces problèmes sont liés, mais distincts.
-	- **Traitement :** plus de lits de désintoxication et de traitement, avec le personnel nécessaire pour accueillir les patients, dans le sud de l'île, avec les délais d'attente publiés chaque mois. Des soins dans un milieu sécurisé, assortis de garanties médicales et juridiques, pour les personnes atteintes d'une dépendance grave qui représentent un danger pour elles-mêmes ou pour autrui — ce dernier point est ma position personnelle; le programme 2024 du parti proposait aussi une loi sur le traitement involontaire.
-	- **Logement :** permettre aux personnes vivant sous tente d'accéder à un logement avec services de soutien, et publier combien d'entre elles sont toujours logées après 12 mois.
-	- **Sécurité :** ajouter des shérifs et des juges pour réduire les délais avant la tenue des procès. Les tribunaux, les poursuites et les shérifs relèvent de la Province, et je voterai pour les financer. La mise en liberté sous caution relève du droit fédéral; pour les récidivistes violents, je presserai donc Ottawa d'y apporter des modifications.
-	- **Équilibre :** répartir les services de santé dans toute la région, et pas seulement sur quelques rues du centre-ville.
+	- **Traitement :** plus de lits de désintoxication et de traitement, avec le personnel nécessaire pour accueillir les patients, dans le sud de l'île, avec les délais d'attente publiés chaque mois (ma position). Des soins dans un milieu sécurisé, assortis de garanties médicales et juridiques, pour les personnes atteintes d'une dépendance grave qui représentent un danger pour elles-mêmes ou pour autrui (ma position; le programme 2024 du parti proposait aussi une loi sur le traitement involontaire).
+	- **Logement :** permettre aux personnes vivant sous tente d'accéder à un logement avec services de soutien, et publier combien d'entre elles sont toujours logées après 12 mois (ma position; le programme 2024 du parti proposait aussi d'orienter les campeurs vers les services de soutien).
+	- **Sécurité :** ajouter des shérifs et des juges pour réduire les délais avant la tenue des procès. Les tribunaux, les poursuites et les shérifs relèvent de la Province, et je voterai pour les financer. La mise en liberté sous caution relève du droit fédéral; pour les récidivistes violents, je presserai donc Ottawa d'y apporter des modifications (ma position; le programme 2024 du parti proposait aussi plus de shérifs et de juges).
+	- **Équilibre :** répartir les services de santé dans toute la région, et pas seulement sur quelques rues du centre-ville (ma position).
 	Comment vous pourrez suivre les résultats : les lignes 5, 6, 7 et 12 du [bulletin](https://agou.ca/fr/scorecard/) (les personnes qui dorment dehors, les décès liés aux drogues toxiques, la criminalité dans la ville, y compris les infractions violentes répétées au centre-ville, et les lits de traitement), ainsi que les délais avant procès et le taux d'inoccupation des locaux commerciaux du centre-ville dans le même rapport trimestriel.
 </details>
 <details>
@@ -143,7 +143,7 @@ Les autobus des jours de croisière à James Bay font partie du plan des jours d
 </details>
 <details>
 <summary>Quelle est votre position sur le climat?</summary>
-Les quatre priorités sont celles que j'entends aux portes. Les leviers provinciaux que j'utiliserai sont ceux qui réduisent aussi le coût et le risque ici : plus de logements, un transport en commun qui fonctionne, et une charte de BC Ferries avec des cibles de service.
+Les quatre priorités sont celles que j'entends aux portes. Les leviers provinciaux que j'utiliserai sont ceux qui réduisent aussi le coût et le risque ici : plus de logements, un transport en commun qui fonctionne, et une charte de BC Ferries qui énonce les attentes en matière de service et de rendement (programme 2024 du parti).
 Je ne voterai pas pour une nouvelle taxe provinciale pour payer un programme climatique. Je publierai les chiffres de l'île sur les programmes qui existent avant de voter pour les prolonger.
 </details>
 <details>
@@ -164,8 +164,8 @@ Les deux sont provinciaux. Je n'annoncerai pas un nouveau programme sans un coû
 </details>
 <details>
 <summary>Combien coûteraient vos propositions, et comment les financeriez-vous?</summary>
-	Les mesures importantes sont des engagements du parti. La dernière évaluation des coûts publiée est l'[annexe du programme 2024 du Parti conservateur de la Colombie-Britannique](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) (en anglais) :
-	- Remise pour le loyer et les intérêts hypothécaires : environ 900 millions de dollars dans le Budget 2026.
+	Les mesures importantes viennent du programme 2024 du parti. La dernière évaluation des coûts publiée est l'[annexe du programme 2024 du Parti conservateur de la Colombie-Britannique](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf) (en anglais) :
+	- Allègement de l'impôt sur le revenu lié aux frais de logement (loyer, intérêts hypothécaires et frais de copropriété) : environ 900 millions de dollars dans le Budget 2026.
 	- Taux d'imposition des petites entreprises ramené à 1 % : environ 150 millions de dollars dans le Budget 2026.
 	- Get BC Building (infrastructures, incitatifs, approbations plus rapides) : environ 1,1 milliard de dollars à partir de 2026-2027.
 	- Aucune TVP sur les véhicules d'occasion abordables : fait partie d'un ensemble de mesures pour les automobilistes estimé à 60 millions de dollars à partir de 2026-2027.
@@ -181,7 +181,7 @@ Les deux sont provinciaux. Je n'annoncerai pas un nouveau programme sans un coû
 <summary>Quelles propositions sont des engagements du parti, et lesquelles sont les vôtres?</summary>
 	Programme 2024 du parti (octobre 2024; la page du programme actuel du parti indique « coming soon » [à venir], ces propositions ne sont donc pas encore confirmées pour cette élection) : le recours à des cliniques non gouvernementales pour des interventions chirurgicales et des examens d'imagerie médicale financés par les fonds publics; des délais fixes pour les permis; l'allègement de l'impôt sur le revenu lié aux frais de logement (loyer, intérêts hypothécaires et frais de copropriété); la charte de BC Ferries, et la consultation des usagers réguliers sur un programme de forfait mensuel ou d'autres mesures; aucune TVP sur les voitures d'occasion abordables; ramener le taux d'imposition des petites entreprises de 2 % à 1 %.
 	Engagement actuel du parti (27 sept. 2026) : aucune nouvelle taxe et aucune hausse d'impôt.
-	Mes positions personnelles, que je défendrais au sein du parti : réduire la paperasse des médecins (le programme 2024 proposait aussi d'alléger le fardeau administratif des médecins), le retour au taux de 5,06 % et à l'indexation en maintenant le crédit bonifié de réduction d'impôt, une liste publique des économies, les heures de clinique dans le sud de l'île, la publication des délais d'attente pour un traitement, la répartition des services dans toute la région, des soins dans un milieu sécurisé pour les dépendances graves (le programme 2024 proposait aussi le traitement involontaire), pas d'approvisionnement plus sécuritaire sur ordonnance comme plan pour cette circonscription (le programme 2024 s'y opposait aussi), le maintien ici des règles provinciales sur les locations de courte durée, la publication de l'attente pour un lit à l'urgence du Jubilee, le plan pour les jours de croisière à James Bay et des normes de service pour les fonctionnaires.
+	Mes positions personnelles, que je défendrais au sein du parti : réduire la paperasse des médecins (le programme 2024 proposait aussi d'alléger le fardeau administratif des médecins), le retour au taux de 5,06 % et à l'indexation en maintenant le crédit bonifié de réduction d'impôt, une liste publique des économies, les heures de clinique dans le sud de l'île, la publication des délais d'attente pour un traitement, la répartition des services dans toute la région, l'accès à un logement avec soutien pour les personnes vivant sous tente et plus de shérifs et de juges (deux mesures aussi proposées dans le programme 2024), des soins dans un milieu sécurisé pour les dépendances graves (le programme 2024 proposait aussi le traitement involontaire), pas d'approvisionnement plus sécuritaire sur ordonnance comme plan pour cette circonscription (le programme 2024 s'y opposait aussi), le maintien ici des règles provinciales sur les locations de courte durée, la publication de l'attente pour un lit à l'urgence du Jubilee, le plan pour les jours de croisière à James Bay et des normes de service pour les fonctionnaires.
 </details>
 <details>
 <summary>Que pourriez-vous accomplir si votre parti ne forme pas le gouvernement?</summary>
@@ -204,8 +204,6 @@ Je ne me présente pas contre leurs biographies. Le test, ce sont les chiffres d
 <summary>Comment géreriez-vous vos autres activités, votre entreprise et les conflits d'intérêts si vous étiez élu?</summary>
 Aujourd'hui, je suis ingénieur d'essais et d'évaluation chez un entrepreneur de la défense au service de la Marine royale canadienne, basé à Mill Bay. Si j'étais élu, je suivrais la *Members' Conflict of Interest Act* de la C.-B. Je déposerais la divulgation exigée auprès du commissaire aux conflits d'intérêts et j'en publierais un résumé en langage clair. Je me récuserais lorsque les règles l'exigent. Je n'accepterais pas de nouveaux contrats provinciaux par Casagou Inc. pendant que je suis député.
 Je ne fais pas ici une promesse de campagne de quitter cet emploi. C'est le commissaire, pas un slogan, qui décide ce qui doit cesser.
-
-	Si j'étais élu, je respecterais la *Members' Conflict of Interest Act* de la Colombie-Britannique. Je déposerais la déclaration requise auprès du commissaire aux conflits d'intérêts et j'en publierais un résumé en langage clair. Je me récuserais lorsque les règles l'exigent. Je n'accepterais aucun nouveau contrat provincial par l'intermédiaire de Casagou Inc. tant que je serais député.
 </details>
 ## Mise en candidature et aide à la campagne
 <details>
@@ -218,7 +216,7 @@ Je ne fais pas ici une promesse de campagne de quitter cet emploi. C'est le comm
 </details>
 <details>
 <summary>Puis-je avoir une pancarte?</summary>
-	Oui. Si vous êtes locataire, il vous faut la permission de votre propriétaire. [Demander une pancarte](/fr/lawn-sign/)
+	Oui. Si vous êtes locataire, il vous faut la permission de votre propriétaire. En copropriété, respectez les règlements de la copropriété. En appartement, une pancarte à la fenêtre est souvent la solution. [Demander une pancarte](/fr/lawn-sign/)
 </details>
 <details>
 <summary>Où puis-je vous rencontrer?</summary>

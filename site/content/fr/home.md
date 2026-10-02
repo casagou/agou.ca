@@ -31,7 +31,7 @@ Vous ne savez pas si vous habitez dans la circonscription? Vérifiez sur [wheret
 - Signer le formulaire d'Elections BC prend environ 1 minute. Je vous apporte le formulaire.
 [**→ S'inscrire pour signer mon formulaire de mise en candidature**](/fr/nominate/)
 ## Bénévolat
-Frapper aux portes, faire des appels, installer une pancarte ou aider le jour de l'élection. Chaque heure compte.
+Frapper aux portes, faire des appels, installer une pancarte ou aider le jour de l'élection.
 [**→ Inscrivez-vous comme bénévole**](/fr/volunteer/)
 [**→ Demander une pancarte**](/fr/lawn-sign/)
 ## Événements

@@ -6,7 +6,7 @@ I was born in Nice, France, came to Canada in 2011, and became a citizen in 2023
 More: <mention-page url="/about/"/>
 </details>
 <details>
-<summary>Are you the BC Conservative candidate?</summary>
+<summary>Have you won the BC Conservative nomination?</summary>
 Not yet. I'm seeking the BC Conservative nomination to run for MLA in Victoria–Beacon Hill.
 Candidate nominations with Elections BC close at 1 p.m. on Saturday 3 October. The official list is on [Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/). I'll update this answer the day my status changes.
 </details>
@@ -89,7 +89,7 @@ I will publish that number every quarter. I will push for the evening and weeken
 <summary>How would you make housing more affordable?</summary>
 Approvals in months, not years: 6 months for a rezoning and development permit, 3 months for a building permit; if city hall doesn't give a clear yes or no in time, the Province issues the permits (2024 party platform). Lower fees and paperwork on new homes (my position). Income-tax relief on housing costs (2024 party platform): it starts at $1,500 a month of eligible housing costs (rent, mortgage interest and strata fees) and rises by $500 a year toward $3,000. Your eligible housing costs set how much provincial income tax you're relieved of. It is not a monthly payment.
 Faster, cheaper approvals count when they turn into finished homes, including family-sized ones, which eases rents over time. Under the 2024 proposal, the tax relief would lower provincial income tax for people who pay rent, mortgage interest or strata fees.
-Trade-offs: faster approvals mean less municipal control, and the tax cut lowers provincial revenue. The party's 2024 costing put the rent-and-mortgage rebate at about $900 million in Budget 2026, starting at $1,500 a month and rising to $3,000. Sources: [2024 costing appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf), [2024 platform](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650).
+Trade-offs: faster approvals mean less municipal control, and the tax relief lowers provincial revenue. The party's 2024 costing put the income-tax relief on housing costs at about $900 million in Budget 2026, starting at $1,500 a month and rising toward $3,000. Sources: [2024 costing appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf), [2024 platform](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650).
 How you'll know: [scorecard](https://agou.ca/scorecard/) lines 3 and 4 (net new homes and how many have three or more bedrooms; rental vacancy). I'll also publish permit times for every municipality in the region, as a check on approvals.
 </details>
 <details>
@@ -100,10 +100,10 @@ Victoria already has the provincial short-term rental rules. I will not ask to l
 <details>
 <summary>What is your approach to public safety, homelessness, mental health and addiction?</summary>
 These are linked but different problems.
-- **Treatment:** more staffed detox and treatment beds on the South Island, with waits published monthly. Secure care for people with severe addiction who are a danger to themselves or others, with medical and legal safeguards — that last item is my position; the 2024 party platform also proposed involuntary treatment legislation.
-- **Housing:** move people from tents into housing with support, and report how many stay housed after 12 months.
-- **Safety:** add sheriffs and judges so cases reach trial faster. The courts, prosecution and sheriffs are provincial, and I'll vote to fund them. Bail is federal law, so for repeat violent offenders I'll press Ottawa for amendments.
-- **Balance:** spread health services across the region, not only on a few downtown blocks.
+- **Treatment:** more staffed detox and treatment beds on the South Island, with waits published monthly (my position). Secure care for people with severe addiction who are a danger to themselves or others, with medical and legal safeguards (my position; the 2024 party platform also proposed involuntary treatment legislation).
+- **Housing:** move people from tents into housing with support, and report how many stay housed after 12 months (my position; the 2024 party platform also proposed moving campers into support services).
+- **Safety:** add sheriffs and judges so cases reach trial faster. The courts, prosecution and sheriffs are provincial, and I'll vote to fund them. Bail is federal law, so for repeat violent offenders I'll press Ottawa for amendments (my position; the 2024 party platform also proposed more sheriffs and judges).
+- **Balance:** spread health services across the region, not only on a few downtown blocks (my position).
 How you'll know: [scorecard](https://agou.ca/scorecard/) lines 5, 6, 7 and 12 (people sleeping outside, toxic-drug deaths, crime in the city including repeat violent offences downtown, and treatment beds), plus time to trial and downtown storefront vacancy in the same quarterly report.
 </details>
 <details>
@@ -136,7 +136,7 @@ Cruise-day buses in James Bay are part of the cruise-day plan, which is mine.
 </details>
 <details>
 <summary>Where do you stand on climate?</summary>
-The four priorities are the ones I hear at the door. The provincial levers I will use are the ones that also cut cost and risk here: more homes, transit that actually runs, and a ferries charter with service targets.
+The four priorities are the ones I hear at the door. The provincial levers I will use are the ones that also cut cost and risk here: more homes, transit that actually runs, and a BC Ferries Charter that sets out service and performance expectations (2024 party platform).
 I will not vote for a new provincial tax to pay for a climate program. I will publish the Island's numbers on the programs that exist before I vote to extend them.
 </details>
 <details>
@@ -145,7 +145,7 @@ Both are provincial. I will not announce a new program without a cost. What I wi
 </details>
 <details>
 <summary>Where do you stand on cruise ships in James Bay?</summary>
-Cruise ships are part of the harbour economy. They are also a real load on James Bay streets, buses and sidewalks. Ogden Point had 310 cruise-ship calls in 2025. Source: [Greater Victoria Harbour Authority, Oct 2025](https://gvha.ca/about-gvha/newsroom/victorias-2025-cruise-season-closes-strongly-on-saturday/). Source: [Greater Victoria Harbour Authority, Oct 2025](https://gvha.ca/about-gvha/newsroom/victorias-2025-cruise-season-closes-strongly-on-saturday/).
+Cruise ships are part of the harbour economy. They are also a real load on James Bay streets, buses and sidewalks. Ogden Point had 310 cruise-ship calls in 2025. Source: [Greater Victoria Harbour Authority, Oct 2025](https://gvha.ca/about-gvha/newsroom/victorias-2025-cruise-season-closes-strongly-on-saturday/).
 I want a cruise-day plan for traffic, buses and pedestrian safety, made with the City, the Greater Victoria Harbour Authority and residents — not a slogan for or against ships. That plan is mine. I would take it to the province where provincial roads, transit funding or harbour rules are involved.
 </details>
 ## What I could realistically accomplish
@@ -156,8 +156,8 @@ So my commitments are about what I'll push for, vote for, check and report, not 
 </details>
 <details>
 <summary>How much would your proposals cost, and how would you pay for them?</summary>
-The large items are party commitments. The last published costing is the [Conservative Party of B.C. 2024 platform appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf):
-- Rent and mortgage rebate: about $900 million in Budget 2026.
+The large items are from the party's 2024 platform. The last published costing is the [Conservative Party of B.C. 2024 platform appendix](https://da1a036c-b798-4e6b-a8c4-5a6d84a800d4.filesusr.com/ugd/b66bba_fbc8340168dc439eacbcb1017d85193e.pdf):
+- Income-tax relief on housing costs (rent, mortgage interest and strata fees): about $900 million in Budget 2026.
 - Small-business tax cut to 1%: about $150 million in Budget 2026.
 - Get BC Building (infrastructure, incentives, faster approvals): about $1.1 billion from 2026/27.
 - No PST on affordable used vehicles: part of an estimated $60 million drivers package from 2026/27.
@@ -173,7 +173,7 @@ Within my control: the reports, the office and my votes. Dependent on others: wa
 <summary>Which proposals are party commitments, and which are your own?</summary>
 2024 party platform (October 2024; the party's current platform page says "coming soon", so these are not yet confirmed for this election): publicly paid surgeries and scans at non-government clinics; fixed permit timelines; income-tax relief on housing costs (rent, mortgage interest and strata fees); the BC Ferries Charter, and consulting frequent users on a monthly flat-fee program or other measures; no PST on affordable used cars; cut the small-business tax from 2% to 1%.
 Current party commitment (27 Sep 2026): no new taxes and no tax increases.
-My own positions, which I'd advocate for within the party: cutting doctors' paperwork (the 2024 platform also proposed reducing doctors' administrative burden), restoring the 5.06% rate and indexing while keeping the enhanced tax reduction credit, a public savings list, South Island clinic hours, published treatment waits, spreading services across the region, secure care for severe addiction (the 2024 platform also proposed involuntary treatment), no prescribed safer supply as the plan for this riding (the 2024 platform also opposed it), keeping the provincial short-term rental rules here, publishing the Jubilee emergency-bed wait, the James Bay cruise-day plan and service standards for public servants.
+My own positions, which I'd advocate for within the party: cutting doctors' paperwork (the 2024 platform also proposed reducing doctors' administrative burden), restoring the 5.06% rate and indexing while keeping the enhanced tax reduction credit, a public savings list, South Island clinic hours, published treatment waits, spreading services across the region, moving people from tents into housing with support and more sheriffs and judges (both also proposed in the 2024 platform), secure care for severe addiction (the 2024 platform also proposed involuntary treatment), no prescribed safer supply as the plan for this riding (the 2024 platform also opposed it), keeping the provincial short-term rental rules here, publishing the Jubilee emergency-bed wait, the James Bay cruise-day plan and service standards for public servants.
 </details>
 <details>
 <summary>What could you accomplish if your party does not form government?</summary>

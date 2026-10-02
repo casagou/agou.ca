@@ -31,7 +31,7 @@ Not sure you live in the riding? Check at [wheretovote.elections.bc.ca](https://
 - Signing the Elections BC form takes about 1 minute. I bring the form to you.
 [**→ Sign up to nominate**](/nominate/)
 ## Volunteer
-Knock on doors, make calls, put up a sign or help on election day. Every hour helps.
+Knock on doors, make calls, put up a sign or help on election day.
 [**→ Sign up to volunteer**](/volunteer/)
 [**→ Request a lawn sign**](/lawn-sign/)
 ## Events
