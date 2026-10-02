@@ -354,7 +354,7 @@
     "lockup_block": "How I'll report to you",
     "nominations_closed": {
       "title": "Thank you",
-      "text": "Thank you. Nominations are complete."
+      "text": "Thank you. Sign-ups to sign my nomination paper are closed."
     },
     "new_events": {
       "badge": "New",
@@ -746,7 +746,7 @@
     "lockup_block": "Comment je vous rendrai des comptes",
     "nominations_closed": {
       "title": "Merci",
-      "text": "Merci. Les signatures de mise en candidature sont complètes."
+      "text": "Merci. Les inscriptions pour signer mon formulaire de mise en candidature sont closes."
     },
     "new_events": {
       "badge": "Nouveau",

@@ -97,12 +97,12 @@
     },
     "nominate": {
       "en": {
-        "title": "Nominations complete",
-        "desc": "Thank you. Nominations for Joachim Agou in Victoria–Beacon Hill are complete. You can still help: volunteer, request a lawn sign or come to an event."
+        "title": "Nominator sign-ups closed",
+        "desc": "Thank you. Sign-ups to sign Joachim Agou's nomination paper in Victoria–Beacon Hill are closed. You can still help: volunteer, request a lawn sign or come to an event."
       },
       "fr": {
-        "title": "Signatures complètes",
-        "desc": "Merci. Les signatures de mise en candidature de Joachim Agou dans Victoria–Beacon Hill sont complètes. Vous pouvez encore aider : bénévolat, pancarte ou événements."
+        "title": "Inscriptions closes",
+        "desc": "Merci. Les inscriptions pour signer le formulaire de mise en candidature de Joachim Agou sont closes. Vous pouvez encore aider : bénévolat, pancarte ou événements."
       }
     },
     "donate": {

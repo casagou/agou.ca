@@ -1552,8 +1552,8 @@
     {
       "page": "en-faq",
       "find": "The party nomination is the BC Conservatives' decision to endorse me. The Elections BC nomination is the form that puts a name on the ballot: 75 nominators who live in Victoria–Beacon Hill, a $250 deposit, filed by 1 p.m. on Saturday 3 October. A signature is not a vote, and it is not party membership. You can nominate only one candidate this election.",
-      "replace": "The party nomination was the Conservative Party of BC's decision to make me its nominee, and it is confirmed. The Elections BC nomination is the form that puts a name on the ballot: 75 nominators who live in Victoria–Beacon Hill and a $250 deposit, filed by 1 p.m. on Saturday 3 October. My nominator signatures are complete.",
-      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+      "replace": "The party nomination was the Conservative Party of BC's decision to make me its nominee, and it is confirmed. The Elections BC nomination is the form that puts a name on the ballot: 75 nominators who live in Victoria–Beacon Hill and a $250 deposit, filed by 1 p.m. on Saturday 3 October. I'm filing my Elections BC nomination papers before the deadline.",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'. Revised (Joachim, 2 Oct 2026 1:04 AM PT): Elections BC nomination not yet filed."
     },
     {
       "page": "en-faq",
@@ -1588,8 +1588,8 @@
     {
       "page": "fr-faq",
       "find": "L'investiture est la décision du Parti conservateur de m'investir. La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre. Une signature n'est ni un vote ni une adhésion au parti. On ne peut proposer qu'un seul candidat à cette élection.",
-      "replace": "L'investiture était la décision du Parti conservateur de la Colombie-Britannique de m'investir, et elle est confirmée. La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre. Les signatures de mon formulaire sont recueillies.",
-      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+      "replace": "L'investiture était la décision du Parti conservateur de la Colombie-Britannique de m'investir, et elle est confirmée. La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre. Je déposerai mes documents de mise en candidature auprès d'Elections BC avant l'échéance.",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'. Revised (Joachim, 2 Oct 2026 1:04 AM PT): Elections BC nomination not yet filed."
     },
     {
       "page": "fr-faq",

@@ -13,7 +13,7 @@ The official list of who is on the ballot is on [Elections BC](https://elections
 <details>
 <summary>Is the party nomination the same thing as getting on the ballot?</summary>
 No. Two different decisions.
-The party nomination was the Conservative Party of BC's decision to make me its nominee, and it is confirmed. The Elections BC nomination is the form that puts a name on the ballot: 75 nominators who live in Victoria–Beacon Hill and a $250 deposit, filed by 1 p.m. on Saturday 3 October. My nominator signatures are complete.
+The party nomination was the Conservative Party of BC's decision to make me its nominee, and it is confirmed. The Elections BC nomination is the form that puts a name on the ballot: 75 nominators who live in Victoria–Beacon Hill and a $250 deposit, filed by 1 p.m. on Saturday 3 October. I'm filing my Elections BC nomination papers before the deadline.
 Source: [Elections BC, candidate nomination FAQ](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/).
 </details>
 <details>

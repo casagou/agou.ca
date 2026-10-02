@@ -13,7 +13,7 @@
 <details>
 <summary>L'investiture du parti est-elle la même chose que figurer sur le bulletin de vote?</summary>
 Non. Deux décisions distinctes.
-L'investiture était la décision du Parti conservateur de la Colombie-Britannique de m'investir, et elle est confirmée. La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre. Les signatures de mon formulaire sont recueillies.
+L'investiture était la décision du Parti conservateur de la Colombie-Britannique de m'investir, et elle est confirmée. La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre. Je déposerai mes documents de mise en candidature auprès d'Elections BC avant l'échéance.
 Source : [FAQ d'Elections BC sur la mise en candidature](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/).
 </details>
 

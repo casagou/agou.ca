@@ -1094,6 +1094,7 @@ FORBIDDEN = [
     # nomination confirmed (Joachim, 2 Oct 2026 12:47 AM PT): no 'seeking the nomination' wording anywhere, EN or FR
     (r"(?i)seeking (the |this |a )?(BC Conservative |Conservative Party of BC |party |Conservative )?nomination|seeking to represent|I am seeking this|run for the nomination|running for the nomination|nomination (is )?(still )?pending|Not yet\. I['’]m seeking|day my status changes", "old 'seeking the nomination' wording (nomination confirmed 2 Oct 2026)"),
     (r"(?i)sollicit\w* l['’]investiture|je sollicite cette investiture|souhaite représenter Victoria|brigue l['’]investiture|investiture (est )?(toujours )?en attente|Pas encore\. Je sollicite|jour même où ma situation changera", "old 'sollicite l'investiture' wording (investiture confirmée le 2 oct. 2026)"),
+    (r"(?i)signatures are complete|nominations (are )?complete|nomination papers? (is |are |have been )?filed|I(['’]ve| have) filed|I(['’]m| am) on the ballot|signatures (de mise en candidature )?(sont )?(complètes|recueillies)|j(['’]ai| ai) déposé mes documents|mon nom (est|figure) (déjà )?sur le bulletin", "a claim that the Elections BC nomination is filed or complete (not filed yet, Joachim 2 Oct 2026 1:04 AM PT; nomination confirmed only by the party)"),
     (r"(?i)lawn signs? (are |is )?free|free lawn sign|pancartes? gratuites?|pancartes sont gratuites", "'free' lawn signs (Joachim isn't sure they are free)"),
     (r"date of birth|date de naissance|\bborn on\b", "date of birth"),
     (r"\bACTW\b|candidate site", "drafting-note wording (ACTW / 'candidate site') from the /province/ source; see RESYNC.md"),
@@ -1169,7 +1170,7 @@ def check(dist):
     for f in sorted([*dist.rglob("*.webmanifest"), *dist.rglob("*.json"), *dist.rglob("*.ics"), *dist.rglob("*.txt"), *dist.rglob("*.xml")]):  # share/app text outside the HTML
         t = f.read_text(errors="ignore")
         for pat, what in FORBIDDEN:
-            if "nomination confirmed" in what or "investiture confirmée" in what or "'free' lawn" in what:
+            if "nomination confirmed" in what or "investiture confirmée" in what or "'free' lawn" in what or "not filed yet" in what:
                 if re.search(pat, t): errs.append(f"{f.relative_to(dist)}: contains {what}")
     for f in sorted(dist.rglob("*.html")):
         t = f.read_text()
