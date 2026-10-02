@@ -388,6 +388,10 @@
       },
       "or": "or",
       "lawnsign_intro": "Show your support for Joachim Agou in Victoria–Beacon Hill with a lawn sign. Requests go through the Conservative Party of BC's lawn-sign form."
+    },
+    "social_groups": {
+      "campaign": "Campaign",
+      "personal": "Personal"
     }
   },
   "fr": {
@@ -780,6 +784,10 @@
       },
       "or": "ou au",
       "lawnsign_intro": "Montrez votre appui à Joachim Agou dans Victoria–Beacon Hill avec une pancarte. Les demandes se font sur le formulaire du Parti conservateur de la C.-B."
+    },
+    "social_groups": {
+      "campaign": "Campagne",
+      "personal": "Personnel"
     }
   }
 }

@@ -1620,6 +1620,18 @@
       "find": "father seeking to represent Victoria–Beacon Hill for the BC Conservatives.",
       "replace": "father, and the Conservative Party of BC's nominee in Victoria–Beacon Hill.",
       "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "en-home:contact",
+      "find": "[Instagram](https://www.instagram.com/casagou/) · [X](https://x.com/casagou) · [Facebook](https://www.facebook.com/casagou)",
+      "replace": "Campaign: [Facebook](https://www.facebook.com/joachimagou) · [Instagram](https://www.instagram.com/joachimagou)\nPersonal: [Instagram](https://www.instagram.com/casagou/) · [Facebook](https://www.facebook.com/casagou) · [X](https://x.com/casagou)",
+      "why": "Joachim (2 Oct 2026, via Provincial Campaign Ops): new campaign accounts; @casagou kept, labelled personal."
+    },
+    {
+      "page": "fr-home:contact",
+      "find": "[Instagram](https://www.instagram.com/casagou/) · [X](https://x.com/casagou) · [Facebook](https://www.facebook.com/casagou)",
+      "replace": "Campagne : [Facebook](https://www.facebook.com/joachimagou) · [Instagram](https://www.instagram.com/joachimagou)\nPersonnel : [Instagram](https://www.instagram.com/casagou/) · [Facebook](https://www.facebook.com/casagou) · [X](https://x.com/casagou)",
+      "why": "Joachim (2 Oct 2026, via Provincial Campaign Ops): new campaign accounts; @casagou kept, labelled personal."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

@@ -277,10 +277,16 @@
     }
   },
   "social": {
-    "_doc": "Only account URLs that appear in Notion (home page Contact block). Do not add guessed handles.",
-    "Instagram": "https://www.instagram.com/casagou/",
-    "X": "https://x.com/casagou",
-    "Facebook": "https://www.facebook.com/casagou"
+    "_doc": "Grouped as shown on the site (footer, Home 'Follow along', JSON-LD sameAs). campaign: official campaign accounts (Joachim, 2 Oct 2026, via Provincial Campaign Ops); personal: the @casagou accounts from Notion's Contact block. 'More photos on Instagram' uses campaign.Instagram. Do not add guessed handles.",
+    "campaign": {
+      "Facebook": "https://www.facebook.com/joachimagou",
+      "Instagram": "https://www.instagram.com/joachimagou"
+    },
+    "personal": {
+      "Instagram": "https://www.instagram.com/casagou/",
+      "Facebook": "https://www.facebook.com/casagou",
+      "X": "https://x.com/casagou"
+    }
   },
   "main_nav": [
     "about",
@@ -351,7 +357,7 @@
   "more_photos_after": [
     "joachim-agou-speaking"
   ],
-  "_more_photos_doc": "After these images (any page, any re-sync), build.py adds the reading link 'More photos on Instagram ↗' (ui.json more_photos) to social.Instagram, same tab, rel=noopener. Not from Notion.",
+  "_more_photos_doc": "After these images (any page, any re-sync), build.py adds the reading link 'More photos on Instagram ↗' (ui.json more_photos) to social.campaign.Instagram, same tab, rel=noopener. Not from Notion.",
   "events_redesign_approved": true,
   "_events_redesign_doc": "30 Sep 2026 events redesign (date tiles, exact pins, Get directions / Apple Maps, static OSM maps, list cards): approved by Joachim 30 Sep 2026 and published live. Set to false again to hold a future events change back from live builds.",
   "events_calendar_live": true,

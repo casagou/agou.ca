@@ -327,7 +327,7 @@ def render(md, lang, ctx, toc_levels=("h2",)):
         if m:
             close_list(); out.append(picture(m.group(2), m.group(1), lang))
             if SITE["images"].get(pathlib.PurePosixPath(m.group(2).split("?")[0]).name) in SITE.get("more_photos_after", []):
-                out.append(f'<p class="readlink"><a href="{esc(SITE["social"]["Instagram"])}" rel="noopener">{esc(UI[lang]["more_photos"])} <span aria-hidden="true">↗</span></a></p>')
+                out.append(f'<p class="readlink"><a href="{esc(SITE["social"]["campaign"]["Instagram"])}" rel="noopener">{esc(UI[lang]["more_photos"])} <span aria-hidden="true">↗</span></a></p>')
             i += 1; continue
         if s == "---":
             close_list(); out.append("<hr>"); i += 1; continue
@@ -505,8 +505,15 @@ ICONS = {
 }
 
 
-def social_links(cls):
-    return f'<ul class="{cls}">' + "".join(f'<li><a href="{esc(u)}" rel="me noopener">{ICONS[n]}<span>{n}</span></a></li>' for n, u in SITE["social"].items() if not n.startswith("_")) + "</ul>"
+def social_links(cls, lang):
+    """Campaign: Facebook · Instagram, then Personal: Instagram · Facebook · X (site.json social; Joachim, 2 Oct 2026)."""
+    G = UI[lang]["social_groups"]; colon = "\u00a0:" if lang == "fr" else ":"
+    rows = []
+    for g in ("campaign", "personal"):
+        lab = G[g]
+        items = "".join(f'<li><a href="{esc(u)}" rel="me noopener"><span class="vh">{esc(lab)} </span>{ICONS[n]}<span>{n}</span></a></li>' for n, u in SITE["social"][g].items())
+        rows.append(f'<div class="soc-row"><span class="soc-glabel" aria-hidden="true">{esc(lab)}{colon}</span><ul class="{cls}" aria-label="{esc(lab)}">{items}</ul></div>')
+    return "".join(rows)
 
 
 def footer(lang, ctx):
@@ -527,7 +534,7 @@ def footer(lang, ctx):
     auth_en = "Authorized by Bert Chen, financial agent, bert@bertchen.ca, 778-996-9910."
     auth = f'<p class="auth">{auth_en}</p>' if lang == "en" else f'<p class="auth">Autorisé par Bert Chen, agent financier, bert@bertchen.ca, 778-996-9910.</p><p class="auth" lang="en">{auth_en}</p>'
     return (f'<footer class="site-footer"><div class="wrap fgrid">'
-            f'<section aria-labelledby="fc"><h2 id="fc">{contact_h}</h2>{contact_html}<p class="soc-label">{esc(U["social_label"])}</p>{social_links("social")}{rest_html}</section>'
+            f'<section aria-labelledby="fc"><h2 id="fc">{contact_h}</h2>{contact_html}<p class="soc-label">{esc(U["social_label"])}</p>{social_links("social", lang)}{rest_html}</section>'
             f'<section aria-label="{esc(fa[0].strip("*"))}">{fa_html}</section>'
             f'<nav aria-label="{esc(U["footer_nav"])}"><ul class="fnav">{nav}</ul></nav>'
             f'</div><div class="wrap">{auth}{bg_credit(lang)}{vic_credits(lang)}</div></footer>')
@@ -641,7 +648,7 @@ def json_ld(lang, key, title, desc, canonical, env):
     home = LIVE + url(lang, "home")
     person = {"@type": "Person", "@id": LIVE + "/#joachim", "name": "Joachim Agou", "url": home,
               "image": LIVE + "/assets/img/" + IMG["joachim-agou-headshot"][0][1200], "knowsLanguage": ["en", "fr"],
-              "sameAs": [u for n, u in SITE["social"].items() if not n.startswith("_")],
+              "sameAs": [u for g in ("campaign", "personal") for u in SITE["social"][g].values()],
               "description": SEO["pages"]["home"][lang]["desc"]}
     if key == "home":
         graph = [person, {"@type": "WebSite", "@id": LIVE + "/#website", "name": UI[lang]["site_name"], "url": home,
@@ -778,7 +785,7 @@ def build_page(lang, page, env):
         hero_src = "".join(f'<p class="hero-src">{inline(l.strip(), ctx)}</p>' for l in src_lines)
         # Follow along section goes before Donate
         donate_h = page_section_title("donate", lang)
-        follow = f'<section class="block follow" aria-labelledby="follow"><h2 id="follow">{esc(U["follow_title"])}</h2><p>{esc(U["follow_text"])}</p>{social_links("social big")}</section>'
+        follow = f'<section class="block follow" aria-labelledby="follow"><h2 id="follow">{esc(U["follow_title"])}</h2><p>{esc(U["follow_text"])}</p>{social_links("social big", lang)}</section>'
         PAGE_STATE["hero_map"] = False
         hero_media = photo_slot("hero", lang, "hero-photo")
         body, _ = render(rest, lang, {"self": self_path})
@@ -1175,6 +1182,12 @@ def check(dist):
     for f in sorted(dist.rglob("*.html")):
         t = f.read_text()
         vis = re.sub(r"<script.*?</script>", " ", t, flags=re.S)
+        if 'class="site-footer"' in t:  # social links grouped Campaign / Personal (Joachim, 2 Oct 2026)
+            ft = t[t.index('class="site-footer"'):]
+            if ft.count('class="soc-row"') != 2 or "facebook.com/joachimagou" not in ft or "instagram.com/joachimagou" not in ft:
+                errs.append(f"{f.relative_to(dist)}: footer social links are not grouped Campaign (joachimagou) / Personal (casagou)")
+        if re.search(r'href="https://www\.instagram\.com/casagou/"[^>]*>(More photos|Plus de photos)', t):
+            errs.append(f"{f.relative_to(dist)}: 'More photos on Instagram' must point at the campaign account")
         for pat, what in FORBIDDEN:
             if re.search(pat, t):
                 errs.append(f"{f.relative_to(dist)}: contains {what}")
