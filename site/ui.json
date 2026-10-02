@@ -362,6 +362,32 @@
       "line": "New event",
       "more_one": "1 more new event",
       "more": "{n} more new events"
+    },
+    "party": {
+      "note_ref": "The link carries my campaign's reference, so what you send comes to my team in Victoria–Beacon Hill.",
+      "volunteer": {
+        "h1": "Volunteer",
+        "lead": "Volunteer sign-up for my campaign is now on the Conservative Party of BC's website.",
+        "what": "Knock on doors, make calls, put up a sign or help on election day. Pick what fits your time.",
+        "btn": "Sign up on the party's website"
+      },
+      "lawn-sign": {
+        "h1": "Lawn sign",
+        "lead": "Lawn-sign requests now go through the Conservative Party of BC's lawn-sign form.",
+        "what": "If you rent, you'll need your landlord's permission. In a strata, follow the strata's rules. A window sign is often the option in an apartment.",
+        "btn": "Request a sign on the party's website",
+        "shared": "The party uses one form for every riding, so the page may mention another riding."
+      },
+      "donate": {
+        "h1": "Donate",
+        "lead": "Donations to my campaign now go through the Conservative Party of BC's secure donation page.",
+        "what": "In 2026, you can give up to $1,513.29 in total to a party, its riding associations and its candidates. Only individuals who are Canadian citizens or permanent residents living in B.C. can contribute.",
+        "btn": "Donate on the party's website",
+        "questions": "Questions about donating? Contact my financial agent, Bert Chen, at",
+        "note": "The link opens my campaign's donation form on the party's website."
+      },
+      "or": "or",
+      "lawnsign_intro": "Show your support for Joachim Agou in Victoria–Beacon Hill with a lawn sign. Requests go through the Conservative Party of BC's lawn-sign form."
     }
   },
   "fr": {
@@ -728,6 +754,32 @@
       "line": "Nouvel événement",
       "more_one": "1 autre nouvel événement",
       "more": "{n} autres nouveaux événements"
+    },
+    "party": {
+      "note_ref": "Le lien porte la référence de ma campagne : ce que vous transmettez arrive à mon équipe de Victoria–Beacon Hill. Le site du parti est en anglais.",
+      "volunteer": {
+        "h1": "Bénévolat",
+        "lead": "L'inscription des bénévoles de ma campagne se fait maintenant sur le site du Parti conservateur de la C.-B.",
+        "what": "Faire du porte-à-porte, passer des appels, installer une pancarte ou aider le jour du scrutin : choisissez ce qui convient à votre emploi du temps.",
+        "btn": "S'inscrire sur le site du parti"
+      },
+      "lawn-sign": {
+        "h1": "Pancarte",
+        "lead": "Les demandes de pancarte se font maintenant sur le formulaire du Parti conservateur de la C.-B.",
+        "what": "Si vous êtes locataire, il vous faut la permission de votre propriétaire. En copropriété, respectez les règlements de la copropriété. En appartement, une pancarte à la fenêtre est souvent la solution.",
+        "btn": "Demander une pancarte sur le site du parti",
+        "shared": "Le parti utilise un seul formulaire pour toutes les circonscriptions : la page peut donc mentionner une autre circonscription."
+      },
+      "donate": {
+        "h1": "Faire un don",
+        "lead": "Les dons à ma campagne se font maintenant sur la page de dons sécurisée du Parti conservateur de la C.-B.",
+        "what": "En 2026, vous pouvez donner jusqu'à 1 513,29 $ au total à un parti, à ses associations de circonscription et à ses candidats. Seules les personnes ayant la citoyenneté canadienne ou la résidence permanente et vivant en C.-B. peuvent contribuer.",
+        "btn": "Faire un don sur le site du parti",
+        "questions": "Des questions sur les dons? Communiquez avec mon agent financier, Bert Chen, à",
+        "note": "Le lien ouvre le formulaire de dons de ma campagne sur le site du parti (en anglais)."
+      },
+      "or": "ou au",
+      "lawnsign_intro": "Montrez votre appui à Joachim Agou dans Victoria–Beacon Hill avec une pancarte. Les demandes se font sur le formulaire du Parti conservateur de la C.-B."
     }
   }
 }

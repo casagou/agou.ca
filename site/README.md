@@ -169,3 +169,14 @@ Real photos of the riding, all from Wikimedia Commons under CC BY or CC BY-SA (l
 - While new: a red **New / Nouveau** badge (text, not just colour) on its list card, its calendar chip and its agenda line (`forms.js`, which checks the date on the visitor's clock, so the badge ends on time without a rebuild).
 - While any upcoming event is new: a **New** badge on "Events" in the main menu (desktop bar and phone menu, EN and FR; screen readers hear "Events, new event"), and a "New event: <title>, <date>" line above the home hero linking to the most recently added upcoming event (and "N more new events" linking to the list). These are made at build time; `site.js` removes them once the newest one has expired or the event has ended (no cookies, no storage, no trackers). A rebuild after the 7 days removes them from the HTML too.
 - To mark an event as new again or by hand, edit its `added` date in `data/events-added.json` and rebuild.
+
+## Party links (2 Oct 2026, staging only until approved)
+Joachim (2 Oct 2026, 12:28 AM PT): volunteering, lawn signs and donations go through the Conservative Party of BC's system.
+- `site.json` → `party.urls` lists the three party URLs. Keep `recruiter_id=251` on the volunteer and lawn-sign URLs.
+- **When it is on:** staging always; live only when `party_links_live` is true. Then:
+  - every link to `/volunteer/`, `/lawn-sign/` and `/donate/` (EN and FR) is rewritten to the party URL (`party_rewrite`: same tab, `rel="noopener"`, `hreflang="en"` on French pages). The language switcher is the exception.
+  - those three pages become short bridge pages (`party_page`, `ui.json` → `party`), with no form, noindex, and out of the sitemap.
+  - Home, FAQ and Privacy use the wording in `build.py` → `PARTY_MD` and `content/<lang>/privacy-party.md`.
+  - SEO descriptions come from `seo.json` → `party_pages`.
+- **Build guards:** the build stops if any page still links to the old pages, a bridge page has a form, the "online donations coming soon" text comes back, or `recruiter_id=251` is lost.
+- **Unchanged:** the database and the Supabase `submit_*` functions. The Event RSVP form still collects on this site.

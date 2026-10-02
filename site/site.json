@@ -861,5 +861,27 @@
     }
   },
   "priorities_v2_approved": true,
-  "_priorities_v2_doc": "Priorities v2 (1 Oct 2026): restructured /priorities/ and /fr/priorities/ (exclusions.json whole-page en-priorities/fr-priorities rules, <more/> Read more split) and the scorecard item 7 lever (bail is federal). Staging only. false = build.py --env live refuses to run. Set true only after Joachim approves (review: /workspace/agou.ca-priorities-v2-review.md)."
+  "_priorities_v2_doc": "Priorities v2 (1 Oct 2026): restructured /priorities/ and /fr/priorities/ (exclusions.json whole-page en-priorities/fr-priorities rules, <more/> Read more split) and the scorecard item 7 lever (bail is federal). Staging only. false = build.py --env live refuses to run. Set true only after Joachim approves (review: /workspace/agou.ca-priorities-v2-review.md).",
+  "_party_links_doc": "2 Oct 2026 (Joachim, 12:28 AM PT): volunteering, lawn signs and donations go through the Conservative Party of BC's system. When on (staging always; live only if party_links_live is true), every link to /volunteer/, /lawn-sign/ and /donate/ (EN and FR) points to party.urls; those three pages become short bridge pages (no form, noindex, out of the sitemap); Home, FAQ and Privacy use the party wording in build.py PARTY_MD and content/<lang>/privacy-party.md. Keep recruiter_id=251 on the volunteer and lawn-sign URLs.",
+  "party_links_live": false,
+  "party": {
+    "candidate": "https://conservativebc.ca/candidate/joachim-agou/",
+    "urls": {
+      "donate": "https://conservativebc.ca/candidate/joachim-agou/#donate",
+      "volunteer": "https://conservativebc.ca/volunteer/?recruiter_id=251",
+      "lawn-sign": "https://conservativebc.ca/lawn-sign/?recruiter_id=251"
+    },
+    "privacy": "https://conservativebc.ca/privacy-policy/",
+    "checked": "2026-10-02",
+    "updated": "2026-10-02",
+    "pages": [
+      "home",
+      "faq",
+      "privacy",
+      "get-involved",
+      "volunteer",
+      "lawn-sign",
+      "donate"
+    ]
+  }
 }

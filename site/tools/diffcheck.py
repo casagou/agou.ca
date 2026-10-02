@@ -8,6 +8,12 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 dist = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "dist"
 SITE = json.loads((ROOT / "site.json").read_text())
 EXCL = json.loads((ROOT / "exclusions.json").read_text())["rules"]
+# Party links (2 Oct 2026): build.py PARTY_MD rewrites these Notion lines on staging (and on live once site.json party_links_live is true)
+sys.path.insert(0, str(ROOT)); _argv = sys.argv; sys.argv = ["build.py"]
+import build as _build  # noqa: E402
+sys.argv = _argv
+PARTY_ON = _build.PARTY_ON("staging" if "--live" not in sys.argv else "live")
+PARTY_MD = _build.PARTY_MD
 BLOCK = {"p", "li", "h1", "h2", "h3", "figcaption", "summary", "div", "section", "br", "td", "a"}
 
 class T(HTMLParser):
@@ -90,6 +96,10 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
             excluded.append(f"{name}: riding map image -> replaced by the site's own map card (tools/make_map.py), same boundary, with its own alt text and attribution"); continue
         # excluded on purpose? (whole line, or the line with the excluded part removed)
         hit = [r for r in EXCL if r["page"] in (name, "*") and any(plain(fl) and (plain(fl) in p or p == plain(fl)) for fl in r["find"].split("\n"))]
+        if not hit and PARTY_ON:
+            pm = [f for f, _ in PARTY_MD.get((lang, key), []) for fl in f.split("\n") if plain(fl) and plain(fl) in p]
+            if pm:
+                excluded.append(f"{name}: {p[:110]!r}  -> party links (2 Oct 2026): rewritten by build.py PARTY_MD"); continue
         if hit:
             excluded.append(f"{name}: {p[:110]!r}  -> {hit[0]['why']}")
         else:

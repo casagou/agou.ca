@@ -158,3 +158,6 @@ Rules in `exclusions.json` whose "why" starts with "Joachim (1 Oct 2026, 7:49 PM
 - The About intro follows the media bios (Florida Tech, then graduate research at Laval), and the Community list adds Chabad.
 - The extra French footer Media line is removed. The footer navigation already links Media / Médias on every page.
 - `build.py` PRIORITIES_OLD now blocks the old wording. The media-kit PDFs are unchanged.
+
+### Party links (Joachim, 2 Oct 2026 12:28 AM PT), staging only
+See `site/README.md` "Party links". If Notion's Home or FAQ volunteer, lawn-sign or donate text changes, update `build.py` PARTY_MD; the build stops if a replacement no longer matches. To publish, set `site.json` `party_links_live` to true after Joachim approves.

@@ -1,0 +1,10 @@
+## Ce que recueille le formulaire de ce site et pourquoi
+- **Confirmation de présence à un événement :** vos nom et courriel et, si vous le souhaitez, votre téléphone et le nombre d'invités. La campagne peut communiquer avec vous par courriel, téléphone ou texto au sujet de l'événement et de la campagne.
+## Bénévolat, pancartes et dons
+L'inscription des bénévoles, les demandes de pancarte et les dons se font maintenant sur le site du Parti conservateur de la C.-B. Ce site ne les recueille plus. La [politique de confidentialité du parti](https://conservativebc.ca/privacy-policy/) (en anglais) s'applique aux renseignements que vous y fournissez.
+## Formulaires utilisés sur ce site avant le 2 octobre 2026
+- **Bénévolat :** vos prénom et nom, courriel, téléphone et, si vous le souhaitiez, votre adresse. La campagne de Joachim Agou (Parti conservateur de la C.-B., Victoria–Beacon Hill) peut communiquer avec vous par courriel, téléphone ou texto au sujet du bénévolat.
+- **Signature du formulaire de mise en candidature :** votre nom complet, votre adresse résidentielle et votre numéro de téléphone et, si vous le souhaitiez, votre courriel, le meilleur moment pour vous joindre et les séances de signature auxquelles vous pouviez participer. La campagne a communiqué avec vous au sujet de la signature du formulaire de mise en candidature. Vos renseignements servent uniquement à cette mise en candidature.
+- **Pancarte :** vos nom, courriel, téléphone et adresse, l'endroit où irait la pancarte, les notes pour la livraison, et votre confirmation que vous êtes propriétaire ou avez la permission. La campagne peut communiquer avec vous par courriel, téléphone ou texto au sujet de votre pancarte et de la campagne.
+## Comment demander à ne plus être contacté ou à être retiré de la liste de contacts
+Vous pouvez demander à la campagne de cesser de communiquer avec vous à tout moment. Pour le demander, écrivez à [joachim@agou.ca](mailto:joachim@agou.ca) ou appelez au [672-922-7017](tel:+16729227017).

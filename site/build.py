@@ -25,6 +25,64 @@ VIC_ON = lambda env: env == "staging" or bool(SITE.get("victoria_photos_live"))
 BLANK_GIF = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="  # 1x1 transparent: <source> for "not on this screen"
 VIC_VARIANTS = {"strip": (3, 1, (480, 800, 1200)), "tile": (4, 3, (240, 360, 480)), "thumb": (1, 1, (80, 160, 240))}  # same as tools/make_vic_photos.py
 NOMINATIONS_CLOSED = bool(SITE.get("nominations_closed"))  # site.json: nominations complete (Joachim, 30 Sep 2026); see README "Nominations closed"
+# Party links (Joachim, 2 Oct 2026 12:28 AM PT): volunteering, lawn signs and donations go through the Conservative Party of BC (site.json "party").
+# Staging always; live only when site.json party_links_live is true. See README "Party links".
+PARTY_ON = lambda env: env == "staging" or bool(SITE.get("party_links_live"))
+PARTY = {"on": False}
+PARTY_MOVED = ("volunteer", "lawn-sign", "donate")
+_PU = lambda k: SITE["party"]["urls"][k]
+PARTY_MD = {  # (lang, file): exact replacements in the Notion text when party links are on (each must match once)
+    ("en", "home"): [
+        ("[**→ Sign up to volunteer**](/volunteer/)", "Sign-up and lawn-sign requests are on the Conservative Party of BC's website.\n[**→ Sign up to volunteer**](/volunteer/)"),
+        ("Online donations are coming soon. To contribute now, contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910). He'll explain how to give and issue your tax receipt.",
+         "Donations to my campaign go through the Conservative Party of BC's secure donation page. Questions? Contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910)."),
+        ("Only individuals who are Canadian citizens or permanent residents living in B.C. can contribute.\n", "Only individuals who are Canadian citizens or permanent residents living in B.C. can contribute.\n[**→ Donate on the party's website**](/donate/)\n"),
+    ],
+    ("fr", "home"): [
+        ("[**→ Inscrivez-vous comme bénévole**](/fr/volunteer/)", "L'inscription des bénévoles et les demandes de pancarte se font sur le site du Parti conservateur de la C.-B. (en anglais).\n[**→ Inscrivez-vous comme bénévole**](/fr/volunteer/)"),
+        ("Les dons en ligne seront bientôt possibles. Pour contribuer dès maintenant, communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910). Il vous expliquera comment donner et vous remettra votre reçu fiscal.",
+         "Les dons à ma campagne se font sur la page de dons sécurisée du Parti conservateur de la C.-B. (en anglais). Des questions? Communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910)."),
+        ("et vivant en C.-B. peuvent contribuer.\n", "et vivant en C.-B. peuvent contribuer.\n[**→ Faire un don sur le site du parti**](/fr/donate/)\n"),
+    ],
+    ("en", "faq"): [
+        ("[Sign up to volunteer](/volunteer/)", "Sign-up is on the Conservative Party of BC's website: [Sign up to volunteer](/volunteer/)"),
+        ("[Request a lawn sign](/lawn-sign/)", "Requests go through the Conservative Party of BC's lawn-sign form: [Request a lawn sign](/lawn-sign/)"),
+        ("Online donations are coming soon. To contribute now, contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910).",
+         "Donate online through the Conservative Party of BC's secure donation page: [Donate](/donate/). Questions? Contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910)."),
+    ],
+    ("fr", "faq"): [
+        ("[Inscrivez-vous comme bénévole](/fr/volunteer/)", "L'inscription se fait sur le site du Parti conservateur de la C.-B. (en anglais) : [Inscrivez-vous comme bénévole](/fr/volunteer/)"),
+        ("[Demander une pancarte](/fr/lawn-sign/)", "Les demandes se font sur le formulaire du Parti conservateur de la C.-B. (en anglais) : [Demander une pancarte](/fr/lawn-sign/)"),
+        ("Les dons en ligne seront bientôt possibles. Pour contribuer dès maintenant, communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910).",
+         "Faites un don en ligne sur la page de dons sécurisée du Parti conservateur de la C.-B. (en anglais) : [Faire un don](/fr/donate/). Des questions? Communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910)."),
+    ],
+}
+
+
+def party_rewrite(h, lang):
+    """Party links on: every link to our volunteer / lawn-sign / donate pages goes to the party's page instead
+    (same tab, rel=noopener as for other external links; hreflang=en on French pages). The language switcher keeps our bridge pages."""
+    def sub(m):
+        attrs, key = m.group(1) + m.group(4), m.group(3)
+        if 'class="lang"' in attrs: return m.group(0)
+        attrs = attrs.replace(' aria-current="page"', "")
+        extra = "" if "rel=" in attrs else ' rel="noopener"'
+        if lang == "fr" and "hreflang=" not in attrs: extra += ' hreflang="en"'
+        return f'<a {m.group(1)}href="{esc(_PU(key))}"{m.group(4).replace(" aria-current=\"page\"", "")}{extra}>'
+    return re.sub(r'<a ([^>]*?)href="(/fr)?/(volunteer|lawn-sign|donate)/"([^>]*)>', sub, h)
+
+
+def party_page(lang, page, env):
+    """/volunteer/, /lawn-sign/, /donate/ when party links are on: a short page that explains the step and links out (no form)."""
+    key = page["key"]; P = UI[lang]["party"]; T = P[key]
+    btn = f'<p class="cta-line"><a class="btn primary" href="{esc(_PU(key))}" rel="noopener"{" hreflang=\"en\"" if lang == "fr" else ""}>{esc(T["btn"])} <span aria-hidden="true">↗</span></a></p>'
+    parts = [f'<p>{esc(T["lead"])}</p>', f'<p>{esc(T["what"])}</p>', btn, f'<p class="note">{esc(T.get("note") or P["note_ref"])}</p>']
+    if key == "lawn-sign": parts.append(f'<p class="note">{esc(T["shared"])}</p>')
+    if key == "donate":
+        parts.append(f'<p>{esc(T["questions"])} <a href="mailto:bert@bertchen.ca">bert@bertchen.ca</a> {esc(P["or"])} <a href="tel:+17789969910">778-996-9910</a>.</p>')
+    body = f'<section class="block lead">{"".join(parts)}</section>'
+    main = f'<div class="page-head"><div class="wrap"><h1>{esc(T["h1"])}</h1></div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
+    return shell(lang, page, f'{T["h1"]} – Joachim Agou – Victoria–Beacon Hill', T["lead"], main, env)
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
 MEDIAKIT = {"on": True, "env": "staging", "errs": {}}  # media-kit PDFs (site.json media_kit / publish_media_kit_live); set in __main__
 IMG = {  # local image name -> (files by width, width, height)
@@ -352,8 +410,15 @@ def mention_title(u):
 
 
 def read(lang, key):
+    if PARTY["on"] and key == "privacy" and (ROOT / "content" / lang / "privacy-party.md").exists():
+        key = "privacy-party"
     p = ROOT / "content" / lang / f"{key}.md"
-    return p.read_text() if p.exists() else None
+    t = p.read_text() if p.exists() else None
+    if t is not None and PARTY["on"]:
+        for a_, b_ in PARTY_MD.get((lang, key), []):
+            if t.count(a_) != 1: sys.exit(f"party links: {lang}/{key}.md: text to replace not found once (Notion text changed?): {a_[:80]!r}")
+            t = t.replace(a_, b_)
+    return t
 
 
 def section(md, title):
@@ -686,6 +751,8 @@ def build_page(lang, page, env):
         return scorecard.scorecard_page(sys.modules[__name__], lang, page, env)
     if key == "province":  # /province/: own layout, see province.py
         return province.page(sys.modules[__name__], lang, page, env)
+    if PARTY["on"] and key in PARTY_MOVED:
+        return party_page(lang, page, env)
     self_path = url(lang, key)
     ctx = {"self": self_path, "self_anchor": "#form" if page.get("form") in ("volunteer", "nominate", "lawnsign") else "#events-list"}
     home = read(lang, "home")
@@ -972,6 +1039,8 @@ def updated_for(lang, key):
         cands.append(U.get("forms"))
     if key == "media" and lang == "fr":
         cands.append(U.get("fr-media") or U.get("en-media"))
+    if PARTY["on"] and key in SITE["party"]["pages"]:  # party links change these pages (2 Oct 2026)
+        cands.append(SITE["party"]["updated"])
     if lang == "fr" and U.get(f"fr-{key}") and key not in SITE["notion"]:  # French-only date for a hand-written page (fr-privacy, fr-lawn-sign, ...): the English page keeps its own
         cands.append(U.get(f"fr-{key}"))
     if lang == "fr" and p.get("form") and U.get("fr-forms"):
@@ -1212,16 +1281,22 @@ if __name__ == "__main__":
     MEDIAKIT["errs"] = {f: e for f, e in pdf_check(dist).items() if e}
     for f, es in MEDIAKIT["errs"].items():
         print(f"{'PDF CHECK' if a.env == 'live' else 'WARNING (staging only, would block live)'}: {f.relative_to(dist)}:\n    " + "\n    ".join(es))
+    PARTY["on"] = PARTY_ON(a.env)
+    if PARTY["on"]:  # bridge pages leave the sitemap and search; party wording for their descriptions and the lawn-sign card
+        for k in PARTY_MOVED: BYKEY[k]["robots"] = "noindex"
+        for k, v in SEO["party_pages"].items(): SEO["pages"][k] = v
+        for l in LANGS: UI[l]["lawnsign"]["intro"] = UI[l]["party"]["lawnsign_intro"]
     for lang in LANGS:
         for p in PAGES:
             out = dist / url(lang, p["key"]).lstrip("/") / "index.html"
             out.parent.mkdir(parents=True, exist_ok=True)
-            out.write_text(build_page(lang, p, a.env))
+            h_ = build_page(lang, p, a.env)
+            out.write_text(party_rewrite(h_, lang) if PARTY["on"] else h_)
     # 404
     PAGE_STATE["vic_used"] = []
     nf = shell("en", {"key": "home", "slug": ""}, "Page not found – Joachim Agou", "Page not found.",
                '<div class="page-head"><div class="wrap"><h1>Page not found</h1></div></div><div class="wrap content"><section class="block lead"><p><a href="/">Home</a> · <a href="/fr/" lang="fr">Accueil en français</a></p></section></div>', a.env, robots_override="noindex")
-    (dist / "404.html").write_text(nf)
+    (dist / "404.html").write_text(party_rewrite(nf, "en") if PARTY["on"] else nf)
     if a.env == "staging":
         (dist / "robots.txt").write_text("User-agent: *\nDisallow: /\n")
         (dist / "_headers").write_text("/*\n  X-Robots-Tag: noindex, nofollow\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n")
@@ -1239,6 +1314,17 @@ if __name__ == "__main__":
             errs += [f"{f.relative_to(dist)}: links to the retired Nominate page ({u})" for u in nom if f'href="{u}"' in t]
             errs += [f"{f.relative_to(dist)}: still asks people to nominate ({m!r})" for m in sorted(set(ask.findall(t)))]
         if "/nominate/" in (dist / "sitemap.xml").read_text(): errs.append("sitemap.xml lists the retired Nominate page")
+    if PARTY["on"]:  # party links: no link to our old form pages (language switcher excepted), no form on them, no 'coming soon' donation text
+        old = re.compile(r'<a (?![^>]*class="lang")[^>]*href="(?:/fr)?/(?:volunteer|lawn-sign|donate)/"')
+        for f in sorted(dist.rglob("*.html")):
+            t = f.read_text(); rel_ = f.relative_to(dist).as_posix()
+            if old.search(t): errs.append(f"{rel_}: still links to our own volunteer / lawn-sign / donate page (party links are on)")
+            if re.search(r"Online donations are coming soon|Les dons en ligne seront bientôt|arrivent bientôt", t): errs.append(f"{rel_}: 'online donations coming soon' text (donations go through the party)")
+            if rel_.split("/")[-2:-1] and rel_.split("/")[-2] in PARTY_MOVED and 'id="form-config"' in t: errs.append(f"{rel_}: still has a form (moved to the party)")
+        for k in ("volunteer", "lawn-sign"):
+            if "recruiter_id=251" not in _PU(k): errs.append(f"site.json party.urls.{k} lost recruiter_id=251")
+        if "/volunteer/" in (dist / "sitemap.xml").read_text() or "/donate/" in (dist / "sitemap.xml").read_text() or "/lawn-sign/" in (dist / "sitemap.xml").read_text():
+            errs.append("sitemap.xml lists a bridge page (volunteer / lawn-sign / donate)")
     if HIDDEN:
         hu = hidden_urls()
         errs += [f"{f.relative_to(dist)}: links to a page left out of this build ({u})" for f in sorted(dist.rglob("*.html")) for u in hu if f'href="{u}"' in f.read_text()]

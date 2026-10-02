@@ -175,5 +175,57 @@
         "desc": "Comment la campagne de Joachim Agou recueille, utilise et protège vos renseignements personnels, et comment lui demander de cesser de vous joindre."
       }
     }
+  },
+  "party_pages": {
+    "volunteer": {
+      "en": {
+        "title": "Volunteer",
+        "desc": "Volunteer with Joachim Agou in Victoria–Beacon Hill: knock on doors, make calls, put up a sign or help on election day. Sign up on the Conservative Party of BC website."
+      },
+      "fr": {
+        "title": "Bénévolat",
+        "desc": "Bénévolat avec Joachim Agou dans Victoria–Beacon Hill : porte-à-porte, appels, pancartes ou jour du scrutin. Inscription sur le site du Parti conservateur de la C.-B."
+      }
+    },
+    "lawn-sign": {
+      "en": {
+        "title": "Lawn sign",
+        "desc": "Show your support for Joachim Agou in Victoria–Beacon Hill with a lawn sign. Requests go through the Conservative Party of BC's lawn-sign form."
+      },
+      "fr": {
+        "title": "Pancarte",
+        "desc": "Montrez votre appui à Joachim Agou dans Victoria–Beacon Hill avec une pancarte. Les demandes se font sur le formulaire du Parti conservateur de la C.-B."
+      }
+    },
+    "donate": {
+      "en": {
+        "title": "Donate",
+        "desc": "Donate to Joachim Agou's campaign in Victoria–Beacon Hill through the Conservative Party of BC's secure donation page. Limits and eligibility explained."
+      },
+      "fr": {
+        "title": "Faire un don",
+        "desc": "Faites un don à la campagne de Joachim Agou dans Victoria–Beacon Hill sur la page sécurisée du Parti conservateur de la C.-B. Plafonds et admissibilité expliqués."
+      }
+    },
+    "get-involved": {
+      "en": {
+        "title": "Get involved",
+        "desc": "Help Joachim Agou in Victoria–Beacon Hill: volunteer, request a lawn sign, come to an event or donate. Sign-ups and donations go through the Conservative Party of BC."
+      },
+      "fr": {
+        "title": "S'impliquer",
+        "desc": "Aidez Joachim Agou dans Victoria–Beacon Hill : bénévolat, pancarte, événements ou don. Inscriptions et dons se font sur le site du Parti conservateur de la C.-B."
+      }
+    },
+    "privacy": {
+      "en": {
+        "title": "Privacy notice",
+        "desc": "How Joachim Agou's campaign in Victoria–Beacon Hill handles event RSVPs and earlier form data, and where volunteer, lawn-sign and donation details now go."
+      },
+      "fr": {
+        "title": "Avis de confidentialité",
+        "desc": "Comment la campagne de Joachim Agou traite les confirmations de présence et les anciennes données de formulaires, et où vont maintenant bénévolat, pancartes et dons."
+      }
+    }
   }
 }
