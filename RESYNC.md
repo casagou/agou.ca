@@ -137,3 +137,7 @@ Then wait for the Pages build (`gh api repos/casagou/agou.ca/pages/builds/latest
 Only built files go on `main` (never `site/`), because GitHub Pages serves everything in the root, including the Notion snapshot.
 
 Rollback: `git revert -m 1 <merge commit>` on `main` and push (or open a revert PR from the PR page). Pages rebuilds the previous site in about a minute.
+
+### Published live (1 Oct 2026, Joachim approved 5:51 PM PT)
+- `site.json`: `priorities_v2_approved` set to true. The new media-kit hashes (EN e8e47f6e…, FR df98916a…) were added to `media_kit_approved`.
+- The live build (32 pages, content checks passed) went out from staging f35abdf plus these flags in casagou/agou.ca PR #37, merge commit fec1dba.
