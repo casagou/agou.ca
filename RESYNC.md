@@ -148,3 +148,13 @@ Rollback: `git revert -m 1 <merge commit>` on `main` and push (or open a revert 
 - Hand-written French files edited directly: `content/fr/province.md`, `content/fr/scorecard.md`, `content/fr/privacy.md`, plus the new `content/fr/media.md` (no French Notion page exists; keep it in step with `content/en/media.md` by hand). Also `scorecard.json`, `seo.json`, `ui.json` and `site.json` (French fields only).
 - The home "Read more" split in French keeps the same paragraphs visible as English (`build.py` COLLAPSE_EN).
 - Events: Supabase migration `46_campaign_events_fr` adds `title_fr`, `description_fr` and `location_name_fr` to `public.campaign_events`. `get_public_events()` returns them as 3 extra columns at the end. **When Events adds a row, it must fill these three French fields.** The French site falls back to English if one is empty. Downtown shows as Centre-ville in French.
+
+### Needs-Joachim answers (1 Oct 2026, 7:49 PM PT), staging only
+Rules in `exclusions.json` whose "why" starts with "Joachim (1 Oct 2026, 7:49 PM PT)":
+- The past voting dates are gone: registration by 1 Oct (Home, FAQ and How to vote key dates in `ui.json`) and "closed 30 Sep".
+- The Home family-doctor line now uses the Priorities metric and source (24.7% with no family doctor or nurse practitioner in June 2025; Ministry of Health records via The Canada Report).
+- The FAQ entry "What does nominating a candidate mean?" is removed.
+- The DRIPA answer cites BC Laws (SBC 2019, c. 44).
+- The About intro follows the media bios (Florida Tech, then graduate research at Laval), and the Community list adds Chabad.
+- The extra French footer Media line is removed. The footer navigation already links Media / Médias on every page.
+- `build.py` PRIORITIES_OLD now blocks the old wording. The media-kit PDFs are unchanged.

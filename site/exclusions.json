@@ -1180,8 +1180,8 @@
     {
       "page": "fr-home:contact",
       "find": "Médias (en anglais) : <mention-page url=\"https://app.notion.com/p/3ebe245ae5f381579873c06a8d0db06d\"/>",
-      "replace": "[Médias](/fr/media/)",
-      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: B1: the French Media page now exists; link it instead of the English page."
+      "replace": "",
+      "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: B1: the French Media page now exists; link it instead of the English page. Joachim (1 Oct 2026, 7:49 PM PT): the footer already links « Médias » to /fr/media/ (as EN 'Media'), so this extra line is removed for parity."
     },
     {
       "page": "fr-about",
@@ -1404,6 +1404,120 @@
       "find": "données au 30 juin 2020, en anglais",
       "replace": "données en date de juin 2020, en anglais",
       "why": "French review 2026-10-02 (Joachim, 1 Oct 6:32 PM PT), checked against current EN: P-R6: EN 'figures as of June 2020' (no day)."
+    },
+    {
+      "page": "en-home",
+      "find": "**Register or update your details by Thursday 1 October** to get your Where to Vote card in the mail. You can still register when you vote. [Register to vote](https://elections.bc.ca/2026-provincial-election/register-to-vote/)",
+      "replace": "You can register or update your details when you vote. [Register to vote](https://elections.bc.ca/2026-provincial-election/register-to-vote/)",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: drop the stale 'Register by Thu 1 Oct' line; registering when you vote is still possible."
+    },
+    {
+      "page": "fr-home",
+      "find": "**Inscrivez-vous ou mettez à jour vos renseignements d'ici le jeudi 1er octobre** pour recevoir votre carte d'information électorale (« Where to Vote ») par la poste. Vous pouvez aussi vous inscrire au moment de voter. [S'inscrire pour voter](https://elections.bc.ca/2026-provincial-election/register-to-vote/)",
+      "replace": "Vous pouvez vous inscrire ou mettre à jour vos renseignements au moment de voter. [S'inscrire pour voter](https://elections.bc.ca/2026-provincial-election/register-to-vote/)",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: FR of the EN change (stale 1 Oct registration line dropped)."
+    },
+    {
+      "page": "en-home",
+      "find": "- Closed Wednesday 30 September and Monday 12 October (Thanksgiving)",
+      "replace": "- Closed Monday 12 October (Thanksgiving)",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: drop the past 'Closed Wed 30 Sep'."
+    },
+    {
+      "page": "fr-home",
+      "find": "- Fermé le mercredi 30 septembre et le lundi 12 octobre (Action de grâces)",
+      "replace": "- Fermé le lundi 12 octobre (Action de grâces)",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: FR of the EN change."
+    },
+    {
+      "page": "en-faq",
+      "find": "Register or update your details by Thursday 1 October to get your Where to Vote card in the mail. You can still register when you vote.",
+      "replace": "You can register or update your details when you vote.",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: same stale registration line in the FAQ voting answer (kept in step with Home)."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Inscrivez-vous ou mettez à jour vos renseignements d'ici le jeudi 1er octobre pour recevoir votre carte d'information électorale (« Where to Vote ») par la poste. Vous pouvez aussi vous inscrire au moment de voter.",
+      "replace": "Vous pouvez vous inscrire ou mettre à jour vos renseignements au moment de voter.",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: FR of the EN change."
+    },
+    {
+      "page": "en-home",
+      "find": "1 in 4 people don’t have a family doctor,",
+      "replace": "about 1 in 4 British Columbians (24.7%) had no family doctor or nurse practitioner in June 2025,",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: Home doctor figure = Priorities (24.7% with no family doctor or nurse practitioner, June 2025; Ministry of Health records via The Canada Report)."
+    },
+    {
+      "page": "fr-home",
+      "find": "1 personne sur 4 n'a pas de médecin de famille,",
+      "replace": "environ 1 Britanno-Colombien sur 4 (24,7 %) n'avait ni médecin de famille ni infirmière praticienne en juin 2025,",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: FR of the EN change (same wording as FR Priorities)."
+    },
+    {
+      "page": "en-home",
+      "find": "[family doctors (B.C. Ministry of Health: 76% had a family doctor or nurse practitioner, June 2025)](https://news.gov.bc.ca/releases/2025HLTH0077-000752)",
+      "replace": "[family doctors (Ministry of Health records, via The Canada Report, 16 Jul 2026: 24.7% had no family doctor or nurse practitioner, June 2025)](https://www.thecanadareport.ca/bc-health-connect-registry-attachment-gap/)",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: same source as Priorities; the 76% news-release figure is retired."
+    },
+    {
+      "page": "fr-home",
+      "find": "[médecins de famille (ministère de la Santé : 76 % avaient un médecin de famille ou une infirmière praticienne, juin 2025)](https://news.gov.bc.ca/releases/2025HLTH0077-000752)",
+      "replace": "[médecins de famille (dossiers du ministère de la Santé, via The Canada Report, 16 juillet 2026 : 24,7 % n'avaient ni médecin de famille ni infirmière praticienne, juin 2025)](https://www.thecanadareport.ca/bc-health-connect-registry-attachment-gap/)",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: FR of the EN change."
+    },
+    {
+      "page": "en-faq",
+      "find": "<details>\n<summary>What does nominating a candidate mean?</summary>\nIt's a signature on an Elections BC form that lets a candidate appear on the ballot. It's not a pledge to vote for me. You must be an eligible voter who lives in Victoria–Beacon Hill, and you can nominate only one candidate this election.\n</details>\n",
+      "replace": "",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: remove the leftover nomination-drive entry 'What does nominating a candidate mean?'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "<details>\n<summary>Que signifie signer le formulaire de mise en candidature d'un candidat?</summary>\n\tC'est une signature sur un formulaire d'Elections BC qui permet à un candidat de figurer sur le bulletin de vote. Ce n'est pas un engagement à voter pour moi. Vous devez être un électeur admissible qui habite Victoria–Beacon Hill. Vous ne pouvez signer le formulaire de mise en candidature que d'un seul candidat à cette élection.\n</details>\n",
+      "replace": "",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: FR counterpart removed."
+    },
+    {
+      "page": "en-faq",
+      "find": "that protect everyone's property rights.\n</details>",
+      "replace": "that protect everyone's property rights. Source: [Declaration on the Rights of Indigenous Peoples Act, SBC 2019, c. 44](https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/19044).\n</details>",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: source label for the DRIPA answer (official B.C. law, BC Laws)."
+    },
+    {
+      "page": "fr-faq",
+      "find": "qui protègent les droits de propriété de tous.\n</details>",
+      "replace": "qui protègent les droits de propriété de tous. Source : [Declaration on the Rights of Indigenous Peoples Act, SBC 2019, c. 44](https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/19044).\n</details>",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: FR of the EN source label."
+    },
+    {
+      "page": "en-about",
+      "find": "I was born in Nice, France, and came to Canada at 22 to study mechanical engineering at Université Laval, focusing on combustion and computational fluid dynamics.",
+      "replace": "Born in Nice, France, I studied mechanical engineering at Florida Institute of Technology and came to Canada in 2011 for graduate research in combustion engineering at Université Laval in Quebec City.",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: About = media bios: Florida Institute of Technology degree, then graduate research at Laval (thesis not completed; no completed master's)."
+    },
+    {
+      "page": "fr-about",
+      "find": "Né à Nice, en France, je suis arrivé au Canada à 22 ans pour étudier le génie mécanique à l'Université Laval, en me concentrant sur la combustion et la dynamique des fluides numérique.",
+      "replace": "Né à Nice, en France, j'ai étudié le génie mécanique au Florida Institute of Technology, puis je suis arrivé au Canada en 2011 pour mener des recherches sur la combustion dans le cadre d'études supérieures à l'Université Laval, à Québec.",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: FR of the EN change (wording of the FR media bio)."
+    },
+    {
+      "page": "en-about",
+      "find": "- Interim Vice-President, Victoria Conservative Association (the federal riding association), since June 2026.\n",
+      "replace": "- Interim Vice-President, Victoria Conservative Association (the federal riding association), since June 2026.\n- Volunteer, Chabad of Vancouver Island.\n",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: About = media bios: Chabad of Vancouver Island volunteering."
+    },
+    {
+      "page": "fr-about",
+      "find": "- Vice-président par intérim, Victoria Conservative Association (l'association de circonscription fédérale), depuis juin 2026.\n",
+      "replace": "- Vice-président par intérim, Victoria Conservative Association (l'association de circonscription fédérale), depuis juin 2026.\n- Bénévole, Chabad of Vancouver Island.\n",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: FR of the EN change."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Frapper aux portes, faire des appels, installer une pancarte ou aider le jour de l'élection.",
+      "replace": "Faire du porte-à-porte, passer des appels, installer une pancarte ou aider le jour du scrutin.",
+      "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: same FR wording as Home (French review M item) for EN 'Knock on doors, make calls, put up a sign or help on election day'."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

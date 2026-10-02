@@ -1,5 +1,5 @@
 ## Who I am
-I'm Joachim Agou, and I'm a dad. I was born in Nice, France, and came to Canada at 22 to study mechanical engineering at Université Laval, focusing on combustion and computational fluid dynamics. My career took me through gas turbines in Montreal, industrial testing in Ottawa and the space industry in Brampton. In January 2023 I settled in Fairfield, in Victoria–Beacon Hill, to raise my family, and I became a Canadian citizen that year.
+I'm Joachim Agou, and I'm a dad. Born in Nice, France, I studied mechanical engineering at Florida Institute of Technology and came to Canada in 2011 for graduate research in combustion engineering at Université Laval in Quebec City. My career took me through gas turbines in Montreal, industrial testing in Ottawa and the space industry in Brampton. In January 2023 I settled in Fairfield, in Victoria–Beacon Hill, to raise my family, and I became a Canadian citizen that year.
 ## Work
 I'm a professional engineer with more than 15 years of experience in aerospace, defence, energy and space. I lead engineering teams and deliver multimillion-dollar projects on budget and on schedule. Today I support the navy as a defence contractor.
 <details>
@@ -43,6 +43,7 @@ I'm a professional engineer with more than 15 years of experience in aerospace, 
 </details>
 ## Community
 - Interim Vice-President, Victoria Conservative Association (the federal riding association), since June 2026.
+- Volunteer, Chabad of Vancouver Island.
 ## Languages
 French (native), English (fluent), Spanish (limited working proficiency), Italian and Hebrew (basic).
 ## Why I am running

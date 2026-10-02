@@ -53,7 +53,7 @@ Every commitment has a number attached. Every quarter, I'll publish a report to 
 </details>
 <details>
 <summary>Where do you stand on DRIPA and property rights?</summary>
-I support reconciliation, and I support clear property rights. People, First Nations and businesses need to know who can build, own and decide on land. Right now the rules are unclear, and that uncertainty slows housing and investment and ends up in court. I support the party's plan to replace the current law with clear rules, developed with First Nations, that protect everyone's property rights.
+I support reconciliation, and I support clear property rights. People, First Nations and businesses need to know who can build, own and decide on land. Right now the rules are unclear, and that uncertainty slows housing and investment and ends up in court. I support the party's plan to replace the current law with clear rules, developed with First Nations, that protect everyone's property rights. Source: [Declaration on the Rights of Indigenous Peoples Act, SBC 2019, c. 44](https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/19044).
 </details>
 <details>
 <summary>How will you work with the Songhees and Esquimalt Nations?</summary>
@@ -198,10 +198,6 @@ I am not making a campaign promise about leaving that job. The commissioner, not
 </details>
 ## Nominating and helping
 <details>
-<summary>What does nominating a candidate mean?</summary>
-It's a signature on an Elections BC form that lets a candidate appear on the ballot. It's not a pledge to vote for me. You must be an eligible voter who lives in Victoria–Beacon Hill, and you can nominate only one candidate this election.
-</details>
-<details>
 <summary>How can I volunteer?</summary>
 Knock on doors, make calls, put up a sign or help on election day. [Sign up to volunteer](/volunteer/)
 </details>
@@ -224,7 +220,7 @@ The riding covers James Bay, Fairfield, Downtown, Rockland, North Park, most of 
 </details>
 <details>
 <summary>When and where can I vote?</summary>
-Register or update your details by Thursday 1 October to get your Where to Vote card in the mail. You can still register when you vote.
+You can register or update your details when you vote.
 Advance voting runs Friday 16 to Wednesday 21 October, 8 a.m. to 8 p.m. Final Voting Day is Saturday 24 October, 8 a.m. to 8 p.m. You can also vote now at the district electoral office, 101-722 Johnson St. Full details are in Voter information on the home page.
 </details>
 <details>

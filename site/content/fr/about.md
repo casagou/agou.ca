@@ -1,5 +1,5 @@
 ## Qui je suis
-Je m'appelle Joachim Agou et je suis papa. Né à Nice, en France, je suis arrivé au Canada à 22 ans pour étudier le génie mécanique à l'Université Laval, en me concentrant sur la combustion et la dynamique des fluides numérique. Ma carrière m'a mené des turbines à gaz à Montréal aux essais industriels à Ottawa, puis au secteur spatial à Brampton. En janvier 2023, je me suis installé à Fairfield, dans Victoria–Beacon Hill, pour y élever ma famille, et je suis devenu citoyen canadien la même année.
+Je m'appelle Joachim Agou et je suis papa. Né à Nice, en France, j'ai étudié le génie mécanique au Florida Institute of Technology, puis je suis arrivé au Canada en 2011 pour mener des recherches sur la combustion dans le cadre d'études supérieures à l'Université Laval, à Québec. Ma carrière m'a mené des turbines à gaz à Montréal aux essais industriels à Ottawa, puis au secteur spatial à Brampton. En janvier 2023, je me suis installé à Fairfield, dans Victoria–Beacon Hill, pour y élever ma famille, et je suis devenu citoyen canadien la même année.
 ## Parcours professionnel
 Je suis ingénieur professionnel et je possède plus de 15 ans d'expérience dans l'aérospatiale, la défense, l'énergie et le secteur spatial. Je dirige des équipes d'ingénierie et mène à bien des projets de plusieurs millions de dollars, dans le respect des budgets et des délais. Aujourd'hui, je travaille sous contrat pour soutenir la Marine.
 <details>
@@ -43,6 +43,7 @@ Je suis ingénieur professionnel et je possède plus de 15 ans d'expérience dan
 </details>
 ## Engagement communautaire
 - Vice-président par intérim, Victoria Conservative Association (l'association de circonscription fédérale), depuis juin 2026.
+- Bénévole, Chabad of Vancouver Island.
 ## Langues
 Français (langue maternelle), anglais (courant), espagnol (connaissance pratique limitée), italien et hébreu (notions de base).
 ## Pourquoi je me présente

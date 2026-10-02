@@ -4,5 +4,5 @@
 Agent financier : Bert Chen · [bert@bertchen.ca](mailto:bert@bertchen.ca) · [778-996-9910](tel:+17789969910)
 Vérificateur : Chan Nowosad Boates, comptables professionnels agréés, Campbell River
 *Autorisé par Bert Chen, agent financier, *[*bert@bertchen.ca*](mailto:bert@bertchen.ca)*, *[*778-996-9910*](tel:+17789969910)*.*
-[Médias](/fr/media/)
+
 <page url="/fr/faq/">Foire aux questions</page>

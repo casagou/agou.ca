@@ -1078,6 +1078,11 @@ PRIORITIES_OLD = [
     (r"Are you the BC Conservative candidate\?|Êtes-vous le candidat du Parti conservateur", "'the candidate' FAQ question (he is seeking the nomination)"),
     (r"Every hour helps|Chaque heure compte", "'Every hour helps' (cut by Joachim on 1 Oct 2026)"),
     (r"(?i)become a nominator|appui à sa candidature", "a nominator ask (nominations are complete)"),
+    # Needs-Joachim answers (1 Oct 2026, 7:49 PM PT): retired on every page
+    (r"by Thursday 1 October|by October 1, 2026|d['’]ici le jeudi 1er octobre|d['’]ici le 1er octobre 2026|Closed Wednesday 30 September|Fermé le mercredi 30 septembre", "a past voting date (registration by 1 Oct, office closed 30 Sep)"),
+    (r"76 ?% had a family doctor|76 ?% avaient un médecin|1 in 4 people don['’]t have a family doctor|1 personne sur 4 n['’]a pas de médecin", "the old Home family-doctor line (use the Priorities metric: 24.7% had no family doctor or nurse practitioner, June 2025)"),
+    (r"What does nominating a candidate mean\?|Que signifie signer le formulaire de mise en candidature", "the retired FAQ entry on nominating"),
+    (r"came to Canada at 22 to study|arrivé au Canada à 22 ans pour étudier|Médias \(en anglais\)", "the old About intro (Laval: graduate research, after Florida Tech) or the English-Media fallback link"),
 ]
 EXPERIENCE_OLD = r"(?i)(more than|over)\s+(12|twelve)\s+years|\b(12|twelve) years of experience|plus de (12|douze) ans"
 PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910"}

@@ -56,7 +56,7 @@ Je sollicite cette investiture à cause du plan sur ce site, pas à cause d'une 
 </details>
 <details>
 <summary>Quelle est votre position sur la DRIPA et sur les droits de propriété?</summary>
-	J'appuie la réconciliation et j'appuie des droits de propriété clairement définis. Les gens, les Premières Nations et les entreprises doivent savoir qui peut être propriétaire d'un terrain, y construire et prendre les décisions le concernant. Aujourd'hui, les règles sont floues, et cette incertitude ralentit les projets de logement et l'investissement, et finit devant les tribunaux. J'appuie le plan du parti visant à remplacer la loi actuelle par des règles claires, élaborées avec les Premières Nations, qui protègent les droits de propriété de tous.
+	J'appuie la réconciliation et j'appuie des droits de propriété clairement définis. Les gens, les Premières Nations et les entreprises doivent savoir qui peut être propriétaire d'un terrain, y construire et prendre les décisions le concernant. Aujourd'hui, les règles sont floues, et cette incertitude ralentit les projets de logement et l'investissement, et finit devant les tribunaux. J'appuie le plan du parti visant à remplacer la loi actuelle par des règles claires, élaborées avec les Premières Nations, qui protègent les droits de propriété de tous. Source : [Declaration on the Rights of Indigenous Peoples Act, SBC 2019, c. 44](https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/19044).
 </details>
 <details>
 <summary>Comment travaillerez-vous avec les nations Songhees et Esquimalt?</summary>
@@ -207,12 +207,8 @@ Je ne fais pas ici une promesse de campagne de quitter cet emploi. C'est le comm
 </details>
 ## Mise en candidature et aide à la campagne
 <details>
-<summary>Que signifie signer le formulaire de mise en candidature d'un candidat?</summary>
-	C'est une signature sur un formulaire d'Elections BC qui permet à un candidat de figurer sur le bulletin de vote. Ce n'est pas un engagement à voter pour moi. Vous devez être un électeur admissible qui habite Victoria–Beacon Hill. Vous ne pouvez signer le formulaire de mise en candidature que d'un seul candidat à cette élection.
-</details>
-<details>
 <summary>Comment devenir bénévole?</summary>
-	Frapper aux portes, faire des appels, installer une pancarte ou aider le jour de l'élection. [Inscrivez-vous comme bénévole](/fr/volunteer/)
+	Faire du porte-à-porte, passer des appels, installer une pancarte ou aider le jour du scrutin. [Inscrivez-vous comme bénévole](/fr/volunteer/)
 </details>
 <details>
 <summary>Puis-je avoir une pancarte?</summary>
@@ -233,7 +229,7 @@ Je ne fais pas ici une promesse de campagne de quitter cet emploi. C'est le comm
 </details>
 <details>
 <summary>Quand et où puis-je voter?</summary>
-	Inscrivez-vous ou mettez à jour vos renseignements d'ici le jeudi 1er octobre pour recevoir votre carte d'information électorale (« Where to Vote ») par la poste. Vous pouvez aussi vous inscrire au moment de voter.
+	Vous pouvez vous inscrire ou mettre à jour vos renseignements au moment de voter.
 	Le vote par anticipation a lieu du vendredi 16 au mercredi 21 octobre, de 8 h à 20 h. Le jour du scrutin est le samedi 24 octobre, de 8 h à 20 h. Vous pouvez aussi voter dès maintenant au bureau du directeur du scrutin, 101-722 Johnson St. Tous les détails se trouvent dans la section Renseignements pour voter de la page d'accueil.
 </details>
 <details>

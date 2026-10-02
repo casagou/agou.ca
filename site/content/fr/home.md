@@ -1,12 +1,12 @@
 Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative
 **Des rues plus sûres, des budgets honnêtes et un centre-ville qui fonctionne.**
-Après neuf ans sous le même gouvernement, la Colombie-Britannique affiche un déficit de 13,8 milliards de dollars, 1 personne sur 4 n'a pas de médecin de famille, et l'avenue Pandora montre ce qui arrive quand on laisse un problème de côté. Pendant tout ce temps, notre circonscription était représentée par le parti au pouvoir. Elle a eu droit à des annonces, mais pas à des résultats.
+Après neuf ans sous le même gouvernement, la Colombie-Britannique affiche un déficit de 13,8 milliards de dollars, environ 1 Britanno-Colombien sur 4 (24,7 %) n'avait ni médecin de famille ni infirmière praticienne en juin 2025, et l'avenue Pandora montre ce qui arrive quand on laisse un problème de côté. Pendant tout ce temps, notre circonscription était représentée par le parti au pouvoir. Elle a eu droit à des annonces, mais pas à des résultats.
 <callout icon="✍️" color="blue_bg">
 	**Mettre un ingénieur d'essais sur le bulletin de vote.**
 	Il me faut la signature de 75 voisins d'ici le samedi 3 octobre, à 13 h. Cela prend 1 minute, et je me déplace chez vous.
 	[**S'inscrire pour signer mon formulaire de mise en candidature (1 minute)**](/fr/nominate/)
 </callout>
-Sources (en anglais) : [déficit (rapport du premier trimestre, sept. 2026)](https://news.gov.bc.ca/releases/2026FIN0031-001066) · [médecins de famille (ministère de la Santé : 76 % avaient un médecin de famille ou une infirmière praticienne, juin 2025)](https://news.gov.bc.ca/releases/2025HLTH0077-000752) · [gouvernement depuis juillet 2017](https://news.gov.bc.ca/releases/2017PREM0061-001322) · [résultats de la circonscription, 2017-2024 (Elections BC)](https://elections.bc.ca/resources/results/) · [75 signataires, clôture des mises en candidature le 3 octobre à 13 h (Elections BC)](https://elections.bc.ca/2026-provincial-election/)
+Sources (en anglais) : [déficit (rapport du premier trimestre, sept. 2026)](https://news.gov.bc.ca/releases/2026FIN0031-001066) · [médecins de famille (dossiers du ministère de la Santé, via The Canada Report, 16 juillet 2026 : 24,7 % n'avaient ni médecin de famille ni infirmière praticienne, juin 2025)](https://www.thecanadareport.ca/bc-health-connect-registry-attachment-gap/) · [gouvernement depuis juillet 2017](https://news.gov.bc.ca/releases/2017PREM0061-001322) · [résultats de la circonscription, 2017-2024 (Elections BC)](https://elections.bc.ca/resources/results/) · [75 signataires, clôture des mises en candidature le 3 octobre à 13 h (Elections BC)](https://elections.bc.ca/2026-provincial-election/)
 ## À propos de moi
 Je suis ingénieur d'essais, et c'est ce travail que je ferai à l'Assemblée législative : un indicateur chiffré pour chaque promesse, un bilan public chaque trimestre. Si le ministère refuse de publier les chiffres de l'île de Vancouver, je présenterai une demande d'accès à l'information et je rendrai public le refus.
 Je suis papa, ingénieur professionnel (P.Eng.) et propriétaire d'une petite entreprise; j'habite à Fairfield. Depuis plus de 15 ans, je dirige des équipes d'ingénierie et mène à bien des projets de plusieurs millions de dollars, dans le respect des budgets et des délais. Mon parcours va des installations d'essais de turbines à gaz sur trois continents à la robotique spatiale. Aujourd'hui, je suis ingénieur d'essais et d'évaluation dans le secteur de la défense, et je dirige Casagou Inc., une entreprise de Victoria de génie-conseil et de médias.
@@ -43,14 +43,14 @@ En 2026, vous pouvez donner jusqu'à 1 513,29 \$ au total à un parti, à ses as
 ## Des questions?
 [**→ Foire aux questions**](/fr/faq/)
 ## Renseignements pour voter
-**Inscrivez-vous ou mettez à jour vos renseignements d'ici le jeudi 1er octobre** pour recevoir votre carte d'information électorale (« Where to Vote ») par la poste. Vous pouvez aussi vous inscrire au moment de voter. [S'inscrire pour voter](https://elections.bc.ca/2026-provincial-election/register-to-vote/)
+Vous pouvez vous inscrire ou mettre à jour vos renseignements au moment de voter. [S'inscrire pour voter](https://elections.bc.ca/2026-provincial-election/register-to-vote/)
 **Vote par anticipation : du vendredi 16 au mercredi 21 octobre, de 8 h à 20 h.** Aucune justification n'est requise pour voter par anticipation. Vous pouvez voter à n'importe quel bureau de vote par anticipation.
 **Jour du scrutin : samedi 24 octobre, de 8 h à 20 h.** Vous votez au bureau indiqué sur votre carte d'information électorale (« Where to Vote »).
 **Votez dès maintenant au bureau du directeur du scrutin de Victoria–Beacon Hill :** 101-722 Johnson St, Victoria. Vous pouvez voter à n'importe quel bureau du directeur du scrutin jusqu'à 16 h le 24 octobre.
 - Du lundi au vendredi, de 9 h à 17 h
 - Le samedi, de 10 h à 16 h
 - Les jours de vote par anticipation, de 8 h à 20 h
-- Fermé le mercredi 30 septembre et le lundi 12 octobre (Action de grâces)
+- Fermé le lundi 12 octobre (Action de grâces)
 **Vote par la poste :** demandez une trousse sur [elections.bc.ca](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) ou au 1-800-661-8683, au plus tard le dimanche 18 octobre. Elections BC doit la recevoir au plus tard à 20 h le 24 octobre. Vous pouvez aussi la déposer à un bureau du directeur du scrutin ou à un bureau de vote.
 **Vous ne savez pas si vous habitez la circonscription?** Vérifiez sur [wheretovote.elections.bc.ca](https://wheretovote.elections.bc.ca/).
 Les lieux de vote sont en cours de confirmation par Elections BC. Source : [Elections BC, Ways to Vote](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) (en anglais).
