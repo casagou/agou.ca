@@ -7,14 +7,14 @@
 </details>
 <details>
 <summary>Avez-vous obtenu l'investiture du Parti conservateur de la Colombie-Britannique?</summary>
-	Pas encore. Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative.
-	La période de mise en candidature auprès d'Elections BC se termine le samedi 3 octobre, à 13 h. La liste officielle des candidats est publiée par [Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/) (en anglais). Je mettrai cette réponse à jour le jour même où ma situation changera.
+	Oui. Mon investiture par le Parti conservateur de la Colombie-Britannique est confirmée : je me présente pour le parti dans Victoria–Beacon Hill à l'élection provinciale du 24 octobre 2026.
+	La liste officielle des noms inscrits sur le bulletin de vote est publiée par [Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/) (en anglais).
 </details>
 <details>
 <summary>L'investiture du parti est-elle la même chose que figurer sur le bulletin de vote?</summary>
 Non. Deux décisions distinctes.
-L'investiture est la décision du Parti conservateur de m'investir. La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre. Une signature n'est ni un vote ni une adhésion au parti. On ne peut proposer qu'un seul candidat à cette élection.
-Sur le formulaire, on peut demander à Elections BC de retirer l'adresse de la copie publique. Les noms restent visibles. Source : [FAQ d'Elections BC sur la mise en candidature](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/).
+L'investiture était la décision du Parti conservateur de la Colombie-Britannique de m'investir, et elle est confirmée. La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre. Les signatures de mon formulaire sont recueillies.
+Source : [FAQ d'Elections BC sur la mise en candidature](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/).
 </details>
 
 <details>
@@ -29,7 +29,7 @@ Sur le formulaire, on peut demander à Elections BC de retirer l'adresse de la c
 <details>
 <summary>Quelle est votre position sur le chef intérimaire et la division du parti?</summary>
 Lorne Doerkson est le chef intérimaire. Le caucus l'a recommandé et le conseil du parti l'a nommé le 21 septembre, après la démission de Kerry-Lynne Findlay le 20 septembre. Source : [CBC News, 21 septembre 2026](https://www.cbc.ca/news/canada/british-columbia/lorne-doerkson-named-b-c-conservatives-interim-leader-9.7352318).
-Je sollicite cette investiture à cause du plan sur ce site, pas à cause d'une personnalité. Si le caucus et cette circonscription divergent, je le dirai publiquement, je porterai le dossier de la circonscription au caucus, et je voterai d'une façon que je peux défendre ici.
+J'ai sollicité cette investiture à cause du plan sur ce site, pas à cause d'une personnalité. Si le caucus et cette circonscription divergent, je le dirai publiquement, je porterai le dossier de la circonscription au caucus, et je voterai d'une façon que je peux défendre ici.
 </details>
 
 <details>

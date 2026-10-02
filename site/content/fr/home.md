@@ -1,4 +1,4 @@
-Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative
+Investi par le Parti conservateur de la Colombie-Britannique pour représenter Victoria–Beacon Hill à l'Assemblée législative
 **Des rues plus sûres, des budgets honnêtes et un centre-ville qui fonctionne.**
 Après neuf ans sous le même gouvernement, la Colombie-Britannique affiche un déficit de 13,8 milliards de dollars, environ 1 Britanno-Colombien sur 4 (24,7 %) n'avait ni médecin de famille ni infirmière praticienne en juin 2025, et l'avenue Pandora montre ce qui arrive quand on laisse un problème de côté. Pendant tout ce temps, notre circonscription était représentée par le parti au pouvoir. Elle a eu droit à des annonces, mais pas à des résultats.
 <callout icon="✍️" color="blue_bg">

@@ -18,11 +18,11 @@
     "home": {
       "en": {
         "home_title": "Joachim Agou, Victoria–Beacon Hill – Safer streets",
-        "desc": "Joachim Agou, a test engineer, is seeking the BC Conservative nomination in Victoria–Beacon Hill. Safer streets, honest budgets, a downtown that works."
+        "desc": "Joachim Agou, a test engineer, is the Conservative Party of BC nominee in Victoria–Beacon Hill. Safer streets, honest budgets, a downtown that works."
       },
       "fr": {
         "home_title": "Joachim Agou, Victoria–Beacon Hill – Des rues plus sûres",
-        "desc": "Joachim Agou, ingénieur d'essais, sollicite l'investiture conservatrice dans Victoria–Beacon Hill : rues plus sûres, budgets honnêtes, centre-ville qui fonctionne."
+        "desc": "Joachim Agou, ingénieur d'essais investi par le Parti conservateur dans Victoria–Beacon Hill : rues plus sûres, budgets honnêtes, centre-ville qui fonctionne."
       }
     },
     "about": {
@@ -68,11 +68,11 @@
     "get-involved": {
       "en": {
         "title": "Get involved",
-        "desc": "Help Joachim Agou in Victoria–Beacon Hill: volunteer, request a free lawn sign, come to an event or donate. Pick what fits your time."
+        "desc": "Help Joachim Agou in Victoria–Beacon Hill: volunteer, request a lawn sign, come to an event or donate. Pick what fits your time."
       },
       "fr": {
         "title": "S'impliquer",
-        "desc": "Aidez Joachim Agou dans Victoria–Beacon Hill : bénévolat, pancarte gratuite, événements ou don. Choisissez ce qui convient à votre emploi du temps."
+        "desc": "Aidez Joachim Agou dans Victoria–Beacon Hill : bénévolat, pancarte, événements ou don. Choisissez ce qui convient à votre emploi du temps."
       }
     },
     "volunteer": {
@@ -87,12 +87,12 @@
     },
     "lawn-sign": {
       "en": {
-        "title": "Free lawn sign",
-        "desc": "Show your support for Joachim Agou in Victoria–Beacon Hill with a free lawn sign. Leave your details and the campaign will bring one to your door."
+        "title": "Lawn sign",
+        "desc": "Show your support for Joachim Agou in Victoria–Beacon Hill with a lawn sign. Leave your details and the campaign will bring one to your door."
       },
       "fr": {
-        "title": "Pancarte gratuite",
-        "desc": "Montrez votre appui à Joachim Agou dans Victoria–Beacon Hill avec une pancarte gratuite. Laissez vos coordonnées et la campagne vous l'apportera."
+        "title": "Pancarte",
+        "desc": "Montrez votre appui à Joachim Agou dans Victoria–Beacon Hill avec une pancarte. Laissez vos coordonnées et la campagne vous l'apportera à votre porte."
       }
     },
     "nominate": {

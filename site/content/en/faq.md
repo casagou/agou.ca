@@ -7,14 +7,14 @@ More: <mention-page url="/about/"/>
 </details>
 <details>
 <summary>Have you won the BC Conservative nomination?</summary>
-Not yet. I'm seeking the BC Conservative nomination to run for MLA in Victoria–Beacon Hill.
-Candidate nominations with Elections BC close at 1 p.m. on Saturday 3 October. The official list is on [Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/). I'll update this answer the day my status changes.
+Yes. My Conservative Party of BC nomination is confirmed: I'm the party's nominee for MLA in Victoria–Beacon Hill in the 24 October 2026 provincial election.
+The official list of who is on the ballot is on [Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/).
 </details>
 <details>
 <summary>Is the party nomination the same thing as getting on the ballot?</summary>
 No. Two different decisions.
-The party nomination is the BC Conservatives' decision to endorse me. The Elections BC nomination is the form that puts a name on the ballot: 75 nominators who live in Victoria–Beacon Hill, a $250 deposit, filed by 1 p.m. on Saturday 3 October. A signature is not a vote, and it is not party membership. You can nominate only one candidate this election.
-On the nominator form you can ask Elections BC to keep your address off the public copy. Names still appear. Source: [Elections BC, candidate nomination FAQ](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/).
+The party nomination was the Conservative Party of BC's decision to make me its nominee, and it is confirmed. The Elections BC nomination is the form that puts a name on the ballot: 75 nominators who live in Victoria–Beacon Hill and a $250 deposit, filed by 1 p.m. on Saturday 3 October. My nominator signatures are complete.
+Source: [Elections BC, candidate nomination FAQ](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/).
 </details>
 <details>
 <summary>Why are you running to represent Victoria–Beacon Hill?</summary>
@@ -28,7 +28,7 @@ I chose the Conservatives because they are prepared to change the rules that are
 <details>
 <summary>Where do you stand on the interim leader and the split in the party?</summary>
 Lorne Doerkson is the interim leader. The caucus recommended him and the party board appointed him on 21 September, after Kerry-Lynne Findlay resigned on 20 September. Source: [CBC News, 21 September 2026](https://www.cbc.ca/news/canada/british-columbia/lorne-doerkson-named-b-c-conservatives-interim-leader-9.7352318).
-I am seeking this nomination because of the plan on this site, not because of a personality. If caucus and this riding diverge, I will say so publicly, take the riding's case into caucus, and vote the way I can defend here.
+I sought this nomination because of the plan on this site, not because of a personality. If caucus and this riding diverge, I will say so publicly, take the riding's case into caucus, and vote the way I can defend here.
 </details>
 <details>
 <summary>Do you live in the riding? What is your connection to the community?</summary>

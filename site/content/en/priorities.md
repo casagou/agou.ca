@@ -1,6 +1,6 @@
 ## How I work
 I'm an engineer. I start with the problem, not the ideology. I measure it, fix it, and report the result. Below are the four things neighbours raise with me most, what I'll push for, and how you'll know if it worked. Two supporting sections follow: transport and BC Ferries, and responsible spending.
-I'm seeking the BC Conservative nomination and support the [party's plan](https://conservativebc.ca/our-platform/). The party's platform page says "coming soon" (checked 1 Oct 2026), so every proposal on this page says where it comes from:
+I'm the Conservative Party of BC's nominee in Victoria–Beacon Hill and support the [party's plan](https://conservativebc.ca/our-platform/). The party's platform page says "coming soon" (checked 1 Oct 2026), so every proposal on this page says where it comes from:
 - **2024 party platform:** proposed in the Conservative Party of BC's [October 2024 platform](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650). Not yet confirmed for this election.
 - **Party, 27 Sep 2026:** the party's [pledge of no new taxes and no tax increases](https://conservativebc.ca/conservative-party-of-bc-pledges-no-new-taxes-on-british-columbians/), the current party commitment this page relies on.
 - **My position:** mine. I'll advocate for it within the party.

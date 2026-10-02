@@ -1,4 +1,4 @@
-Seeking the BC Conservative nomination to run for Member of the Legislative Assembly (MLA) for Victoria–Beacon Hill
+Conservative Party of BC nominee for Member of the Legislative Assembly (MLA) for Victoria–Beacon Hill
 **Safer streets, honest budgets, a downtown that works.**
 After 9 years of the same government, B.C. is running a \$13.8 billion deficit, about 1 in 4 British Columbians (24.7%) had no family doctor or nurse practitioner in June 2025, and Pandora Avenue shows what happens when a problem is left alone. This riding sat on the government side the whole time. It got announcements. It didn’t get results.
 <callout icon="✍️" color="blue_bg">

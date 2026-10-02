@@ -1090,7 +1090,11 @@ FORBIDDEN = [
     (r"Thales", "employer name (Thales)"), (r"\bNATO\b|OTAN", "NATO"), (r"AJISS", "AJISS"), (r"clearance|habilitation de sécurité", "security clearance"),
     (r"(?i:a city that works|\bune ville qui fonctionne|acitythatworks)|\bACTW\b", "A City That Works (hard rule: never on agou.ca)"),
     (r"\bJoa\b(?! Aero Engineering\b)", "the nickname Joa (only the exact business name 'Joa Aero Engineering' is allowed; joa.aero is lowercase and not matched)"), (r"Victoria-Beacon Hill", "hyphen instead of en dash in Victoria–Beacon Hill"),
-    (r"is the Conservative Party of BC candidate|Party of BC candidate in|est le candidat du Parti", "wording that implies he is the confirmed candidate"),
+    (r"is the Conservative Party of BC candidate|Party of BC candidate in|est le candidat du Parti", "'the candidate' / 'le candidat' wording (banned; say 'nominee' / 'investi')"),
+    # nomination confirmed (Joachim, 2 Oct 2026 12:47 AM PT): no 'seeking the nomination' wording anywhere, EN or FR
+    (r"(?i)seeking (the |this |a )?(BC Conservative |Conservative Party of BC |party |Conservative )?nomination|seeking to represent|I am seeking this|run for the nomination|running for the nomination|nomination (is )?(still )?pending|Not yet\. I['’]m seeking|day my status changes", "old 'seeking the nomination' wording (nomination confirmed 2 Oct 2026)"),
+    (r"(?i)sollicit\w* l['’]investiture|je sollicite cette investiture|souhaite représenter Victoria|brigue l['’]investiture|investiture (est )?(toujours )?en attente|Pas encore\. Je sollicite|jour même où ma situation changera", "old 'sollicite l'investiture' wording (investiture confirmée le 2 oct. 2026)"),
+    (r"(?i)lawn signs? (are |is )?free|free lawn sign|pancartes? gratuites?|pancartes sont gratuites", "'free' lawn signs (Joachim isn't sure they are free)"),
     (r"date of birth|date de naissance|\bborn on\b", "date of birth"),
     (r"\bACTW\b|candidate site", "drafting-note wording (ACTW / 'candidate site') from the /province/ source; see RESYNC.md"),
     (r"more than 12 years|plus de 12 ans|12 years of experience|12 ans d'expérience", "the old '12 years' experience claim (Joachim, 30 Sep 2026: more than 15 years)"),
@@ -1113,7 +1117,7 @@ FR_OLD = [
     (r"Aucun impôt provincial sur jusqu", "old 'Aucun impôt provincial sur jusqu'à' (income tax wording)"),
     (r"préavis au personnel", "old 'avec un préavis au personnel'"),
     (r"73\s?% des commerces", "old '73 % des commerces' (use 'entreprises')"),
-    (r"Candidat à l" + A_ + "investiture|candidat à l" + A_ + "investiture", "old 'Candidat à l'investiture' status line (use 'Je sollicite l'investiture…')"),
+    (r"Candidat à l" + A_ + "investiture|candidat à l" + A_ + "investiture", "old 'Candidat à l'investiture' status line (nomination confirmed 2 Oct 2026: 'Investi par le Parti conservateur…')"),
     (r"je livre des projets|production média|en 2011 pour des recherches|loyers sont hors de portée", "old FR home wording"),
     (r"si quelque chose fonctionne et d" + A_ + "en rendre compte|apporterai cette habitude|assorti d" + A_ + "un chiffre|rapport à la circonscription|si ça a fonctionné", "old FR home/FAQ wording"),
     (r"Je le mesure, je le règle|Quand une proposition en vient|\bweek-end|d" + A_ + "un deux-chambres|délais de permis|présenté ligne par ligne|voyageurs fréquents|ponctualité des traversiers|dotés de personnel|des tentes à un logement|réduire l" + A_ + "impôt des petites entreprises|locaux commerciaux vacants|Aussi pour la circonscription|Comment vous le saurez", "old FR Priorities wording"),
@@ -1147,7 +1151,7 @@ PRIORITIES_OLD = [
     # Site consistency audit (Joachim, 1 Oct 2026 6:26 PM PT): retired on every page
     (r"(?i)rent[- ]and[- ]mortgage rebate|remise pour le loyer et les intérêts hypothécaires", "'rent and mortgage rebate' (it is income-tax relief on housing costs, not a payment)"),
     (r"The large items are party commitments|Les mesures importantes sont des engagements du parti", "2024 platform items called 'party commitments' (label them 2024 party platform)"),
-    (r"Are you the BC Conservative candidate\?|Êtes-vous le candidat du Parti conservateur", "'the candidate' FAQ question (he is seeking the nomination)"),
+    (r"Are you the BC Conservative candidate\?|Êtes-vous le candidat du Parti conservateur", "'the candidate' FAQ question (the strings 'the candidate' / 'le candidat' are banned)"),
     (r"Every hour helps|Chaque heure compte", "'Every hour helps' (cut by Joachim on 1 Oct 2026)"),
     (r"(?i)become a nominator|appui à sa candidature", "a nominator ask (nominations are complete)"),
     # Needs-Joachim answers (1 Oct 2026, 7:49 PM PT): retired on every page
@@ -1162,6 +1166,11 @@ PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "1
 
 def check(dist):
     errs = []
+    for f in sorted([*dist.rglob("*.webmanifest"), *dist.rglob("*.json"), *dist.rglob("*.ics"), *dist.rglob("*.txt"), *dist.rglob("*.xml")]):  # share/app text outside the HTML
+        t = f.read_text(errors="ignore")
+        for pat, what in FORBIDDEN:
+            if "nomination confirmed" in what or "investiture confirmée" in what or "'free' lawn" in what:
+                if re.search(pat, t): errs.append(f"{f.relative_to(dist)}: contains {what}")
     for f in sorted(dist.rglob("*.html")):
         t = f.read_text()
         vis = re.sub(r"<script.*?</script>", " ", t, flags=re.S)
@@ -1267,8 +1276,8 @@ if __name__ == "__main__":
         if not HS_BG or not f.name.startswith(f"og-joachim-agou-photo-bg-{HS_BG}-"): f.unlink()
     # favicon (JOA, tools/make_favicon.py): /favicon.ico at the root, one web manifest per language
     shutil.copy(ROOT / "assets/img/favicon.ico", dist / "favicon.ico")
-    for ml, start, desc in (("en", "/", "Joachim Agou, seeking the BC Conservative nomination in Victoria–Beacon Hill"),
-                            ("fr", "/fr/", "Joachim Agou sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative")):
+    for ml, start, desc in (("en", "/", "Joachim Agou, Conservative Party of BC nominee in Victoria–Beacon Hill"),
+                            ("fr", "/fr/", "Joachim Agou, investi par le Parti conservateur de la Colombie-Britannique dans Victoria–Beacon Hill")):
         man = {"name": "Joachim Agou – Victoria–Beacon Hill", "short_name": "Joachim Agou", "lang": f"{ml}-CA",
                "description": desc, "start_url": start, "scope": "/", "display": "browser",
                "background_color": "#ffffff", "theme_color": "#123a6d",

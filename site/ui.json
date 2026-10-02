@@ -21,7 +21,7 @@
       "other_lang": "fr",
       "staging_note": "Staging only: these PDFs are not on the live site. They still fail the content checks: {errs}"
     },
-    "placeholder_mediakit": "Placeholder: the English media kit and the French dossier de presse (PDF) are held back for review. Both PDFs say Joachim is the party's candidate; he is seeking the nomination. They will be added here once corrected in Notion.",
+    "placeholder_mediakit": "Placeholder: the English media kit and the French dossier de presse (PDF) are held back for review. They will be added here once corrected in Notion.",
     "placeholder_fr_media": "",
     "photo_alt": "Joachim Agou presenting a test program",
     "volunteer": {
@@ -101,7 +101,7 @@
     },
     "nominate": {
       "title": "Nominate Joachim Agou",
-      "sub": "Seeking the BC Conservative nomination · Victoria–Beacon Hill · Provincial election 24 October 2026",
+      "sub": "Conservative Party of BC nominee for Member of the Legislative Assembly (MLA) for Victoria–Beacon Hill · Provincial election 24 October 2026",
       "intro": "Thank you. Nominating is not a vote pledge. You must be an eligible voter living in Victoria–Beacon Hill. Each voter can nominate only one candidate.",
       "sessions_legend": "Which signing session(s) can you attend?",
       "sessions_hint": "Times to be confirmed. We'll contact you with the exact time.",
@@ -153,7 +153,7 @@
     "lawnsign": {
       "title": "Request a lawn sign",
       "sub": "Joachim Agou · Conservative Party of BC · Victoria–Beacon Hill · Provincial election 24 October 2026",
-      "intro": "Show your support for Joachim Agou in Victoria–Beacon Hill. Lawn signs are free: leave your details and we'll bring one to you.",
+      "intro": "Show your support for Joachim Agou in Victoria–Beacon Hill with a lawn sign: leave your details and we'll bring one to you.",
       "delivery": "Signs are delivered and put up by campaign volunteers, and we'll pick them up after Election Day (24 October).",
       "large": "I'd like a large sign if one is available (corner lot or busy street)",
       "permission": "I'm the owner, or I have the owner's or landlord's permission to put up a sign here.",
@@ -492,7 +492,7 @@
     },
     "nominate": {
       "title": "Signer mon formulaire de mise en candidature",
-      "sub": "Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative · Élection provinciale du 24 octobre 2026",
+      "sub": "Investi par le Parti conservateur de la Colombie-Britannique pour représenter Victoria–Beacon Hill à l'Assemblée législative · Élection provinciale du 24 octobre 2026",
       "intro": "Merci. Signer le formulaire de mise en candidature n'est pas un engagement à voter. Vous devez être électeur admissible et habiter Victoria–Beacon Hill. Chaque électeur ne peut signer le formulaire de mise en candidature que d'un seul candidat.",
       "sessions_legend": "À quelle(s) séance(s) de signature pouvez-vous venir?",
       "sessions_hint": "Heures à confirmer. Nous vous communiquerons l'heure exacte.",
@@ -544,7 +544,7 @@
     "lawnsign": {
       "title": "Demander une pancarte",
       "sub": "Joachim Agou · Parti conservateur de la C.-B. · Victoria–Beacon Hill · Élection provinciale du 24 octobre 2026",
-      "intro": "Montrez votre appui à Joachim Agou dans Victoria–Beacon Hill. Les pancartes sont gratuites : laissez vos coordonnées et nous vous en apporterons une.",
+      "intro": "Montrez votre appui à Joachim Agou dans Victoria–Beacon Hill avec une pancarte : laissez vos coordonnées et nous vous en apporterons une.",
       "delivery": "Les pancartes sont livrées et installées par des bénévoles de la campagne, et nous les reprendrons après le jour de l'élection (24 octobre).",
       "large": "J'aimerais une grande pancarte s'il y en a une de disponible (terrain en coin ou rue passante)",
       "permission": "Je suis propriétaire, ou j'ai la permission du propriétaire ou du locateur d'installer une pancarte à cet endroit.",

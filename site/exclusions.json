@@ -1518,6 +1518,108 @@
       "find": "Frapper aux portes, faire des appels, installer une pancarte ou aider le jour de l'élection.",
       "replace": "Faire du porte-à-porte, passer des appels, installer une pancarte ou aider le jour du scrutin.",
       "why": "Joachim (1 Oct 2026, 7:49 PM PT), Needs-Joachim answers: same FR wording as Home (French review M item) for EN 'Knock on doors, make calls, put up a sign or help on election day'."
+    },
+    {
+      "page": "en-home",
+      "find": "Seeking the BC Conservative nomination to run for Member of the Legislative Assembly (MLA) for Victoria–Beacon Hill",
+      "replace": "Conservative Party of BC nominee for Member of the Legislative Assembly (MLA) for Victoria–Beacon Hill",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "fr-home",
+      "find": "Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative",
+      "replace": "Investi par le Parti conservateur de la Colombie-Britannique pour représenter Victoria–Beacon Hill à l'Assemblée législative",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "en-faq",
+      "find": "Not yet. I'm seeking the BC Conservative nomination to run for MLA in Victoria–Beacon Hill.",
+      "replace": "Yes. My Conservative Party of BC nomination is confirmed: I'm the party's nominee for MLA in Victoria–Beacon Hill in the 24 October 2026 provincial election.",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "en-faq",
+      "find": "Candidate nominations with Elections BC close at 1 p.m. on Saturday 3 October. The official list is on ",
+      "replace": "The official list of who is on the ballot is on ",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "en-faq",
+      "find": ". I'll update this answer the day my status changes.",
+      "replace": ".",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "en-faq",
+      "find": "The party nomination is the BC Conservatives' decision to endorse me. The Elections BC nomination is the form that puts a name on the ballot: 75 nominators who live in Victoria–Beacon Hill, a $250 deposit, filed by 1 p.m. on Saturday 3 October. A signature is not a vote, and it is not party membership. You can nominate only one candidate this election.",
+      "replace": "The party nomination was the Conservative Party of BC's decision to make me its nominee, and it is confirmed. The Elections BC nomination is the form that puts a name on the ballot: 75 nominators who live in Victoria–Beacon Hill and a $250 deposit, filed by 1 p.m. on Saturday 3 October. My nominator signatures are complete.",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "en-faq",
+      "find": "On the nominator form you can ask Elections BC to keep your address off the public copy. Names still appear. Source: ",
+      "replace": "Source: ",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "en-faq",
+      "find": "I am seeking this nomination because of the plan on this site,",
+      "replace": "I sought this nomination because of the plan on this site,",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Pas encore. Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique afin de représenter Victoria–Beacon Hill à l'Assemblée législative.",
+      "replace": "Oui. Mon investiture par le Parti conservateur de la Colombie-Britannique est confirmée : je me présente pour le parti dans Victoria–Beacon Hill à l'élection provinciale du 24 octobre 2026.",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "La période de mise en candidature auprès d'Elections BC se termine le samedi 3 octobre, à 13 h. La liste officielle des candidats est publiée par ",
+      "replace": "La liste officielle des noms inscrits sur le bulletin de vote est publiée par ",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "fr-faq",
+      "find": " (en anglais). Je mettrai cette réponse à jour le jour même où ma situation changera.",
+      "replace": " (en anglais).",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "L'investiture est la décision du Parti conservateur de m'investir. La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre. Une signature n'est ni un vote ni une adhésion au parti. On ne peut proposer qu'un seul candidat à cette élection.",
+      "replace": "L'investiture était la décision du Parti conservateur de la Colombie-Britannique de m'investir, et elle est confirmée. La mise en candidature auprès d'Elections BC est la démarche qui permet d'inscrire un nom sur le bulletin de vote : un formulaire signé par 75 personnes résidant dans Victoria–Beacon Hill et un dépôt de 250 $, à déposer au plus tard à 13 h le samedi 3 octobre. Les signatures de mon formulaire sont recueillies.",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Sur le formulaire, on peut demander à Elections BC de retirer l'adresse de la copie publique. Les noms restent visibles. Source : ",
+      "replace": "Source : ",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Je sollicite cette investiture à cause du plan sur ce site,",
+      "replace": "J'ai sollicité cette investiture à cause du plan sur ce site,",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "en-priorities",
+      "find": "I'm seeking the BC Conservative nomination and support the ",
+      "replace": "I'm the Conservative Party of BC's nominee in Victoria–Beacon Hill and support the ",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "Je sollicite l'investiture du Parti conservateur de la Colombie-Britannique et j'appuie ",
+      "replace": "Investi par le Parti conservateur de la Colombie-Britannique dans Victoria–Beacon Hill, j'appuie ",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
+    },
+    {
+      "page": "en-media",
+      "find": "father seeking to represent Victoria–Beacon Hill for the BC Conservatives.",
+      "replace": "father, and the Conservative Party of BC's nominee in Victoria–Beacon Hill.",
+      "why": "Joachim (2 Oct 2026, 12:47 AM PT): Conservative Party of BC nomination for Victoria–Beacon Hill confirmed; status no longer 'seeking'."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."
