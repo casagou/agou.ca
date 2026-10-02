@@ -104,7 +104,7 @@
       var FRL = T.next_canvass.indexOf("Prochaine") === 0, o = {};
       new Intl.DateTimeFormat(FRL ? "fr-CA" : "en-CA", { timeZone: "America/Vancouver", weekday: "long", month: "long", day: "numeric" }).formatToParts(new Date(e.starts_at)).forEach(function (p) { o[p.type] = p.value; });
       var when = FRL ? o.weekday + " " + o.day + " " + o.month : o.weekday + ", " + o.month + " " + o.day;
-      var title = String(e.title || "").replace(/\s*\|\s*/g, " — ").trim();
+      var title = String((FRL && e.title_fr) || e.title || "").replace(/\s*\|\s*/g, " — ").trim(); // French site: title_fr (migration 46), else English
       var p = $("vnext"), parts = T.next_canvass.split("{title}");
       p.textContent = parts[0] + title + parts[1].replace("{date}", when) + " ";
       var a = document.createElement("a"); a.href = p.getAttribute("data-events"); a.textContent = T.next_canvass_link; a.className = "readlink";
@@ -180,6 +180,16 @@
       for (var k in attrs || {}) { if (k === "text") e.textContent = attrs[k]; else if (k === "class") e.className = attrs[k]; else e.setAttribute(k, attrs[k]); }
       kids.flat().forEach(function (c) { if (c != null) e.append(c); }); return e;
     };
+    // French site: the French fields from get_public_events (migration 46: title_fr, description_fr, location_name_fr),
+    // each falling back to the English field when empty. The English venue text and neighbourhood are kept for the
+    // venue name (proper nouns) and the venue-photo lookup.
+    var NB_FR = { "Downtown": "Centre-ville" };
+    function localize(e) {
+      if (!FR) return e;
+      return Object.assign({}, e, { title: e.title_fr || e.title, description: e.description_fr || e.description,
+        location_name: e.location_name_fr || e.location_name, location_en: e.location_name, nb_en: e.neighbourhood,
+        neighbourhood: e.neighbourhood ? String(e.neighbourhood).split(" / ").map(function (n) { return NB_FR[n] || n; }).join(" / ") : e.neighbourhood });
+    }
     var EVENTS = null, RM = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
     function parts(s) { var o = {}; new Intl.DateTimeFormat(LOC, { timeZone: TZ, weekday: "long", month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", hour12: !FR }).formatToParts(new Date(s)).forEach(function (p) { o[p.type] = p.value; }); return o; }
     var ymd = function (s) { return new Date(s).toLocaleDateString("en-CA", { timeZone: TZ }); };
@@ -235,7 +245,7 @@
     var hasPin = function (e) { return typeof e.lat === "number" && typeof e.lng === "number"; };
     var ll = function (e) { return e.lat.toFixed(6) + "," + e.lng.toFixed(6); };
     function venue(e) { // "Fernwood Square, on the public sidewalk outside Little June" -> "Little June"
-      var s = String(e.location_name || ""), m = /\b(?:outside|beside|at)\s+(?:the\s+(?=[A-Z][a-z]+\s+[A-Z]))?(.+)$/.exec(s);
+      var s = String(e.location_en || e.location_name || ""), m = /\b(?:outside|beside|at)\s+(?:the\s+(?=[A-Z][a-z]+\s+[A-Z]))?(.+)$/.exec(s);
       return ((m ? m[1] : s.split(",")[0]) || "").replace(/\s*\(.*?\)\s*$/, "").trim();
     }
     var mapUrl = function (e) {
@@ -260,12 +270,12 @@
       var pic = el("picture", null, el("source", { media: "(min-width: 700px)", srcset: b + "desk-2x.png" + q + " 2x", width: "640", height: "320" }), img);
       return el("figure", { class: "evmap" },
         el("a", { href: mapUrl(e), target: "_blank", rel: "noopener noreferrer", "aria-label": T.map_open }, pic),
-        el("figcaption", null, el("a", { href: "https://www.openstreetmap.org/copyright", target: "_blank", rel: "noopener noreferrer", text: "© OpenStreetMap contributors" })));
+        el("figcaption", null, el("a", { href: "https://www.openstreetmap.org/copyright", target: "_blank", rel: "noopener noreferrer", text: T.osm || "© OpenStreetMap contributors" })));
     }
     // The description repeats the practical facts that are now shown above it; those paragraphs are left out.
     var REPEAT = /^\s*(?:\*\*)?(?:where to find me|when|where|rsvp is optional|où me trouver|quand|où)\b/i;
     function spotLine(e) {
-      var m = /(?:^|\n)\s*(?:\*\*)?Where to find me:?(?:\*\*)?\s*([^\n]+)/i.exec(String(e.description || ""));
+      var m = /(?:^|\n)\s*(?:\*\*)?(?:Where to find me|Où me trouver)\s*:?(?:\*\*)?\s*([^\n]+)/i.exec(String(e.description || ""));
       return m ? m[1].trim() : [e.location_name, e.address].filter(Boolean).join(", ");
     }
     function bodyText(e) {
@@ -351,7 +361,7 @@
       var V = CFG.vic; if (!V) return null;
       var pid = null, k;
       for (k in V.address) { if (String(e.address || "").indexOf(k) !== -1) { pid = V.address[k]; break; } }
-      if (!pid && e.neighbourhood && V.neighbourhood[e.neighbourhood]) pid = V.neighbourhood[e.neighbourhood];
+      var nb = e.nb_en || e.neighbourhood; if (!pid && nb && V.neighbourhood[nb]) pid = V.neighbourhood[nb];
       if (!pid) return null;
       var ss = function (ext) { return V.widths.map(function (w) { return V.base + pid + "-thumb-" + w + "." + ext + " " + w + "w"; }).join(", "); };
       var sz = "80px";
@@ -508,7 +518,7 @@
     window.addEventListener("popstate", route);
     window.addEventListener("hashchange", route);
     document.addEventListener("click", function (ev) { var m = document.querySelector(".calmenu"); if (m && !m.hidden && !ev.target.closest(".cal")) { m.hidden = true; var b = document.querySelector(".cal > .btn"); if (b) b.setAttribute("aria-expanded", "false"); } });
-    rpc("get_public_events", {}).then(function (r) { return r.json(); }).then(function (data) { EVENTS = data; route(); })
+    rpc("get_public_events", {}).then(function (r) { return r.json(); }).then(function (data) { EVENTS = (data || []).map(localize); route(); })
       .catch(function () { $("list").textContent = ""; $("list").append(el("p", { class: "note", text: T.loadErr })); if (currentId()) $("listView").hidden = false; });
   }
 })();

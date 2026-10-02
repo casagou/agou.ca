@@ -2,126 +2,84 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://agou.ca/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/"/>
   </url>
   <url>
     <loc>https://agou.ca/fr/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/"/>
   </url>
   <url>
     <loc>https://agou.ca/about/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/about/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/about/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/about/"/>
   </url>
   <url>
     <loc>https://agou.ca/fr/about/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/about/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/about/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/about/"/>
   </url>
   <url>
     <loc>https://agou.ca/priorities/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/priorities/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/priorities/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/priorities/"/>
   </url>
   <url>
     <loc>https://agou.ca/fr/priorities/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/priorities/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/priorities/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/priorities/"/>
   </url>
   <url>
     <loc>https://agou.ca/get-involved/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/get-involved/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/get-involved/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/get-involved/"/>
   </url>
   <url>
     <loc>https://agou.ca/fr/get-involved/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/get-involved/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/get-involved/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/get-involved/"/>
   </url>
   <url>
-    <loc>https://agou.ca/volunteer/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/volunteer/"/>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/volunteer/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/volunteer/"/>
-  </url>
-  <url>
-    <loc>https://agou.ca/fr/volunteer/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/volunteer/"/>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/volunteer/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/volunteer/"/>
-  </url>
-  <url>
-    <loc>https://agou.ca/lawn-sign/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/lawn-sign/"/>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/lawn-sign/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/lawn-sign/"/>
-  </url>
-  <url>
-    <loc>https://agou.ca/fr/lawn-sign/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/lawn-sign/"/>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/lawn-sign/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/lawn-sign/"/>
-  </url>
-  <url>
-    <loc>https://agou.ca/donate/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/donate/"/>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/donate/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/donate/"/>
-  </url>
-  <url>
-    <loc>https://agou.ca/fr/donate/</loc>
-    <lastmod>2026-09-30</lastmod>
-    <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/donate/"/>
-    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/donate/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/donate/"/>
-  </url>
-  <url>
     <loc>https://agou.ca/events/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/events/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/events/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/events/"/>
   </url>
   <url>
     <loc>https://agou.ca/fr/events/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/events/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/events/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/events/"/>
   </url>
   <url>
     <loc>https://agou.ca/how-to-vote/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/how-to-vote/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/how-to-vote/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/how-to-vote/"/>
   </url>
   <url>
     <loc>https://agou.ca/fr/how-to-vote/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/how-to-vote/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/how-to-vote/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/how-to-vote/"/>
@@ -149,63 +107,63 @@
   </url>
   <url>
     <loc>https://agou.ca/fr/province/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/province/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/province/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/province/"/>
   </url>
   <url>
     <loc>https://agou.ca/faq/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/faq/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/faq/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/faq/"/>
   </url>
   <url>
     <loc>https://agou.ca/fr/faq/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/faq/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/faq/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/faq/"/>
   </url>
   <url>
     <loc>https://agou.ca/media/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/media/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/media/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/media/"/>
   </url>
   <url>
     <loc>https://agou.ca/fr/media/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/media/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/media/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/media/"/>
   </url>
   <url>
     <loc>https://agou.ca/contact/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/contact/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/contact/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/contact/"/>
   </url>
   <url>
     <loc>https://agou.ca/fr/contact/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/contact/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/contact/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/contact/"/>
   </url>
   <url>
     <loc>https://agou.ca/privacy/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/privacy/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/privacy/"/>
   </url>
   <url>
     <loc>https://agou.ca/fr/privacy/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="en-CA" href="https://agou.ca/privacy/"/>
     <xhtml:link rel="alternate" hreflang="fr-CA" href="https://agou.ca/fr/privacy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agou.ca/privacy/"/>
