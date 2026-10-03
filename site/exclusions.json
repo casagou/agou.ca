@@ -1644,6 +1644,66 @@
       "find": "Today he is a test and evaluation engineer in the defence sector, and he runs Casagou Inc., a Victoria engineering consulting and media company.",
       "replace": "Today he is a test and evaluation engineer in the defence sector.",
       "why": "Joachim (2 Oct 2026, 8:18 PM PT): no Casagou Inc. mention in the short and medium media bios (full bio unchanged)."
+    },
+    {
+      "page": "en-priorities",
+      "find": "I'm the Conservative Party of BC's nominee in Victoria–Beacon Hill and support the [party's plan](https://conservativebc.ca/our-platform/). The party's platform page says \"coming soon\" (checked 1 Oct 2026), so every proposal on this page says where it comes from:",
+      "replace": "I'm the Conservative Party of BC's nominee in Victoria–Beacon Hill. Each proposal on this page says where it comes from:",
+      "why": "Joachim (2 Oct 2026, 8:20 PM PT): Priorities intro rewritten (no 'party's plan' link, no platform 'coming soon'); other 'coming soon' / 'not yet published' mentions about the party platform and fiscal plan removed or neutral, EN+FR."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "Investi par le Parti conservateur de la Colombie-Britannique dans Victoria–Beacon Hill, j'appuie [son programme](https://conservativebc.ca/our-platform/). La page du programme du parti indique « coming soon » (à venir; vérifié le 1er octobre 2026). Chaque proposition de cette page indique donc sa provenance :",
+      "replace": "Je suis investi par le Parti conservateur de la Colombie-Britannique dans Victoria–Beacon Hill. Chaque proposition de cette page en indique la provenance :",
+      "why": "Joachim (2 Oct 2026, 8:20 PM PT): Priorities intro rewritten (no 'party's plan' link, no platform 'coming soon'); other 'coming soon' / 'not yet published' mentions about the party platform and fiscal plan removed or neutral, EN+FR."
+    },
+    {
+      "page": "en-priorities",
+      "find": " The party has not yet published a 2026 version.",
+      "replace": "",
+      "why": "Joachim (2 Oct 2026, 8:20 PM PT): Priorities intro rewritten (no 'party's plan' link, no platform 'coming soon'); other 'coming soon' / 'not yet published' mentions about the party platform and fiscal plan removed or neutral, EN+FR."
+    },
+    {
+      "page": "fr-priorities",
+      "find": " Le parti n'a pas encore publié de version 2026.",
+      "replace": "",
+      "why": "Joachim (2 Oct 2026, 8:20 PM PT): Priorities intro rewritten (no 'party's plan' link, no platform 'coming soon'); other 'coming soon' / 'not yet published' mentions about the party platform and fiscal plan removed or neutral, EN+FR."
+    },
+    {
+      "page": "en-priorities",
+      "find": " The party has not yet published a 2026 fiscal plan. I'll update this section when it does.",
+      "replace": "",
+      "why": "Joachim (2 Oct 2026, 8:20 PM PT): Priorities intro rewritten (no 'party's plan' link, no platform 'coming soon'); other 'coming soon' / 'not yet published' mentions about the party platform and fiscal plan removed or neutral, EN+FR."
+    },
+    {
+      "page": "fr-priorities",
+      "find": " Le parti n'a pas encore publié de plan financier pour 2026. Je mettrai cette section à jour lorsqu'il le fera.",
+      "replace": "",
+      "why": "Joachim (2 Oct 2026, 8:20 PM PT): Priorities intro rewritten (no 'party's plan' link, no platform 'coming soon'); other 'coming soon' / 'not yet published' mentions about the party platform and fiscal plan removed or neutral, EN+FR."
+    },
+    {
+      "page": "en-faq",
+      "find": " The party has not yet published a 2026 fiscal plan.",
+      "replace": "",
+      "why": "Joachim (2 Oct 2026, 8:20 PM PT): Priorities intro rewritten (no 'party's plan' link, no platform 'coming soon'); other 'coming soon' / 'not yet published' mentions about the party platform and fiscal plan removed or neutral, EN+FR."
+    },
+    {
+      "page": "fr-faq",
+      "find": " Le parti n'a pas encore publié de plan financier pour 2026.",
+      "replace": "",
+      "why": "Joachim (2 Oct 2026, 8:20 PM PT): Priorities intro rewritten (no 'party's plan' link, no platform 'coming soon'); other 'coming soon' / 'not yet published' mentions about the party platform and fiscal plan removed or neutral, EN+FR."
+    },
+    {
+      "page": "en-faq",
+      "find": "2024 party platform (October 2024; the party's current platform page says \"coming soon\", so these are not yet confirmed for this election):",
+      "replace": "2024 party platform (October 2024; not yet confirmed for this election):",
+      "why": "Joachim (2 Oct 2026, 8:20 PM PT): Priorities intro rewritten (no 'party's plan' link, no platform 'coming soon'); other 'coming soon' / 'not yet published' mentions about the party platform and fiscal plan removed or neutral, EN+FR."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Programme 2024 du parti (octobre 2024; la page du programme actuel du parti indique « coming soon » [à venir], ces propositions ne sont donc pas encore confirmées pour cette élection) :",
+      "replace": "Programme 2024 du parti (octobre 2024; pas encore confirmé pour cette élection) :",
+      "why": "Joachim (2 Oct 2026, 8:20 PM PT): Priorities intro rewritten (no 'party's plan' link, no platform 'coming soon'); other 'coming soon' / 'not yet published' mentions about the party platform and fiscal plan removed or neutral, EN+FR."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

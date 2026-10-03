@@ -126,7 +126,7 @@ How you'll know: [scorecard](https://agou.ca/scorecard/) lines 1 and 2 (the tax 
 </details>
 <details>
 <summary>What would a balanced budget cut, including jobs in the public service?</summary>
-I will not cut health care or education to write a slogan. I also will not invent a savings number. In 2024 the party committed to balance the budget in its second term, through faster growth, strategic new spending and moving wasteful spending to priority areas, and said an immediate return to balance would require severe cuts to front-line services, which it would not make (2024 party platform). The party has not yet published a 2026 fiscal plan. A balanced budget is not a saving for your household; it is how you can check that commitments are paid for.
+I will not cut health care or education to write a slogan. I also will not invent a savings number. In 2024 the party committed to balance the budget in its second term, through faster growth, strategic new spending and moving wasteful spending to priority areas, and said an immediate return to balance would require severe cuts to front-line services, which it would not make (2024 party platform). A balanced budget is not a saving for your household; it is how you can check that commitments are paid for.
 Almost half of B.C.'s public service works in Victoria. Any change I vote for has to come with published service standards, and with staff told before it happens. That standard is my position. If a bill does not say what it cuts, I will vote against it.
 </details>
 <details>
@@ -171,7 +171,7 @@ Within my control: the reports, the office and my votes. Dependent on others: wa
 </details>
 <details>
 <summary>Which proposals are party commitments, and which are your own?</summary>
-2024 party platform (October 2024; the party's current platform page says "coming soon", so these are not yet confirmed for this election): publicly paid surgeries and scans at non-government clinics; fixed permit timelines; income-tax relief on housing costs (rent, mortgage interest and strata fees); the BC Ferries Charter, and consulting frequent users on a monthly flat-fee program or other measures; no PST on affordable used cars; cut the small-business tax from 2% to 1%.
+2024 party platform (October 2024; not yet confirmed for this election): publicly paid surgeries and scans at non-government clinics; fixed permit timelines; income-tax relief on housing costs (rent, mortgage interest and strata fees); the BC Ferries Charter, and consulting frequent users on a monthly flat-fee program or other measures; no PST on affordable used cars; cut the small-business tax from 2% to 1%.
 Current party commitment (27 Sep 2026): no new taxes and no tax increases.
 My own positions, which I'd advocate for within the party: cutting doctors' paperwork (the 2024 platform also proposed reducing doctors' administrative burden), restoring the 5.06% rate and indexing while keeping the enhanced tax reduction credit, a public savings list, South Island clinic hours, published treatment waits, spreading services across the region, moving people from tents into housing with support and more sheriffs and judges (both also proposed in the 2024 platform), secure care for severe addiction (the 2024 platform also proposed involuntary treatment), no prescribed safer supply as the plan for this riding (the 2024 platform also opposed it), keeping the provincial short-term rental rules here, publishing the Jubilee emergency-bed wait, the James Bay cruise-day plan and service standards for public servants.
 </details>
