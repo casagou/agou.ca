@@ -1632,6 +1632,18 @@
       "find": "[Instagram](https://www.instagram.com/casagou/) · [X](https://x.com/casagou) · [Facebook](https://www.facebook.com/casagou)",
       "replace": "Campagne : [Facebook](https://www.facebook.com/joachimagou) · [Instagram](https://www.instagram.com/joachimagou)\nPersonnel : [Instagram](https://www.instagram.com/casagou/) · [Facebook](https://www.facebook.com/casagou) · [X](https://x.com/casagou)",
       "why": "Joachim (2 Oct 2026, via Provincial Campaign Ops): new campaign accounts; @casagou kept, labelled personal."
+    },
+    {
+      "page": "en-media",
+      "find": "worked on space robotics, and now tests defence systems. He also runs Casagou Inc., a Victoria engineering and media company. ",
+      "replace": "worked on space robotics, and now tests defence systems. ",
+      "why": "Joachim (2 Oct 2026, 8:18 PM PT): no Casagou Inc. mention in the short and medium media bios (full bio unchanged)."
+    },
+    {
+      "page": "en-media",
+      "find": "Today he is a test and evaluation engineer in the defence sector, and he runs Casagou Inc., a Victoria engineering consulting and media company.",
+      "replace": "Today he is a test and evaluation engineer in the defence sector.",
+      "why": "Joachim (2 Oct 2026, 8:18 PM PT): no Casagou Inc. mention in the short and medium media bios (full bio unchanged)."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

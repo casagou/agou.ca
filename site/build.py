@@ -1182,6 +1182,11 @@ def check(dist):
     for f in sorted(dist.rglob("*.html")):
         t = f.read_text()
         vis = re.sub(r"<script.*?</script>", " ", t, flags=re.S)
+        if f.relative_to(dist).as_posix() in ("media/index.html", "fr/media/index.html"):  # Joachim, 2 Oct 2026 8:18 PM PT
+            a_ = re.search(r'id="(short-bio|biographie-courte)[^"]*"', t); b_ = re.search(r'id="(full-bio|biographie-complète)"', t)
+            if not (a_ and b_): errs.append(f"{f.relative_to(dist)}: short or full bio heading not found (needed for the Casagou check)")
+            elif "Casagou" in t[a_.start():b_.start()]:
+                errs.append(f"{f.relative_to(dist)}: Casagou Inc. is back in the short or medium bio (only the full bio may name it)")
         if 'class="site-footer"' in t:  # social links grouped Campaign / Personal (Joachim, 2 Oct 2026)
             ft = t[t.index('class="site-footer"'):]
             if ft.count('class="soc-row"') != 2 or "facebook.com/joachimagou" not in ft or "instagram.com/joachimagou" not in ft:
