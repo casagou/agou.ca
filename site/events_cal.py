@@ -113,11 +113,11 @@ ABBR_MON = {"en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"
 
 
 def short_when(iso, lang):
-    """'Sun, Oct 4, 9:30 am' / 'dim. 4 oct., 9 h 30' (Pacific time). Same format as site.js (home banner)."""
+    """'Sun, Oct 4, 9:30 am' / 'dim. 4 oct., 9 h 30' (Pacific time; no line break inside the time). Same format as site.js (home banner)."""
     t = datetime.datetime.fromisoformat(iso).astimezone(TZ); wd = DAYS_ABBR[lang][(t.weekday() + 1) % 7]
-    if lang == "fr": return f"{wd} {t.day} {ABBR_MON['fr'][t.month - 1]}, {t.hour} h {t.minute:02d}"
+    if lang == "fr": return f"{wd} {t.day} {ABBR_MON['fr'][t.month - 1]}, {t.hour}\u00a0h\u00a0{t.minute:02d}"
     h = t.hour % 12 or 12
-    return f"{wd}, {ABBR_MON['en'][t.month - 1]} {t.day}, {h}:{t.minute:02d} {'am' if t.hour < 12 else 'pm'}"
+    return f"{wd}, {ABBR_MON['en'][t.month - 1]} {t.day}, {h}:{t.minute:02d}\u00a0{'am' if t.hour < 12 else 'pm'}"
 
 
 def short_place(title, loc):
