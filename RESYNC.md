@@ -103,6 +103,10 @@ A Notion re-sync never touches this page. Its text comes from Joachim's message 
 - Buttons and reading links: the leading "→" on Notion call-to-action lines is dropped when rendering, not in content/.
 - Read more toggles, Home shortcuts and the FAQ topic index are generated at build time from the headings and sections, so they follow whatever Notion contains.
 
+### Home upcoming-event banner (Joachim, 4 Oct 2026; live since PR #41/#42, merges e8911fe and 48f5fae)
+- Above the home hero, EN and FR: always the next public event that has not ended (`events_cal.home_banner`, `site.js`), New badge while new, "+N more events". Not from Notion; a re-sync keeps it.
+- `build.py` fails if events are upcoming and a home page lacks the banner. After every deploy run `python3 site/tools/banner_check.py https://agou.ca` (or the staging URL); it exits 1 if the banner is missing while events are upcoming.
+
 ## 2. Redeploy staging (https://agou-staging.pages.dev)
 Deployment runs from casagou/Beacon-Hill, branch **`agou-site-staging`**, workflow `.github/workflows/agou-staging.yml`. It checks out agou.ca@staging, builds with `--env staging`, runs diffcheck, and deploys to the Cloudflare Pages project `agou-staging` with the repo's existing Cloudflare secret.
 Trigger it by pushing to that branch:
