@@ -49,6 +49,7 @@ def events():
     except Exception as ex:
         print(f"WARNING: get_public_events not reachable ({ex.__class__.__name__}); using data/events-added.json for the 'New' badges")
     changed = False
+    _STATE["live"] = live
     if live is not None:
         for e in live:
             k = str(e["id"]); rec = store["events"].get(k)
@@ -107,21 +108,64 @@ def nav_badge(lang, site, ui):
             f'<span class="vh">{esc(T["nav_sr"])}</span><span aria-hidden="true">{esc(T["badge"])}</span></span>')
 
 
-def home_line(lang, site, ui, events_url):
-    """'New event: <title>, <date>' above the home hero: the most recently added upcoming event (+ how many more are new).
-    Static: site.js hides it when that event ends or stops being new; the next build picks the next one."""
-    nu = new_upcoming(site)
-    if not nu: return ""
+ABBR_MON = {"en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            "fr": ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."]}
+
+
+def short_when(iso, lang):
+    """'Sun, Oct 4, 9:30 am' / 'dim. 4 oct., 9 h 30' (Pacific time). Same format as site.js (home banner)."""
+    t = datetime.datetime.fromisoformat(iso).astimezone(TZ); wd = DAYS_ABBR[lang][(t.weekday() + 1) % 7]
+    if lang == "fr": return f"{wd} {t.day} {ABBR_MON['fr'][t.month - 1]}, {t.hour} h {t.minute:02d}"
+    h = t.hour % 12 or 12
+    return f"{wd}, {ABBR_MON['en'][t.month - 1]} {t.day}, {h}:{t.minute:02d} {'am' if t.hour < 12 else 'pm'}"
+
+
+def short_place(title, loc):
+    """First part of the location ('Cook St & Caledonia Ave'), left out when the title already names it."""
+    p = (loc or "").split(",")[0].strip()
+    return "" if not p or p.lower() in title.lower() else p
+
+
+def upcoming(lang, site):
+    """Every public event that has not ended yet, soonest first, localized for the home banner:
+    {i: id, t: title, l: short place, s: starts_at, e: ends_at, n: first day no longer 'New' (Pacific)}.
+    Uses the build-time get_public_events (title_fr / location_name_fr on French, else English); offline: data/events-added.json."""
+    now = datetime.datetime.now(datetime.timezone.utc)
+    nu = {e["id"]: until(e, site).isoformat() for e in events()}
+    src = _STATE.get("live")
+    if src is None: src = [{"id": e["id"], "title": e["title"], "title_fr": e["title_fr"], "starts_at": e["starts_at"], "ends_at": e["ends_at"]} for e in events()]
+    out = []
+    for e in src:
+        if datetime.datetime.fromisoformat(e["ends_at"]) <= now: continue
+        t = title_of({"title": e["title"], "title_fr": e.get("title_fr") or ""}, lang)
+        loc = (lang == "fr" and e.get("location_name_fr")) or e.get("location_name") or ""
+        out.append({"i": e["id"], "t": t, "l": short_place(t, loc), "s": e["starts_at"], "e": e["ends_at"], "n": nu.get(e["id"], "")})
+    out.sort(key=lambda x: (x["s"], x["i"]))
+    return out
+
+
+def home_banner(lang, site, ui, events_url):
+    """Upcoming-event banner above the home hero (replaces the 'New event' line, 4 Oct 2026): ALWAYS the next public event
+    that has not ended (soonest first), 'New' badge while it is new, '+N more' link to the Events page.
+    Built static (works without JS); site.js re-picks the next event from the embedded list on every visit and refreshes it
+    from get_public_events, so it never goes stale between builds. Hidden only when there is no upcoming event.
+    Guard: build.py check() fails if events are upcoming and a home page has no banner."""
+    up = upcoming(lang, site)
     T = ui[lang]["new_events"]
-    e = sorted(nu, key=lambda x: (-x["added"].toordinal(), x["starts_at"]))[0]  # the most recently added, then the soonest
-    d = datetime.datetime.fromisoformat(e["starts_at"]).astimezone(TZ).date()
-    more = len(nu) - 1
-    more_html = ""
-    if more:
-        txt = T["more_one"] if more == 1 else T["more"].replace("{n}", str(more))
-        more_html = f' <span class="newev-more">· <a href="{events_url}">{esc(txt)}</a></span>'
-    return (f'<div class="newev" data-new-until="{until(e, site).isoformat()}" data-new-ends="{esc(e["ends_at"])}"><div class="wrap"><p>'
-            f'<span class="newb">{esc(T["line"])}</span> <a href="{events_url}?e={e["id"]}">{esc(title_of(e, lang))}, {esc(day_label(d, lang))}</a>{more_html}</p></div></div>')
+    data = {"u": up, "url": events_url, "today": today().isoformat(), "days": new_days(site), "lang": lang,
+            "txt": {k: T[k] for k in ("next", "now", "badge", "more_up_one", "more_up")}, "api": SUPABASE_URL, "key": SUPABASE_KEY}
+    js = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    inner = ""
+    if up:
+        e = up[0]; t = today().isoformat(); now = datetime.datetime.now(datetime.timezone.utc)
+        live = datetime.datetime.fromisoformat(e["s"]) <= now
+        more = len(up) - 1
+        inner = (f'<span class="nextb">{esc(T["now"] if live else T["next"])}</span> <a href="{events_url}?e={e["i"]}">{esc(e["t"])}</a>'
+                 + (f' <span class="newb">{esc(T["badge"])}</span>' if e["n"] and t < e["n"] else "")
+                 + f' <span class="nextev-when">· {esc(short_when(e["s"], lang))}' + (f' · {esc(e["l"])}' if e["l"] else "") + "</span>"
+                 + (f' <span class="newev-more">· <a href="{events_url}">{esc((T["more_up_one"] if more == 1 else T["more_up"]).replace("{n}", str(more)))}</a></span>' if more else ""))
+    return (f'<div class="newev nextev" id="nextev"{"" if up else " hidden"}><div class="wrap"><p>{inner}</p></div>'
+            f'<script type="application/json" id="nextev-data">{js}</script></div>')
 
 
 def key_dates(site):

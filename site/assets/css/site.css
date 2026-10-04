@@ -408,6 +408,11 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 .newev p { margin:0; padding:10px 0; font-weight:600; }
 .newev .newb { margin-right:6px; }
 .newev a { color:var(--navy); }
+/* upcoming-event banner (events_cal.home_banner, site.js): "Next event" pill, then the title, New badge, date · place, +N more */
+.nextev .nextb { display:inline-block; vertical-align:middle; background:var(--navy); color:#fff; font-size:.72rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; line-height:1; padding:4px 6px 3px; border-radius:999px; margin-right:6px; }
+.nextev .newb { margin:0 0 0 2px; }
+.nextev .nextev-when { font-weight:500; }
+.nextev .newev-more { font-weight:500; white-space:nowrap; }
 .evc h3 .newb { margin-left:2px; }
 
 /* ---------- Events: List | Calendar toggle and month view ---------- */

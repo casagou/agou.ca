@@ -806,7 +806,7 @@ def build_page(lang, page, env):
                 f'<h1>{esc(U["home_title"])}</h1><p class="hero-sub">{inline(sub, ctx)}</p><p class="tagline">{inline(tagline, ctx)}</p><p class="lockup">{esc(U["lockup"])}</p>'
                 f'{intro}{hero_callout}</div>{hero_media}</div>'
                 + (f'<div class="wrap">{hero_src}</div>' if hero_src else "") + '</div>')
-        newev = events_cal.home_line(lang, SITE, UI, url(lang, "events")) if CAL_ON(env) else ""
+        newev = events_cal.home_banner(lang, SITE, UI, url(lang, "events"))  # always on (4 Oct 2026): next upcoming event; hidden only when none
         main = newev + hero + shortcuts(lang) + (vic_band(lang, env) if vic else "") + home_layout(collapse(body, lang, page="home"), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
         title = f"Joachim Agou – Victoria–Beacon Hill" if lang == "en" else "Joachim Agou – Victoria–Beacon Hill (français)"
         desc = re.sub(r"[*]", "", sub) + ". " + re.sub(r"[*]", "", tagline)
@@ -1228,6 +1228,19 @@ def check(dist):
             nf = len(re.findall(pat, f_, re.S)) if what == "questions" else len(re.findall(r"<li>", re.search(pat, f_, re.S).group(0)))
             if ne != nf:
                 errs.append(f"fr/faq/index.html: {nf} {what}, EN has {ne} (the FR FAQ must be a full translation; see exclusions.json fr-faq rule)")
+    # Upcoming-event banner (4 Oct 2026, Joachim): while any public event has not ended, both home pages must show it,
+    # pointing at the soonest one, with the embedded list site.js uses to keep it current. It vanished once before (2-4 Oct)
+    # because the old 'New event' line was frozen at build time on an event that then ended.
+    for l_ in LANGS:
+        hp = dist / url(l_, "home").lstrip("/") / "index.html"; ht = hp.read_text(); up = events_cal.upcoming(l_, SITE)
+        m_ = re.search(r'<div class="newev nextev" id="nextev"( hidden)?>(.*?)<script type="application/json" id="nextev-data">(.*?)</script>', ht, re.S)
+        if not m_: errs.append(f"{hp.relative_to(dist)}: upcoming-event banner missing"); continue
+        if up and (m_.group(1) or f'?e={up[0]["i"]}"' not in m_.group(2)):
+            errs.append(f"{hp.relative_to(dist)}: {len(up)} upcoming events but the banner is hidden or not on the next one (id {up[0]['i']})")
+        try:
+            if len(json.loads(m_.group(3).replace("<\\/", "</"))["u"]) != len(up): errs.append(f"{hp.relative_to(dist)}: banner data does not list every upcoming event")
+        except ValueError as ex: errs.append(f"{hp.relative_to(dist)}: banner data is not valid JSON ({ex})")
+    if 'getElementById("nextev")' not in (dist / "assets/js/site.js").read_text(): errs.append("assets/js/site.js no longer updates the upcoming-event banner (#nextev)")
     home = (dist / "index.html").read_text()
     if "Safer streets, honest budgets, a downtown that works." not in home:
         errs.append("index.html: tagline missing")

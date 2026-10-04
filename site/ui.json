@@ -361,7 +361,7 @@
       "nav_sr": ", new event",
       "line": "New event",
       "more_one": "1 more new event",
-      "more": "{n} more new events"
+      "more": "{n} more new events", "next": "Next event", "now": "Happening now", "more_up_one": "+1 more event", "more_up": "+{n} more events"
     },
     "party": {
       "note_ref": "The link carries my campaign's reference, so what you send comes to my team in Victoria–Beacon Hill.",
@@ -757,7 +757,7 @@
       "nav_sr": ", nouvel événement",
       "line": "Nouvel événement",
       "more_one": "1 autre nouvel événement",
-      "more": "{n} autres nouveaux événements"
+      "more": "{n} autres nouveaux événements", "next": "Prochain événement", "now": "En cours", "more_up_one": "+1 autre événement", "more_up": "+{n} autres événements"
     },
     "party": {
       "note_ref": "Le lien porte la référence de ma campagne : ce que vous transmettez arrive à mon équipe de Victoria–Beacon Hill. Le site du parti est en anglais.",
