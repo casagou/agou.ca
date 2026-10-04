@@ -20,8 +20,8 @@
     function when(s) {
       var o = {}; new Intl.DateTimeFormat(FR ? "fr-CA" : "en-CA", { timeZone: TZ, weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit", hour12: !FR })
         .formatToParts(new Date(s)).forEach(function (p) { o[p.type] = p.value; });
-      return FR ? o.weekday + " " + o.day + " " + o.month + ", " + Number(o.hour) + " h " + o.minute
-                : o.weekday + ", " + o.month.replace(".", "") + " " + o.day + ", " + o.hour + ":" + o.minute + " " + String(o.dayPeriod || "").replace(/\./g, "").toLowerCase();
+      return FR ? o.weekday + " " + o.day + " " + o.month + ", " + Number(o.hour) + "\u00a0h\u00a0" + o.minute
+                : o.weekday + ", " + o.month.replace(".", "") + " " + o.day + ", " + o.hour + ":" + o.minute + "\u00a0" + String(o.dayPeriod || "").replace(/\./g, "").toLowerCase();
     }
     function mk(tag, cls, txt, href) { var n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; if (href) n.href = href; return n; }
     function render(list) {
