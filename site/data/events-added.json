@@ -585,10 +585,11 @@
     "98": {
       "added": "2026-10-04",
       "added_at": "2026-10-05T02:59:49Z",
-      "title": "Meet Joachim | Fernwood Inn, Fernwood",
+      "title": "Coffee with Joachim | Moka House, Cook Street Village",
       "starts_at": "2026-10-09T23:30:00+00:00",
       "ends_at": "2026-10-10T00:30:00+00:00",
-      "title_fr": "Rencontrez Joachim | Fernwood Inn, Fernwood"
+      "title_fr": "Un café avec Joachim | Moka House, Cook Street Village",
+      "changed_at": "2026-10-05T03:17:33Z"
     },
     "100": {
       "added": "2026-10-04",
