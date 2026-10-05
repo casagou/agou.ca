@@ -185,6 +185,10 @@ Joachim (4 Oct 2026, via the Volunteers agent): volunteer shifts on the same Eve
 - **Guard:** `build.py shifts_check` fails a build where shifts are off but the Events page has the shift config/filter, or where they are on but missing, and if `forms.js` calls `get_public_shifts` other than behind `CFG.shifts`.
 - **To publish live:** set `volunteer_shifts_live: true`, build live, run the guards, publish as usual. Nothing else changes in the database.
 
+## Staging drafts (4 Oct 2026)
+`staging-drafts.json` holds text drafts that must show on staging but not on agou.ca until Joachim approves them. Each draft has a `live_flag` (a key in `site.json`) and exact find/replace `edits` per `lang/page`, applied in `build.py` `read()` after notion2md. Staging always applies them; live applies a draft only when its flag is true. Each find must match exactly once, or the build stops; if the live text changes, redo the draft. `diffcheck.py` still checks the Notion text as before.
+- `priorities_health_v3` (flag `priorities_health_v3_live`, false): Priorities §1 Health care credibility and plain-language pass (bullets, What changes for you, How you'll know, What shortens waits). To publish after approval: set the flag to true (or move the text into the §1 rules in `exclusions.json` and delete the draft), rebuild live, publish.
+
 ## Party links (2 Oct 2026, staging only until approved)
 Joachim (2 Oct 2026, 12:28 AM PT): volunteering, lawn signs and donations go through the Conservative Party of BC's system.
 - `site.json` → `party.urls` lists the three party URLs. Keep `recruiter_id=251` on the volunteer and lawn-sign URLs.

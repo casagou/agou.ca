@@ -32,6 +32,11 @@ PARTY_ON = lambda env: env == "staging" or bool(SITE.get("party_links_live"))
 # Live and staging share one database, so this flag is what keeps shifts off agou.ca until Joachim approves. See README "Volunteer shifts".
 SHIFTS_ON = lambda env: CAL_ON(env) and (env == "staging" or bool(SITE.get("volunteer_shifts_live")))
 PARTY = {"on": False}
+# Staging drafts (4 Oct 2026): staging-drafts.json holds exact find/replace text edits that show on staging only,
+# and on live only once site.json[<draft live_flag>] is true. Applied in read(). See README "Staging drafts".
+DRAFTS = json.loads((ROOT / "staging-drafts.json").read_text())["drafts"] if (ROOT / "staging-drafts.json").exists() else {}
+DRAFT_ENV = {"env": None}
+DRAFT_ON = lambda name, env: env == "staging" or bool(SITE.get(DRAFTS[name]["live_flag"]))
 PARTY_MOVED = ("volunteer", "lawn-sign", "donate")
 _PU = lambda k: SITE["party"]["urls"][k]
 PARTY_MD = {  # (lang, file): exact replacements in the Notion text when party links are on (each must match once)
@@ -426,6 +431,12 @@ def read(lang, key):
         for a_, b_ in PARTY_MD.get((lang, key), []):
             if t.count(a_) != 1: sys.exit(f"party links: {lang}/{key}.md: text to replace not found once (Notion text changed?): {a_[:80]!r}")
             t = t.replace(a_, b_)
+    if t is not None and DRAFT_ENV["env"]:
+        for name_, d_ in DRAFTS.items():
+            if not DRAFT_ON(name_, DRAFT_ENV["env"]): continue
+            for a_, b_ in d_["edits"].get(f"{lang}/{key}", []):
+                if t.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key}.md: text to replace not found once (live text changed? redo the draft): {a_[:80]!r}")
+                t = t.replace(a_, b_)
     return t
 
 
@@ -1286,6 +1297,7 @@ BUILD_ID = "dev"
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); ap.add_argument("--env", choices=["staging", "live"], default="staging"); ap.add_argument("--out", default="dist")
     a = ap.parse_args()
+    DRAFT_ENV["env"] = a.env
     import subprocess, datetime
     try:
         BUILD_ID = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, text=True).strip()

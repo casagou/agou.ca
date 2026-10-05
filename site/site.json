@@ -1185,6 +1185,8 @@
   "_priorities_v2_doc": "Priorities v2 (1 Oct 2026): restructured /priorities/ and /fr/priorities/ (exclusions.json whole-page en-priorities/fr-priorities rules, <more/> Read more split) and the scorecard item 7 lever (bail is federal). Staging only. false = build.py --env live refuses to run. Set true only after Joachim approves (review: /workspace/agou.ca-priorities-v2-review.md).",
   "_party_links_doc": "2 Oct 2026 (Joachim, 12:28 AM PT): volunteering, lawn signs and donations go through the Conservative Party of BC's system. When on (staging always; live only if party_links_live is true), every link to /volunteer/, /lawn-sign/ and /donate/ (EN and FR) points to party.urls; those three pages become short bridge pages (no form, noindex, out of the sitemap); Home, FAQ and Privacy use the party wording in build.py PARTY_MD and content/<lang>/privacy-party.md. Keep recruiter_id=251 on the volunteer and lawn-sign URLs.",
   "party_links_live": true,
+  "priorities_health_v3_live": false,
+  "_priorities_health_v3_live_doc": "4 Oct 2026: Priorities §1 Health care rewrite v3 (credibility and plain-language pass) lives in staging-drafts.json. Staging always shows it; false = live builds keep the current §1 text, so other publishes from staging stay safe. Set true only after Joachim approves, then rebuild live and publish. See README 'Staging drafts'.",
   "party": {
     "candidate": "https://conservativebc.ca/candidate/joachim-agou/",
     "urls": {
