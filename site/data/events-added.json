@@ -615,6 +615,14 @@
       "starts_at": "2026-10-20T19:00:00+00:00",
       "ends_at": "2026-10-20T20:00:00+00:00",
       "title_fr": "Un café avec Joachim | Discovery Coffee Blanshard, centre-ville"
+    },
+    "112": {
+      "added": "2026-10-05",
+      "added_at": "2026-10-05T19:08:31Z",
+      "title": "Provincial All-Candidates Meeting | Cook Street Village Activity Centre",
+      "starts_at": "2026-10-09T20:00:00+00:00",
+      "ends_at": "2026-10-09T22:00:00+00:00",
+      "title_fr": "Rencontre provinciale de tous les candidats | Cook Street Village Activity Centre"
     }
   }
 }

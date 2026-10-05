@@ -270,7 +270,7 @@ def vic_priorities(body, lang):
 def vic_events_cfg(lang):
     """Events: forms.js shows a small venue photo on each list card, matched only against the public event data
     (get_public_events): address first, then neighbourhood."""
-    E = VIC["events"]; ids = list(dict.fromkeys(list(E["address"].values()) + list(E["neighbourhood"].values())))
+    E = VIC["events"]; ids = [i for i in dict.fromkeys(list(E["address"].values()) + list(E["neighbourhood"].values())) if i]  # null = venue with no licensed photo of its block: no photo, no neighbourhood fallback
     for pid in ids:
         if pid not in PAGE_STATE["vic_used"]: PAGE_STATE["vic_used"].append(pid)
         if "thumb" not in VIC["photos"][pid]["focus"]: sys.exit(f"victoria_photos: {pid} needs a 'thumb' crop for the events page")

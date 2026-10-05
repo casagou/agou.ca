@@ -1147,8 +1147,9 @@
       "fort-street-antique-row"
     ],
     "events": {
-      "_doc": "Matched in forms.js against the public event data only (get_public_events; campaign_events has no photo column): 'address' = the first key, in this order, found inside the event address (so specific addresses go above general ones like 'Dallas Rd'), then 'neighbourhood' = English neighbourhood. Venues of public events, else the closest licensed photo on the same street, else a generic neighbourhood shot. To give one venue its own photo, add an address entry above the general ones, e.g. \"281 Menzies St\": \"<new-id>\". 4 Oct 2026 (Joachim's stricter rule): a photo must show the venue or its block, not a nearby landmark; when none exists the event shows no photo (so 'James Bay' has no neighbourhood default: 535 Superior St, Good Earth at Capital Park, has no licensed photo).",
+      "_doc": "Matched in forms.js against the public event data only (get_public_events; campaign_events has no photo column): 'address' = the first key, in this order, found inside the event address (so specific addresses go above general ones like 'Dallas Rd'), then 'neighbourhood' = English neighbourhood. Venues of public events, else the closest licensed photo on the same street, else a generic neighbourhood shot. To give one venue its own photo, add an address entry above the general ones, e.g. \"281 Menzies St\": \"<new-id>\". 4 Oct 2026 (Joachim's stricter rule): a photo must show the venue or its block, not a nearby landmark; when none exists the event shows no photo (so 'James Bay' has no neighbourhood default: 535 Superior St, Good Earth at Capital Park, has no licensed photo). An address mapped to null shows no photo and skips the neighbourhood default (5 Oct 2026: 380 Cook St, Cook Street Village Activity Centre, north of Pendergast; the Cook Street Village photos show other blocks).",
       "address": {
+        "380 Cook St": null,
         "345 Cook St": "moka-house-block",
         "301 Cook St": "cook-street-village",
         "Cook St & Oxford St": "cook-street-village",
