@@ -191,6 +191,21 @@
         neighbourhood: e.neighbourhood ? String(e.neighbourhood).split(" / ").map(function (n) { return NB_FR[n] || n; }).join(" / ") : e.neighbourhood });
     }
     var EVENTS = null, RM = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Volunteer shifts (migration 48; CFG.shifts only where build.py SHIFTS_ON: staging until site.json volunteer_shifts_live).
+    // get_public_shifts returns id, titles, start, end and the general area only: no address, meeting point or pin, by design.
+    var SH = CFG.shift_text || {};
+    var SHOW = (function () { var q = new URLSearchParams(location.search).get("show"); return CFG.shifts && (q === "public" || q === "shifts") ? q : "both"; })();
+    var visible = function (e) { return SHOW === "both" || (SHOW === "shifts") === !!e.shift; };
+    function partOfDay(s) { var h = +new Intl.DateTimeFormat("en-CA", { timeZone: TZ, hour: "numeric", hourCycle: "h23" }).format(new Date(s)); return h < 12 ? SH.part_morning : h < 16 ? SH.part_afternoon : SH.part_evening; }
+    function shiftLead(e) { // "Monday evening, door knocking in Fernwood. Join us." / "Lundi soir, porte-à-porte à Fernwood. Joignez-vous à nous."
+      return (e.area ? SH.lead : SH.lead_tbd).replace("{day}", cap(parts(e.starts_at).weekday)).replace("{part}", partOfDay(e.starts_at)).replace("{area}", e.area || "");
+    }
+    function shiftRow(r) {
+      var e = { id: r.id, shift: true, title: (FR && r.title_fr) || r.title, starts_at: r.starts_at, ends_at: r.ends_at, area: r.area || "", rsvp_open: !!r.rsvp_open };
+      e.neighbourhood = e.area || SH.area_tbd;
+      e.description = shiftLead(e) + "\n\n" + SH.body + "\n\n" + SH.meet_h + (FR ? " : " : ": ") + SH.meet; // calendar files only
+      return e;
+    }
     function parts(s) { var o = {}; new Intl.DateTimeFormat(LOC, { timeZone: TZ, weekday: "long", month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", hour12: !FR }).formatToParts(new Date(s)).forEach(function (p) { o[p.type] = p.value; }); return o; }
     var ymd = function (s) { return new Date(s).toLocaleDateString("en-CA", { timeZone: TZ }); };
     var dayLong = function (s) { var p = parts(s); return FR ? p.weekday + " " + p.day + " " + p.month : p.weekday + " " + p.month + " " + p.day; };
@@ -319,25 +334,27 @@
       box.querySelectorAll("td.today").forEach(function (n) { n.classList.remove("today"); n.removeAttribute("aria-current"); });
       if (td) { td.classList.add("today"); td.setAttribute("aria-current", "date"); }
       var later = false, ag = box.querySelector(".agenda");
-      EVENTS.slice().sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); }).forEach(function (e) {
+      EVENTS.filter(visible).sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); }).forEach(function (e) {
         var d = ymd(e.starts_at); if (d.slice(0, 7) !== CFG.cal) { if (d.slice(0, 7) > CFG.cal) later = true; return; }
         var cell = box.querySelector('td[data-date="' + d + '"]'); if (!cell) return;
         var past = new Date(e.ends_at).getTime() < Date.now(), nw = isNew(e) && !past;
-        var a = el("a", { href: "?e=" + e.id, title: evTitle(e) }, el("span", { class: "tm", text: clock(e.starts_at).replace(/ /g, NB) }), " ", el("span", { class: "tt", text: shortTitle(e) }), nw ? [" ", newBadge()] : null);
+        var sv = !!e.shift, mk = sv ? "■" : "●", cls = "it cev" + (sv ? " sev" : "") + (past ? " past" : "");
+        var tt = sv ? SH.cal_short + " · " + (e.area || SH.area_tbd) : shortTitle(e);
+        var a = el("a", { href: "?e=" + e.id, title: sv ? SH.tag + " · " + (e.area || SH.area_tbd) : evTitle(e) }, el("span", { class: "tm", text: clock(e.starts_at).replace(/ /g, NB) }), " ", el("span", { class: "tt", text: tt }), nw ? [" ", newBadge()] : null);
         a.addEventListener("click", openEvent(e));
-        cell.querySelector(".items").append(el("li", { class: "it cev" + (past ? " past" : "") }, el("span", { class: "mk", "aria-hidden": "true", text: "●" }), a));
+        cell.querySelector(".items").append(el("li", { class: cls }, el("span", { class: "mk", "aria-hidden": "true", text: mk }), a));
         if (!cell.querySelector(".dn-link")) {
           var dl = cell.querySelector(".dn-txt").cloneNode(true); var link = el("a", { class: "dn dn-link", href: "#ag-" + d }); link.append.apply(link, Array.prototype.slice.call(dl.childNodes)); cell.insertBefore(link, cell.querySelector(".items"));
         }
-        cell.classList.add("has-ev");
+        cell.classList.add("has-ev"); if (sv) cell.classList.add("has-sev");
         var day = $("ag-" + d);
         if (!day) {
           day = el("li", { class: "ag-day ev-only", id: "ag-" + d, "data-date": d }, el("p", { class: "ag-d", text: cap(dayFull(e.starts_at)) }), el("ul"));
           var next = Array.prototype.find.call(ag.children, function (x) { return x.getAttribute("data-date") > d; });
           ag.insertBefore(day, next || null);
         }
-        var a2 = el("a", { href: "?e=" + e.id }, timeRange(e) + " · " + evTitle(e)); a2.addEventListener("click", openEvent(e));
-        day.querySelector("ul").append(el("li", { class: "it cev" + (past ? " past" : "") }, el("span", { class: "mk", "aria-hidden": "true", text: "●" }), " ", a2, nw ? [" ", newBadge()] : null));
+        var a2 = el("a", { href: "?e=" + e.id }, timeRange(e) + " · " + (sv ? SH.tag + " · " + (e.area || SH.area_tbd) : evTitle(e))); a2.addEventListener("click", openEvent(e));
+        day.querySelector("ul").append(el("li", { class: cls }, el("span", { class: "mk", "aria-hidden": "true", text: mk }), " ", a2, nw ? [" ", newBadge()] : null));
       });
       var after = box.querySelector(".cal-after"); if (after) after.hidden = !later;
     }
@@ -346,10 +363,15 @@
       VIEW = v;
       var tg = document.querySelector(".viewtoggle"); if (!tg) return;
       tg.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-view") === v)); });
-      if (push) history.replaceState({}, "", location.pathname + (v === "calendar" ? "?view=calendar" : ""));
+      if (push) { var q = new URLSearchParams(); if (v === "calendar") q.set("view", "calendar"); if (SHOW !== "both") q.set("show", SHOW); history.replaceState({}, "", location.pathname + (String(q) ? "?" + q : "")); }
       route();
     }
     document.querySelectorAll(".viewtoggle button").forEach(function (b) { b.addEventListener("click", function () { setView(b.getAttribute("data-view"), true); }); });
+    document.querySelectorAll(".evfilter button").forEach(function (b) { b.addEventListener("click", function () {
+      SHOW = b.getAttribute("data-show");
+      var q = new URLSearchParams(); if (VIEW === "calendar") q.set("view", "calendar"); if (SHOW !== "both") q.set("show", SHOW);
+      history.replaceState({}, "", location.pathname + (String(q) ? "?" + q : "")); route();
+    }); });
     (function () { // before the events load: show the toggle and the chosen view (without JS both stay visible, list first)
       var cv = $("calView"), tg = document.querySelector(".viewtoggle"); if (!cv || !tg) return;
       tg.hidden = false; cv.hidden = VIEW !== "calendar"; $("listView").hidden = VIEW === "calendar";
@@ -371,21 +393,23 @@
     }
     function renderList() {
       var box = $("list"); box.textContent = "";
-      if (!EVENTS.length) { box.append(el("p", { class: "note", text: T.empty })); return; }
+      var shown = EVENTS.filter(visible);
+      if (!shown.length) { box.append(el("p", { class: "note", text: SHOW === "shifts" ? SH.empty_shifts : SHOW === "public" && CFG.shifts ? SH.empty_public : T.empty })); return; }
       var now = Date.now(), up = function (e) { return new Date(e.ends_at).getTime() >= now; };
-      var list = EVENTS.slice().sort(function (a, b) { return (up(b) - up(a)) || (new Date(a.starts_at) - new Date(b.starts_at)) || (a.id - b.id); });
+      var list = shown.sort(function (a, b) { return (up(b) - up(a)) || (new Date(a.starts_at) - new Date(b.starts_at)) || (a.id - b.id); });
       var ul = el("ul", { class: "evlist" });
       list.forEach(function (e) {
         var a = el("a", { href: "?e=" + e.id, text: evTitle(e) });
         a.addEventListener("click", openEvent(e));
-        var du = dirUrl(e), past = !up(e);
-        ul.append(el("li", { class: "evc" + (past ? " past" : "") }, tile(e.starts_at),
+        var du = dirUrl(e), past = !up(e), sv = !!e.shift;
+        ul.append(el("li", { class: "evc" + (sv ? " shift" : "") + (past ? " past" : "") }, tile(e.starts_at),
           el("div", { class: "evc-body" },
+            sv ? el("p", { class: "shtag" }, el("span", { class: "mk", "aria-hidden": "true", text: "■" }), " " + SH.tag) : null,
             el("h3", null, a, isNew(e) && !past ? [" ", newBadge()] : null),
-            el("p", { class: "evc-when" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e), past ? el("span", { class: "evc-ended", text: " · " + T.ended }) : null),
+            el("p", { class: "evc-when" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e), past ? el("span", { class: "evc-ended", text: " · " + (sv ? SH.ended : T.ended) }) : null),
             e.neighbourhood ? el("p", { class: "evc-nb", text: e.neighbourhood }) : null,
             du && !past ? el("p", { class: "readlink evc-dir" }, el("a", { href: du, target: "_blank", rel: "noopener noreferrer", text: T.directions_short + " ↗" })) : null),
-          venuePhoto(e)));
+          sv ? null : venuePhoto(e)));
       });
       box.append(ul);
     }
@@ -453,10 +477,75 @@
       });
       return f;
     }
+    function shiftForm(e) { // name, email, phone (required: the meeting point is texted), consent -> submit_shift_rsvp
+      var btn = el("button", { id: "btn", type: "submit", class: "btn primary block", text: SH.button });
+      var msg = el("div", { id: "msg", class: "msg", role: "status", "aria-live": "polite", tabindex: "-1" });
+      var ph = field("phone", T.phone, "tel", { autocomplete: "tel", maxlength: "30", inputmode: "tel", required: "", "aria-describedby": "phone-note" });
+      var f = el("form", { id: "rsvp", class: "card form shiftform", novalidate: "", hidden: "" },
+        el("h2", { text: SH.rsvp_h }), el("p", { class: "opt", text: SH.tag + " · " + timeLine(e) + " · " + (e.area || SH.area_tbd) }),
+        el("div", { class: "row" }, el("div", null, field("first_name", T.first_name, "text", { autocomplete: "given-name", autocapitalize: "words", required: "", maxlength: "80" })),
+          el("div", null, field("last_name", T.last_name, "text", { autocomplete: "family-name", autocapitalize: "words", required: "", maxlength: "80" }))),
+        field("email", T.email, "email", { autocomplete: "email", autocapitalize: "off", spellcheck: "false", required: "", maxlength: "200", inputmode: "email" }),
+        ph[0], el("p", { class: "hint", id: "phone-note", text: SH.phone_note }), ph[1],
+        el("div", { class: "cb" }, el("input", { id: "consent", type: "checkbox", required: "" }), el("label", { for: "consent", text: SH.consent })),
+        el("div", { class: "hp", "aria-hidden": "true" }, el("label", null, T.honeypot + " ", el("input", { id: "website", type: "text", tabindex: "-1", autocomplete: "off" }))),
+        btn, msg);
+      var showm = function (k, t) { msg.className = "msg " + k; msg.textContent = t; if (k === "err") msg.focus(); };
+      f.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        var done = function () { var t = el("div", { class: "msg ok", role: "status", tabindex: "-1", text: SH.thanks }); f.replaceWith(t); t.focus(); };
+        if (v("website")) { done(); return; } // bot
+        var errs = [], P = T.err_prefix;
+        if (!v("first_name")) errs.push(["first_name", P + T.err_first]);
+        if (!v("last_name")) errs.push(["last_name", P + T.err_last]);
+        if (!EMAIL.test(v("email"))) errs.push(["email", P + T.err_email]);
+        if (v("phone").replace(/\D/g, "").length < 7) errs.push(["phone", P + SH.err_phone]);
+        if (!$("consent").checked) errs.push(["consent", C.tick + T.err_consent]);
+        if (errs.length) { fail(f, msg, errs); return; }
+        ok(f); msg.className = "msg"; msg.textContent = "";
+        btn.disabled = true; btn.textContent = T.sending;
+        rpc("submit_shift_rsvp", { p_event_id: e.id, p_first_name: v("first_name"), p_last_name: v("last_name"), p_email: v("email"),
+          p_phone: v("phone"), p_consent: true, p_consent_text: SH.consent, p_website: v("website") })
+          .then(done)
+          .catch(function (err) { btn.disabled = false; btn.textContent = SH.button; showm("err", /not open for RSVPs/.test(String(err && err.message)) ? SH.closed : T.rsvpErr); });
+      });
+      return f;
+    }
+    function renderShift(e, box) { // day, time window and general area only; the meeting point is sent after sign-up
+      setMeta(evTitle(e) + " – " + cap(dayLong(e.starts_at)) + " – Joachim Agou", shiftLead(e), eventUrl(e));
+      jsonLd([]);
+      var past = new Date(e.ends_at).getTime() < Date.now(), open = e.rsvp_open && !past, go = null;
+      box.append(backLink(), el("header", { class: "evhead shifthead" }, tile(e.starts_at, "big"),
+        el("div", null, el("p", { class: "shtag" }, el("span", { class: "mk", "aria-hidden": "true", text: "■" }), " " + SH.tag),
+          el("h2", { class: "evtitle", text: evTitle(e) }),
+          el("p", { class: "evwhen" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e),
+            el("span", { class: "evnb", text: " · " + (e.area || SH.area_tbd) }), past ? el("span", { text: " · " + SH.ended }) : null))));
+      box.append(el("p", { class: "evspot shiftlead", text: shiftLead(e) }));
+      var acts = el("div", { class: "actions evacts" });
+      if (open) { go = el("button", { type: "button", class: "btn primary", "aria-controls": "rsvp", "aria-expanded": "false", text: SH.rsvp_link }); acts.append(go); }
+      var calBtn = el("button", { type: "button", class: "btn sec", "aria-expanded": "false", "aria-haspopup": "true", text: T.add_cal });
+      var menu = el("div", { class: "calmenu", hidden: "" }), ics = el("button", { type: "button", text: T.ics });
+      ics.addEventListener("click", function () { downloadIcs(e); menu.hidden = true; calBtn.setAttribute("aria-expanded", "false"); });
+      menu.append(el("a", { href: googleCal(e), target: "_blank", rel: "noopener noreferrer", text: T.gcal }), ics);
+      calBtn.addEventListener("click", function () { menu.hidden = !menu.hidden; calBtn.setAttribute("aria-expanded", String(!menu.hidden)); });
+      if (!past) acts.append(el("div", { class: "cal" }, calBtn, menu));
+      box.append(acts);
+      box.append(el("dl", { class: "evfacts" },
+        el("dt", { text: T.when }), el("dd", { text: dayFull(e.starts_at) + ", " + timeRange(e).replace(new RegExp(NB, "g"), " ") + " " + T.pacific }),
+        el("dt", { text: SH.area_h }), el("dd", { text: e.area || SH.area_tbd }),
+        el("dt", { text: SH.meet_h }), el("dd", { text: SH.meet })));
+      box.append(renderMd(SH.body));
+      if (open) {
+        box.append(el("div", { class: "evrsvp" }, el("p", { text: SH.rsvp_quiet })));
+        var f = shiftForm(e); box.append(f);
+        go.addEventListener("click", function () { f.hidden = false; go.setAttribute("aria-expanded", "true"); f.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" }); setTimeout(function () { if ($("first_name")) $("first_name").focus({ preventScroll: true }); }, 300); });
+      }
+    }
     function renderDetail(id) {
       var box = $("detailView"); box.textContent = "";
       var e = EVENTS.find(function (x) { return String(x.id) === String(id); });
       if (!e) { box.append(backLink(), el("p", { class: "note", text: T.gone })); setMeta(baseTitle, baseDesc, LIVE); return; }
+      if (e.shift) { renderShift(e, box); return; }
       setMeta(evTitle(e) + " – " + cap(dayLong(e.starts_at)) + " – Joachim Agou", (spotLine(e) || plain(e.description)).slice(0, 160), eventUrl(e));
       jsonLd([e]);
       var past = new Date(e.ends_at).getTime() < Date.now();
@@ -510,15 +599,20 @@
       $("listView").hidden = !!id || calMode; $("detailView").hidden = !id;
       if (cv) cv.hidden = !!id || !calMode;
       if (tg) { tg.hidden = !!id; tg.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-view") === VIEW)); }); }
+      var fl = document.querySelector(".evfilter");
+      if (fl) { fl.hidden = !CFG.shifts || !!id; fl.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-show") === SHOW)); }); }
       document.querySelectorAll("[data-hide-on-detail]").forEach(function (n) { n.hidden = !!id; });
       updateLangLink();
       if (id) renderDetail(id);
-      else { setMeta(baseTitle, baseDesc, LIVE); renderList(); renderCal(); jsonLd(EVENTS); }
+      else { setMeta(baseTitle, baseDesc, LIVE); renderList(); renderCal(); jsonLd(EVENTS.filter(function (x) { return !x.shift; })); }
     }
     window.addEventListener("popstate", route);
     window.addEventListener("hashchange", route);
     document.addEventListener("click", function (ev) { var m = document.querySelector(".calmenu"); if (m && !m.hidden && !ev.target.closest(".cal")) { m.hidden = true; var b = document.querySelector(".cal > .btn"); if (b) b.setAttribute("aria-expanded", "false"); } });
-    rpc("get_public_events", {}).then(function (r) { return r.json(); }).then(function (data) { EVENTS = (data || []).map(localize); route(); })
+    var shiftsP = Promise.resolve([]);
+    if (CFG.shifts) shiftsP = rpc("get_public_shifts", {}).then(function (r) { return r.json(); })["catch"](function () { return []; }); // shifts failing never hides the events
+    Promise.all([rpc("get_public_events", {}).then(function (r) { return r.json(); }), shiftsP])
+      .then(function (res) { EVENTS = (res[0] || []).map(localize).concat((res[1] || []).map(shiftRow)); route(); })
       .catch(function () { $("list").textContent = ""; $("list").append(el("p", { class: "note", text: T.loadErr })); if (currentId()) $("listView").hidden = false; });
   }
 })();

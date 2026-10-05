@@ -205,7 +205,7 @@ def key_dates(site):
     return out
 
 
-def calendar_html(lang, site, ui):
+def calendar_html(lang, site, ui, shifts=False):
     """Static month grid (table) with the key dates; forms.js adds the event chips into each day (data-date) and the agenda.
     Without JS the grid, key dates and agenda still show (the list needs JS anyway)."""
     T = ui[lang]["events"]
@@ -250,6 +250,7 @@ def calendar_html(lang, site, ui):
             f'<h2 id="cal-h">{esc(T["cal_h"])}</h2>'
             f'<ul class="cal-legend"><li><span class="mk kd" aria-hidden="true">◆</span> {esc(T["legend_key"])}</li>'
             f'<li><span class="mk cev" aria-hidden="true">●</span> {esc(T["legend_ev"])}</li>'
+            + (f'<li class="lg-shift"><span class="mk sev" aria-hidden="true">■</span> {esc(ui[lang]["shifts"]["legend"])}</li>' if shifts else "") +
             f'<li><span class="newb" aria-hidden="true">{esc(ui[lang]["new_events"]["badge"])}</span> {esc(T["legend_new"])}</li></ul>'
             f'<div class="cal-wrap"><table class="mcal"><caption class="vh">{esc(T["cal_caption"])}</caption><thead><tr>{head}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>'
             f'<p class="cal-after" hidden>{esc(T["after_oct"])}</p>'

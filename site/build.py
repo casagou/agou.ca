@@ -28,6 +28,9 @@ NOMINATIONS_CLOSED = bool(SITE.get("nominations_closed"))  # site.json: nominati
 # Party links (Joachim, 2 Oct 2026 12:28 AM PT): volunteering, lawn signs and donations go through the Conservative Party of BC (site.json "party").
 # Staging always; live only when site.json party_links_live is true. See README "Party links".
 PARTY_ON = lambda env: env == "staging" or bool(SITE.get("party_links_live"))
+# Volunteer shifts on the Events page (migration 48): staging always; live only when site.json volunteer_shifts_live is true.
+# Live and staging share one database, so this flag is what keeps shifts off agou.ca until Joachim approves. See README "Volunteer shifts".
+SHIFTS_ON = lambda env: CAL_ON(env) and (env == "staging" or bool(SITE.get("volunteer_shifts_live")))
 PARTY = {"on": False}
 PARTY_MOVED = ("volunteer", "lawn-sign", "donate")
 _PU = lambda k: SITE["party"]["urls"][k]
@@ -899,11 +902,18 @@ def build_page(lang, page, env):
         cal = CAL_ON(env)
         toggle = (f'<div class="viewtoggle" role="group" aria-label="{esc(T["view"])}" hidden><button type="button" data-view="list" aria-pressed="true">{esc(T["view_list"])}</button>'
                   f'<button type="button" data-view="calendar" aria-pressed="false">{esc(T["view_cal"])}</button></div>') if cal else ""
-        calv = events_cal.calendar_html(lang, SITE, UI) if cal else ""
+        shifts = SHIFTS_ON(env); ST = U["shifts"]
+        if shifts:  # Public events / Volunteer shifts / Both (forms.js; ?show=public|shifts, default both)
+            toggle += (f'<div class="evfilter" role="group" aria-label="{esc(ST["filter"])}" hidden><span class="evfilter-l" aria-hidden="true">{esc(ST["filter"])}</span>'
+                       f'<button type="button" data-show="public" aria-pressed="false">{esc(ST["f_public"])}</button>'
+                       f'<button type="button" data-show="shifts" aria-pressed="false"><span class="mk sev" aria-hidden="true">■</span> {esc(ST["f_shifts"])}</button>'
+                       f'<button type="button" data-show="both" aria-pressed="true">{esc(ST["f_both"])}</button></div>')
+        calv = events_cal.calendar_html(lang, SITE, UI, shifts=shifts) if cal else ""
         body = f'<div data-hide-on-detail>{body}</div><section class="block" id="events-list" aria-live="polite">{toggle}<div id="listView"><div id="list"><p class="note">{esc(T["loading"])}</p></div></div>{calv}<article id="detailView" class="detail" hidden></article></section>'
         cfg = {"form": "events", "live_url": LIVE + self_path, "text": T, "common": U["form_common"], "maps": event_maps()}
         if vic: cfg["vic"] = vic_events_cfg(lang)
         if cal: cfg.update({"cal": SITE["calendar_month"], "new_until": events_cal.new_map(SITE), "new_label": UI[lang]["new_events"]["badge"]})
+        if shifts: cfg.update({"shifts": True, "shift_text": {k: v for k, v in ST.items() if not k.startswith("_")}})
         extra = f'<script id="form-config" type="application/json">{json.dumps(cfg, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     lock = f'<p class="lockup">{esc(U["lockup"])}</p>' if key == "priorities" else ""  # two-line lockup: home, Priorities, Scorecard only
     if key == "priorities":
@@ -1173,6 +1183,26 @@ EXPERIENCE_OLD = r"(?i)(more than|over)\s+(12|twelve)\s+years|\b(12|twelve) year
 PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910"}
 
 
+def shifts_check(dist, env):
+    """Volunteer shifts (migration 48): on only where SHIFTS_ON (staging, or live with volunteer_shifts_live). The public page
+    gets shifts only from get_public_shifts (day, time, area), never an address or pin; forms.js calls it only when CFG.shifts."""
+    errs = []; on = SHIFTS_ON(env)
+    for l_ in LANGS:
+        hp = dist / url(l_, "events").lstrip("/") / "index.html"
+        if not hp.exists(): continue
+        ht = hp.read_text(); has = '"shifts": true' in ht and 'class="evfilter"' in ht
+        if on and not has: errs.append(f"{hp.relative_to(dist)}: volunteer shifts are on for this build but the page has no shift config/filter")
+        if not on and ('"shifts": true' in ht or 'evfilter' in ht or 'lg-shift' in ht):
+            errs.append(f"{hp.relative_to(dist)}: volunteer shifts leaked into a build where they are off (site.json volunteer_shifts_live is false)")
+    js = (dist / "assets/js/forms.js").read_text()
+    if js.count('rpc("get_public_shifts"') != 1 or 'if (CFG.shifts) shiftsP = rpc("get_public_shifts"' not in js:
+        errs.append("assets/js/forms.js: get_public_shifts must be called once, only behind CFG.shifts")
+    for l_ in LANGS:
+        for k_, v_ in UI[l_]["shifts"].items():
+            if re.search(r"\bJoa\b|the candidate|le candidat", v_): errs.append(f"ui.json {l_}.shifts.{k_}: write Joachim, never Joa / the candidate")
+    return errs
+
+
 def check(dist):
     errs = []
     for f in sorted([*dist.rglob("*.webmanifest"), *dist.rglob("*.json"), *dist.rglob("*.ics"), *dist.rglob("*.txt"), *dist.rglob("*.xml")]):  # share/app text outside the HTML
@@ -1351,7 +1381,7 @@ if __name__ == "__main__":
         (dist / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {LIVE}/sitemap.xml\n")
         (dist / "CNAME").write_text("agou.ca\n"); (dist / ".nojekyll").write_text("")
     (dist / "sitemap.xml").write_text(sitemap())  # staging too, for review (its robots.txt still disallows everything)
-    errs = check(dist) + seo_check(dist, a.env)
+    errs = check(dist) + seo_check(dist, a.env) + shifts_check(dist, a.env)
     if NOMINATIONS_CLOSED:  # nothing may link to the retired Nominate page or ask people to sign (its own EN/FR pages excepted)
         nom = {url(l, "nominate") for l in LANGS}; nom_pages = {dist / u.lstrip("/") / "index.html" for u in nom}
         ask = re.compile(r"Sign up to nominate|Become a nominator|I need 75|Put a test engineer on the ballot|S'inscrire pour signer|Il me faut la signature|Mettre un ingénieur d'essais sur le bulletin")

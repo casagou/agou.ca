@@ -363,6 +363,8 @@
   "events_calendar_live": true,
   "_events_calendar_live_doc": "1 Oct 2026 staging batch, approved by Joachim 1 Oct 2026 and published live: Events 'List | Calendar' toggle with an October 2026 month view (key_dates + events from get_public_events), 'New' badges on events added (or changed) in the last events_new_hours hours (list cards, calendar chips), the 'New' badge on the Events menu item and the 'New event' line on the home page. false = live builds leave all of it out (the live site stays as it is). Set to true after approval. See README 'Events calendar' and 'New events'.",
   "events_new_hours": 48,
+  "volunteer_shifts_live": false,
+  "_volunteer_shifts_live_doc": "4 Oct 2026 (Joachim, via Volunteers agent): volunteer shifts on the Events page (migration 48: campaign_events.event_type = volunteer_shift, get_public_shifts, submit_shift_rsvp). Staging always; live only when this is true (staging and live share the database). Publicly a shift shows only the day, time and general area; the meeting point is sent after sign-up. See README 'Volunteer shifts'.",
   "_events_new_hours_doc": "4 Oct 2026 (Joachim, via Events agent): the New badge (list cards, calendar chips, Events menu badge, home banner) shows for 48 hours (2 days) from when an event was added or meaningfully changed (title, French title, start or end), was 7 days. See events_cal.py and README 'New events'.",
   "calendar_month": "2026-10",
   "key_dates": [

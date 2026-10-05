@@ -361,7 +361,11 @@
       "nav_sr": ", new event",
       "line": "New event",
       "more_one": "1 more new event",
-      "more": "{n} more new events", "next": "Next event", "now": "Happening now", "more_up_one": "+1 more event", "more_up": "+{n} more events"
+      "more": "{n} more new events",
+      "next": "Next event",
+      "now": "Happening now",
+      "more_up_one": "+1 more event",
+      "more_up": "+{n} more events"
     },
     "party": {
       "note_ref": "The link carries my campaign's reference, so what you send comes to my team in Victoria–Beacon Hill.",
@@ -392,6 +396,38 @@
     "social_groups": {
       "campaign": "Campaign",
       "personal": "Personal"
+    },
+    "shifts": {
+      "_doc": "Volunteer shifts on the Events page (migration 48, get_public_shifts / submit_shift_rsvp). Staging only until site.json volunteer_shifts_live. Publicly a shift shows only the day, the time and the general area; the meeting point is sent after sign-up.",
+      "filter": "Show",
+      "f_public": "Public events",
+      "f_shifts": "Volunteer shifts",
+      "f_both": "Both",
+      "tag": "Volunteer shift",
+      "legend": "Volunteer shift (door knocking)",
+      "cal_short": "Volunteer shift",
+      "area_tbd": "Area to be confirmed",
+      "lead": "{day} {part}, door knocking in {area}. Join us.",
+      "lead_tbd": "{day} {part}, door knocking (area to be confirmed). Join us.",
+      "part_morning": "morning",
+      "part_afternoon": "afternoon",
+      "part_evening": "evening",
+      "body": "No experience needed: we'll pair you up and show you how it works. Come for an hour or stay for the whole shift.",
+      "area_h": "Area",
+      "meet_h": "Meeting point",
+      "meet": "We'll send it to you by text or email after you sign up.",
+      "rsvp_h": "Sign up for this shift",
+      "rsvp_link": "Sign up for this shift",
+      "rsvp_quiet": "Sign up and we'll send you the meeting point before the shift.",
+      "phone_note": "We'll text you the meeting point.",
+      "err_phone": "a phone number, so we can send you the meeting point",
+      "consent": "I agree that the Joachim Agou campaign (Conservative Party of BC, Victoria–Beacon Hill) may contact me by email, phone or text about this shift and about volunteering with the campaign. I can ask to stop at any time.",
+      "button": "Sign me up",
+      "thanks": "Thank you, you're signed up! We'll send you the meeting point by text or email before the shift.",
+      "closed": "Sorry, sign-ups for this shift are closed.",
+      "ended": "Shift ended",
+      "empty_shifts": "No volunteer shifts are listed right now.",
+      "empty_public": "No public events are listed right now."
     }
   },
   "fr": {
@@ -757,7 +793,11 @@
       "nav_sr": ", nouvel événement",
       "line": "Nouvel événement",
       "more_one": "1 autre nouvel événement",
-      "more": "{n} autres nouveaux événements", "next": "Prochain événement", "now": "En cours", "more_up_one": "+1 autre événement", "more_up": "+{n} autres événements"
+      "more": "{n} autres nouveaux événements",
+      "next": "Prochain événement",
+      "now": "En cours",
+      "more_up_one": "+1 autre événement",
+      "more_up": "+{n} autres événements"
     },
     "party": {
       "note_ref": "Le lien porte la référence de ma campagne : ce que vous transmettez arrive à mon équipe de Victoria–Beacon Hill. Le site du parti est en anglais.",
@@ -788,6 +828,38 @@
     "social_groups": {
       "campaign": "Campagne",
       "personal": "Personnel"
+    },
+    "shifts": {
+      "_doc": "Volunteer shifts on the Events page (migration 48, get_public_shifts / submit_shift_rsvp). Staging only until site.json volunteer_shifts_live. Publicly a shift shows only the day, the time and the general area; the meeting point is sent after sign-up.",
+      "filter": "Afficher",
+      "f_public": "Événements publics",
+      "f_shifts": "Quarts bénévoles",
+      "f_both": "Les deux",
+      "tag": "Quart bénévole",
+      "legend": "Quart bénévole (porte-à-porte)",
+      "cal_short": "Quart bénévole",
+      "area_tbd": "Secteur à confirmer",
+      "lead": "{day} {part}, porte-à-porte à {area}. Joignez-vous à nous.",
+      "lead_tbd": "{day} {part}, porte-à-porte (secteur à confirmer). Joignez-vous à nous.",
+      "part_morning": "matin",
+      "part_afternoon": "après-midi",
+      "part_evening": "soir",
+      "body": "Aucune expérience requise : on vous jumelle avec quelqu'un et on vous montre comment faire. Venez une heure ou restez pour tout le quart.",
+      "area_h": "Secteur",
+      "meet_h": "Point de rendez-vous",
+      "meet": "Nous vous l'enverrons par texto ou par courriel après votre inscription.",
+      "rsvp_h": "Inscrivez-vous à ce quart",
+      "rsvp_link": "Inscrivez-vous à ce quart",
+      "rsvp_quiet": "Inscrivez-vous et nous vous enverrons le point de rendez-vous avant le quart.",
+      "phone_note": "Nous vous enverrons le point de rendez-vous par texto.",
+      "err_phone": "un numéro de téléphone, pour qu'on puisse vous envoyer le point de rendez-vous",
+      "consent": "J'accepte que la campagne de Joachim Agou (Parti conservateur de la C.-B., Victoria–Beacon Hill) communique avec moi par courriel, téléphone ou texto au sujet de ce quart et du bénévolat pour la campagne. Je peux demander que cela cesse à tout moment.",
+      "button": "Je m'inscris",
+      "thanks": "Merci, vous êtes inscrit! Nous vous enverrons le point de rendez-vous par texto ou par courriel avant le quart.",
+      "closed": "Désolé, les inscriptions à ce quart sont fermées.",
+      "ended": "Quart terminé",
+      "empty_shifts": "Aucun quart bénévole n'est affiché pour le moment.",
+      "empty_public": "Aucun événement public n'est affiché pour le moment."
     }
   }
 }
