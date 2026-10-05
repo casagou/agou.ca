@@ -385,8 +385,9 @@
     // Matched against this event's own public fields only: street address first, then neighbourhood.
     function venuePhoto(e) {
       var V = CFG.vic; if (!V) return null;
-      var pid = null, k;
-      for (k in V.address) { if (String(e.address || "").indexOf(k) !== -1) { pid = V.address[k]; break; } }
+      var pid = null, hit = false, k;
+      for (k in V.address) { if (String(e.address || "").indexOf(k) !== -1) { pid = V.address[k]; hit = true; break; } }
+      if (hit && !pid) return null; // address mapped to null: no licensed photo of that block, so no neighbourhood fallback either
       var nb = e.nb_en || e.neighbourhood; if (!pid && nb && V.neighbourhood[nb]) pid = V.neighbourhood[nb];
       if (!pid) return null;
       var ss = function (ext) { return V.widths.map(function (w) { return V.base + pid + "-thumb-" + w + "." + ext + " " + w + "w"; }).join(", "); };
