@@ -66,7 +66,7 @@ T = {
         "priorities_link": "Voir le bulletin", "priorities_sub": "12 chiffres, publiés chaque trimestre, avec leurs sources.",
         "home_link": "Voir le bulletin",
         "jump": "Aller à", "jump_promises": "Les deux promesses",
-        "prio_lead": "Je fais le point chaque trimestre.", "prio_link": "Voir le bulletin",
+        "prio_lead": "Je rendrai compte de ces priorités chaque trimestre.", "prio_link": "Voir le bulletin",
         "rel": "Suivi dans le bulletin :", "prio": "Priorité", "from": "Tiré de mes priorités :",
     },
 }

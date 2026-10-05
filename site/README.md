@@ -113,7 +113,7 @@ Mobile-first. Body text 18px with line-height 1.55 and lines of about 62 charact
 A "Topics" / "Thèmes" index links to each group heading. On phones it shows as chips at the top. From 1100px it becomes a sticky list to the right of the reading column. Each question row is a full-width `<summary>` at least 56px tall, with a circled +/− indicator and a visible focus outline.
 
 ### Priorities ↔ Scorecard (scorecard.py `PRIORITY`)
-- The top of /priorities/ has one reading line: "I’ll report on these every quarter. See the scorecard →" (FR « Je fais le point chaque trimestre. Voir le bulletin → »). It replaces the old button.
+- The top of /priorities/ has one reading line: "I’ll report on these every quarter. See the scorecard →" (FR « Je rendrai compte de ces priorités chaque trimestre. Voir le bulletin → »). It replaces the old button.
 - Each Priorities section ends with "Tracked on the scorecard:" and links to its lines. Each scorecard detail card links back to its priority ("Priority N: … →"), then "Back to the report card ↑".
 - Mapping: 1 Health care → 8, 9, 10. 2 Homes → 3, 4. 3 Cost of living → 1, 2. 4 Downtown → 5, 6, 7, 12. "How I'll report to you" → 11.
 - The scorecard has a jump list: The two promises, How this page works, then lines 1–12. On phones it is a row of chips that scrolls sideways. From 1100px it is a sticky side list. Report-card cards link to their detail cards.

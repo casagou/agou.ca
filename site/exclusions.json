@@ -1728,6 +1728,144 @@
       "find": "Je publierai aussi le nombre de personnes en attente dans chaque réseau de soins de la région de Victoria, et depuis combien de temps.",
       "replace": "Je publierai aussi le nombre de personnes en attente dans chaque réseau de soins de la région de Victoria, et depuis combien de temps. Chaque mois, je publierai la part des jours-patients en niveau de soins alternatif dans chaque hôpital.",
       "why": "Joachim (4 Oct 2026, directly): Priorities §1 Health care bullets. New: licence recognition within 5 business days (Nova Scotia), wait-time backstop (MRI/CT, cataracts, hips, knees; Saskatchewan), seniors from hospital beds to care beds (Island Health ALC 16% vs 14%, monthly by hospital). Paperwork bullet replaced by his 10%-in-2-years version. 'Publicly paid surgeries and scans at non-government clinics' (p. 54) dropped as redundant with the backstop (same 2024-platform measure; p. 54 still linked under Clinic capacity). Evening/weekend hours and scorecard lines 8 and 9 kept. 'How you'll know' adds the monthly ALC publication. Notion still has the old text: paste this into Notion and delete these rules, or re-base 'find' if Notion changes."
+    },
+    {
+      "page": "fr-priorities",
+      "find": "l'[engagement du parti à n'imposer aucune nouvelle taxe ni aucune hausse d'impôt](https://conservativebc.ca/conservative-party-of-bc-pledges-no-new-taxes-on-british-columbians/) (en anglais), l'engagement actuel du parti sur lequel s'appuie cette page.",
+      "replace": "l'[engagement du parti à ne créer aucun impôt ni aucune taxe et à n'augmenter aucun impôt ni aucune taxe](https://conservativebc.ca/conservative-party-of-bc-pledges-no-new-taxes-on-british-columbians/) (en anglais). C'est l'engagement actuel du parti sur lequel s'appuie cette page.",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 1a"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "Voter contre tout projet de loi qui hausse un taux d'imposition provincial ou crée une nouvelle taxe (",
+      "replace": "Voter contre tout projet de loi qui augmente un taux d'imposition provincial, ou qui crée un nouvel impôt provincial ou une nouvelle taxe provinciale (",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 1b"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "**Personnel :** des heures supplémentaires exigent d'abord du personnel.",
+      "replace": "**Personnel :** pour prolonger les heures d'ouverture des cliniques, il faut d'abord du personnel.",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 6"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "- Un allègement de l'impôt sur le revenu lié aux frais de logement (programme 2024 du parti, [p. 19](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650#page=19), en anglais) : il commence à 1 500 \\$ par mois de frais de logement admissibles (loyer, intérêts hypothécaires et frais de copropriété) et augmente de 500 \\$ par année jusqu'à 3 000 \\$. Vos frais de logement admissibles déterminent l'allègement de votre impôt provincial sur le revenu. Ce n'est pas un paiement mensuel.",
+      "replace": "- Un allègement de l'impôt sur le revenu lié aux frais de logement (programme 2024 du parti, [p. 19](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650#page=19), en anglais) : selon cette proposition, le plafond mensuel des frais de logement admissibles — loyer, intérêts hypothécaires et frais de copropriété — serait d'abord de 1 500 \\$, puis augmenterait de 500 \\$ chaque année pour atteindre 3 000 \\$. Vos frais de logement admissibles déterminent le montant de l'allègement de votre impôt provincial sur le revenu. Il s'agit d'une réduction d'impôt, et non d'un versement mensuel.",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 7a"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "une fois le plein niveau atteint",
+      "replace": "lorsque le plafond de frais admissibles atteint 3 000 \\$ par mois",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 7b"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "Au plein niveau de 3 000 \\$ par mois :",
+      "replace": "Lorsque le plafond atteint 3 000 \\$ de frais admissibles par mois :",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 7c"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "les nouveaux logements nets par rapport à la cible de logement de Victoria",
+      "replace": "l'ajout net de logements par rapport à la cible de logement de Victoria",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 8a"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "avec les achèvements comme indicateur trimestriel",
+      "replace": "avec le nombre de logements achevés comme indicateur de remplacement trimestriel",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 8b"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "lorsqu'une source est annuelle, le bulletin le précise et présente un indicateur trimestriel",
+      "replace": "lorsqu'une source est annuelle, le bulletin le précise et présente un indicateur de remplacement trimestriel",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 8c"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "**Coût :** le parti n'a pas publié le coût du retour au taux de 5,06 % et de l'indexation, et je n'afficherai pas de chiffre personnel avant lui.",
+      "replace": "**Coût :** le parti n'a pas publié d'estimation du coût du rétablissement du taux de 5,06 % et de l'indexation. Je ne publierai pas ma propre estimation avant qu'il ait publié la sienne.",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 9"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "**Logement :** permettre aux personnes vivant sous tente d'accéder à un logement avec services de soutien,",
+      "replace": "**Logement :** loger les personnes vivant sous tente dans des logements avec services de soutien,",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 10"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "un tribunal de procès rapide pour les infractions mineures",
+      "replace": "un tribunal chargé de juger rapidement les infractions mineures",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 11"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "pour que moins de traversées soient perdues à cause de pannes",
+      "replace": "pour que moins de traversées soient annulées en raison de pannes",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 12a"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "moins de traversées entre Swartz Bay et Tsawwassen perdues à cause de pannes",
+      "replace": "moins de traversées annulées en raison de pannes entre Swartz Bay et Tsawwassen",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 12b"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "Le retour au taux de 5,06 % et à l'indexation n'a pas encore de coût publié; son année et sa compensation suivent le plan financier du parti (ligne 1 du bulletin).",
+      "replace": "Le coût du retour au taux de 5,06 % et du rétablissement de l'indexation n'a pas encore été publié; l'année de leur mise en œuvre et les mesures prévues pour en compenser le coût suivront le plan financier du parti (ligne 1 du bulletin).",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item 13"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "Je publierai une note de coûts locale",
+      "replace": "Je publierai une note précisant les coûts pour notre région",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item opt-cost"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "ce qui allège les loyers avec le temps",
+      "replace": "ce qui contribue à faire baisser les loyers au fil du temps",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item opt-rents"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "Les logements locatifs familiaux restent les plus rares.",
+      "replace": "Les logements locatifs familiaux restent rares.",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item opt-rare"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "**Compromis et qui décide :**",
+      "replace": "**Les contreparties et les responsabilités :**",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item opt-tradeoffs"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "pour que les contribuables à faible revenu ne financent pas ce retour en arrière",
+      "replace": "pour que les contribuables à faible revenu n'aient pas à financer le rétablissement du taux antérieur",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item opt-lowincome"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "la Coastal Ferry Act l'exige dans les quatre mois suivant chaque année du contrat",
+      "replace": "la Coastal Ferry Act exige ce rapport dans les quatre mois suivant la fin de chaque année contractuelle",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item opt-cfa"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "Les pannes, elles, sont le domaine où l'entretien, le renouvellement de la flotte et la gestion font la différence.",
+      "replace": "L'entretien, le renouvellement de la flotte et la gestion peuvent réduire les annulations dues aux pannes.",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item opt-breakdowns"
+    },
+    {
+      "page": "fr-priorities",
+      "find": "C'est là que doit s'exercer la responsabilité.",
+      "replace": "C'est sur ces résultats que les responsables doivent rendre des comptes.",
+      "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item opt-accountable"
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."
