@@ -219,12 +219,14 @@ def vic_strip(pid, lang, cls="vstrip"):
 
 
 def vic_credits(lang):
-    """Footer credit for each Victoria photo on this page (CC BY / CC BY-SA: title, author, licence, and that it was cropped)."""
+    """Footer credit for each Victoria photo on this page (CC BY / CC BY-SA: title, author, licence, and that it was cropped,
+    or cropped with passers-by blurred when the photo has 'blur'). A public-domain photo has no licence link (licence_url "")."""
     V = UI[lang]["vic"]; out = []
     for pid in PAGE_STATE["vic_used"]:
         P = VIC["photos"][pid]; colon = " :" if lang == "fr" else ":"
+        lic = (f'<a href="{esc(P["licence_url"])}" rel="license">{esc(P["licence"])}</a>' if P.get("licence_url") else esc(P["licence"]))
         out.append(f'<p class="credit">{esc(V["credit_prefix"])} ({esc(P["place"][lang])}){colon} <a href="{esc(P["source_url"])}">{esc(P["title"])}</a>, '
-                   f'{esc(P["author"])}, <a href="{esc(P["licence_url"])}" rel="license">{esc(P["licence"])}</a>{esc(V["cropped"])}.</p>')
+                   f'{esc(P["author"])}, {lic}{esc(V["cropped_blurred"] if P.get("blur") else V["cropped"])}.</p>')
     return "".join(out)
 
 

@@ -344,7 +344,8 @@
       "band_label": "Neighbourhoods in Victoria–Beacon Hill",
       "band_map": "Am I in Victoria–Beacon Hill? See the map",
       "credit_prefix": "Photo",
-      "cropped": " (cropped)"
+      "cropped": " (cropped)",
+      "cropped_blurred": " (cropped, people blurred)"
     },
     "faq_index": "Topics",
     "form_common": {
@@ -779,7 +780,8 @@
       "band_label": "Quartiers de Victoria–Beacon Hill",
       "band_map": "Est-ce que j'habite dans Victoria–Beacon Hill? Voir la carte",
       "credit_prefix": "Photo",
-      "cropped": " (recadrée)"
+      "cropped": " (recadrée)",
+      "cropped_blurred": " (recadrée, personnes floutées)"
     },
     "faq_index": "Thèmes",
     "form_common": {

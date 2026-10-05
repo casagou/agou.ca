@@ -7,9 +7,11 @@ For each photo in site.json victoria_photos.photos and each variant in its "focu
 writes assets/img/vic/<id>-<variant>-<width>.{avif,webp,jpg} (sRGB, no EXIF/GPS/XMP/ICC). focus = [x, y, zoom]: the crop
 centre as a fraction of the original's width/height, and the crop size as a fraction of the largest crop that fits.
 Originals come from Wikimedia Commons (source_url; downloaded once into --orig, default /tmp/vic-photos-orig; they are
-not kept in the repo). Needs Pillow with AVIF support (Pillow >= 11.3; /workspace/.mapenv has it)."""
+not kept in the repo). Needs Pillow with AVIF support (Pillow >= 11.3; /workspace/.mapenv has it).
+"blur" (optional) = [[x0, y0, x1, y1], ...]: areas of the original (fractions of its width/height) blurred before cropping, so
+no passer-by is recognizable at any size (the footer credit then says "cropped, people blurred")."""
 import argparse, io, json, pathlib, urllib.parse, urllib.request
-from PIL import Image, ImageCms, ImageOps, features
+from PIL import Image, ImageCms, ImageDraw, ImageFilter, ImageOps, features
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 VARIANTS = {"strip": (3, 1, (480, 800, 1200)), "tile": (4, 3, (240, 360, 480)), "thumb": (1, 1, (80, 160, 240))}
@@ -31,6 +33,15 @@ def original(pid, src, orig):
     return im.convert("RGB")
 
 
+def blur(im, boxes):
+    """Blur each box (fractions of the image) strongly, with a feathered edge."""
+    if not boxes: return im
+    W, H = im.size; r = max(8, round(max(W, H) / 120))
+    soft = im.filter(ImageFilter.GaussianBlur(r)); mask = Image.new("L", im.size, 0); d = ImageDraw.Draw(mask)
+    for x0, y0, x1, y1 in boxes: d.rectangle((x0 * W, y0 * H, x1 * W, y1 * H), fill=255)
+    return Image.composite(soft, im, mask.filter(ImageFilter.GaussianBlur(r / 2)))
+
+
 def crop(im, aw, ah, fx, fy, z):
     W, H = im.size
     cw = min(W, H * aw / ah) * z; ch = cw * ah / aw
@@ -46,7 +57,7 @@ if __name__ == "__main__":
     for old in out.glob("*"): old.unlink()
     P = json.loads((ROOT / "site.json").read_text())["victoria_photos"]["photos"]
     for pid, p in P.items():
-        im = original(pid, p["source_url"], orig)
+        im = blur(original(pid, p["source_url"], orig), p.get("blur"))
         for var, (fx, fy, z) in p["focus"].items():
             aw, ah, widths = VARIANTS[var]
             c = crop(im, aw, ah, fx, fy, z)

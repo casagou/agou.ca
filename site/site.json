@@ -474,7 +474,7 @@
   "home_band6_live": true,
   "_home_band6_live_doc": "Home band desktop row of 6 (victoria_photos.home_desktop: Cook Street Village, Rockland, Harris Green). Approved by Joachim and published live 1 Oct 2026 13:16 PT. false = live builds show only the 3 'home' tiles.",
   "victoria_photos": {
-    "_doc": "Real Victoria photos (Wikimedia Commons, CC BY / CC BY-SA; licence and author checked on each file page on 1 Oct 2026). tools/make_vic_photos.py downloads the originals (not kept in the repo) and writes assets/img/vic/<id>-<variant>-<w>.{avif,webp,jpg} without metadata. build.py places them (Priorities strips, Events card thumbnails, Volunteer street scene, Home neighbourhood band: 'home' = the 3 tiles on every screen, 'home_desktop' = 3 more tiles shown from 768px only and never downloaded on phones; live builds leave home_desktop out while home_band6_live is false) and lists each photo's credit in the footer of the pages that show it. Live builds leave all of it out while victoria_photos_live is false. See README 'Victoria photos'.",
+    "_doc": "Real Victoria photos (Wikimedia Commons, CC BY / CC BY-SA or public domain; licence and author checked on each file page on 1 Oct 2026, event venues on 4 Oct 2026). tools/make_vic_photos.py downloads the originals (not kept in the repo) and writes assets/img/vic/<id>-<variant>-<w>.{avif,webp,jpg} without metadata; an optional 'blur' list of boxes (fractions of the original) blurs passers-by first. build.py places them (Priorities strips, Events card thumbnails, Volunteer street scene, Home neighbourhood band: 'home' = the 3 tiles on every screen, 'home_desktop' = 3 more tiles shown from 768px only and never downloaded on phones; live builds leave home_desktop out while home_band6_live is false) and lists each photo's credit in the footer of the pages that show it. Live builds leave all of it out while victoria_photos_live is false. See README 'Victoria photos'.",
     "photos": {
       "royal-jubilee": {
         "title": "Royal Jubilee Hospital, Victoria, Canada 02",
@@ -527,8 +527,8 @@
         "licence": "CC BY-SA 4.0",
         "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
         "alt": {
-          "en": "The Root Cellar green grocer at dusk in Cook Street Village",
-          "fr": "L’épicerie The Root Cellar au crépuscule, dans Cook Street Village"
+          "en": "The Root Cellar green grocer at Cook and Oxford streets, in Cook Street Village, at dusk",
+          "fr": "L’épicerie The Root Cellar, à l’angle des rues Cook et Oxford, dans Cook Street Village, au crépuscule"
         },
         "place": {
           "en": "Cook Street Village",
@@ -550,7 +550,15 @@
             0.6,
             0.9
           ]
-        }
+        },
+        "blur": [
+          [
+            0.075,
+            0.77,
+            0.16,
+            0.86
+          ]
+        ]
       },
       "johnson-street": {
         "title": "Victoria BC, Canada (Johnson Street)",
@@ -753,28 +761,6 @@
           ]
         }
       },
-      "ross-bay": {
-        "title": "Driftwood beach (1360196712)",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Driftwood_beach_(1360196712).jpg",
-        "author": "Caitriana Nicholson",
-        "licence": "CC BY-SA 2.0",
-        "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
-        "alt": {
-          "en": "Driftwood on the beach at Ross Bay, with the Olympic Mountains across the strait",
-          "fr": "Bois flotté sur la plage de Ross Bay, avec les monts Olympic de l’autre côté du détroit"
-        },
-        "place": {
-          "en": "Ross Bay",
-          "fr": "Ross Bay"
-        },
-        "focus": {
-          "thumb": [
-            0.5,
-            0.55,
-            1.0
-          ]
-        }
-      },
       "craigdarroch": {
         "title": "Craigdarroch Castle May 2011",
         "source_url": "https://commons.wikimedia.org/wiki/File:Craigdarroch_Castle_May_2011.jpg",
@@ -828,6 +814,248 @@
             0.8
           ]
         }
+      },
+      "moka-house-block": {
+        "title": "Big Wheel Burger in Cook Street Village, Victoria, BC",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Big_Wheel_Burger_in_Cook_Street_Village,_Victoria,_BC.jpg",
+        "author": "NevinThompson",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "Big Wheel Burger and Lifestyle Markets at 341–343 Cook Street, two doors from Moka House, in Cook Street Village at dusk",
+          "fr": "Big Wheel Burger et Lifestyle Markets, au 341–343, rue Cook, à deux portes de Moka House, dans Cook Street Village, au crépuscule"
+        },
+        "place": {
+          "en": "Cook Street Village, beside Moka House",
+          "fr": "Cook Street Village, à côté de Moka House"
+        },
+        "focus": {
+          "thumb": [
+            0.5,
+            0.55,
+            0.38
+          ]
+        },
+        "blur": [
+          [
+            0.205,
+            0.7,
+            0.31,
+            0.97
+          ],
+          [
+            0.365,
+            0.72,
+            0.64,
+            0.95
+          ],
+          [
+            0.655,
+            0.72,
+            0.79,
+            0.95
+          ]
+        ]
+      },
+      "menzies-street": {
+        "title": "Don's food & floral NW",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Don's_food_&_floral_NW.jpg",
+        "author": "NevinThompson",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "Don’s Food & Floral, a corner store at Menzies and Niagara streets in James Bay, at night",
+          "fr": "Don’s Food & Floral, un dépanneur à l’angle des rues Menzies et Niagara, dans James Bay, la nuit"
+        },
+        "place": {
+          "en": "Menzies Street, James Bay",
+          "fr": "Rue Menzies, James Bay"
+        },
+        "focus": {
+          "thumb": [
+            0.57,
+            0.52,
+            0.6
+          ]
+        }
+      },
+      "the-mosaic-fort": {
+        "title": "Mosaic building. READ INFO IN PANORAMIO-COMMENTS - panoramio",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Mosaic_building._READ_INFO_IN_PANORAMIO-COMMENTS_-_panoramio.jpg",
+        "author": "John Newcomb",
+        "licence": "CC BY 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+        "alt": {
+          "en": "The Mosaic, a building with two large bird mosaics, at 1057 Fort Street, on the same block as Routine Coffee",
+          "fr": "The Mosaic, un immeuble orné de deux grandes mosaïques d’oiseaux, au 1057, rue Fort, dans le même pâté de maisons que Routine Coffee"
+        },
+        "place": {
+          "en": "Fort Street, near Routine Coffee",
+          "fr": "Rue Fort, près de Routine Coffee"
+        },
+        "focus": {
+          "thumb": [
+            0.4,
+            0.45,
+            0.7
+          ]
+        },
+        "blur": [
+          [
+            0.795,
+            0.875,
+            0.895,
+            0.995
+          ]
+        ]
+      },
+      "legislature-government-st": {
+        "title": "BC Parliament from Government Street - 2971261548",
+        "source_url": "https://commons.wikimedia.org/wiki/File:BC_Parliament_from_Government_Street_-_2971261548.jpg",
+        "author": "stevevoght",
+        "licence": "CC BY-SA 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "alt": {
+          "en": "The Parliament Buildings’ green dome seen from Government Street, near Belleville Street",
+          "fr": "Le dôme vert des édifices du Parlement vu de la rue Government, près de la rue Belleville"
+        },
+        "place": {
+          "en": "Government and Belleville streets",
+          "fr": "Rues Government et Belleville"
+        },
+        "focus": {
+          "thumb": [
+            0.55,
+            0.3,
+            0.9
+          ]
+        }
+      },
+      "mile-zero": {
+        "title": "TCH-Mile-0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:TCH-Mile-0.jpg",
+        "author": "Sam from Vancouver, Canada",
+        "licence": "CC BY 2.0",
+        "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+        "alt": {
+          "en": "The Mile 0 sign of the Trans-Canada Highway at Dallas Road and Douglas Street",
+          "fr": "Le panneau « Mile 0 » de la route Transcanadienne, à l’angle de Dallas Road et de la rue Douglas"
+        },
+        "place": {
+          "en": "Mile Zero, Dallas Road",
+          "fr": "Mile Zero, Dallas Road"
+        },
+        "focus": {
+          "thumb": [
+            0.5,
+            0.55,
+            0.75
+          ]
+        }
+      },
+      "foot-of-cook": {
+        "title": "Salish sea at Clover Point Park, Victoria, British Columbia, Canada1",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Salish_sea_at_Clover_Point_Park,_Victoria,_British_Columbia,_Canada1.jpg",
+        "author": "Joli Rumi",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "The beach below Dallas Road at the foot of Cook Street, with the Olympic Mountains across the strait",
+          "fr": "La plage sous Dallas Road, au pied de la rue Cook, avec les monts Olympic de l’autre côté du détroit"
+        },
+        "place": {
+          "en": "Foot of Cook Street, Dallas Road",
+          "fr": "Au pied de la rue Cook, Dallas Road"
+        },
+        "focus": {
+          "thumb": [
+            0.55,
+            0.5,
+            0.55
+          ]
+        },
+        "blur": [
+          [
+            0.0,
+            0.34,
+            0.06,
+            0.41
+          ]
+        ]
+      },
+      "ross-bay-seawall": {
+        "title": "Ross Bay shoreline. INFO IN PANORAMIO DESCRIPTION - panoramio",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ross_Bay_shoreline._INFO_IN_PANORAMIO_DESCRIPTION_-_panoramio.jpg",
+        "author": "John Newcomb",
+        "licence": "CC BY 3.0",
+        "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+        "alt": {
+          "en": "Ross Bay beach seen from its east end, with the seawall walkway along Dallas Road behind",
+          "fr": "La plage de Ross Bay vue de son extrémité est, avec la promenade de la digue le long de Dallas Road en arrière-plan"
+        },
+        "place": {
+          "en": "Ross Bay seawall",
+          "fr": "Digue de Ross Bay"
+        },
+        "focus": {
+          "thumb": [
+            0.33,
+            0.3,
+            0.55
+          ]
+        },
+        "blur": [
+          [
+            0.57,
+            0.47,
+            0.76,
+            0.56
+          ]
+        ]
+      },
+      "ross-bay-villa": {
+        "title": "Ross bay villa 3",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ross_bay_villa_3.jpg",
+        "author": "KenWalker",
+        "licence": "CC BY-SA 2.5",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+        "alt": {
+          "en": "Ross Bay Villa, a heritage cottage on Fairfield Road, about 300 m west of Fairfield Plaza",
+          "fr": "Ross Bay Villa, maison patrimoniale sur Fairfield Road, à environ 300 m à l’ouest de Fairfield Plaza"
+        },
+        "place": {
+          "en": "Fairfield Road, near Fairfield Plaza",
+          "fr": "Fairfield Road, près de Fairfield Plaza"
+        },
+        "focus": {
+          "thumb": [
+            0.6,
+            0.38,
+            0.6
+          ]
+        }
+      },
+      "north-park-rap": {
+        "title": "Royal Athletic Park Victoria",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Royal_Athletic_Park_Victoria.jpg",
+        "author": "Jhawthorn (English Wikipedia)",
+        "licence": "Public domain",
+        "licence_url": "",
+        "alt": {
+          "en": "The field and stands of Royal Athletic Park, at Caledonia Avenue and Cook Street",
+          "fr": "Le terrain et les gradins du Royal Athletic Park, à l’angle de l’avenue Caledonia et de la rue Cook"
+        },
+        "place": {
+          "en": "Royal Athletic Park, North Park",
+          "fr": "Royal Athletic Park, North Park"
+        },
+        "focus": {
+          "thumb": [
+            0.45,
+            0.32,
+            0.6
+          ]
+        }
       }
     },
     "priorities": {
@@ -849,12 +1077,24 @@
       "fort-street-antique-row"
     ],
     "events": {
-      "_doc": "Matched in forms.js against the public event data only (get_public_events): address first, then neighbourhood. Venues of public events and generic neighbourhood shots only.",
+      "_doc": "Matched in forms.js against the public event data only (get_public_events; campaign_events has no photo column): 'address' = the first key, in this order, found inside the event address (so specific addresses go above general ones like 'Dallas Rd'), then 'neighbourhood' = English neighbourhood. Venues of public events, else the closest licensed photo on the same street, else a generic neighbourhood shot. To give one venue its own photo, add an address entry above the general ones, e.g. \"281 Menzies St\": \"<new-id>\".",
       "address": {
+        "345 Cook St": "moka-house-block",
+        "301 Cook St": "cook-street-village",
+        "Cook St & Oxford St": "cook-street-village",
+        "Menzies St": "menzies-street",
+        "1036 Fort St": "the-mosaic-fort",
+        "1548 Fort St": "craigdarroch",
+        "1301 Gladstone Ave": "belfry-fernwood",
+        "Government St & Belleville St": "legislature-government-st",
         "713 Douglas St": "crystal-garden",
-        "Government St & Belleville St": "inner-harbour",
-        "Ross Bay": "ross-bay",
         "812 Wharf St": "inner-harbour",
+        "Dallas Rd & Douglas St": "mile-zero",
+        "Dallas Rd & Cook St": "foot-of-cook",
+        "Ross Bay": "ross-bay-seawall",
+        "1590 Fairfield Rd": "ross-bay-villa",
+        "1594 Fairfield Rd": "ross-bay-villa",
+        "1105 Caledonia Ave": "north-park-rap",
         "Dallas Rd": "dallas-road"
       },
       "neighbourhood": {
@@ -865,7 +1105,9 @@
         "Fairfield": "fairfield-street",
         "Fairfield / Gonzales": "fairfield-street",
         "Harris Green": "fort-street-antique-row",
-        "Rockland": "craigdarroch"
+        "Rockland": "craigdarroch",
+        "North Park": "north-park-rap",
+        "Cook Street Village / Fairfield": "cook-street-village"
       }
     }
   },
