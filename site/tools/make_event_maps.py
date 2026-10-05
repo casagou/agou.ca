@@ -14,7 +14,7 @@ Output: assets/img/events/event-<id>-{phone,desk}-{2x,3x}.png and assets/img/eve
         so a moved event never shows an old map. Re-run this script after adding an event or moving its pin.
 Credit shown under every map: © OpenStreetMap contributors (ODbL).
 """
-import gzip, json, math, re, sys, pathlib, hashlib, urllib.request
+import gzip, itertools, json, math, re, sys, pathlib, hashlib, urllib.request
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -144,9 +144,26 @@ def render(osm, ev, variant, scale):
     label = venue(ev)
     right = True
     lx = cx + px(R + 7) if right else cx - px(R + 7)
+    # A long name that would run off the right edge (pin at the centre) goes on two lines, split at the space nearest
+    # the middle (4 Oct 2026: 'Discovery Coffee Blanshard', 'Good Earth Coffeehouse' on the 358 px phone map).
+    cw = lambda t: len(t) * (fs + 1) * 0.62                   # rough css width of bold DejaVu Sans
+    room = w / 2 - (R + 7) - 8
+    if cw(label) > room and " " in label:
+        # fewest lines that fit, then the most even split; a dash starts its line ("Good Earth Coffeehouse / – Capital Park")
+        toks = re.sub(r"\s+([–—-])\s+", " \\1\u00a0", label).split(" ")
+        best = None
+        for k in range(2, min(4, len(toks)) + 1):
+            for cut in itertools.combinations(range(1, len(toks)), k - 1):
+                ls = [" ".join(toks[a:b]) for a, b in zip((0,) + cut, cut + (len(toks),))]
+                score = max(cw(t) for t in ls)
+                if best is None or score < best[0]: best = (score, ls)
+            if best[0] <= room: break
+        label = "\n".join(best[1]).replace("\u00a0", " ")
+    lines = label.split("\n")
     ax.text(lx, cy + px(R + 9), label, fontsize=lw(fs + 1), fontweight="bold", color=NAVY, ha="left" if right else "right", va="center",
-            zorder=22, path_effects=halo(3.4), family="DejaVu Sans")
-    taken = [box(cx - px(R + 4), cy - px(3), lx + px(len(label) * (fs + 1) * 0.62), cy + px(2 * R + 14))]
+            zorder=22, path_effects=halo(3.4), family="DejaVu Sans", linespacing=1.05)
+    lh = (fs + 1) * 1.2 * (len(lines) - 1) / 2
+    taken = [box(cx - px(R + 4), cy - px(3) - px(lh), lx + px(max(cw(t) for t in lines)), cy + px(2 * R + 14) + px(lh))]
     # ---- street names: one label per street, on its longest visible piece, skipping overlaps
     fig.canvas.draw()
     labels = []

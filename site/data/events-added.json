@@ -594,10 +594,27 @@
     "100": {
       "added": "2026-10-04",
       "added_at": "2026-10-05T03:00:52Z",
-      "title": "Coffee with Joachim | Shine Cafe, Rockland",
+      "title": "Coffee with Joachim | Jackson Brothers Coffeehouse, North Fairfield",
       "starts_at": "2026-10-13T19:00:00+00:00",
       "ends_at": "2026-10-13T20:00:00+00:00",
-      "title_fr": "Un café avec Joachim | Shine Cafe, Rockland"
+      "title_fr": "Un café avec Joachim | Jackson Brothers Coffeehouse, North Fairfield",
+      "changed_at": "2026-10-05T04:11:16Z"
+    },
+    "108": {
+      "added": "2026-10-04",
+      "added_at": "2026-10-05T04:11:16Z",
+      "title": "Coffee with Joachim | Good Earth Coffeehouse, James Bay",
+      "starts_at": "2026-10-19T19:00:00+00:00",
+      "ends_at": "2026-10-19T20:00:00+00:00",
+      "title_fr": "Un café avec Joachim | Good Earth Coffeehouse, James Bay"
+    },
+    "109": {
+      "added": "2026-10-04",
+      "added_at": "2026-10-05T04:11:16Z",
+      "title": "Coffee with Joachim | Discovery Coffee Blanshard, Downtown",
+      "starts_at": "2026-10-20T19:00:00+00:00",
+      "ends_at": "2026-10-20T20:00:00+00:00",
+      "title_fr": "Un café avec Joachim | Discovery Coffee Blanshard, centre-ville"
     }
   }
 }
