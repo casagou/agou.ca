@@ -324,6 +324,8 @@
     }
     // "New": added or meaningfully changed in the last 48 hours (events_cal.py: new_until = exact ISO time it stops being new)
     var todayPT = function () { return new Date().toLocaleDateString("en-CA", { timeZone: TZ }); };
+    // "Past" / "Passé" label (list cards, detail pages); never struck through itself
+    var pastBadge = function (sv) { return el("span", { class: "pastb", text: sv ? SH.ended : T.ended }); };
     var isNew = function (e) { var u = (CFG.new_until || {})[String(e.id)]; return !!u && Date.now() < Date.parse(u); };
     var newBadge = function () { return el("span", { class: "newb", text: CFG.new_label || T.new }); };
     var shortTitle = function (e) { var p = String(e.title || "").split("|"); return p[p.length - 1].trim(); };
@@ -342,7 +344,7 @@
         var past = new Date(e.ends_at).getTime() < Date.now(), nw = isNew(e) && !past;
         var sv = !!e.shift, mk = sv ? "■" : "●", cls = "it cev" + (sv ? " sev" : "") + (past ? " past" : "");
         var tt = sv ? SH.cal_short + " · " + (e.area || SH.area_tbd) : shortTitle(e);
-        var a = el("a", { href: "?e=" + e.id, title: sv ? SH.tag + " · " + (e.area || SH.area_tbd) : evTitle(e) }, el("span", { class: "tm", text: clock(e.starts_at).replace(/ /g, NB) }), " ", el("span", { class: "tt", text: tt }), nw ? [" ", newBadge()] : null);
+        var a = el("a", { href: "?e=" + e.id, title: (sv ? SH.tag + " · " + (e.area || SH.area_tbd) : evTitle(e)) + (past ? " · " + (sv ? SH.ended : T.ended) : "") }, el("span", { class: "tm", text: clock(e.starts_at).replace(/ /g, NB) }), " ", el("span", { class: "tt", text: tt }), past ? el("span", { class: "vh", text: " (" + (sv ? SH.ended : T.ended) + ")" }) : null, nw ? [" ", newBadge()] : null);
         a.addEventListener("click", openEvent(e));
         cell.querySelector(".items").append(el("li", { class: cls }, el("span", { class: "mk", "aria-hidden": "true", text: mk }), a));
         if (!cell.querySelector(".dn-link")) {
@@ -355,7 +357,7 @@
           var next = Array.prototype.find.call(ag.children, function (x) { return x.getAttribute("data-date") > d; });
           ag.insertBefore(day, next || null);
         }
-        var a2 = el("a", { href: "?e=" + e.id }, timeRange(e) + " · " + (sv ? SH.tag + " · " + (e.area || SH.area_tbd) : evTitle(e))); a2.addEventListener("click", openEvent(e));
+        var a2 = el("a", { href: "?e=" + e.id }, el("span", { class: "tt" }, timeRange(e) + " · " + (sv ? SH.tag + " · " + (e.area || SH.area_tbd) : evTitle(e))), past ? el("span", { class: "vh", text: " (" + (sv ? SH.ended : T.ended) + ")" }) : null); a2.addEventListener("click", openEvent(e));
         day.querySelector("ul").append(el("li", { class: cls }, el("span", { class: "mk", "aria-hidden": "true", text: mk }), " ", a2, nw ? [" ", newBadge()] : null));
       });
       var after = box.querySelector(".cal-after"); if (after) after.hidden = !later;
@@ -397,23 +399,32 @@
       var box = $("list"); box.textContent = "";
       var shown = EVENTS.filter(visible);
       if (!shown.length) { box.append(el("p", { class: "note", text: SHOW === "shifts" ? SH.empty_shifts : SHOW === "public" && CFG.shifts ? SH.empty_public : T.empty })); return; }
+      // Past events stay listed (migration 49, 4 Oct 2026): upcoming first, soonest at the top; past ones (ends_at < now)
+      // in a collapsed "Past events" section at the bottom, newest first, greyed and struck through with a Past label.
       var now = Date.now(), up = function (e) { return new Date(e.ends_at).getTime() >= now; };
-      var list = shown.sort(function (a, b) { return (up(b) - up(a)) || (new Date(a.starts_at) - new Date(b.starts_at)) || (a.id - b.id); });
-      var ul = el("ul", { class: "evlist" });
-      list.forEach(function (e) {
+      var t0 = function (e) { return new Date(e.starts_at).getTime(); };
+      var ups = shown.filter(up).sort(function (a, b) { return (t0(a) - t0(b)) || (a.id - b.id); });
+      var pasts = shown.filter(function (e) { return !up(e); }).sort(function (a, b) { return (t0(b) - t0(a)) || (b.id - a.id); });
+      var card = function (e) {
         var a = el("a", { href: "?e=" + e.id, text: evTitle(e) });
         a.addEventListener("click", openEvent(e));
         var du = dirUrl(e), past = !up(e), sv = !!e.shift;
-        ul.append(el("li", { class: "evc" + (sv ? " shift" : "") + (past ? " past" : "") }, tile(e.starts_at),
+        return el("li", { class: "evc" + (sv ? " shift" : "") + (past ? " past" : "") }, tile(e.starts_at),
           el("div", { class: "evc-body" },
             sv ? el("p", { class: "shtag" }, el("span", { class: "mk", "aria-hidden": "true", text: "■" }), " " + SH.tag) : null,
             el("h3", null, a, isNew(e) && !past ? [" ", newBadge()] : null),
-            el("p", { class: "evc-when" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e), past ? el("span", { class: "evc-ended", text: " · " + (sv ? SH.ended : T.ended) }) : null),
+            el("p", { class: "evc-when" }, el("span", { class: "tr" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e)), past ? [" ", pastBadge(sv)] : null),
             e.neighbourhood ? el("p", { class: "evc-nb", text: e.neighbourhood }) : null,
             du && !past ? el("p", { class: "readlink evc-dir" }, el("a", { href: du, target: "_blank", rel: "noopener noreferrer", text: T.directions_short + " ↗" })) : null),
-          sv ? null : venuePhoto(e)));
-      });
-      box.append(ul);
+          sv ? null : venuePhoto(e));
+      };
+      if (ups.length) { var ul = el("ul", { class: "evlist" }); ups.forEach(function (e) { ul.append(card(e)); }); box.append(ul); }
+      else box.append(el("p", { class: "note", text: SHOW === "shifts" ? SH.empty_shifts : SHOW === "public" && CFG.shifts ? SH.empty_public : T.empty_up || T.empty }));
+      if (pasts.length) {
+        var pl = el("ul", { class: "evlist evlist-past" }); pasts.forEach(function (e) { pl.append(card(e)); });
+        var allShifts = pasts.every(function (e) { return !!e.shift; });
+        box.append(el("details", { class: "evpast" }, el("summary", { text: ((allShifts && CFG.shifts ? SH.past_h : T.past_h) || "").replace("{n}", pasts.length) }), pl));
+      }
     }
     var baseTitle = document.title, baseDesc = (document.querySelector('meta[name="description"]') || {}).content || "";
     function setMeta(title, desc, url) {
@@ -521,7 +532,7 @@
         el("div", null, el("p", { class: "shtag" }, el("span", { class: "mk", "aria-hidden": "true", text: "■" }), " " + SH.tag),
           el("h2", { class: "evtitle", text: evTitle(e) }),
           el("p", { class: "evwhen" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e),
-            el("span", { class: "evnb", text: " · " + (e.area || SH.area_tbd) }), past ? el("span", { text: " · " + SH.ended }) : null))));
+            el("span", { class: "evnb", text: " · " + (e.area || SH.area_tbd) }), past ? [" ", pastBadge(true)] : null))));
       box.append(el("p", { class: "evspot shiftlead", text: shiftLead(e) }));
       var acts = el("div", { class: "actions evacts" });
       if (open) { go = el("button", { type: "button", class: "btn primary", "aria-controls": "rsvp", "aria-expanded": "false", text: SH.rsvp_link }); acts.append(go); }
@@ -556,12 +567,12 @@
         el("div", null, el("h2", { class: "evtitle", text: evTitle(e) }),
           el("p", { class: "evwhen" }, el("span", { class: "vh", text: dayFull(e.starts_at) + ", " }), timeRange(e),
             e.neighbourhood && evTitle(e).indexOf(e.neighbourhood) < 0 ? el("span", { class: "evnb", text: " · " + e.neighbourhood }) : null,
-            past ? el("span", { text: " · " + T.ended }) : null))));
+            past ? [" ", pastBadge(false)] : null))));
       // 2. where to find him, then the actions: directions (primary), calendar (secondary), Apple Maps (text link)
       var spot = spotLine(e);
       if (spot) box.append(el("p", { class: "evspot" }, el("strong", { text: T.find_me + " " }), spot));
       var acts = el("div", { class: "actions evacts" }), du = dirUrl(e), au = appleUrl(e);
-      if (du) acts.append(el("a", { href: du, target: "_blank", rel: "noopener noreferrer", class: "btn primary", text: T.directions }));
+      if (du && !past) acts.append(el("a", { href: du, target: "_blank", rel: "noopener noreferrer", class: "btn primary", text: T.directions }));
       var calBtn = el("button", { type: "button", class: "btn sec", "aria-expanded": "false", "aria-haspopup": "true", text: T.add_cal });
       var menu = el("div", { class: "calmenu", hidden: "" });
       var ics = el("button", { type: "button", text: T.ics });
@@ -570,7 +581,7 @@
       calBtn.addEventListener("click", function () { menu.hidden = !menu.hidden; calBtn.setAttribute("aria-expanded", String(!menu.hidden)); });
       if (!past) acts.append(el("div", { class: "cal" }, calBtn, menu));
       box.append(acts);
-      if (au) box.append(el("p", { class: "readlink evapple" }, el("a", { href: au, target: "_blank", rel: "noopener noreferrer", text: T.apple + " ↗" })));
+      if (au && !past) box.append(el("p", { class: "readlink evapple" }, el("a", { href: au, target: "_blank", rel: "noopener noreferrer", text: T.apple + " ↗" })));
       var fig = mapImg(e); if (fig) box.append(fig);
       // 3. the facts, once, in one tidy block
       var facts = el("dl", { class: "evfacts" },
@@ -583,8 +594,8 @@
       var txt = bodyText(e);
       if (txt) box.append(renderMd(txt));
       // 5. RSVP: optional and quiet
-      if (e.signup_url && /^https?:\/\//i.test(e.signup_url)) box.append(el("p", { class: "readlink" }, el("a", { href: e.signup_url, target: "_blank", rel: "noopener noreferrer", text: T.signup })));
-      if (e.rsvp_open) {
+      if (!past && e.signup_url && /^https?:\/\//i.test(e.signup_url)) box.append(el("p", { class: "readlink" }, el("a", { href: e.signup_url, target: "_blank", rel: "noopener noreferrer", text: T.signup })));
+      if (e.rsvp_open && !past) {
         var rsvpBtn = el("button", { type: "button", class: "linkbtn", "aria-expanded": "false", "aria-controls": "rsvp", text: T.rsvp_link });
         box.append(el("div", { class: "evrsvp" }, el("p", { text: T.rsvp_quiet }), rsvpBtn));
         var f = rsvpForm(e); box.append(f);

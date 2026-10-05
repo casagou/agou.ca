@@ -253,7 +253,7 @@
       "find_me": "Where to find me:",
       "rsvp_quiet": "RSVP is optional. Just come by.",
       "rsvp_link": "Let us know you’re coming",
-      "ended": "Ended",
+      "ended": "Past",
       "new": "New",
       "view": "View",
       "view_list": "List",
@@ -272,7 +272,9 @@
       "after_oct": "Events after October are in the list view.",
       "today": "Today",
       "events_n": "events",
-      "legend_new": "Event added or changed in the last 2 days"
+      "legend_new": "Event added or changed in the last 2 days",
+      "past_h": "Past events ({n})",
+      "empty_up": "No upcoming events right now. Check back soon."
     },
     "follow_title": "Follow along",
     "follow_text": "Photos and updates from the campaign:",
@@ -425,9 +427,10 @@
       "button": "Sign me up",
       "thanks": "Thank you, you're signed up! We'll send you the meeting point by text or email before the shift.",
       "closed": "Sorry, sign-ups for this shift are closed.",
-      "ended": "Shift ended",
+      "ended": "Past",
       "empty_shifts": "No volunteer shifts are listed right now.",
-      "empty_public": "No public events are listed right now."
+      "empty_public": "No public events are listed right now.",
+      "past_h": "Past shifts ({n})"
     }
   },
   "fr": {
@@ -685,7 +688,7 @@
       "find_me": "Où me trouver :",
       "rsvp_quiet": "Pas besoin de confirmer votre présence : passez simplement.",
       "rsvp_link": "Dites-nous que vous venez",
-      "ended": "Terminé",
+      "ended": "Passé",
       "new": "Nouveau",
       "view": "Affichage",
       "view_list": "Liste",
@@ -704,7 +707,9 @@
       "after_oct": "Les événements après octobre figurent dans la liste.",
       "today": "Aujourd'hui",
       "events_n": "événements",
-      "legend_new": "Événement ajouté ou modifié depuis moins de 2 jours"
+      "legend_new": "Événement ajouté ou modifié depuis moins de 2 jours",
+      "past_h": "Événements passés ({n})",
+      "empty_up": "Aucun événement à venir pour l'instant. Revenez bientôt."
     },
     "follow_title": "Suivez la campagne",
     "follow_text": "Photos et nouvelles de la campagne :",
@@ -857,9 +862,10 @@
       "button": "Je m'inscris",
       "thanks": "Merci, vous êtes inscrit! Nous vous enverrons le point de rendez-vous par texto ou par courriel avant le quart.",
       "closed": "Désolé, les inscriptions à ce quart sont fermées.",
-      "ended": "Quart terminé",
+      "ended": "Passé",
       "empty_shifts": "Aucun quart bénévole n'est affiché pour le moment.",
-      "empty_public": "Aucun événement public n'est affiché pour le moment."
+      "empty_public": "Aucun événement public n'est affiché pour le moment.",
+      "past_h": "Quarts passés ({n})"
     }
   }
 }
