@@ -515,3 +515,30 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 .soc-row .social { margin:4px 0 8px; }
 .soc-glabel { font-weight:700; min-width:5.5em; }
 .site-footer .soc-glabel { color:#fff; }
+
+/* Volunteer shifts (migration 48; staging until site.json volunteer_shifts_live). Own colour (green) AND own shape (■)
+   and a text tag, so colour is never the only cue. #1d6b3a on white: 6.6:1. */
+:root { --shift:#1d6b3a; --shift-bg:#e9f4ed; }
+.evfilter { display:inline-flex; flex-wrap:wrap; align-items:center; gap:0; border:1px solid var(--shift); border-radius:999px; overflow:hidden; margin:0 0 16px 12px; vertical-align:top; }
+.evfilter-l { padding:0 10px 0 14px; font-weight:700; color:var(--shift); font-size:.92rem; }
+.evfilter button { font:inherit; font-weight:700; min-height:44px; padding:0 14px; border:0; border-left:1px solid var(--shift); background:#fff; color:var(--shift); cursor:pointer; }
+.evfilter button[aria-pressed="true"] { background:var(--shift); color:#fff; }
+.evfilter button[aria-pressed="true"] .mk { color:#fff; }
+.mk.sev, .it.sev .mk { color:var(--shift); }
+.evc.shift { border-left:4px solid var(--shift); background:var(--shift-bg); }
+.evc.shift .dtile, .shifthead .dtile { background:var(--shift); border-color:var(--shift); color:#fff; }
+.evc.shift .dtile *, .shifthead .dtile * { color:#fff; }
+.shtag { margin:0 0 2px; font-size:.8rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--shift); }
+.shtag .mk { color:var(--shift); }
+.mcal .it.cev.sev a { color:var(--shift); }
+.mcal td.has-sev { box-shadow:inset 0 -3px 0 var(--shift); }
+.agenda .it.sev a { color:var(--shift); }
+.shiftlead { font-weight:600; }
+.shiftform { border-top:4px solid var(--shift); }
+.shiftform .hint { margin:4px 0 4px; font-size:.9rem; color:var(--muted); }
+@media (max-width: 699px) {
+  .evfilter { margin:0 0 16px; display:flex; border-radius:12px; }
+  .evfilter-l { flex-basis:100%; padding:8px 14px 4px; }
+  .evfilter button { flex:1 1 0; border-top:1px solid var(--shift); padding:0 8px; }
+  .evfilter button:first-of-type { border-left:0; }
+}
