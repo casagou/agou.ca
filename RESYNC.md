@@ -105,6 +105,7 @@ A Notion re-sync never touches this page. Its text comes from Joachim's message 
 
 ### Home upcoming-event banner (Joachim, 4 Oct 2026; live since PR #41/#42, merges e8911fe and 48f5fae)
 - Above the home hero, EN and FR: always the next public event that has not ended (`events_cal.home_banner`, `site.js`), New badge while new, "+N more events". Not from Notion; a re-sync keeps it.
+- New badges (banner, list, calendar, Events menu) last 48 hours from when an event was added or meaningfully changed (`site.json events_new_hours`, `data/events-added.json` added_at / changed_at; Joachim, 4 Oct 2026). Not from Notion; a re-sync keeps it.
 - `build.py` fails if events are upcoming and a home page lacks the banner. After every deploy run `python3 site/tools/banner_check.py https://agou.ca` (or the staging URL); it exits 1 if the banner is missing while events are upcoming.
 
 ## 2. Redeploy staging (https://agou-staging.pages.dev)

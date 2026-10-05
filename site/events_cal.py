@@ -2,8 +2,10 @@
 
 - Events come from the same public rpc as the list (get_public_events), fetched at build time for the static parts
   (Events menu badge, home 'New event' line); the page itself still loads them live in forms.js, so the calendar chips stay in sync.
-- data/events-added.json records when each event id was first added (seeded from campaign_events.created_at; new ids get the build day).
-- An event is new for site.json events_new_days days (default 7) from that date: until = added + days (exclusive, Pacific time).
+- data/events-added.json records when each event id was first added (seeded from campaign_events.created_at; new ids get the build time
+  as added_at) and when it last changed meaningfully (changed_at: title, title_fr, start or end changed between builds).
+- An event is new for site.json events_new_hours hours (default 48; 2 days since 4 Oct 2026, was 7 days) from the later of
+  added_at (or, for records without it, 00:00 Pacific on the added date) and changed_at. until = that + hours (exclusive, exact time).
 - Key dates: site.json key_dates (Elections BC only, each with an elections.bc.ca source).
 - site.json events_calendar_live = false: live builds leave all of this out.
 See README 'Events calendar' and 'New events'."""
@@ -56,9 +58,14 @@ def events():
             snap = {"title": e["title"], "starts_at": e["starts_at"], "ends_at": e["ends_at"]}
             if e.get("title_fr"): snap["title_fr"] = e["title_fr"]  # migration 46; the French home banner uses it
             if rec is None:
-                store["events"][k] = {"added": today().isoformat(), **snap}; changed = True
-                print(f"events: new event id {k} ({e['title']}) recorded as added {today()} in data/events-added.json (commit it)")
+                store["events"][k] = {"added": today().isoformat(), "added_at": now_iso(), **snap}; changed = True
+                print(f"events: new event id {k} ({e['title']}) recorded as added {now_iso()} in data/events-added.json (commit it)")
             elif any(rec.get(f) != v for f, v in snap.items()):
+                # meaningful change (title / title_fr / start / end differ from the last build): 'New' again from now.
+                # A field the record never stored (e.g. title_fr before migration 46) is filled in silently.
+                if any(f in rec and rec[f] != v for f, v in snap.items()):
+                    rec["changed_at"] = now_iso()
+                    print(f"events: event id {k} ({e['title']}) changed; recorded changed_at {rec['changed_at']} (commit it)")
                 rec.update(snap); changed = True
         if changed: ADDED.write_text(json.dumps(store, ensure_ascii=False, indent=2) + "\n")
         ids = {str(e["id"]) for e in live}
@@ -68,28 +75,47 @@ def events():
     for k, r in store["events"].items():
         if k not in ids: continue
         out.append({"id": int(k), "title": r["title"], "title_fr": r.get("title_fr") or "", "starts_at": r["starts_at"], "ends_at": r["ends_at"],
-                    "added": datetime.date.fromisoformat(r["added"])})
+                    "added": datetime.date.fromisoformat(r["added"]), "since": since_of(r)})
     out.sort(key=lambda e: (e["starts_at"], e["id"]))
     _STATE["events"] = out
     return out
 
 
-def new_days(site):
-    return int(site.get("events_new_days", 7))
+def now_iso():
+    return datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def _ts(s):
+    return datetime.datetime.fromisoformat(s.replace("Z", "+00:00"))
+
+
+def since_of(r):
+    """When the event became 'new': the later of added_at (else 00:00 Pacific on the added date) and changed_at."""
+    a = _ts(r["added_at"]) if r.get("added_at") else datetime.datetime.combine(datetime.date.fromisoformat(r["added"]), datetime.time(0), TZ)
+    return max(a, _ts(r["changed_at"])) if r.get("changed_at") else a
+
+
+def new_hours(site):
+    return int(site.get("events_new_hours", 48))
 
 
 def until(e, site):
-    return e["added"] + datetime.timedelta(days=new_days(site))
+    """Exact UTC time the event stops being 'new'."""
+    return (e["since"] + datetime.timedelta(hours=new_hours(site))).astimezone(datetime.timezone.utc)
+
+
+def until_iso(e, site):
+    return until(e, site).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
 def new_map(site):
-    """{event id: 'YYYY-MM-DD'} = first day the event is no longer new (Pacific time). forms.js shows 'New' while today < that day."""
-    return {str(e["id"]): until(e, site).isoformat() for e in events()}
+    """{event id: ISO UTC time} = when the event stops being new. forms.js / site.js show 'New' while Date.now() < that time."""
+    return {str(e["id"]): until_iso(e, site) for e in events()}
 
 
 def new_upcoming(site):
-    now = datetime.datetime.now(datetime.timezone.utc); t = today()
-    return [e for e in events() if until(e, site) > t and datetime.datetime.fromisoformat(e["ends_at"]) >= now]
+    now = datetime.datetime.now(datetime.timezone.utc)
+    return [e for e in events() if until(e, site) > now and datetime.datetime.fromisoformat(e["ends_at"]) >= now]
 
 
 def title_of(e, lang="en"):
@@ -102,7 +128,7 @@ def nav_badge(lang, site, ui):
     nu = new_upcoming(site)
     if not nu: return ""
     T = ui[lang]["new_events"]
-    last_until = max(until(e, site) for e in nu).isoformat()
+    last_until = until_iso(max(nu, key=lambda e: until(e, site)), site)
     last_end = max(e["ends_at"] for e in nu)
     return (f' <span class="newb nav-new" data-new-until="{last_until}" data-new-ends="{esc(last_end)}">'
             f'<span class="vh">{esc(T["nav_sr"])}</span><span aria-hidden="true">{esc(T["badge"])}</span></span>')
@@ -128,10 +154,10 @@ def short_place(title, loc):
 
 def upcoming(lang, site):
     """Every public event that has not ended yet, soonest first, localized for the home banner:
-    {i: id, t: title, l: short place, s: starts_at, e: ends_at, n: first day no longer 'New' (Pacific)}.
+    {i: id, t: title, l: short place, s: starts_at, e: ends_at, n: ISO UTC time it stops being 'New'}.
     Uses the build-time get_public_events (title_fr / location_name_fr on French, else English); offline: data/events-added.json."""
     now = datetime.datetime.now(datetime.timezone.utc)
-    nu = {e["id"]: until(e, site).isoformat() for e in events()}
+    nu = {e["id"]: until_iso(e, site) for e in events()}
     src = _STATE.get("live")
     if src is None: src = [{"id": e["id"], "title": e["title"], "title_fr": e["title_fr"], "starts_at": e["starts_at"], "ends_at": e["ends_at"]} for e in events()]
     out = []
@@ -152,16 +178,16 @@ def home_banner(lang, site, ui, events_url):
     Guard: build.py check() fails if events are upcoming and a home page has no banner."""
     up = upcoming(lang, site)
     T = ui[lang]["new_events"]
-    data = {"u": up, "url": events_url, "today": today().isoformat(), "days": new_days(site), "lang": lang,
+    data = {"u": up, "url": events_url, "built": now_iso(), "hours": new_hours(site), "lang": lang,
             "txt": {k: T[k] for k in ("next", "now", "badge", "more_up_one", "more_up")}, "api": SUPABASE_URL, "key": SUPABASE_KEY}
     js = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     inner = ""
     if up:
-        e = up[0]; t = today().isoformat(); now = datetime.datetime.now(datetime.timezone.utc)
+        e = up[0]; now = datetime.datetime.now(datetime.timezone.utc)
         live = datetime.datetime.fromisoformat(e["s"]) <= now
         more = len(up) - 1
         inner = (f'<span class="nextb">{esc(T["now"] if live else T["next"])}</span> <a href="{events_url}?e={e["i"]}">{esc(e["t"])}</a>'
-                 + (f' <span class="newb">{esc(T["badge"])}</span>' if e["n"] and t < e["n"] else "")
+                 + (f' <span class="newb">{esc(T["badge"])}</span>' if e["n"] and now < _ts(e["n"]) else "")
                  + f' <span class="nextev-when">· {esc(short_when(e["s"], lang))}' + (f' · {esc(e["l"])}' if e["l"] else "") + "</span>"
                  + (f' <span class="newev-more">· <a href="{events_url}">{esc((T["more_up_one"] if more == 1 else T["more_up"]).replace("{n}", str(more)))}</a></span>' if more else ""))
     return (f'<div class="newev nextev" id="nextev"{"" if up else " hidden"}><div class="wrap"><p>{inner}</p></div>'

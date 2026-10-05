@@ -2,10 +2,10 @@
   "use strict";
   document.documentElement.classList.add("js");
   /* "New" badges made at build time (Events menu item, home New-event line): hide them once the event is no longer new or has ended. */
-  var todayPT = new Date().toLocaleDateString("en-CA", { timeZone: "America/Vancouver" });
+  /* data-new-until: exact ISO time the badge expires (48 h after the event was added or last changed; events_cal.py) */
   document.querySelectorAll("[data-new-until]").forEach(function (n) {
-    var ends = n.getAttribute("data-new-ends");
-    if (todayPT >= n.getAttribute("data-new-until") || (ends && new Date(ends).getTime() < Date.now())) n.remove();
+    var ends = n.getAttribute("data-new-ends"), u = Date.parse(n.getAttribute("data-new-until"));
+    if (!(Date.now() < u) || (ends && new Date(ends).getTime() < Date.now())) n.remove();
   });
   /* Upcoming-event banner above the home hero (events_cal.home_banner, 4 Oct 2026): always the next public event that has
      not ended, soonest first; "New" badge while it is new; "+N more" link. Re-picked from the embedded list on every visit
@@ -16,7 +16,7 @@
     var D; try { D = JSON.parse(dn.textContent); } catch (x) { return; }
     var FR = D.lang === "fr", TZ = "America/Vancouver", T = D.txt, NEW = {};
     D.u.forEach(function (e) { NEW[e.i] = e.n; });
-    function plusDays(ymd, n) { var d = new Date(ymd + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); }
+    var fallbackUntil = new Date(Date.parse(D.built) + D.hours * 3600e3).toISOString();  // id added after this build: new from the build time
     function when(s) {
       var o = {}; new Intl.DateTimeFormat(FR ? "fr-CA" : "en-CA", { timeZone: TZ, weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit", hour12: !FR })
         .formatToParts(new Date(s)).forEach(function (p) { o[p.type] = p.value; });
@@ -29,7 +29,7 @@
         .sort(function (a, b) { return a.s < b.s ? -1 : a.s > b.s ? 1 : a.i - b.i; });
       var p = box.querySelector("p");
       if (!up.length) { box.hidden = true; return; }
-      var e = up[0], more = up.length - 1, nw = e.n && todayPT < e.n;
+      var e = up[0], more = up.length - 1, nw = !!e.n && now < Date.parse(e.n);
       p.textContent = "";
       p.append(mk("span", "nextb", new Date(e.s).getTime() <= now ? T.now : T.next), " ", mk("a", null, e.t, D.url + "?e=" + e.i));
       if (nw) p.append(" ", mk("span", "newb", T.badge));
@@ -47,8 +47,8 @@
           var t = String((FR && r.title_fr) || r.title || "").split("|").map(function (x) { return x.trim(); }).join(" — ");
           var pl = String((FR && r.location_name_fr) || r.location_name || "").split(",")[0].trim();
           if (pl && t.toLowerCase().indexOf(pl.toLowerCase()) >= 0) pl = "";
-          // added after this build: 'New' for the usual number of days from the build day
-          return { i: r.id, t: t, l: pl, s: r.starts_at, e: r.ends_at, n: r.id in NEW ? NEW[r.id] : plusDays(D.today, D.days) };
+          // added after this build: 'New' for the usual number of hours from the build time
+          return { i: r.id, t: t, l: pl, s: r.starts_at, e: r.ends_at, n: r.id in NEW ? NEW[r.id] : fallbackUntil };
         }));
       })["catch"](function () {});  // offline / blocked: keep the built list
   })();

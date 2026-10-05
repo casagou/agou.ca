@@ -1239,6 +1239,8 @@ def check(dist):
             errs.append(f"{hp.relative_to(dist)}: {len(up)} upcoming events but the banner is hidden or not on the next one (id {up[0]['i']})")
         try:
             if len(json.loads(m_.group(3).replace("<\\/", "</"))["u"]) != len(up): errs.append(f"{hp.relative_to(dist)}: banner data does not list every upcoming event")
+            bd = json.loads(m_.group(3).replace("<\\/", "</"))  # 48 h New badge (4 Oct 2026): exact ISO times, not dates
+            if not bd.get("built") or not bd.get("hours") or any(x["n"] and "T" not in x["n"] for x in bd["u"]): errs.append(f"{hp.relative_to(dist)}: banner New times are not ISO timestamps")
         except ValueError as ex: errs.append(f"{hp.relative_to(dist)}: banner data is not valid JSON ({ex})")
     if 'getElementById("nextev")' not in (dist / "assets/js/site.js").read_text(): errs.append("assets/js/site.js no longer updates the upcoming-event banner (#nextev)")
     home = (dist / "index.html").read_text()

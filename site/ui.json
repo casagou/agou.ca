@@ -272,7 +272,7 @@
       "after_oct": "Events after October are in the list view.",
       "today": "Today",
       "events_n": "events",
-      "legend_new": "Event added in the last 7 days"
+      "legend_new": "Event added or changed in the last 2 days"
     },
     "follow_title": "Follow along",
     "follow_text": "Photos and updates from the campaign:",
@@ -668,7 +668,7 @@
       "after_oct": "Les événements après octobre figurent dans la liste.",
       "today": "Aujourd'hui",
       "events_n": "événements",
-      "legend_new": "Événement ajouté depuis moins de 7 jours"
+      "legend_new": "Événement ajouté ou modifié depuis moins de 2 jours"
     },
     "follow_title": "Suivez la campagne",
     "follow_text": "Photos et nouvelles de la campagne :",

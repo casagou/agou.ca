@@ -1,5 +1,5 @@
 {
-  "_doc": "When each public event was first added (America/Vancouver date). Seeded 1 Oct 2026 from campaign_events.created_at; after that build.py (events_cal.py) adds any event id it has not seen, with the build day, and keeps title/start/end as an offline fallback. An event is 'new' for 7 days from this date (site.json events_new_days). Commit this file after a build that adds an id. See README 'New events'.",
+  "_doc": "When each public event was first added (America/Vancouver date; added_at = exact UTC time, from 4 Oct 2026) and last meaningfully changed (changed_at: title, title_fr, start or end changed between builds). Seeded 1 Oct 2026 from campaign_events.created_at; after that build.py (events_cal.py) adds any event id it has not seen, with the build time, and keeps title/start/end as an offline fallback. An event is 'new' for 48 hours (site.json events_new_hours) from the later of added_at (else 00:00 Pacific on the added date) and changed_at. Commit this file after a build that adds or changes an id. See README 'New events'.",
   "events": {
     "5": {
       "added": "2026-09-30",
@@ -555,21 +555,24 @@
       "title": "Coffee with Joachim | Moka House, Cook Street Village",
       "starts_at": "2026-10-05T19:00:00+00:00",
       "ends_at": "2026-10-05T20:00:00+00:00",
-      "title_fr": "Un café avec Joachim | Moka House, Cook Street Village"
+      "title_fr": "Un café avec Joachim | Moka House, Cook Street Village",
+      "added_at": "2026-10-04T20:30:25Z"
     },
     "91": {
       "added": "2026-10-04",
       "title": "Coffee with Joachim | Discovery Coffee, James Bay",
       "starts_at": "2026-10-06T19:00:00+00:00",
       "ends_at": "2026-10-06T20:00:00+00:00",
-      "title_fr": "Un café avec Joachim | Discovery Coffee, James Bay"
+      "title_fr": "Un café avec Joachim | Discovery Coffee, James Bay",
+      "added_at": "2026-10-05T02:48:55Z"
     },
     "92": {
       "added": "2026-10-04",
       "title": "Coffee with Joachim | The Parsonage Cafe, North Park",
       "starts_at": "2026-10-07T19:00:00+00:00",
       "ends_at": "2026-10-07T20:00:00+00:00",
-      "title_fr": "Un café avec Joachim | The Parsonage Cafe, North Park"
+      "title_fr": "Un café avec Joachim | The Parsonage Cafe, North Park",
+      "added_at": "2026-10-05T02:48:55Z"
     }
   }
 }
