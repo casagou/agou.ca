@@ -542,3 +542,19 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
   .evfilter button { flex:1 1 0; border-top:1px solid var(--shift); padding:0 8px; }
   .evfilter button:first-of-type { border-left:0; }
 }
+
+/* Past events (4 Oct 2026, migration 49): kept on the Events page, greyed and struck through so they read as done.
+   Key dates (.it.kd) never get .past. The Past label (.pastb) is never struck through. */
+.pastb { display:inline-block; font-size:.75rem; font-weight:700; letter-spacing:.03em; text-transform:uppercase; color:#4a4f57; background:#e6e8eb; border-radius:4px; padding:.05em .45em; text-decoration:none; vertical-align:.1em; }
+.evc.past h3 a, .evc.past .evc-when .tr { text-decoration:line-through; color:#5f6670; }
+.evc.past .shtag { color:#5f6670; }
+.evc.past .shtag .mk { color:#5f6670; }
+.mcal .it.cev.past a, .ag-day .it.cev.past a { color:#5f6670; }
+.mcal .it.cev.past .tm, .mcal .it.cev.past .tt, .ag-day .it.cev.past .tt { text-decoration:line-through; }
+.mcal .it.cev.past .mk, .ag-day .it.cev.past .mk { color:#8a9099; }
+.evpast { margin-top:1.75rem; border-top:1px solid #d9dde2; padding-top:1rem; }
+.evpast > summary { cursor:pointer; font-weight:700; color:#3b4250; padding:.35rem 0; }
+.evpast > summary:focus-visible { outline:3px solid #f2b705; outline-offset:2px; }
+.evpast .evlist { margin-top:.75rem; }
+.evc.past, .mcal .it.past, .ag-day .it.past { opacity:1; }  /* grey text (#5f6670, 5.9:1) instead of fading: stays readable */
+.evc.past .dtile, .evc.shift.past .dtile { background:#f1f2f4; border-color:#d9dde2; color:#5f6670; }
