@@ -8,13 +8,15 @@ I'm the Conservative Party of BC's nominee in Victoria–Beacon Hill. Each propo
 <table_of_contents/>
 <more/>
 ## 1. Health care you can get
-- Cut doctors' paperwork so every clinic can take more patients (my position; the 2024 party platform also proposed reducing doctors' administrative burden).
+- Recognize any doctor or nurse already licensed in another province within 5 business days, fees waived. Nova Scotia has done it since 2023 (my position).
+- Cut doctors' paperwork by 10% in 2 years, measured by the Doctors of BC survey. Doctors say 46% of it is unnecessary (my position; the 2024 platform cites the same 10%).
 - Add evening and weekend clinic hours on the South Island (my position).
-- Use publicly paid surgeries and scans at non-government clinics to shorten waits (2024 party platform, [p. 54](https://assets.nationbuilder.com/themes/62bc6e06c294807a1b297b61/attachments/original/1729201650/Conservative_Party_of_British_Columbia_Policy_Platform_%282%29.pdf?1729201650#page=54)).
+- A wait-time backstop. When your scan or planned surgery passes the medical benchmark, your doctor can send you to a pre-approved clinic, in B.C. or out of province, and the Province pays the set fee. Start with MRI and CT, cataracts, hips and knees. Saskatchewan cut its median surgical wait from 26.5 weeks to 14.2 in 4 years this way, at lower cost per case (2024 party platform; the first-tranche list is mine).
+- Get seniors out of hospital beds and into care beds. Island Health runs at 16% of patient days in alternate level of care against its own 14% target. I'll publish that number by hospital every month and push for long-term contracts for care beds on the South Island (my position).
 - Vote for staffed medical beds, and for paying hospitals for the patients they treat rather than through a block grant (my position, scorecard line 8).
 - Vote to pay for extra operating-room time, public and non-government (my position, scorecard line 9).
 **What changes for you:** you get a family doctor sooner, and you wait less for a hospital bed, a scan or a planned surgery.
-**How you'll know:** [scorecard lines 8, 9 and 10](/scorecard/#item-8) (the emergency wait for a bed, planned-surgery waits and the wait for a family doctor), every quarter, within 30 days of quarter-end. I'll also publish how many people are waiting in each Victoria-area care network, and for how long.
+**How you'll know:** [scorecard lines 8, 9 and 10](/scorecard/#item-8) (the emergency wait for a bed, planned-surgery waits and the wait for a family doctor), every quarter, within 30 days of quarter-end. I'll also publish how many people are waiting in each Victoria-area care network, and for how long. Every month, I'll publish each hospital's share of patient days in alternate level of care.
 <more/>
 **Why:** Health care has been managed, not fixed. Since 2018 the Province has run a Primary Care Strategy and committed more than \$672 million to it for 2025-26 alone ([B.C. Ministry of Health, Aug 2025](https://news.gov.bc.ca/releases/2025HLTH0077-000752)). About 1 in 4 British Columbians (24.7%) had no family doctor or nurse practitioner in June 2025, and 68.6% of the primary-care positions the Province had approved were filled in 2024/25 (Ministry of Health records, via [The Canada Report, 16 Jul 2026](https://www.thecanadareport.ca/bc-health-connect-registry-attachment-gap/)). Doctors' pay, clinic rules and paperwork are set by the Province.
 **How the extra appointments would be delivered:**
