@@ -89,9 +89,16 @@ def party_page(lang, page, env):
     btn = f'<p class="cta-line"><a class="btn primary" href="{esc(_PU(key))}" rel="noopener"{" hreflang=\"en\"" if lang == "fr" else ""}>{esc(T["btn"])} <span aria-hidden="true">↗</span></a></p>'
     parts = [f'<p>{esc(T["lead"])}</p>', f'<p>{esc(T["what"])}</p>', btn, f'<p class="note">{esc(T.get("note") or P["note_ref"])}</p>']
     if key == "lawn-sign": parts.append(f'<p class="note">{esc(T["shared"])}</p>')
+    shifts_note = ""
+    if key == "volunteer" and SHIFTS_ON(env) and "events" not in HIDDEN and (env == "staging" or SITE.get("volunteer_shifts_note_live")):
+        # 5 Oct 2026: optional door-knocking shifts (Events page, ?show=shifts); staging only until site.json volunteer_shifts_note_live
+        draft = f'<p class="draft-tag">{esc(UI[lang]["volunteer"]["draft_tag"])}</p>' if env == "staging" and not SITE.get("volunteer_shifts_note_live") else ""
+        shifts_note = (f'<section class="block vshifts" aria-labelledby="vshifts">{draft}<h2 id="vshifts">{esc(T["shifts_h"])}</h2>'
+                       f'<p>{esc(T["shifts_p1"])}</p><p>{esc(T["shifts_p2"])}</p>'
+                       f'<p class="pagelink"><a href="{url(lang, "events")}?show=shifts">{esc(T["shifts_link"])} →</a></p></section>')
     if key == "donate":
         parts.append(f'<p>{esc(T["questions"])} <a href="mailto:bert@bertchen.ca">bert@bertchen.ca</a> {esc(P["or"])} <a href="tel:+17789969910">778-996-9910</a>.</p>')
-    body = f'<section class="block lead">{"".join(parts)}</section>'
+    body = f'<section class="block lead">{"".join(parts)}</section>' + shifts_note
     main = f'<div class="page-head"><div class="wrap"><h1>{esc(T["h1"])}</h1></div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
     return shell(lang, page, f'{T["h1"]} – Joachim Agou – Victoria–Beacon Hill', T["lead"], main, env)
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
@@ -1416,6 +1423,8 @@ if __name__ == "__main__":
             if "recruiter_id=251" not in _PU(k): errs.append(f"site.json party.urls.{k} lost recruiter_id=251")
         if "/volunteer/" in (dist / "sitemap.xml").read_text() or "/donate/" in (dist / "sitemap.xml").read_text() or "/lawn-sign/" in (dist / "sitemap.xml").read_text():
             errs.append("sitemap.xml lists a bridge page (volunteer / lawn-sign / donate)")
+    if a.env == "live" and not SITE.get("volunteer_shifts_note_live"):  # 5 Oct 2026 door-knocking shifts block: staging only until approved
+        errs += [f"{f.relative_to(dist)}: shows the volunteer-page shifts block, but volunteer_shifts_note_live is false" for f in sorted(dist.rglob("*.html")) if 'class="block vshifts"' in f.read_text()]
     if HIDDEN:
         hu = hidden_urls()
         errs += [f"{f.relative_to(dist)}: links to a page left out of this build ({u})" for f in sorted(dist.rglob("*.html")) for u in hu if f'href="{u}"' in f.read_text()]

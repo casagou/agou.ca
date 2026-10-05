@@ -376,7 +376,11 @@
         "h1": "Volunteer",
         "lead": "Volunteer sign-up for my campaign is now on the Conservative Party of BC's website.",
         "what": "Knock on doors, make calls, put up a sign or help on election day. Pick what fits your time.",
-        "btn": "Sign up on the party's website"
+        "btn": "Sign up on the party's website",
+        "shifts_h": "Door-knocking shifts",
+        "shifts_p1": "There are also scheduled door-knocking shifts on my events calendar. If one fits your schedule, sign up for it there and we'll send you the meeting point.",
+        "shifts_p2": "The shifts are optional. You don't have to sign up for one to help. You can also knock on doors at other times, for example in the mornings, when I'm not available. Sign up with the button above and my team will get in touch.",
+        "shifts_link": "See the volunteer shifts"
       },
       "lawn-sign": {
         "h1": "Lawn sign",
@@ -812,7 +816,11 @@
         "h1": "Bénévolat",
         "lead": "L'inscription des bénévoles de ma campagne se fait maintenant sur le site du Parti conservateur de la C.-B.",
         "what": "Faire du porte-à-porte, passer des appels, installer une pancarte ou aider le jour du scrutin : choisissez ce qui convient à votre emploi du temps.",
-        "btn": "S'inscrire sur le site du parti"
+        "btn": "S'inscrire sur le site du parti",
+        "shifts_h": "Quarts de porte-à-porte",
+        "shifts_p1": "Des quarts de porte-à-porte sont aussi prévus au calendrier de mes événements. Si l'un d'eux vous convient, inscrivez-vous-y directement et nous vous enverrons le point de rendez-vous.",
+        "shifts_p2": "Ces quarts sont facultatifs : vous n'avez pas besoin de vous inscrire à l'un d'eux pour aider. Vous pouvez aussi faire du porte-à-porte à d'autres moments, par exemple le matin, quand je ne suis pas disponible. Inscrivez-vous avec le bouton ci-dessus et mon équipe communiquera avec vous.",
+        "shifts_link": "Voir les quarts bénévoles"
       },
       "lawn-sign": {
         "h1": "Pancarte",
