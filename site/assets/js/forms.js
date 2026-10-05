@@ -201,7 +201,9 @@
       return (e.area ? SH.lead : SH.lead_tbd).replace("{day}", cap(parts(e.starts_at).weekday)).replace("{part}", partOfDay(e.starts_at)).replace("{area}", e.area || "");
     }
     function shiftRow(r) {
-      var e = { id: r.id, shift: true, title: (FR && r.title_fr) || r.title, starts_at: r.starts_at, ends_at: r.ends_at, area: r.area || "", rsvp_open: !!r.rsvp_open };
+      // French: the area is the part after "|" in title_fr ("Porte-à-porte avec Joachim | Ouest de Fairfield"), since the area itself is stored in English
+      var frArea = FR && r.area && /\|/.test(r.title_fr || "") ? String(r.title_fr).split("|").pop().trim() : "";
+      var e = { id: r.id, shift: true, title: (FR && r.title_fr) || r.title, starts_at: r.starts_at, ends_at: r.ends_at, area: frArea || r.area || "", rsvp_open: !!r.rsvp_open };
       e.neighbourhood = e.area || SH.area_tbd;
       e.description = shiftLead(e) + "\n\n" + SH.body + "\n\n" + SH.meet_h + (FR ? " : " : ": ") + SH.meet; // calendar files only
       return e;
