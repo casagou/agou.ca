@@ -305,9 +305,9 @@
         details: (plain(e.description) ? plain(e.description).slice(0, 1200) + "\n\n" : "") + eventUrl(e), location: whereText(e) });
       return "https://calendar.google.com/calendar/render?" + q.toString();
     }
-    // "New": added in the last N days (build.py events_cal.py: new_until = first day it is no longer new, Pacific time)
+    // "New": added or meaningfully changed in the last 48 hours (events_cal.py: new_until = exact ISO time it stops being new)
     var todayPT = function () { return new Date().toLocaleDateString("en-CA", { timeZone: TZ }); };
-    var isNew = function (e) { var u = (CFG.new_until || {})[String(e.id)]; return !!u && todayPT() < u; };
+    var isNew = function (e) { var u = (CFG.new_until || {})[String(e.id)]; return !!u && Date.now() < Date.parse(u); };
     var newBadge = function () { return el("span", { class: "newb", text: CFG.new_label || T.new }); };
     var shortTitle = function (e) { var p = String(e.title || "").split("|"); return p[p.length - 1].trim(); };
     function openEvent(e) { return function (ev) { if (ev.metaKey || ev.ctrlKey || ev.shiftKey) return; ev.preventDefault(); history.pushState({ e: e.id }, "", "?e=" + e.id); route(); window.scrollTo(0, 0); }; }
