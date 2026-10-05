@@ -573,6 +573,30 @@
       "ends_at": "2026-10-07T20:00:00+00:00",
       "title_fr": "Un café avec Joachim | The Parsonage Cafe, North Park",
       "added_at": "2026-10-05T02:48:55Z"
+    },
+    "99": {
+      "added": "2026-10-04",
+      "added_at": "2026-10-05T03:00:52Z",
+      "title": "Coffee with Joachim | Routine Coffee & Supply, Fort Street",
+      "starts_at": "2026-10-08T19:00:00+00:00",
+      "ends_at": "2026-10-08T20:00:00+00:00",
+      "title_fr": "Un café avec Joachim | Routine Coffee & Supply, rue Fort"
+    },
+    "98": {
+      "added": "2026-10-04",
+      "added_at": "2026-10-05T02:59:49Z",
+      "title": "Meet Joachim | Fernwood Inn, Fernwood",
+      "starts_at": "2026-10-09T23:30:00+00:00",
+      "ends_at": "2026-10-10T00:30:00+00:00",
+      "title_fr": "Rencontrez Joachim | Fernwood Inn, Fernwood"
+    },
+    "100": {
+      "added": "2026-10-04",
+      "added_at": "2026-10-05T03:00:52Z",
+      "title": "Coffee with Joachim | Shine Cafe, Rockland",
+      "starts_at": "2026-10-13T19:00:00+00:00",
+      "ends_at": "2026-10-13T20:00:00+00:00",
+      "title_fr": "Un café avec Joachim | Shine Cafe, Rockland"
     }
   }
 }
