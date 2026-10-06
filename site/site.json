@@ -137,11 +137,11 @@
       "robots": "index"
     },
     {
-      "key": "trail",
-      "slug": "trail/",
+      "key": "updates",
+      "slug": "updates/",
       "nav": {
-        "en": "On the campaign trail",
-        "fr": "Sur le terrain"
+        "en": "Updates",
+        "fr": "Nouvelles"
       }
     },
     {
@@ -1195,9 +1195,9 @@
   "priorities_v2_approved": true,
   "_priorities_v2_doc": "Priorities v2 (1 Oct 2026): restructured /priorities/ and /fr/priorities/ (exclusions.json whole-page en-priorities/fr-priorities rules, <more/> Read more split) and the scorecard item 7 lever (bail is federal). Staging only. false = build.py --env live refuses to run. Set true only after Joachim approves (review: /workspace/agou.ca-priorities-v2-review.md).",
   "_party_links_doc": "2 Oct 2026 (Joachim, 12:28 AM PT): volunteering, lawn signs and donations go through the Conservative Party of BC's system. When on (staging always; live only if party_links_live is true), every link to /volunteer/, /lawn-sign/ and /donate/ (EN and FR) points to party.urls; those three pages become short bridge pages (no form, noindex, out of the sitemap); Home, FAQ and Privacy use the party wording in build.py PARTY_MD and content/<lang>/privacy-party.md. Keep recruiter_id=251 on the volunteer and lawn-sign URLs.",
-  "trail": {
-    "_doc": "On the campaign trail (6 Oct 2026, approved by Joachim via Provincial Campaign Ops; trail.py, README 'Campaign trail'). Entries: data/trail.json. With zero entries nothing of it is built (no home section, no follow buttons, no /trail/, no link). home_max: how many recent entries the home strip shows. follow: the 'Follow the campaign' buttons, in order; to add X later, add one line, e.g. \"X\": \"https://x.com/<campaign handle>\". samples_on_staging: staging only, while data/trail.json has no entries, shows the SAMPLE entries from data/trail-samples.json for layout review; live never shows them (build check).",
-    "home_max": 6,
+  "updates": {
+    "_doc": "Updates / « Nouvelles » (6 Oct 2026, Joachim via Provincial Campaign Ops; first built as 'On the campaign trail'; updates.py, README 'Updates'). Each entry mirrors one of Joachim's daily social posts, added by hand to data/updates.json. With zero entries nothing of it is built (no home section, no follow buttons, no /updates/ page, permalinks, RSS feed, link or sitemap entry). home_max: how many latest entries the home strip shows (3-4). follow: the 'Follow the campaign' buttons, in order; to add X later, add one line, e.g. \"X\": \"https://x.com/<campaign handle>\". samples_on_staging: staging only, while data/updates.json has no entries, shows the SAMPLE entries from data/updates-samples.json for layout review; live never shows them (build check).",
+    "home_max": 4,
     "samples_on_staging": true,
     "follow": {
       "Instagram": "https://instagram.com/joachimagou",

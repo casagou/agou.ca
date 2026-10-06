@@ -1,13 +1,20 @@
 {
   "_doc": "Interface and form wording (not from Notion). EN form wording is copied unchanged from the live agou.ca/volunteer, /nominate, /events and /lawn-sign pages. FR is a translation of it; consent keeps the same meaning.",
   "en": {
-    "trail": {
-      "title": "On the campaign trail",
-      "see_all": "See all",
-      "follow": "Follow the campaign",
-      "intro": "Photos from the campaign in Victoria–Beacon Hill, newest first.",
-      "sample_tag": "SAMPLE – ",
-      "sample_note": "SAMPLE entries for layout review: staging only, never on the live site"
+    "updates": {
+     "title": "Updates",
+     "see_all": "See all updates",
+     "read_more": "Read more",
+     "all": "All updates",
+     "follow": "Follow the campaign",
+     "intro": "My campaign updates from Victoria–Beacon Hill, newest first. Each one is also posted on my social media.",
+     "see_on": "See on {platform}",
+     "new_tab": "(opens in a new tab)",
+     "rss": "RSS feed",
+     "feed_title": "Joachim Agou – Updates",
+     "desc_tail": "An update from Joachim Agou's campaign in Victoria–Beacon Hill.",
+     "sample_tag": "SAMPLE – ",
+     "sample_note": "SAMPLE entries for layout review: staging only, never on the live site"
     },
     "site_name": "Joachim Agou – Victoria–Beacon Hill",
     "brand_sub": "Victoria–Beacon Hill",
@@ -447,13 +454,20 @@
     }
   },
   "fr": {
-    "trail": {
-      "title": "Sur le terrain",
-      "see_all": "Tout voir",
-      "follow": "Suivre la campagne",
-      "intro": "Des photos de la campagne dans Victoria–Beacon Hill, des plus récentes aux plus anciennes.",
-      "sample_tag": "EXEMPLE – ",
-      "sample_note": "EXEMPLES pour réviser la mise en page : version de test seulement, jamais sur le site public"
+    "updates": {
+     "title": "Nouvelles",
+     "see_all": "Voir toutes les nouvelles",
+     "read_more": "Lire la suite",
+     "all": "Toutes les nouvelles",
+     "follow": "Suivre la campagne",
+     "intro": "Mes nouvelles de campagne dans Victoria–Beacon Hill, des plus récentes aux plus anciennes. Chacune est aussi publiée sur mes réseaux sociaux.",
+     "see_on": "Voir sur {platform}",
+     "new_tab": "(s'ouvre dans un nouvel onglet)",
+     "rss": "Fil RSS",
+     "feed_title": "Joachim Agou – Nouvelles",
+     "desc_tail": "Une nouvelle de la campagne de Joachim Agou dans Victoria–Beacon Hill.",
+     "sample_tag": "EXEMPLE – ",
+     "sample_note": "EXEMPLES pour réviser la mise en page : version de test seulement, jamais sur le site public"
     },
     "site_name": "Joachim Agou – Victoria–Beacon Hill",
     "brand_sub": "Victoria–Beacon Hill",

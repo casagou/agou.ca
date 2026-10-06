@@ -1,0 +1,22 @@
+{
+ "_doc": "Updates / « Nouvelles » (updates.py; README 'Updates'). One object per post in 'entries', any order (the site sorts newest first). Each mirrors one of Joachim's social posts; he sends it, we add it. Fields: date (YYYY-MM-DD, required); title_en (title or first line, max 90, required); title_fr (optional, falls back to title_en); body_en / body_fr (optional, max 280 each; FR falls back to EN); slug (optional, lowercase ASCII and hyphens, max 60, no date; default from title_en; permalink /updates/<date>-<slug>/, must be unique); place / place_fr (optional, max 60); links (optional list of {platform: instagram|facebook|x, url: https://... on instagram.com / facebook.com, fb.com / x.com, twitter.com}); images (optional list of 0-4 photos: a file name in site/data/updates/, or {file, focus [x, y], alt_en, alt_fr}; 'image' with one file name also works); alt_en / alt_fr (optional photo description for all photos; default: the title). Only photos Joachim provides: never his daughter, his home or a private address. Then run tools/make_updates.py and commit data/updates.json, data/updates/ and assets/img/updates/. While 'entries' is empty, nothing of the feature appears on the site.",
+ "_example": {
+  "date": "2026-10-06",
+  "slug": "coffee-james-bay",
+  "title_en": "Coffee in James Bay",
+  "title_fr": "Café dans James Bay",
+  "body_en": "Thanks to everyone who came by Discovery Coffee this morning. Good questions on housing and the ferries.",
+  "body_fr": "Merci à toutes les personnes passées au Discovery Coffee ce matin. De bonnes questions sur le logement et les traversiers.",
+  "place": "James Bay",
+  "place_fr": "James Bay",
+  "links": [
+   {"platform": "instagram", "url": "https://www.instagram.com/p/EXAMPLE/"},
+   {"platform": "facebook", "url": "https://www.facebook.com/joachimagou/posts/EXAMPLE"}
+  ],
+  "images": [
+   {"file": "2026-10-06-coffee-1.jpg", "focus": [0.5, 0.4], "alt_en": "Joachim talking with two residents at a café table", "alt_fr": "Joachim discute avec deux résidents à une table de café"},
+   "2026-10-06-coffee-2.jpg"
+  ]
+ },
+ "entries": []
+}

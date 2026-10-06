@@ -1,0 +1,20 @@
+{
+ "_doc": "SAMPLE entries, STAGING ONLY (site.json updates.samples_on_staging, and only while data/updates.json has no entries): layout review with existing licensed Victoria photos (site.json victoria_photos; 'blur' applied, footer credit shown) for the 0, 1, 2 and 3 photo layouts. Never shipped live (build check). Not real posts.",
+ "entries": [
+  {"sample": true, "date": "2026-10-05", "title_en": "Thank you for stopping to talk", "title_fr": "Merci de vous être arrêtés pour parler",
+   "body_en": "Thank you to everyone who stopped to talk with me today. Your questions and ideas are what this campaign is about. Tomorrow I'll be back out knocking on doors.",
+   "body_fr": "Merci à toutes les personnes qui se sont arrêtées pour me parler aujourd'hui. Vos questions et vos idées sont au cœur de cette campagne. Demain, je retourne faire du porte-à-porte."},
+  {"sample": true, "date": "2026-10-04", "title_en": "Coffee with neighbours", "title_fr": "Café avec des voisins", "place": "Cook Street Village",
+   "body_en": "A good hour of conversation over coffee. Thanks for coming by.", "body_fr": "Une bonne heure de discussion autour d'un café. Merci d'être passés.",
+   "links": [{"platform": "instagram", "url": "https://www.instagram.com/joachimagou/"}],
+   "images": [{"vic": "cook-street-village"}]},
+  {"sample": true, "date": "2026-10-03", "title_en": "A walk along the harbour", "title_fr": "Promenade le long du port", "place": "James Bay",
+   "body_en": "From Fisherman's Wharf to the Inner Harbour, a quiet evening in James Bay.", "body_fr": "Du Fisherman's Wharf au port intérieur, une soirée tranquille dans James Bay.",
+   "images": [{"vic": "fishermans-wharf"}, {"vic": "inner-harbour"}]},
+  {"sample": true, "date": "2026-10-02", "title_en": "An evening on Dallas Road", "title_fr": "Une soirée sur Dallas Road", "place": "Fairfield",
+   "body_en": "I spent the evening walking Dallas Road from Clover Point to Ross Bay and talking with the people I met along the way. Many told me what they want from their next MLA: someone who listens, answers plainly and shows up. That is the job I am asking for. Thank you for the welcome.",
+   "body_fr": "J'ai passé la soirée sur Dallas Road, de Clover Point à Ross Bay, à parler avec les passants. Plusieurs m'ont dit ce qu'ils attendent de leur prochain député : quelqu'un qui écoute, répond clairement et est présent. C'est ce poste que je sollicite. Merci de l'accueil.",
+   "links": [{"platform": "facebook", "url": "https://www.facebook.com/joachimagou"}, {"platform": "x", "url": "https://x.com/casagou"}],
+   "images": [{"vic": "clover-point"}, {"vic": "dallas-road"}, {"vic": "ross-bay-seawall"}]}
+ ]
+}

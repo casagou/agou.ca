@@ -1,6 +1,24 @@
 {
+ "sample-clover-point": {
+  "key": "6fa86afb81eafb55",
+  "widths": [
+   320,
+   640,
+   960,
+   1280
+  ]
+ },
  "sample-cook-street-village": {
   "key": "8a05696ddf6a650d",
+  "widths": [
+   320,
+   640,
+   960,
+   1280
+  ]
+ },
+ "sample-dallas-road": {
+  "key": "fb8f14b087e3b4aa",
   "widths": [
    320,
    640,
@@ -19,6 +37,15 @@
  },
  "sample-inner-harbour": {
   "key": "8a5c8ed884217d74",
+  "widths": [
+   320,
+   640,
+   960,
+   1280
+  ]
+ },
+ "sample-ross-bay-seawall": {
+  "key": "9d67f47e23967e0a",
   "widths": [
    320,
    640,

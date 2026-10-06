@@ -15,15 +15,15 @@
     }
   },
   "pages": {
-    "trail": {
-      "en": {
-        "title": "On the campaign trail",
-        "desc": "Photos from Joachim Agou's campaign in Victoria–Beacon Hill: the people he meets, the places and the events, newest first."
-      },
-      "fr": {
-        "title": "Sur le terrain",
-        "desc": "Des photos de la campagne de Joachim Agou dans Victoria–Beacon Hill : les gens qu'il rencontre, les lieux et les événements, des plus récentes aux plus anciennes."
-      }
+    "updates": {
+     "en": {
+      "title": "Updates",
+      "desc": "Campaign updates from Joachim Agou in Victoria–Beacon Hill, newest first, with links to the same posts on his Instagram, Facebook and X."
+     },
+     "fr": {
+      "title": "Nouvelles",
+      "desc": "Les nouvelles de la campagne de Joachim Agou dans Victoria–Beacon Hill, des plus récentes aux plus anciennes, avec des liens vers ses publications."
+     }
     },
     "home": {
       "en": {
