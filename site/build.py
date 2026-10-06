@@ -7,6 +7,7 @@ No framework, no dependencies (Python 3 standard library only)."""
 import argparse, html, json, re, shutil, pathlib, sys
 import scorecard  # /scorecard/ page (scorecard.py, scorecard.json, content/<lang>/scorecard.md)
 import province  # /province/ page (province.py, content/<lang>/province.md; not from Notion)
+import trail  # "On the campaign trail" (trail.py, data/trail.json; hidden everywhere while it has no entries)
 import events_cal  # Events calendar + 'New' events (events_cal.py; staging only until site.json events_calendar_live)
 
 ROOT = pathlib.Path(__file__).resolve().parent
@@ -784,6 +785,8 @@ def build_page(lang, page, env):
         return scorecard.scorecard_page(sys.modules[__name__], lang, page, env)
     if key == "province":  # /province/: own layout, see province.py
         return province.page(sys.modules[__name__], lang, page, env)
+    if key == "trail":  # /trail/: every campaign trail entry, newest first (trail.py); only built when there are entries
+        return trail.page(sys.modules[__name__], lang, page, env)
     if PARTY["on"] and key in PARTY_MOVED:
         return party_page(lang, page, env)
     self_path = url(lang, key)
@@ -830,7 +833,7 @@ def build_page(lang, page, env):
                 f'{intro}{hero_callout}</div>{hero_media}</div>'
                 + (f'<div class="wrap">{hero_src}</div>' if hero_src else "") + '</div>')
         newev = events_cal.home_banner(lang, SITE, UI, url(lang, "events"))  # always on (4 Oct 2026): next upcoming event; hidden only when none
-        main = newev + hero + shortcuts(lang) + (vic_band(lang, env) if vic else "") + home_layout(collapse(body, lang, page="home"), lang) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
+        main = newev + hero + shortcuts(lang) + (vic_band(lang, env) if vic else "") + home_layout(collapse(body, lang, page="home"), lang, trail.home_section(sys.modules[__name__], lang)) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
         title = f"Joachim Agou – Victoria–Beacon Hill" if lang == "en" else "Joachim Agou – Victoria–Beacon Hill (français)"
         desc = re.sub(r"[*]", "", sub) + ". " + re.sub(r"[*]", "", tagline)
         return shell(lang, page, title, desc, main, env)
@@ -956,8 +959,9 @@ def shortcuts(lang):
     return f'<nav class="shortcuts" aria-label="{esc(UI[lang]["shortcuts_label"])}"><div class="wrap"><ul>{items}</ul></div></nav>'
 
 
-def home_layout(body, lang):
-    """Home: open reading sections, one pale-blue band with the ways to help as cards, then Events and Follow along side by side."""
+def home_layout(body, lang, trail_html=""):
+    """Home: open reading sections, one pale-blue band with the ways to help as cards, then Events and Follow along side by side.
+    trail_html ("On the campaign trail", trail.py; empty with no entries) goes right under the priorities section."""
     parts = re.split(r"\n?(?=<section class=\"block)", body)
     secs = [s for s in parts if s.strip()]
     sid = lambda s: re.search(r'aria-labelledby="([^"]+)"', s).group(1)
@@ -969,6 +973,9 @@ def home_layout(body, lang):
     first = [i for i in order[:2]] + [i for i in order[2:] if i == "riding-map"]  # nominations closed: the riding map follows About and Priorities
     rest = [i for i in order if i not in first + help_ids + side_ids]
     card = lambda s: s.replace('<section class="block"', '<section class="block card-sec"', 1)
+    if trail_html:
+        if f'href="{url(lang, "priorities")}"' not in by[order[1]]: sys.exit("home: the second section is not the priorities section (needed to place the campaign trail)")
+        by[order[1]] += "\n" + trail_html
     h = f'<div class="wrap home">' + "\n".join(by[i] for i in first) + "</div>"
     if help_ids:
         h += f'<div class="band band-sky"><div class="wrap"><div class="grid-help">' + "\n".join(card(by[i]) for i in help_ids) + "</div></div></div>"
@@ -1083,6 +1090,8 @@ def updated_for(lang, key):
         cands.append(SITE["party"]["updated"])
     if lang == "fr" and U.get(f"fr-{key}") and key not in SITE["notion"]:  # French-only date for a hand-written page (fr-privacy, fr-lawn-sign, ...): the English page keeps its own
         cands.append(U.get(f"fr-{key}"))
+    if key == "home" and trail.STATE["entries"] and not trail.STATE["sample"]:  # a new campaign trail entry updates the home page
+        cands.append(trail.STATE["entries"][0]["date"])
     if lang == "fr" and p.get("form") and U.get("fr-forms"):
         cands.append(U.get("fr-forms"))
     d = max(c for c in cands if c)
@@ -1319,6 +1328,11 @@ if __name__ == "__main__":
     if a.env == "live" and SITE.get("publish_province_live") and not SITE.get("province_fr_reviewed"):
         sys.exit("Live build refused: /fr/province/ is still a draft translation (site.json province_fr_reviewed is false). "
                  "Have Joachim review it, set province_fr_reviewed to true, then build live (see RESYNC.md).")
+    if not trail.load(a.env, SITE, VIC.get("photos", {}) if (VIC_ON(a.env) and VIC) else {}):  # zero entries: no section, no page, no link
+        HIDDEN.add("trail")
+    else:
+        trail.ensure_images(trail.STATE["entries"], VIC.get("photos", {}))
+        SITE["updated"]["trail"] = trail.STATE["entries"][0]["date"]
     if HIDDEN:
         PAGES[:] = [p for p in PAGES if p["key"] not in HIDDEN]
         SITE["footer_nav"] = [k for k in SITE["footer_nav"] if k not in HIDDEN]
@@ -1358,6 +1372,7 @@ if __name__ == "__main__":
         if not any(f.name.startswith(f"joachim-agou-headshot-bg-{v}-") for v in HS_USED): f.unlink()
     if not (VIC_ON(a.env) and VIC):  # site.json victoria_photos_live false: no Victoria photo files on live
         shutil.rmtree(dist / "assets/img/vic", ignore_errors=True)
+    trail.prune_dist(dist)  # campaign trail: only the photos shown in this build (none with zero entries; never samples on live)
     for f in (dist / "assets/img").glob("og-joachim-agou-photo-bg-*"):
         if not HS_BG or not f.name.startswith(f"og-joachim-agou-photo-bg-{HS_BG}-"): f.unlink()
     # favicon (JOA, tools/make_favicon.py): /favicon.ico at the root, one web manifest per language
@@ -1402,7 +1417,7 @@ if __name__ == "__main__":
         (dist / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {LIVE}/sitemap.xml\n")
         (dist / "CNAME").write_text("agou.ca\n"); (dist / ".nojekyll").write_text("")
     (dist / "sitemap.xml").write_text(sitemap())  # staging too, for review (its robots.txt still disallows everything)
-    errs = check(dist) + seo_check(dist, a.env) + shifts_check(dist, a.env)
+    errs = check(dist) + seo_check(dist, a.env) + shifts_check(dist, a.env) + trail.check(sys.modules[__name__], dist, a.env)
     if NOMINATIONS_CLOSED:  # nothing may link to the retired Nominate page or ask people to sign (its own EN/FR pages excepted)
         nom = {url(l, "nominate") for l in LANGS}; nom_pages = {dist / u.lstrip("/") / "index.html" for u in nom}
         ask = re.compile(r"Sign up to nominate|Become a nominator|I need 75|Put a test engineer on the ballot|S'inscrire pour signer|Il me faut la signature|Mettre un ingénieur d'essais sur le bulletin")

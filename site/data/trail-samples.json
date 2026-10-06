@@ -1,0 +1,8 @@
+{
+ "_doc": "SAMPLE entries, STAGING ONLY (site.json trail.samples_on_staging, and only while data/trail.json has no entries): layout review with existing licensed Victoria photos (site.json victoria_photos; 'blur' applied, footer credit shown). Never shipped live (build check). Not real campaign moments.",
+ "entries": [
+  {"sample": true, "vic": "cook-street-village", "date": "2026-10-05", "caption_en": "Coffee with neighbours", "caption_fr": "Café avec des voisins", "place": "Cook Street Village"},
+  {"sample": true, "vic": "fishermans-wharf", "date": "2026-10-04", "caption_en": "At Fisherman's Wharf, James Bay", "caption_fr": "Au Fisherman's Wharf, James Bay"},
+  {"sample": true, "vic": "inner-harbour", "date": "2026-10-03", "caption_en": "Evening walk along the Inner Harbour", "caption_fr": "Promenade en soirée le long du port intérieur"}
+ ]
+}

@@ -558,3 +558,30 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 .evpast .evlist { margin-top:.75rem; }
 .evc.past, .mcal .it.past, .ag-day .it.past { opacity:1; }  /* grey text (#5f6670, 5.9:1) instead of fading: stays readable */
 .evc.past .dtile, .evc.shift.past .dtile { background:#f1f2f4; border-color:#d9dde2; color:#5f6670; }
+
+/* ---------- On the campaign trail (trail.py; only rendered when data/trail.json has entries) ----------
+   Phones: a swipeable strip (scroll-snap, next photo peeks). From 800px: one row of up to 6 equal photos. /trail/: 1 column, 2 from 600px. */
+.trail figure { margin:0; }
+.trail img { display:block; width:100%; height:auto; aspect-ratio:4 / 3; object-fit:cover; border-radius:10px; background:var(--sky); }
+.trail figcaption { margin-top:8px; color:var(--navy); font-weight:700; font-size:.95rem; line-height:1.3; }
+.trail-strip { overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; margin:0 -18px; padding:0 18px 6px; scroll-padding:0 18px; -webkit-overflow-scrolling:touch; }
+.trail-strip:focus-visible { outline-offset:-3px; }
+.trail-list { list-style:none; margin:0; padding:0; display:grid; grid-auto-flow:column; grid-auto-columns:62%; gap:12px; }
+.trail-list li { margin:0; min-width:0; scroll-snap-align:start; }
+.trail-list.n1 { grid-auto-columns:80%; }
+@media (min-width:800px) {
+  .trail-strip { overflow:visible; margin:0; padding:0; }
+  .trail-list { grid-auto-flow:row; grid-auto-columns:auto; }
+  .trail-list.n1 { grid-template-columns:repeat(1, minmax(0, 1fr)); max-width:360px; } .trail-list.n2 { grid-template-columns:repeat(2, minmax(0, 1fr)); max-width:600px; }
+  .trail-list.n3 { grid-template-columns:repeat(3, minmax(0, 1fr)); max-width:840px; } .trail-list.n4 { grid-template-columns:repeat(4, minmax(0, 1fr)); }
+  .trail-list.n5 { grid-template-columns:repeat(5, minmax(0, 1fr)); } .trail-list.n6 { grid-template-columns:repeat(6, minmax(0, 1fr)); }
+}
+.trail .pagelink { margin:10px 0 0; }
+.trail-follow { margin-top:14px; padding-top:16px; border-top:1px solid var(--line); }
+.trail-follow h3 { margin:0 0 4px; font-size:1.05rem; }
+.trail-follow .social { margin:6px 0 0; }
+.trail-follow .social a { background:var(--sky); color:var(--navy); border:1.5px solid #bcd0e8; }
+.trail-follow .social a:hover { background:#dde9f6; }
+.trail-grid { list-style:none; margin:20px 0 28px; padding:0; display:grid; grid-template-columns:1fr; gap:24px; }
+.trail-grid li { margin:0; min-width:0; }
+@media (min-width:600px) { .trail-grid { grid-template-columns:1fr 1fr; gap:24px 20px; } }

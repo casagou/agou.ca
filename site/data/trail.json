@@ -1,0 +1,5 @@
+{
+ "_doc": "On the campaign trail (trail.py; README 'Campaign trail'). One object per photo in 'entries', in any order (the site sorts newest first). Fields: date (YYYY-MM-DD, required), image (file name in site/data/trail/, lowercase .jpg, required), caption_en (one short line, no date: the site adds it; required), caption_fr (optional; French pages fall back to caption_en), place (optional; added after the caption when the caption does not already name it), place_fr (optional; falls back to place), focus (optional [x, y]: crop centre, fractions 0-1; photos are cropped to 4:3). Alt text = the caption. Only photos Joachim provides: never his daughter, his home or a private address. Then run tools/make_trail.py (strips GPS/EXIF, makes the web sizes) and commit data/trail.json, data/trail/ and assets/img/trail/. While 'entries' is empty, nothing of the feature appears on the site.",
+ "_example": {"date": "2026-10-06", "image": "2026-10-06-james-bay-coffee.jpg", "caption_en": "Coffee in James Bay", "caption_fr": "Café dans James Bay", "place": "Discovery Coffee, Menzies St", "focus": [0.5, 0.45]},
+ "entries": []
+}
