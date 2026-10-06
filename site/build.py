@@ -901,6 +901,10 @@ def build_page(lang, page, env):
         body = province.line(sys.modules[__name__], lang, "prio") + body
     if key == "priorities" and "scorecard" not in HIDDEN:
         body = scorecard.priorities_link(sys.modules[__name__], lang) + scorecard.priorities_related(sys.modules[__name__], lang, body)
+    for new_, olds_ in SITE.get("anchor_aliases", {}).get(f"{lang}/{key}", {}).items():  # old anchors after a heading rename (site.json anchor_aliases)
+        tag_ = f'<h2 id="{new_}">'
+        if tag_ in body:
+            body = body.replace(tag_, "".join(f'<span id="{esc(o_)}" class="anchor-alias"></span>' for o_ in olds_ if f'id="{o_}"' not in body) + tag_, 1)
     if key == "faq" and heads:
         idx = "".join(f'<li><a href="#{h}">{inline(t_, ctx)}</a></li>' for h, t_ in heads)
         body = (f'<div class="faq-layout"><nav class="faq-index" aria-label="{esc(U["faq_index"])}"><p class="faq-index-t" aria-hidden="true">{esc(U["faq_index"])}</p><ul>{idx}</ul></nav>'

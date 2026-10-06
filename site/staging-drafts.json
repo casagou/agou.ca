@@ -67,7 +67,7 @@
   "faq_why_running": {
    "live_flag": "faq_why_running_live",
    "updated": "2026-10-06",
-   "why": "FAQ bundle (EN+FR), staging only until Joachim approves all of it together (6 Oct 2026): (1) new entry 'Why are you running for office?' / « Pourquoi vous présentez-vous ? » right after 'Who are you?', built only from reasons and sourced figures already on agou.ca (home 'About me' + hero source, Priorities §1, FAQ 'Why are you running to represent…'; FR wording from the live FR pages); (2) 'When and where can I vote?': 'Voter information on the home page' links to /#voter-information (FR /fr/#renseignements-pour-voter), plus Elections BC's Ways to Vote page (no French version, so FR says « (en anglais) »); « directeur du scrutin » left as is; (3) freshness pass after nominations closed (Elections BC final candidate list, retrieved 6 Oct 2026 10:38 AM PT, page modified 3 Oct 2026 8:17 PM PT): his own Elections BC nomination (accepted, on the final list), the Lore/Sahota answer (final list: Grace Lore BC NDP, Rajinder S. Sahota BC Green Party, Joachim Agou Conservative Party; Green announcement source dropped), FR « à déposer au plus tard » -> « déposés au plus tard » (deadline passed; EN 'filed by'), FR « Lore est la députée » -> « a été » (EN says 'has been'; Legislature dissolved), section heading 'Nominating and helping' -> 'Get involved' (FR « S'impliquer », the nav terms). Copies of the sources: /workspace/faq-why/sources/ (box).",
+   "why": "FAQ bundle (EN+FR), staging only until Joachim approves all of it together (6 Oct 2026): (1) new entry 'Why are you running for office?' / « Pourquoi vous présentez-vous? » right after 'Who are you?' (replaces the old 'Why are you running to represent Victoria–Beacon Hill?' entry, removed EN+FR with its unsourced $2,120 line; FAQ entries have no ids, so no old anchor to keep), built only from reasons and sourced figures already on agou.ca (home 'About me' + hero source, Priorities §1, FAQ 'Why are you running to represent…'; FR wording from the live FR pages); (2) 'When and where can I vote?': 'Voter information on the home page' links to /#voter-information (FR /fr/#renseignements-pour-voter), plus Elections BC's Ways to Vote page (no French version, so FR says « (en anglais) »); « directeur du scrutin » left as is; (3) freshness pass after nominations closed (Elections BC final candidate list, retrieved 6 Oct 2026 10:38 AM PT, page modified 3 Oct 2026 8:17 PM PT): his own Elections BC nomination (accepted, on the final list), the Lore/Sahota answer (final list: Grace Lore BC NDP, Rajinder S. Sahota BC Green Party, Joachim Agou Conservative Party; Green announcement source dropped), FR « à déposer au plus tard » -> « déposés au plus tard » (deadline passed; EN 'filed by'), FR « Lore est la députée » -> « a été » (EN says 'has been'; Legislature dissolved), section heading 'Nominating and helping' -> 'Get involved' (FR « S'impliquer », the nav terms). Copies of the sources: /workspace/faq-why/sources/ (box). Approved by Joachim via Campaign Ops 6 Oct 2026 10:46 AM PT (FR question without a space before ?, like the other FR questions; old entry removed); site.json faq_why_running_live=true. Old heading anchors #nominating-and-helping / #mise-en-candidature-et-aide-à-la-campagne kept as aliases (site.json anchor_aliases).",
    "edits": {
     "en/faq": [
      [
@@ -87,6 +87,10 @@
       "## Get involved\n"
      ],
      [
+      "<details>\n<summary>Why are you running to represent Victoria–Beacon Hill?</summary>\nAt the door, I hear the same four things: people can't find a family doctor, rent is out of reach, everything costs more, and downtown doesn't feel safe. About 1 in 4 British Columbians has no family doctor, and a two-bedroom here averages $2,120 a month.\nI've spent more than 15 years as an engineer delivering multimillion-dollar projects on budget. My job today is to test whether things work and report the result. I want to bring that to the Legislature: clear targets, published numbers and a quarterly report to the riding.\n</details>\n",
+      ""
+     ],
+     [
       "Full details are in Voter information on the home page.",
       "Full details are in [Voter information on the home page](/#voter-information) and on [Elections BC's Ways to Vote page](https://elections.bc.ca/2026-provincial-election/ways-to-vote/)."
      ]
@@ -94,7 +98,7 @@
     "fr/faq": [
      [
       "\tEn savoir plus : <mention-page url=\"/fr/about/\"/>\n</details>\n",
-      "\tEn savoir plus : <mention-page url=\"/fr/about/\"/>\n</details>\n<details>\n<summary>Pourquoi vous présentez-vous ?</summary>\nEnviron 1 Britanno-Colombien sur 4 (24,7 %) n'avait ni médecin de famille ni infirmière praticienne en juin 2025 (dossiers du ministère de la Santé, via [The Canada Report, 16 juillet 2026](https://www.thecanadareport.ca/bc-health-connect-registry-attachment-gap/), en anglais).\nPartout dans la circonscription, mes voisins me disent la même chose : ils ne trouvent pas de médecin de famille, les loyers dépassent leurs moyens, tout coûte plus cher et ils ne se sentent pas en sécurité au centre-ville.\nJe suis ingénieur d'essais : je vérifie le bon fonctionnement des systèmes et je rends compte des résultats. Je ferai ce travail à l'Assemblée législative et je publierai chaque trimestre un bilan pour la circonscription.\n</details>\n"
+      "\tEn savoir plus : <mention-page url=\"/fr/about/\"/>\n</details>\n<details>\n<summary>Pourquoi vous présentez-vous?</summary>\nEnviron 1 Britanno-Colombien sur 4 (24,7 %) n'avait ni médecin de famille ni infirmière praticienne en juin 2025 (dossiers du ministère de la Santé, via [The Canada Report, 16 juillet 2026](https://www.thecanadareport.ca/bc-health-connect-registry-attachment-gap/), en anglais).\nPartout dans la circonscription, mes voisins me disent la même chose : ils ne trouvent pas de médecin de famille, les loyers dépassent leurs moyens, tout coûte plus cher et ils ne se sentent pas en sécurité au centre-ville.\nJe suis ingénieur d'essais : je vérifie le bon fonctionnement des systèmes et je rends compte des résultats. Je ferai ce travail à l'Assemblée législative et je publierai chaque trimestre un bilan pour la circonscription.\n</details>\n"
      ],
      [
       "à déposer au plus tard à 13 h le samedi 3 octobre. Je déposerai mes documents de mise en candidature auprès d'Elections BC avant l'échéance.\nSource : [FAQ d'Elections BC sur la mise en candidature](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/).",
@@ -111,6 +115,10 @@
      [
       "## Mise en candidature et aide à la campagne\n",
       "## S'impliquer\n"
+     ],
+     [
+      "<details>\n<summary>Pourquoi vous présentez-vous pour représenter Victoria–Beacon Hill?</summary>\n\tAux portes, j'entends les quatre mêmes choses : les gens ne trouvent pas de médecin de famille, les loyers dépassent leurs moyens, tout coûte plus cher et ils ne se sentent pas en sécurité au centre-ville. Environ 1 Britanno-Colombien sur 4 n'a pas de médecin de famille, et un logement de deux chambres coûte ici en moyenne 2 120 \\$ par mois.\n\tDepuis plus de 15 ans, comme ingénieur, je mène à bien des projets de plusieurs millions de dollars dans le respect des budgets. Aujourd'hui, mon travail consiste à vérifier le bon fonctionnement des systèmes et à rendre compte des résultats. Je veux appliquer cette même méthode à l'Assemblée législative : des cibles claires, des chiffres publiés et un bilan public chaque trimestre, à l'intention des résidents.\n</details>\n",
+      ""
      ],
      [
       "Tous les détails se trouvent dans la section Renseignements pour voter de la page d'accueil.",
