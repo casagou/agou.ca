@@ -23,6 +23,7 @@ Q = {"webp": 72, "jpg": 78}
 MAX_SRC = 2400                 # px, long edge of the stripped original kept in the (public) repo
 LIM = {"title": 90, "body": 280, "place": 60, "alt": 160}
 MAX_IMAGES = 4
+PAGE_SUFFIX = " – Joachim Agou"  # permalink <title> suffix: short, so up to 55 characters of the entry title fit in 70
 HOME_BODY = {"photo": 110, "text": 200}  # home strip excerpt length (characters): under a photo, and on a navy text card
 PLATFORMS = {"instagram": ("Instagram", ("instagram.com",)), "facebook": ("Facebook", ("facebook.com", "fb.com", "fb.watch")),
              "x": ("X", ("x.com", "twitter.com"))}
@@ -57,11 +58,17 @@ def link_ok(platform, url):
     return ""
 
 
+def _real_date(d):
+    import datetime
+    try: datetime.date.fromisoformat(d); return True
+    except ValueError: return False
+
+
 def validate(entries, where):
     errs = []
     for i, e in enumerate(entries):
         tag = f"{where} entry {i + 1}"
-        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(e.get("date", ""))): errs.append(f"{tag}: date is required, YYYY-MM-DD")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(e.get("date", ""))) or not _real_date(e["date"]): errs.append(f"{tag}: date is required, a real YYYY-MM-DD date")
         if not str(e.get("title_en", "")).strip(): errs.append(f"{tag}: title_en is required")
         unknown = set(e) - {"date", "slug", "title_en", "title_fr", "body_en", "body_fr", "links", "images", "image", "place", "place_fr", "alt_en", "alt_fr", "sample", "_note"}
         if e.get("slug") is not None and not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", str(e["slug"])) or len(str(e.get("slug") or "")) > 60:
@@ -91,6 +98,7 @@ def validate(entries, where):
                 errs.append(f"{t2}: focus must be [x, y], fractions 0-1 (crop centre)")
             for k in ("alt_en", "alt_fr"):
                 if len(str(im.get(k) or "")) > LIM["alt"]: errs.append(f"{t2}: {k} is too long (max {LIM['alt']})")
+                if re.search(RULES, str(im.get(k) or "")): errs.append(f"{t2}: {k} breaks a site rule (Joa / the candidate / Thales / ACTW / 'free' lawn signs)")
     return errs
 
 
@@ -370,19 +378,26 @@ def page(B, lang, pg, env):
     return B.shell(lang, pg, f'{T["title"]} – Joachim Agou', T["intro"], main, env, extra_head=rss_link(B, lang))
 
 
+def page_suffix(e, lang):
+    """PAGE_SUFFIX, or on a French page whose title is the English one (no title_fr) « – Nouvelles – Joachim Agou », so EN and FR titles stay unique."""
+    return " – Nouvelles" + PAGE_SUFFIX if lang == "fr" and pick(e, "title", "fr") == pick(e, "title", "en") else PAGE_SUFFIX
+
+
 def page_title(B, e, lang):
-    """<title>: the entry title cut to fit 70 characters with the site suffix; the date is added if two entries share a title."""
-    T = B.UI[lang]["updates"]; suf = B.SEO["suffix"][lang]; t = title(e, lang, T)
+    """<title> without suffix: the entry title cut to fit 70 characters with page_suffix(); the date is added if two entries share a title."""
+    T = B.UI[lang]["updates"]; suf = page_suffix(e, lang); t = title(e, lang, T)
     if sum(1 for x in STATE["entries"] if title(x, lang, T) == t) > 1: t = f"{t} ({short_date(e['date'], lang)})"
     return clip(t, 70 - len(suf))
 
 
 def page_desc(B, e, lang):
-    """meta description (100-170 characters): the text, else the title, plus a plain line about the campaign when short."""
+    """meta description (100-170 characters): the text, else the title, plus a plain line about the campaign when short.
+    A French page that would repeat the English description (no body_fr) starts with the French campaign line instead."""
     T = B.UI[lang]["updates"]; b = pick(e, "body", lang) or pick(e, "title", lang)
     d = clip(b, 165)
     if len(d) < 100: d = clip(f"{d.rstrip('.…')}. {T['desc_tail']} ({long_date(e['date'], lang)})", 170)
     if len(d) < 100: d = clip(f"{d} {T['intro']}", 170)
+    if lang == "fr" and d == page_desc(B, e, "en"): d = clip(f"{T['desc_tail']} {b}", 170)
     return d
 
 
@@ -404,7 +419,7 @@ def permalink_page(B, lang, pg, env):
     main = (f'<div class="page-head"><div class="wrap"><p class="upd-kicker"><a href="{allp}">{esc(T["title"])}</a></p><h1 id="pg-title">{esc(title(e, lang, T))}</h1></div></div>'
             f'<div class="wrap content updates-content">{body}{B.updated_for(lang, key(e))}</div>')
     head = rss_link(B, lang) + f'<meta property="article:published_time" content="{e["date"]}">\n'
-    return B.shell(lang, pg, page_title(B, e, lang) + B.SEO["suffix"][lang], page_desc(B, e, lang), main, env, extra_head=head)
+    return B.shell(lang, pg, page_title(B, e, lang) + page_suffix(e, lang), page_desc(B, e, lang), main, env, extra_head=head)
 
 
 def register(B):
