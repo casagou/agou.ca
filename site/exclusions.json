@@ -1866,6 +1866,24 @@
       "find": "C'est là que doit s'exercer la responsabilité.",
       "replace": "C'est sur ces résultats que les responsables doivent rendre des comptes.",
       "why": "Joachim (4 Oct 2026, ~10:40 PM PT, via parent): FR-only corrections to /fr/priorities/ (13 recommended updates + optional refinements); English is the approved master and unchanged. Item opt-accountable"
+    },
+    {
+      "page": "en-home",
+      "find": "**Vote now at the Victoria–Beacon Hill district electoral office:** 101-722 Johnson St, Victoria.",
+      "replace": "**Vote now at the Victoria–Beacon Hill district electoral office:** Unit 101, 722 Johnson Street, Victoria.",
+      "why": "Joachim (6 Oct 2026, 9:49 AM PT): home Voter information matches the How to vote page: address as 'Unit 101, 722 Johnson Street' (Elections BC: '101 722 Johnson St', https://elections.bc.ca/docs/2026-district-electoral-offices.pdf). Nothing else in the section changed."
+    },
+    {
+      "page": "fr-home",
+      "find": "**Votez dès maintenant au bureau du directeur du scrutin de Victoria–Beacon Hill :** 101-722 Johnson St, Victoria. Vous pouvez voter à n'importe quel bureau du directeur du scrutin jusqu'à 16 h le 24 octobre.",
+      "replace": "**Votez dès maintenant au bureau électoral de circonscription de Victoria–Beacon Hill :** Local 101, 722 Johnson Street, Victoria. Vous pouvez voter à n'importe quel bureau électoral de circonscription jusqu'à 16 h le 24 octobre.",
+      "why": "Joachim (6 Oct 2026, 9:49 AM PT): home Voter information matches the How to vote page: « Local 101, 722 Johnson Street », and Elections BC's 2026 French term « bureau électoral de circonscription » (2026 French Voter's Guide, https://elections.bc.ca/2026election/2026-provincial-election-voters-guide-French.pdf) instead of « bureau du directeur du scrutin ». Nothing else in the section changed."
+    },
+    {
+      "page": "fr-home",
+      "find": "Vous pouvez aussi la déposer à un bureau du directeur du scrutin ou à un bureau de vote.",
+      "replace": "Vous pouvez aussi la déposer à un bureau électoral de circonscription ou à un bureau de vote.",
+      "why": "Joachim (6 Oct 2026, 9:49 AM PT): home Voter information matches the How to vote page: « Local 101, 722 Johnson Street », and Elections BC's 2026 French term « bureau électoral de circonscription » (2026 French Voter's Guide, https://elections.bc.ca/2026election/2026-provincial-election-voters-guide-French.pdf) instead of « bureau du directeur du scrutin ». Nothing else in the section changed."
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

@@ -46,12 +46,12 @@ En 2026, vous pouvez donner jusqu'à 1 513,29 \$ au total à un parti, à ses as
 Vous pouvez vous inscrire ou mettre à jour vos renseignements au moment de voter. [S'inscrire pour voter](https://elections.bc.ca/2026-provincial-election/register-to-vote/)
 **Vote par anticipation : du vendredi 16 au mercredi 21 octobre, de 8 h à 20 h.** Aucune justification n'est requise pour voter par anticipation. Vous pouvez voter à n'importe quel bureau de vote par anticipation.
 **Jour du scrutin : samedi 24 octobre, de 8 h à 20 h.** Vous votez au bureau indiqué sur votre carte d'information électorale (« Where to Vote »).
-**Votez dès maintenant au bureau du directeur du scrutin de Victoria–Beacon Hill :** 101-722 Johnson St, Victoria. Vous pouvez voter à n'importe quel bureau du directeur du scrutin jusqu'à 16 h le 24 octobre.
+**Votez dès maintenant au bureau électoral de circonscription de Victoria–Beacon Hill :** Local 101, 722 Johnson Street, Victoria. Vous pouvez voter à n'importe quel bureau électoral de circonscription jusqu'à 16 h le 24 octobre.
 - Du lundi au vendredi, de 9 h à 17 h
 - Le samedi, de 10 h à 16 h
 - Les jours de vote par anticipation, de 8 h à 20 h
 - Fermé le lundi 12 octobre (Action de grâces)
-**Vote par la poste :** demandez une trousse sur [elections.bc.ca](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) ou au 1-800-661-8683, au plus tard le dimanche 18 octobre. Elections BC doit la recevoir au plus tard à 20 h le 24 octobre. Vous pouvez aussi la déposer à un bureau du directeur du scrutin ou à un bureau de vote.
+**Vote par la poste :** demandez une trousse sur [elections.bc.ca](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) ou au 1-800-661-8683, au plus tard le dimanche 18 octobre. Elections BC doit la recevoir au plus tard à 20 h le 24 octobre. Vous pouvez aussi la déposer à un bureau électoral de circonscription ou à un bureau de vote.
 **Vous ne savez pas si vous habitez la circonscription?** Vérifiez sur [wheretovote.elections.bc.ca](https://wheretovote.elections.bc.ca/).
 Les lieux de vote sont en cours de confirmation par Elections BC. Source : [Elections BC, Ways to Vote](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) (en anglais).
 **Renseignements complémentaires**

@@ -46,7 +46,7 @@ In 2026, you can give up to \$1,513.29 in total to a party, its riding associati
 You can register or update your details when you vote. [Register to vote](https://elections.bc.ca/2026-provincial-election/register-to-vote/)
 **Advance voting: Friday 16 to Wednesday 21 October, 8 a.m. to 8 p.m.** No reason needed. You can vote at any advance voting place.
 **Final Voting Day: Saturday 24 October, 8 a.m. to 8 p.m.** You vote at the place assigned to you on your Where to Vote card.
-**Vote now at the Victoria–Beacon Hill district electoral office:** 101-722 Johnson St, Victoria. You can vote at any district electoral office until 4 p.m. on 24 October.
+**Vote now at the Victoria–Beacon Hill district electoral office:** Unit 101, 722 Johnson Street, Victoria. You can vote at any district electoral office until 4 p.m. on 24 October.
 - Monday to Friday, 9 a.m. to 5 p.m.
 - Saturday, 10 a.m. to 4 p.m.
 - Advance voting days, 8 a.m. to 8 p.m.
