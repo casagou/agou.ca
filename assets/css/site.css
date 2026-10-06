@@ -160,7 +160,8 @@ details[open].more-details summary::before { content:"−"; }
 .placeholder, .draft { border:2px dashed #b58900; background:#fff9e0; color:#3d3000; border-radius:10px; padding:14px 16px; margin:0 0 16px; }
 .draft { font-weight:700; }
 .updated { color:var(--muted); font-size:.92rem; margin:6px 0 0; }
-.keydates .src { color:var(--muted); font-size:.95rem; }
+.keydates .src, .vote-src { color:var(--muted); font-size:.95rem; }
+.content a[href^="tel:"] { white-space:nowrap; }
 .facts li, .links li { margin:10px 0; }
 .facts a, .links a { display:inline; }
 .privacy-note { margin:14px 0 0; font-size:.95rem; }
