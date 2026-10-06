@@ -196,7 +196,9 @@
     var SH = CFG.shift_text || {};
     var SHOW = (function () { var q = new URLSearchParams(location.search).get("show"); return CFG.shifts && (q === "public" || q === "shifts") ? q : "both"; })();
     var visible = function (e) { return SHOW === "both" || (SHOW === "shifts") === !!e.shift; };
-    function partOfDay(s) { var h = +new Intl.DateTimeFormat("en-CA", { timeZone: TZ, hour: "numeric", hourCycle: "h23" }).format(new Date(s)); return h < 12 ? SH.part_morning : h < 16 ? SH.part_afternoon : SH.part_evening; }
+    // Shift time of day, from the start time in Pacific time: before 12:00 morning, 12:00-16:59 afternoon, 17:00 or later evening
+    // (Events, 6 Oct 2026: shifts starting before 5 PM say "afternoon" / « après-midi »; was evening from 4 PM).
+    function partOfDay(s) { var h = +new Intl.DateTimeFormat("en-CA", { timeZone: TZ, hour: "numeric", hourCycle: "h23" }).format(new Date(s)); return h < 12 ? SH.part_morning : h < 17 ? SH.part_afternoon : SH.part_evening; }
     function shiftLead(e) { // "Monday evening, door knocking in Fernwood. Join us." / "Lundi soir, porte-à-porte à Fernwood. Joignez-vous à nous."
       return (e.area ? SH.lead : SH.lead_tbd).replace("{day}", cap(parts(e.starts_at).weekday)).replace("{part}", partOfDay(e.starts_at)).replace("{area}", e.area || "");
     }
