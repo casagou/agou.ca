@@ -173,8 +173,8 @@ def place(e, lang):
 def date_txt(d, lang, year=None):
     y, m, dd = map(int, d.split("-"))
     yr = "" if year in (None, y) else f" {y}"
-    if lang == "fr": return f"{'1er' if dd == 1 else dd} {MON['fr'][m - 1]}{yr}"
-    return f"{MON['en'][m - 1]} {dd}" + (f", {y}" if yr else "")
+    if lang == "fr": return f"{'1er' if dd == 1 else dd}\u00a0{MON['fr'][m - 1]}{yr}"  # no-break space: « 5 oct. » never splits
+    return f"{MON['en'][m - 1]}\u00a0{dd}" + (f", {y}" if yr else "")
 
 
 def line(e, lang, year, sample_tag):
