@@ -1207,6 +1207,8 @@
   "party_links_live": true,
   "priorities_health_v3_live": true,
   "priorities_bed_v2_live": true,
+  "how_to_vote_v2_live": false,
+  "_how_to_vote_v2_live_doc": "staging-drafts.json how_to_vote_v2 (6 Oct 2026): How to vote page v2 (Joachim's advance-voting / district electoral office / vote-by-mail text + Elections BC-verified voter info). false = live keeps the current How to vote page; set to true after Joachim approves, rebuild live, publish.",
   "_priorities_bed_v2_live_doc": "4 Oct 2026 ~11:28 PM PT: rewrite of the Priorities §1 emergency-bed / funding-incentive bullet (staging-drafts.json priorities_bed_v2, applied after priorities_health_v3). Staging always shows it; false = live keeps the published bullet. Set true only after Joachim approves, then rebuild live and publish. Approved by Joachim and set true 4 Oct 2026 ~11:58 PM PT.",
   "_priorities_health_v3_live_doc": "4 Oct 2026: Priorities §1 Health care rewrite v3 (credibility and plain-language pass) lives in staging-drafts.json. Staging always shows it; false = live builds keep the current §1 text, so other publishes from staging stay safe. Set true only after Joachim approves, then rebuild live and publish. See README 'Staging drafts'. Approved by Joachim and set true 4 Oct 2026 ~9:49 PM PT.",
   "party": {

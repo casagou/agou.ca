@@ -448,6 +448,28 @@ def read(lang, key):
     return t
 
 
+def page_drafts(lang, key, md):
+    """Staging drafts scoped to one page built from a home section (edits keyed '<lang>/<page key>', e.g. 'en/how-to-vote'):
+    applied to that page's section text only, so the home page keeps the Notion text. Same rules as read(): exact find, once."""
+    if not DRAFT_ENV["env"]: return md
+    for name_, d_ in DRAFTS.items():
+        if not DRAFT_ON(name_, DRAFT_ENV["env"]): continue
+        for a_, b_ in d_["edits"].get(f"{lang}/{key}", []):
+            if md.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key} (home section): text to replace not found once (Notion text changed? redo the draft): {a_[:80]!r}")
+            md = md.replace(a_, b_)
+    return md
+
+
+def draft_updated(lang, key):
+    """'Last updated' date of the drafts that change this page (draft 'updated' field), when they apply to this build."""
+    if not DRAFT_ENV["env"]: return None
+    ds = [d_.get("updated") for n_, d_ in DRAFTS.items() if DRAFT_ON(n_, DRAFT_ENV["env"]) and f"{lang}/{key}" in d_["edits"]]
+    return max([d for d in ds if d], default=None)
+
+
+HTV_V2 = lambda env: "how_to_vote_v2" in DRAFTS and DRAFT_ON("how_to_vote_v2", env)  # How to vote v2 (6 Oct 2026, staging until Joachim approves)
+
+
 def section(md, title):
     m = re.search(r"^## " + re.escape(title) + r"\s*$", md, re.M)
     if not m: sys.exit(f"Section '## {title}' not found in home page content.")
@@ -846,7 +868,7 @@ def build_page(lang, page, env):
     elif key == "privacy":
         md = read(lang, "privacy")
     elif page.get("section"):
-        h1 = page["section"][lang]; md = section(home, h1)
+        h1 = page["section"][lang]; md = page_drafts(lang, key, section(home, h1))
     elif key == "lawn-sign":
         h1 = U["lawnsign"]["title"]; md = ""
     elif key == "media" and lang == "fr" and not read("fr", "media") and MEDIAKIT["on"]:
@@ -881,7 +903,11 @@ def build_page(lang, page, env):
         body = hub(lang, home)
     if key in ("how-to-vote", "donate", "volunteer", "events", "nominate") and body and not body.lstrip().startswith("<section"):
         body = f'<section class="block lead">{body}</section>'
-    if key == "how-to-vote":
+    if key == "how-to-vote" and HTV_V2(env):  # v2: the draft text carries every fact with its Elections BC source, so no separate key-dates box
+        for must in ("722 Johnson Street", "1-800-661-8683", "elections.bc.ca"):
+            if must not in body: sys.exit(f"how-to-vote v2: {must!r} missing from the page (staging-drafts.json how_to_vote_v2)")
+        body = re.sub(r"<p>(Sources? ?:)", r'<p class="vote-src">\1', body) + map_block(lang)
+    elif key == "how-to-vote":
         V = U["vote"]
         facts = "".join(f'<li>{esc(t)} <a class="srclink" href="{esc(u_)}" rel="noopener">{esc(V["src_link"])}</a></li>' for t, u_ in V["facts"])
         links = "".join(f'<li><a href="{esc(u_)}" rel="noopener">{esc(t)}</a></li>' for t, u_ in V["links"])
@@ -1094,6 +1120,7 @@ def updated_for(lang, key):
         cands.append(trail.STATE["entries"][0]["date"])
     if lang == "fr" and p.get("form") and U.get("fr-forms"):
         cands.append(U.get("fr-forms"))
+    cands.append(draft_updated(lang, key))
     d = max(c for c in cands if c)
     y, m, dd = map(int, d.split("-"))
     txt = f"{'1er' if lang == 'fr' and dd == 1 else dd} {MONTHS[lang][m - 1]} {y}"  # French: « 1er octobre » (French review, 1 Oct 2026)
@@ -1209,7 +1236,8 @@ PRIORITIES_OLD = [
     (r"came to Canada at 22 to study|arrivé au Canada à 22 ans pour étudier|Médias \(en anglais\)", "the old About intro (Laval: graduate research, after Florida Tech) or the English-Media fallback link"),
 ]
 EXPERIENCE_OLD = r"(?i)(more than|over)\s+(12|twelve)\s+years|\b(12|twelve) years of experience|plus de (12|douze) ans"
-PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910"}
+PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910",
+             "1-888-456-5448", "778-405-9892"}  # Elections BC TTY and the Victoria–Beacon Hill district electoral office (How to vote; elections.bc.ca, checked 6 Oct 2026)
 
 
 def shifts_check(dist, env):
