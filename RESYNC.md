@@ -200,3 +200,9 @@ See `site/README.md` "Party links". If Notion's Home or FAQ volunteer, lawn-sign
 - `tools/diffcheck.py` treats Notion lines named in an active staging draft's finds (and links it drops) as intentional differences.
 - Went out from staging 2b93b1c (merged 6 Oct 2026 10:48 AM PT). Everything else in the live build only differs by the ?v= cache-bust; `volunteer_shifts_note_live` still false, `how_to_vote_v2_live` true, no trail/Updates samples.
 - Rollback: `git revert -m 1 8428d5d` on main and push.
+
+### Event 113 + shift 105 time (6 Oct 2026, Events agent, Joachim approved), live in PR #66 (merge 7bd436a, 1:51 PM PT)
+- campaign_events id 113 (public): All-Candidates Meeting | Downtown Victoria Business Association, Tue Oct 20 6:30-8:00 PM PT, Greenhouse at the Victoria Conservatory of Music, 900 Johnson St (BC Geocoder 48.4267205, -123.3586625; inside the riding). Host contact and RSVP details are in `notes` only (never public; get_public_events does not return notes).
+- Shift id 105 (James Bay, Oct 20) moved 5:00-7:30 PM -> 4:30-6:00 PM in campaign_events (1 sign-up at the old time; its bell notification text updated; Google Calendar instance had already been moved). Backup: /workspace/events/campaign_events_backup_20261006_id_105.json.
+- Site files: venue photo `conservatory-of-music` (Michal Klajban, CC BY-SA 4.0, passers-by blurred; thumb only) + `"900 Johnson St"` mapping (above the Downtown default), static map event-113, data/events-added.json record. Rendered from the 1280px Commons thumbnail, because Commons returned 429 for the full original; re-running tools/make_vic_photos.py downloads the full original into /tmp/vic-photos-orig when it is missing.
+- Rollback: `git revert -m 1 7bd436a` on main and push; set event 113 `is_public=false` or `status='Cancelled'`.
