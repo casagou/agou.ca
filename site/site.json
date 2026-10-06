@@ -867,6 +867,48 @@
           ]
         ]
       },
+      "conservatory-of-music": {
+        "title": "Victoria Conservatory of Music, Victoria, British Columbia, Canada 07",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Victoria_Conservatory_of_Music,_Victoria,_British_Columbia,_Canada_07.jpg",
+        "author": "Michal Klajban",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "The Victoria Conservatory of Music at 900 Johnson Street, a stone former church with a tall spired tower",
+          "fr": "Le Victoria Conservatory of Music, au 900, rue Johnson, une ancienne église en pierre surmontée d’une haute tour à flèche"
+        },
+        "place": {
+          "en": "Victoria Conservatory of Music, 900 Johnson St",
+          "fr": "Victoria Conservatory of Music, 900, rue Johnson"
+        },
+        "focus": {
+          "thumb": [
+            0.5,
+            0.56,
+            1.0
+          ]
+        },
+        "blur": [
+          [
+            0.23,
+            0.88,
+            0.305,
+            0.955
+          ],
+          [
+            0.36,
+            0.885,
+            0.44,
+            0.985
+          ],
+          [
+            0.495,
+            0.87,
+            0.555,
+            0.93
+          ]
+        ]
+      },
       "menzies-street": {
         "title": "Don's food & floral NW",
         "source_url": "https://commons.wikimedia.org/wiki/File:Don's_food_&_floral_NW.jpg",
@@ -1160,6 +1202,7 @@
       "_doc": "Matched in forms.js against the public event data only (get_public_events; campaign_events has no photo column): 'address' = the first key, in this order, found inside the event address (so specific addresses go above general ones like 'Dallas Rd'), then 'neighbourhood' = English neighbourhood. Venues of public events, else the closest licensed photo on the same street, else a generic neighbourhood shot. To give one venue its own photo, add an address entry above the general ones, e.g. \"281 Menzies St\": \"<new-id>\". 4 Oct 2026 (Joachim's stricter rule): a photo must show the venue or its block, not a nearby landmark; when none exists the event shows no photo (so 'James Bay' has no neighbourhood default: 535 Superior St, Good Earth at Capital Park, has no licensed photo). An address mapped to null shows no photo and skips the neighbourhood default (5 Oct 2026: 380 Cook St, Cook Street Village Activity Centre, north of Pendergast; the Cook Street Village photos show other blocks).",
       "address": {
         "380 Cook St": null,
+        "900 Johnson St": "conservatory-of-music",
         "345 Cook St": "moka-house-block",
         "301 Cook St": "cook-street-village",
         "Cook St & Oxford St": "cook-street-village",
