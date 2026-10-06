@@ -63,6 +63,61 @@
      ]
     ]
    }
+  },
+  "faq_why_running": {
+   "live_flag": "faq_why_running_live",
+   "updated": "2026-10-06",
+   "why": "FAQ bundle (EN+FR), staging only until Joachim approves all of it together (6 Oct 2026): (1) new entry 'Why are you running for office?' / « Pourquoi vous présentez-vous ? » right after 'Who are you?', built only from reasons and sourced figures already on agou.ca (home 'About me' + hero source, Priorities §1, FAQ 'Why are you running to represent…'; FR wording from the live FR pages); (2) 'When and where can I vote?': 'Voter information on the home page' links to /#voter-information (FR /fr/#renseignements-pour-voter), plus Elections BC's Ways to Vote page (no French version, so FR says « (en anglais) »); « directeur du scrutin » left as is; (3) freshness pass after nominations closed (Elections BC final candidate list, retrieved 6 Oct 2026 10:38 AM PT, page modified 3 Oct 2026 8:17 PM PT): his own Elections BC nomination (accepted, on the final list), the Lore/Sahota answer (final list: Grace Lore BC NDP, Rajinder S. Sahota BC Green Party, Joachim Agou Conservative Party; Green announcement source dropped), FR « à déposer au plus tard » -> « déposés au plus tard » (deadline passed; EN 'filed by'), FR « Lore est la députée » -> « a été » (EN says 'has been'; Legislature dissolved), section heading 'Nominating and helping' -> 'Get involved' (FR « S'impliquer », the nav terms). Copies of the sources: /workspace/faq-why/sources/ (box).",
+   "edits": {
+    "en/faq": [
+     [
+      "More: <mention-page url=\"/about/\"/>\n</details>\n",
+      "More: <mention-page url=\"/about/\"/>\n</details>\n<details>\n<summary>Why are you running for office?</summary>\nAbout 1 in 4 British Columbians (24.7%) had no family doctor or nurse practitioner in June 2025 (Ministry of Health records, via [The Canada Report, 16 Jul 2026](https://www.thecanadareport.ca/bc-health-connect-registry-attachment-gap/)).\nNeighbours across this riding tell me the same things: they can't find a family doctor, rent is out of reach, everything costs more, and downtown doesn't feel safe.\nI'm a test engineer: I check whether things work and report the result. I'll do that job in the Legislature and publish a report to the riding every quarter.\n</details>\n"
+     ],
+     [
+      "I'm filing my Elections BC nomination papers before the deadline.\nSource: [Elections BC, candidate nomination FAQ](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/).",
+      "My nomination papers were accepted: I'm on Elections BC's final candidate list for Victoria–Beacon Hill.\nSources: [Elections BC, candidate nomination FAQ](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/), [Elections BC, candidate list](https://elections.bc.ca/2026-provincial-election/candidate-list/)."
+     ],
+     [
+      "Grace Lore is the NDP MLA and has filed with Elections BC. The BC Greens have announced Raj Sahota. Sources: [Elections BC candidate list](https://elections.bc.ca/2026-provincial-election/candidate-list/), [BC Green Party, 24 September 2026](https://bcgreens.ca/announce-candidates-for-victoria-beacon-hill-and-juan-de-fuca-malahat/).",
+      "Nominations closed on 3 October. Elections BC's final candidate list for Victoria–Beacon Hill has three names: Grace Lore (BC NDP), Raj Sahota (BC Green Party; on the ballot as Rajinder S. Sahota) and me (Conservative Party of BC). Source: [Elections BC candidate list](https://elections.bc.ca/2026-provincial-election/candidate-list/)."
+     ],
+     [
+      "## Nominating and helping\n",
+      "## Get involved\n"
+     ],
+     [
+      "Full details are in Voter information on the home page.",
+      "Full details are in [Voter information on the home page](/#voter-information) and on [Elections BC's Ways to Vote page](https://elections.bc.ca/2026-provincial-election/ways-to-vote/)."
+     ]
+    ],
+    "fr/faq": [
+     [
+      "\tEn savoir plus : <mention-page url=\"/fr/about/\"/>\n</details>\n",
+      "\tEn savoir plus : <mention-page url=\"/fr/about/\"/>\n</details>\n<details>\n<summary>Pourquoi vous présentez-vous ?</summary>\nEnviron 1 Britanno-Colombien sur 4 (24,7 %) n'avait ni médecin de famille ni infirmière praticienne en juin 2025 (dossiers du ministère de la Santé, via [The Canada Report, 16 juillet 2026](https://www.thecanadareport.ca/bc-health-connect-registry-attachment-gap/), en anglais).\nPartout dans la circonscription, mes voisins me disent la même chose : ils ne trouvent pas de médecin de famille, les loyers dépassent leurs moyens, tout coûte plus cher et ils ne se sentent pas en sécurité au centre-ville.\nJe suis ingénieur d'essais : je vérifie le bon fonctionnement des systèmes et je rends compte des résultats. Je ferai ce travail à l'Assemblée législative et je publierai chaque trimestre un bilan pour la circonscription.\n</details>\n"
+     ],
+     [
+      "à déposer au plus tard à 13 h le samedi 3 octobre. Je déposerai mes documents de mise en candidature auprès d'Elections BC avant l'échéance.\nSource : [FAQ d'Elections BC sur la mise en candidature](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/).",
+      "déposés au plus tard à 13 h le samedi 3 octobre. Mes documents de mise en candidature ont été acceptés : mon nom figure sur la liste finale des candidats d'Elections BC pour Victoria–Beacon Hill.\nSources : [FAQ d'Elections BC sur la mise en candidature](https://elections.bc.ca/candidates-parties/candidate-nomination-faq/), [liste des candidats d'Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/)."
+     ],
+     [
+      "Grace Lore est la députée néo-démocrate et a déposé sa candidature auprès d'Elections BC. Le Parti vert a annoncé la candidature de Raj Sahota. Sources : [liste des candidats d'Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/), [Parti vert de la C.-B., 24 septembre 2026](https://bcgreens.ca/announce-candidates-for-victoria-beacon-hill-and-juan-de-fuca-malahat/).",
+      "Les mises en candidature ont pris fin le 3 octobre. La liste finale des candidats d'Elections BC pour Victoria–Beacon Hill compte trois noms : Grace Lore (NPD de la C.-B.), Raj Sahota (Parti vert de la C.-B., inscrit sur le bulletin de vote sous le nom de Rajinder S. Sahota) et moi (Parti conservateur de la C.-B.). Source : [liste des candidats d'Elections BC](https://elections.bc.ca/2026-provincial-election/candidate-list/)."
+     ],
+     [
+      "Lore est la députée. Ces chiffres sont le bilan.",
+      "Lore a été la députée. Ces chiffres sont le bilan."
+     ],
+     [
+      "## Mise en candidature et aide à la campagne\n",
+      "## S'impliquer\n"
+     ],
+     [
+      "Tous les détails se trouvent dans la section Renseignements pour voter de la page d'accueil.",
+      "Tous les détails se trouvent dans la [section Renseignements pour voter de la page d'accueil](/fr/#renseignements-pour-voter) et sur la [page Ways to Vote d'Elections BC](https://elections.bc.ca/2026-provincial-election/ways-to-vote/) (en anglais)."
+     ]
+    ]
+   }
   }
  }
 }

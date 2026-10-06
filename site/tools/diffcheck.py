@@ -14,6 +14,15 @@ import build as _build  # noqa: E402
 sys.argv = _argv
 PARTY_ON = _build.PARTY_ON("staging" if "--live" not in sys.argv else "live")
 PARTY_MD = _build.PARTY_MD
+# Staging drafts (staging-drafts.json): a draft that is on for this env (always on staging; on live only with its site.json live_flag)
+# rewrites the Notion lines named in its 'find' texts on purpose. Finds shorter than 12 characters never excuse a line.
+DENV = "staging" if "--live" not in sys.argv else "live"
+DRAFT_FINDS = {}
+for _n, _d in _build.DRAFTS.items():
+    if not _build.DRAFT_ON(_n, DENV): continue
+    for _pk, _eds in _d["edits"].items():
+        for _f, _r in _eds:
+            DRAFT_FINDS.setdefault(_pk.replace("/", "-"), []).append((_n, _f, _r))
 BLOCK = {"p", "li", "h1", "h2", "h3", "figcaption", "summary", "div", "section", "br", "td", "a"}
 
 class T(HTMLParser):
@@ -100,6 +109,10 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
             pm = [f for f, _ in PARTY_MD.get((lang, key), []) for fl in f.split("\n") if plain(fl) and plain(fl) in p]
             if pm:
                 excluded.append(f"{name}: {p[:110]!r}  -> party links (2 Oct 2026): rewritten by build.py PARTY_MD"); continue
+        if not hit:
+            dm = [n_ for n_, f_, _ in DRAFT_FINDS.get(name, []) for fl in f_.split("\n") if plain(fl) and len(plain(fl)) >= 12 and plain(fl) in p]
+            if dm:
+                excluded.append(f"{name}: {p[:110]!r}  -> staging draft {dm[0]} (staging-drafts.json, live only with site.json {_build.DRAFTS[dm[0]]['live_flag']})"); continue
         if hit:
             excluded.append(f"{name}: {p[:110]!r}  -> {hit[0]['why']}")
         else:
@@ -109,6 +122,9 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
         if u not in hrefs:
             if any(r["page"] in (name, "*") and u in r["find"] and u not in r["replace"] for r in EXCL):
                 excluded.append(f"{name}: link {u} replaced on purpose (exclusions.json)"); continue
+            dl = [n_ for n_, f_, r_ in DRAFT_FINDS.get(name, []) if u in f_ and u not in r_]
+            if dl:
+                excluded.append(f"{name}: link {u} replaced on purpose (staging draft {dl[0]})"); continue
             problems.append(f"{name}: link missing on page: {u}")
     # contact block (every page footer)
     for l in contact.split("\n"):
