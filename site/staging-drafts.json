@@ -303,6 +303,181 @@
      ]
     ]
    }
+  },
+  "cpbc_alignment_v1": {
+   "live_flag": "cpbc_alignment_v1_live",
+   "updated": "2026-10-07",
+   "why": "Joachim (Campaign Ops, 7 Oct 2026 1:03 PM PT): align Priorities (and the FAQ, per his standing rule) with the party's 2026 announcements: Keep Emergency Rooms Open (5 Oct), Supercharge British Columbia's Economy (7 Oct), PST on Canadian alcohol (29 Sep), housing statement (25 Sep), no new taxes (27 Sep). Quotes verified against the live pages; copies in /workspace/cpbc-align/sources/. Source key adds '2026 party commitment'; Responsible spending front-line line now cites 5 Oct; 32.2 weeks cited to Waiting Your Turn 2025 (Dec. 2025) on Priorities as on home. No new figures beyond the party's own ($50 million, 100 days, 180 days, 3 years, 2017).",
+   "edits": {
+    "en/priorities": [
+     [
+      "- **My position:** mine. I'll advocate for it within the party.",
+      "- **2026 party commitment:** announced by the party during this campaign. Each one says \"party commitment\" with the announcement's name and date, and links to it.\n- **My position:** mine. I'll advocate for it within the party."
+     ],
+     [
+      "In the Island Health region, the median wait for a family doctor on the provincial list is 388 days ([B.C. Health Minister, Hansard, 28 Apr 2026](https://lims.leg.bc.ca/hdms/file/Debates/43rd2nd/20260428pm-Hansard-n166.html)).",
+      "The party has also committed to train more doctors here in B.C., bring home Canadians who studied medicine abroad, and speed up international credential recognition (party commitment, [Keep Emergency Rooms Open, 5 Oct 2026](https://conservativebc.ca/keep-emergency-rooms-open/)). In the Island Health region, the median wait for a family doctor on the provincial list is 388 days ([B.C. Health Minister, Hansard, 28 Apr 2026](https://lims.leg.bc.ca/hdms/file/Debates/43rd2nd/20260428pm-Hansard-n166.html)). More doctors allowed to practise here, sooner, is how that wait comes down."
+     ],
+     [
+      "the benchmark trigger, the out-of-province option and the starting list are mine).",
+      "the benchmark trigger, the out-of-province option and the starting list are mine). You show your health card and pay nothing. The party has committed to protect current health care funding and keep B.C.'s system \"universal and publicly funded\", so British Columbians \"never need anything more than their health card to get care\" (party commitment, [Keep Emergency Rooms Open, 5 Oct 2026](https://conservativebc.ca/keep-emergency-rooms-open/))."
+     ],
+     [
+      "- **Free up hospital beds: get seniors into care beds.**",
+      "- **An expert commission within 100 days.** The party has committed to launch, within its first 100 days, an expert commission to bring proven solutions from other public systems to B.C. and cut wait times (party commitment, [Keep Emergency Rooms Open, 5 Oct 2026](https://conservativebc.ca/keep-emergency-rooms-open/)). My position: I'll bring it Saskatchewan's surgical results, the wait-time backstop and Island Health's wait data.\n- **Free up hospital beds: get seniors into care beds.**"
+     ],
+     [
+      "Licensing doctors and nurses from other provinces within a week helps fill those shifts.",
+      "Licensing doctors and nurses from other provinces within a week helps fill those shifts. The party has committed to keep emergency rooms open, hire and retain more doctors and nurses, and invest \\$50 million into an emergency fund (party commitment, [Keep Emergency Rooms Open, 5 Oct 2026](https://conservativebc.ca/keep-emergency-rooms-open/)). The announcement doesn't say which hospitals the fund supports."
+     ],
+     [
+      "your doctor can book it at an approved clinic, and the Province pays the clinic, not you.",
+      "your doctor can book it at an approved clinic, and the Province pays the clinic. You show your health card and pay nothing."
+     ],
+     [
+      "was 32.2 weeks, 3.6 weeks longer than the Canadian median of 28.6. It was B.C.'s longest wait since the Fraser Institute began measuring in 1993 ([Fraser Institute, 17 Aug 2026](https://www.fraserinstitute.org/commentary/heres-how-bc-government-can-help-fix-broken-health-care-system)). B.C. still had the second-shortest wait in Canada, after Ontario (19.2 weeks) ([Fraser Institute, Waiting Your Turn 2025, Dec. 2025](https://www.fraserinstitute.org/sites/default/files/2025-12/waiting-your-turn-2025-17913.pdf)).",
+      "was 32.2 weeks, 3.6 weeks longer than the Canadian median of 28.6, but still the second-shortest in Canada, after Ontario (19.2 weeks) ([Fraser Institute, Waiting Your Turn 2025, Dec. 2025](https://www.fraserinstitute.org/sites/default/files/2025-12/waiting-your-turn-2025-17913.pdf)). It was B.C.'s longest wait since the Fraser Institute began measuring in 1993 ([Fraser Institute, 17 Aug 2026](https://www.fraserinstitute.org/commentary/heres-how-bc-government-can-help-fix-broken-health-care-system))."
+     ],
+     [
+      "- Lower the fees and paperwork that add to the cost of every new home (my position).",
+      "- Lower the fees and paperwork that add to the cost of every new home (my position). The party has committed to \"bring down the cost of building and buying a home so more homes get built\" (party commitment, [statement, 25 Sep 2026](https://conservativebc.ca/statement-from-interim-leader-lorne-doerkson-on-the-ndps-housing-tax-plan/)), and to no new taxes ([27 Sep 2026](https://conservativebc.ca/conservative-party-of-bc-pledges-no-new-taxes-on-british-columbians/)).\n- Cut red tape: a new Minister of Red Tape Reduction, red tape cut \"back to 2017 levels by the end of a first term\", and a \"one-in, two-out\" red-tape reduction law (party commitment, [Supercharge British Columbia's Economy, 7 Oct 2026](https://conservativebc.ca/supercharge-british-columbias-economy/)). My position: that means fewer rules and forms for builders, not fewer public servants."
+     ],
+     [
+      "- No PST on affordable used cars (2024 party platform",
+      "- No PST for 3 years on machinery, equipment and business software (party commitment, [Supercharge British Columbia's Economy, 7 Oct 2026](https://conservativebc.ca/supercharge-british-columbias-economy/)). A café buying a new espresso machine, or a small firm buying laptops and software, would pay no PST on them.\n- No PST at the till on Canadian beer, wine and spirits for as long as the U.S. trade war lasts (party commitment, [29 Sep 2026](https://conservativebc.ca/conservatives-to-remove-pst-from-canadian-alcohol/)). That helps downtown and James Bay pubs, restaurants and the tourism trade, and makes beer, wine and spirits made on the Island cheaper to buy.\n- No PST on affordable used cars (2024 party platform"
+     ],
+     [
+      "I won't print a year the party hasn't set.",
+      "I won't print a year the party hasn't set. The party has committed to an expert panel that delivers a plan within 180 days to simplify B.C.'s taxes (party commitment, [Supercharge British Columbia's Economy, 7 Oct 2026](https://conservativebc.ca/supercharge-british-columbias-economy/)). I'll track it in my quarterly report."
+     ],
+     [
+      "How much depends on your income and credits.",
+      "How much depends on your income and credits. Under the 2026 party commitments: no PST at the till on Canadian beer, wine and spirits during the trade war, and none on a small business's new equipment and software for 3 years."
+     ],
+     [
+      "- Protect front-line services: the party's 2024 costing said funding for front-line services, including health, education and public safety, would be maintained or increased (2024 party platform).",
+      "- Protect front-line services: the party has committed to protect current health care funding and keep B.C.'s system universal and publicly funded (party commitment, [Keep Emergency Rooms Open, 5 Oct 2026](https://conservativebc.ca/keep-emergency-rooms-open/))."
+     ]
+    ],
+    "fr/priorities": [
+     [
+      "- **Ma position :** la mienne. Je la défendrai au sein du parti.",
+      "- **Engagement du parti en 2026 :** annoncé par le parti pendant cette campagne. Chacun porte la mention « engagement du parti », avec le nom et la date de l'annonce, et un lien vers celle-ci.\n- **Ma position :** la mienne. Je la défendrai au sein du parti."
+     ],
+     [
+      "Dans la région d'Island Health, l'attente médiane pour un médecin de famille sur la liste provinciale est de 388 jours ([ministre de la Santé de la C.-B., Hansard, 28 avril 2026](https://lims.leg.bc.ca/hdms/file/Debates/43rd2nd/20260428pm-Hansard-n166.html), en anglais).",
+      "Le parti s'est aussi engagé à former plus de médecins ici, en C.-B., à faire revenir les Canadiens qui ont étudié la médecine à l'étranger et à accélérer la reconnaissance des titres de compétences étrangers (engagement du parti, [Keep Emergency Rooms Open, 5 oct. 2026](https://conservativebc.ca/keep-emergency-rooms-open/), en anglais). Dans la région d'Island Health, l'attente médiane pour un médecin de famille sur la liste provinciale est de 388 jours ([ministre de la Santé de la C.-B., Hansard, 28 avril 2026](https://lims.leg.bc.ca/hdms/file/Debates/43rd2nd/20260428pm-Hansard-n166.html), en anglais). Plus de médecins autorisés à exercer ici, plus tôt : c'est ainsi que cette attente diminuera."
+     ],
+     [
+      "les interventions retenues au départ sont mes propositions).",
+      "les interventions retenues au départ sont mes propositions). Vous présentez votre carte santé et vous ne payez rien. Le parti s'est engagé à protéger le financement actuel des soins de santé et à garder le système de la C.-B. universel et financé par le secteur public, pour que les Britanno-Colombiens n'aient jamais besoin de rien d'autre que leur carte santé pour se faire soigner (engagement du parti, [Keep Emergency Rooms Open, 5 oct. 2026](https://conservativebc.ca/keep-emergency-rooms-open/), en anglais)."
+     ],
+     [
+      "- **Libérer des lits d'hôpital : trouver aux aînés une place dans un établissement de soins.**",
+      "- **Une commission d'experts dans les 100 premiers jours.** Le parti s'est engagé à lancer, dans ses 100 premiers jours, une commission d'experts chargée d'apporter en C.-B. des solutions éprouvées dans d'autres systèmes publics et de réduire les délais d'attente (engagement du parti, [Keep Emergency Rooms Open, 5 oct. 2026](https://conservativebc.ca/keep-emergency-rooms-open/), en anglais). Ma position : je lui apporterai les résultats chirurgicaux de la Saskatchewan, le filet de sécurité pour les délais d'attente et les données d'attente d'Island Health.\n- **Libérer des lits d'hôpital : trouver aux aînés une place dans un établissement de soins.**"
+     ],
+     [
+      "aide à pourvoir ces quarts.",
+      "aide à pourvoir ces quarts. Le parti s'est engagé à garder les urgences ouvertes, à embaucher et à retenir plus de médecins et de personnel infirmier, et à investir 50 millions de dollars dans un fonds d'urgence (engagement du parti, [Keep Emergency Rooms Open, 5 oct. 2026](https://conservativebc.ca/keep-emergency-rooms-open/), en anglais). L'annonce ne précise pas quels hôpitaux ce fonds soutiendra."
+     ],
+     [
+      "et c'est la Province qui paie la clinique, pas vous.",
+      "et c'est la Province qui paie la clinique. Vous présentez votre carte santé et vous ne payez rien."
+     ],
+     [
+      "était de 32,2 semaines, soit 3,6 semaines de plus que la médiane canadienne de 28,6. C'était la plus longue attente en C.-B. depuis que l'Institut Fraser a commencé ses mesures en 1993 ([Institut Fraser, 17 août 2026](https://www.fraserinstitute.org/commentary/heres-how-bc-government-can-help-fix-broken-health-care-system), en anglais). La C.-B. avait tout de même la deuxième attente la plus courte au Canada, après l'Ontario (19,2 semaines) ([Institut Fraser, Waiting Your Turn 2025, déc. 2025](https://www.fraserinstitute.org/sites/default/files/2025-12/waiting-your-turn-2025-17913.pdf), en anglais).",
+      "était de 32,2 semaines, soit 3,6 semaines de plus que la médiane canadienne de 28,6, mais tout de même la deuxième attente la plus courte au Canada, après l'Ontario (19,2 semaines) ([Institut Fraser, Waiting Your Turn 2025, déc. 2025](https://www.fraserinstitute.org/sites/default/files/2025-12/waiting-your-turn-2025-17913.pdf), en anglais). C'était la plus longue attente en C.-B. depuis que l'Institut Fraser a commencé ses mesures en 1993 ([Institut Fraser, 17 août 2026](https://www.fraserinstitute.org/commentary/heres-how-bc-government-can-help-fix-broken-health-care-system), en anglais)."
+     ],
+     [
+      "- Réduire les frais et la paperasse qui alourdissent le coût de chaque nouveau logement (ma position).",
+      "- Réduire les frais et la paperasse qui alourdissent le coût de chaque nouveau logement (ma position). Le parti s'est engagé à réduire le coût de construction et d'achat d'un logement pour que plus de logements soient construits (engagement du parti, [déclaration du 25 sept. 2026](https://conservativebc.ca/statement-from-interim-leader-lorne-doerkson-on-the-ndps-housing-tax-plan/), en anglais), et à ne créer aucun nouvel impôt ni aucune nouvelle taxe ([27 sept. 2026](https://conservativebc.ca/conservative-party-of-bc-pledges-no-new-taxes-on-british-columbians/), en anglais).\n- Réduire les formalités administratives : un nouveau ministre de la Réduction des formalités administratives, des formalités ramenées à leur niveau de 2017 d'ici la fin d'un premier mandat, et une loi selon le principe « une règle ajoutée, deux retirées » (engagement du parti, [Supercharge British Columbia's Economy, 7 oct. 2026](https://conservativebc.ca/supercharge-british-columbias-economy/), en anglais). Ma position : cela veut dire moins de règles et de formulaires pour les constructeurs, pas moins de fonctionnaires."
+     ],
+     [
+      "- Aucune TVP sur les voitures d'occasion abordables (programme 2024 du parti",
+      "- Aucune TVP pendant 3 ans sur la machinerie, l'équipement et les logiciels d'entreprise (engagement du parti, [Supercharge British Columbia's Economy, 7 oct. 2026](https://conservativebc.ca/supercharge-british-columbias-economy/), en anglais). Un café qui achète une nouvelle machine à espresso, ou une petite entreprise qui achète des ordinateurs portables et des logiciels, ne paierait pas de TVP sur ces achats.\n- Aucune TVP à la caisse sur la bière, le vin et les spiritueux canadiens tant que durera la guerre commerciale avec les États-Unis (engagement du parti, [29 sept. 2026](https://conservativebc.ca/conservatives-to-remove-pst-from-canadian-alcohol/), en anglais). Cela aide les pubs, les restaurants et le secteur touristique du centre-ville et de James Bay, et rend moins chers la bière, le vin et les spiritueux produits sur l'île.\n- Aucune TVP sur les voitures d'occasion abordables (programme 2024 du parti"
+     ],
+     [
+      "Je n'afficherai pas une année que le parti n'a pas fixée.",
+      "Je n'afficherai pas une année que le parti n'a pas fixée. Le parti s'est engagé à nommer un groupe d'experts chargé de présenter, dans les 180 jours, un plan pour simplifier la fiscalité de la C.-B. (engagement du parti, [Supercharge British Columbia's Economy, 7 oct. 2026](https://conservativebc.ca/supercharge-british-columbias-economy/), en anglais). J'en suivrai l'avancement dans mon rapport trimestriel."
+     ],
+     [
+      "Le montant dépend de votre revenu et de vos crédits.",
+      "Le montant dépend de votre revenu et de vos crédits. Selon les engagements du parti de 2026 : aucune TVP à la caisse sur la bière, le vin et les spiritueux canadiens pendant la guerre commerciale, ni sur le nouvel équipement et les logiciels d'une petite entreprise pendant 3 ans."
+     ],
+     [
+      "- Protéger les services de première ligne : l'évaluation des coûts du parti de 2024 indiquait que le financement des services de première ligne, dont la santé, l'éducation et la sécurité publique, serait maintenu ou augmenté (programme 2024 du parti).",
+      "- Protéger les services de première ligne : le parti s'est engagé à protéger le financement actuel des soins de santé et à garder le système de la C.-B. universel et financé par le secteur public (engagement du parti, [Keep Emergency Rooms Open, 5 oct. 2026](https://conservativebc.ca/keep-emergency-rooms-open/), en anglais)."
+     ]
+    ],
+    "en/faq": [
+     [
+      "Use publicly paid surgeries and scans at non-government clinics to shorten waits (2024 party platform).",
+      "Use publicly paid surgeries and scans at non-government clinics to shorten waits (2024 party platform). You show your health card and pay nothing. The party has committed to protect current health care funding, keep the system universal and publicly funded, keep emergency rooms open, train more doctors, hire and retain more doctors and nurses, and launch an expert commission within 100 days to cut wait times ([Keep Emergency Rooms Open, 5 Oct 2026](https://conservativebc.ca/keep-emergency-rooms-open/))."
+     ],
+     [
+      "Lower fees and paperwork on new homes (my position).",
+      "Lower fees and paperwork on new homes (my position). The party has committed to bring down the cost of building and buying a home, to no new taxes, and to cut red tape back to 2017 levels by the end of a first term, with a \"one-in, two-out\" law and a Minister of Red Tape Reduction ([25 Sep](https://conservativebc.ca/statement-from-interim-leader-lorne-doerkson-on-the-ndps-housing-tax-plan/), [27 Sep](https://conservativebc.ca/conservative-party-of-bc-pledges-no-new-taxes-on-british-columbians/) and [7 Oct 2026](https://conservativebc.ca/supercharge-british-columbias-economy/)). That means fewer rules and forms, not fewer public servants (my position)."
+     ],
+     [
+      "The costs I'd target are the ones government sets: provincial income tax, ferry fares, and housing costs through the tax system.",
+      "The costs I'd target are the ones government sets: provincial income tax, the PST, ferry fares, and housing costs through the tax system."
+     ],
+     [
+      "- Publish a verifiable list of government savings (my position, scorecard line 2).",
+      "- Publish a verifiable list of government savings (my position, scorecard line 2).\n- No PST for 3 years on machinery, equipment and business software, so a café buying an espresso machine or a small firm buying laptops pays no PST on them (party commitment, [7 Oct 2026](https://conservativebc.ca/supercharge-british-columbias-economy/)).\n- No PST at the till on Canadian beer, wine and spirits for as long as the U.S. trade war lasts, which helps downtown and James Bay pubs, restaurants and tourism (party commitment, [29 Sep 2026](https://conservativebc.ca/conservatives-to-remove-pst-from-canadian-alcohol/)).\n- A plan within 180 days to simplify B.C.'s taxes, from an expert panel (party commitment, [7 Oct 2026](https://conservativebc.ca/supercharge-british-columbias-economy/))."
+     ],
+     [
+      "I will not cut health care or education to write a slogan.",
+      "I will not cut health care or education to write a slogan. The party has committed to protect current health care funding ([Keep Emergency Rooms Open, 5 Oct 2026](https://conservativebc.ca/keep-emergency-rooms-open/))."
+     ],
+     [
+      "That standard is my position.",
+      "That standard is my position. I read the party's red-tape plan ([Supercharge British Columbia's Economy, 7 Oct 2026](https://conservativebc.ca/supercharge-british-columbias-economy/)) as fewer rules and forms, not fewer public servants, and that is how I'll vote on it (my position)."
+     ],
+     [
+      "I won't invent one; I'll add it when the party publishes it.",
+      "I won't invent one; I'll add it when the party publishes it. The 2026 health and economy announcements give one figure, a $50 million emergency fund ([Keep Emergency Rooms Open, 5 Oct 2026](https://conservativebc.ca/keep-emergency-rooms-open/)); the PST changes, the expert commission and the tax panel have no published cost yet ([29 Sep](https://conservativebc.ca/conservatives-to-remove-pst-from-canadian-alcohol/) and [7 Oct 2026](https://conservativebc.ca/supercharge-british-columbias-economy/))."
+     ],
+     [
+      "public reporting on repeat offending, bail compliance, court delays, treatment access and long-term recovery.",
+      "public reporting on repeat offending, bail compliance, court delays, treatment access and long-term recovery.\nCurrent party commitments on health ([Keep Emergency Rooms Open, 5 Oct 2026](https://conservativebc.ca/keep-emergency-rooms-open/)): protect current health care funding and keep the system universal and publicly funded, so you never need more than your health card; keep emergency rooms open; hire and retain more doctors and nurses; a $50 million emergency fund; train more doctors in B.C., bring home Canadians who studied medicine abroad and speed up international credential recognition; an expert commission within 100 days to cut wait times.\nCurrent party commitments on homes, taxes and business: bring down the cost of building and buying a home ([25 Sep 2026](https://conservativebc.ca/statement-from-interim-leader-lorne-doerkson-on-the-ndps-housing-tax-plan/)); no PST at the till on Canadian beer, wine and spirits during the U.S. trade war ([29 Sep 2026](https://conservativebc.ca/conservatives-to-remove-pst-from-canadian-alcohol/)); no PST for 3 years on machinery, equipment and business software, a plan within 180 days to simplify B.C.'s taxes, a Minister of Red Tape Reduction, red tape back to 2017 levels by the end of a first term and a \"one-in, two-out\" law ([Supercharge British Columbia's Economy, 7 Oct 2026](https://conservativebc.ca/supercharge-british-columbias-economy/))."
+     ]
+    ],
+    "fr/faq": [
+     [
+      "afin de réduire les délais d'attente (programme 2024 du parti).",
+      "afin de réduire les délais d'attente (programme 2024 du parti). Vous présentez votre carte santé et vous ne payez rien. Le parti s'est engagé à protéger le financement actuel des soins de santé, à garder le système universel et financé par le secteur public, à garder les urgences ouvertes, à former plus de médecins, à embaucher et à retenir plus de médecins et de personnel infirmier, et à lancer dans les 100 premiers jours une commission d'experts pour réduire les délais d'attente ([Keep Emergency Rooms Open, 5 oct. 2026](https://conservativebc.ca/keep-emergency-rooms-open/), en anglais)."
+     ],
+     [
+      "Moins de frais et de paperasse pour les logements neufs (ma position).",
+      "Moins de frais et de paperasse pour les logements neufs (ma position). Le parti s'est engagé à réduire le coût de construction et d'achat d'un logement, à ne créer aucun nouvel impôt ni aucune nouvelle taxe, et à ramener les formalités administratives à leur niveau de 2017 d'ici la fin d'un premier mandat, avec une loi « une règle ajoutée, deux retirées » et un ministre de la Réduction des formalités administratives ([25 sept.](https://conservativebc.ca/statement-from-interim-leader-lorne-doerkson-on-the-ndps-housing-tax-plan/), [27 sept.](https://conservativebc.ca/conservative-party-of-bc-pledges-no-new-taxes-on-british-columbians/) et [7 oct. 2026](https://conservativebc.ca/supercharge-british-columbias-economy/), en anglais). Cela veut dire moins de règles et de formulaires, pas moins de fonctionnaires (ma position)."
+     ],
+     [
+      "Les coûts que je viserais sont ceux que fixe le gouvernement : l'impôt provincial sur le revenu, les tarifs des traversiers, et les frais de logement, par le régime fiscal.",
+      "Les coûts que je viserais sont ceux que fixe le gouvernement : l'impôt provincial sur le revenu, la TVP, les tarifs des traversiers, et les frais de logement, par le régime fiscal."
+     ],
+     [
+      "- Publier une liste vérifiable des économies du gouvernement (ma position, ligne 2 du bulletin).",
+      "- Publier une liste vérifiable des économies du gouvernement (ma position, ligne 2 du bulletin).\n\t- Aucune TVP pendant 3 ans sur la machinerie, l'équipement et les logiciels d'entreprise : un café qui achète une machine à espresso ou une petite entreprise qui achète des ordinateurs portables ne paierait pas de TVP sur ces achats (engagement du parti, [7 oct. 2026](https://conservativebc.ca/supercharge-british-columbias-economy/), en anglais).\n\t- Aucune TVP à la caisse sur la bière, le vin et les spiritueux canadiens tant que durera la guerre commerciale avec les États-Unis, ce qui aide les pubs, les restaurants et le tourisme du centre-ville et de James Bay (engagement du parti, [29 sept. 2026](https://conservativebc.ca/conservatives-to-remove-pst-from-canadian-alcohol/), en anglais).\n\t- Un plan dans les 180 jours pour simplifier la fiscalité de la C.-B., préparé par un groupe d'experts (engagement du parti, [7 oct. 2026](https://conservativebc.ca/supercharge-british-columbias-economy/), en anglais)."
+     ],
+     [
+      "Je ne couperai pas les soins de santé ou l'éducation pour écrire un slogan.",
+      "Je ne couperai pas les soins de santé ou l'éducation pour écrire un slogan. Le parti s'est engagé à protéger le financement actuel des soins de santé ([Keep Emergency Rooms Open, 5 oct. 2026](https://conservativebc.ca/keep-emergency-rooms-open/), en anglais)."
+     ],
+     [
+      "Cette norme est ma position.",
+      "Cette norme est ma position. Je comprends le plan du parti sur les formalités administratives ([Supercharge British Columbia's Economy, 7 oct. 2026](https://conservativebc.ca/supercharge-british-columbias-economy/), en anglais) comme moins de règles et de formulaires, pas moins de fonctionnaires, et c'est ainsi que je voterai (ma position)."
+     ],
+     [
+      "Je n'en inventerai pas; je l'ajouterai lorsque le parti le publiera.",
+      "Je n'en inventerai pas; je l'ajouterai lorsque le parti le publiera. Les annonces de 2026 sur la santé et l'économie ne donnent qu'un chiffre, un fonds d'urgence de 50 millions de dollars ([Keep Emergency Rooms Open, 5 oct. 2026](https://conservativebc.ca/keep-emergency-rooms-open/), en anglais); les changements à la TVP, la commission d'experts et le groupe d'experts sur la fiscalité n'ont pas encore de coût publié ([29 sept.](https://conservativebc.ca/conservatives-to-remove-pst-from-canadian-alcohol/) et [7 oct. 2026](https://conservativebc.ca/supercharge-british-columbias-economy/), en anglais)."
+     ],
+     [
+      "l'accès au traitement et le rétablissement à long terme.",
+      "l'accès au traitement et le rétablissement à long terme.\nEngagements actuels du parti sur la santé ([Keep Emergency Rooms Open, 5 oct. 2026](https://conservativebc.ca/keep-emergency-rooms-open/), en anglais) : protéger le financement actuel des soins de santé et garder le système universel et financé par le secteur public, pour que vous n'ayez jamais besoin de plus que votre carte santé; garder les urgences ouvertes; embaucher et retenir plus de médecins et de personnel infirmier; un fonds d'urgence de 50 millions de dollars; former plus de médecins en C.-B., faire revenir les Canadiens qui ont étudié la médecine à l'étranger et accélérer la reconnaissance des titres de compétences étrangers; une commission d'experts dans les 100 premiers jours pour réduire les délais d'attente.\nEngagements actuels du parti sur le logement, la fiscalité et les entreprises : réduire le coût de construction et d'achat d'un logement ([25 sept. 2026](https://conservativebc.ca/statement-from-interim-leader-lorne-doerkson-on-the-ndps-housing-tax-plan/), en anglais); aucune TVP à la caisse sur la bière, le vin et les spiritueux canadiens pendant la guerre commerciale avec les États-Unis ([29 sept. 2026](https://conservativebc.ca/conservatives-to-remove-pst-from-canadian-alcohol/), en anglais); aucune TVP pendant 3 ans sur la machinerie, l'équipement et les logiciels d'entreprise, un plan dans les 180 jours pour simplifier la fiscalité de la C.-B., un ministre de la Réduction des formalités administratives, des formalités ramenées à leur niveau de 2017 d'ici la fin d'un premier mandat et une loi « une règle ajoutée, deux retirées » ([Supercharge British Columbia's Economy, 7 oct. 2026](https://conservativebc.ca/supercharge-british-columbias-economy/), en anglais)."
+     ]
+    ]
+   }
   }
  }
 }
