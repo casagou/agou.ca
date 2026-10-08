@@ -20,6 +20,13 @@
 .prio2 .p2-all { min-height:44px; padding:0; font:inherit; font-size:.95rem; font-weight:700; color:var(--blue); background:none; border:0; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
 .prio2 .p2-all:hover { color:var(--navy); text-decoration-thickness:2px; }
 
+/* How I work: compact legend; the full text sits in 'More about how I work' */
+.prio2 .hiw { margin-bottom:28px; }
+.prio2 .hiw-intro { margin:0 0 6px; }
+.prio2 .hiw-legend { list-style:none; padding:0; margin:0 0 4px; font-size:.95rem; }
+.prio2 .hiw-legend li { margin:4px 0; }
+.prio2 .hiw-legend .chip { margin-right:4px; vertical-align:1px; }
+
 /* sticky section bar (the site header is sticky below 1024px: 56px + 1px border) */
 .prio2 .pnav { position:sticky; top:0; z-index:30; background:var(--bg); border-bottom:1px solid var(--line); margin:0 0 28px; }
 .prio2 .pnav ul { list-style:none; margin:0; padding:6px 0; display:flex; gap:6px; overflow-x:auto; scrollbar-width:thin; -webkit-overflow-scrolling:touch; }

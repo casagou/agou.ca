@@ -52,12 +52,12 @@
       "Every saving listed line by line, and new spending matched by a cut: you can check where your tax dollars go.",
       "Health care and education are protected: savings don't come from your hospital or your child's school.",
       "Money moves from programs that don't deliver to the services you use.",
-      "Every promise on this page comes with its cost, so you can judge whether it's worth it.",
+      "Where a cost has been published, it's shown next to the promise, so you can judge whether it's worth it.",
       "No vote from me for a bill that hides its cuts or raises a tax rate."
     ],
     "also-for-this-riding": [
       "310 cruise ship calls in 2025 at Ogden Point: a cruise-day plan for traffic, buses and safe crossings in James Bay.",
-      "Almost half of B.C.'s public service works in Victoria: published service standards, changes based on data, and staff told early."
+      "Published service standards, changes based on data, and staff told early: more certainty for public servants and the families who live here."
     ]
   },
   "fr": {
@@ -112,12 +112,66 @@
       "Chaque économie publiée poste par poste, et toute nouvelle dépense compensée par une réduction : vous pouvez vérifier où va l'argent de vos impôts.",
       "Les soins de santé et l'éducation sont protégés : les économies ne viennent pas de votre hôpital ni de l'école de vos enfants.",
       "L'argent passe des programmes qui ne donnent pas de résultats aux services que vous utilisez.",
-      "Chaque engagement de cette page est accompagné de son coût, pour que vous puissiez juger s'il en vaut la peine.",
+      "Lorsqu'un coût a été publié, il figure à côté de l'engagement, pour que vous puissiez juger s'il en vaut la peine.",
       "Mon vote ne va à aucun projet de loi qui cache ses compressions ou qui hausse un taux d'imposition."
     ],
     "also-for-this-riding": [
       "310 escales de navires de croisière à Ogden Point en 2025 : un plan pour la circulation, les autobus et la sécurité des piétons à James Bay les jours d'escale.",
-      "Près de la moitié de la fonction publique de la C.-B. travaille à Victoria : des normes de service publiées, des changements fondés sur des données et un personnel informé tôt."
+      "Des normes de service publiées, des changements fondés sur des données et un personnel informé tôt : plus de prévisibilité pour les fonctionnaires et les familles qui vivent ici."
     ]
+  },
+  "_short_titles_doc": "Short card titles (about 8 words or fewer) where the bullet's own lead or opening words run long (Joachim, 7 Oct 2026 10:57 PM PT). Keyed by EN section id and promise number (1 = first). The card then shows the short title as its heading and the whole original bullet, unchanged, as its text; the anchor stays the one made from the original opening words.",
+  "short_titles": {
+    "en": {
+      "1-health-care-you-can-get": {
+        "1": "Out-of-province doctors and nurses, licensed in a week",
+        "4": "Overdue scan or surgery? The Province pays",
+        "7": "Care beds for seniors free up hospital beds"
+      },
+      "2-homes-people-can-afford": {
+        "2": "Lower fees and paperwork on new homes"
+      },
+      "3-cost-of-living": {
+        "3": "Keep the enhanced B.C. tax reduction credit",
+        "4": "A public, line-by-line list of savings",
+        "5": "No vote for new or higher taxes",
+        "6": "No PST on business equipment for 3 years",
+        "7": "No PST on Canadian beer, wine and spirits"
+      },
+      "responsible-spending": {
+        "1": "A savings register anyone can check",
+        "3": "Move money from what isn't working",
+        "4": "Show what each commitment costs",
+        "5": "No vote for hidden cuts or tax hikes"
+      }
+    },
+    "fr": {
+      "1-health-care-you-can-get": {
+        "1": "Médecins et personnel infirmier autorisés en une semaine",
+        "4": "Examen ou chirurgie en retard ? La Province paie",
+        "5": "Cliniques payées par l'État : l'exemple de la Saskatchewan",
+        "7": "Des places en soins pour libérer des lits",
+        "9": "Admis par l'urgence : un lit plus vite"
+      },
+      "2-homes-people-can-afford": {
+        "1": "Des logements approuvés en mois, pas en années",
+        "2": "Moins de frais et de paperasse pour construire",
+        "4": "Allègement d'impôt pour les frais de logement"
+      },
+      "3-cost-of-living": {
+        "1": "Ramener le taux le plus bas à 5,06 %",
+        "3": "Maintenir le crédit bonifié de réduction d'impôt",
+        "4": "Une liste publique des économies, poste par poste",
+        "5": "Non à tout nouvel impôt ou hausse de taux",
+        "6": "Aucune TVP sur l'équipement d'entreprise pendant 3 ans",
+        "7": "Bière, vin et spiritueux canadiens sans TVP"
+      },
+      "responsible-spending": {
+        "1": "Un registre des économies que tous peuvent vérifier",
+        "3": "Réaffecter l'argent de ce qui ne fonctionne pas",
+        "4": "Indiquer le coût de chaque engagement",
+        "5": "Non aux compressions cachées et aux hausses d'impôt"
+      }
+    }
   }
 }

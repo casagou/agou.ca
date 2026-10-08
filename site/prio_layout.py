@@ -28,6 +28,10 @@ T = {
            "details": "Details and sources", "details_nolink": "Details", "deep": "Background: why, how and what it costs",
            "deep_nocost": "Background and figures", "totop": "Back to the summary", "nav": "Sections of this page", "top": "Summary",
            "in_practice": "In practice", "chips": {"mine": "My position", "party": "Party commitment", "plat": "2024 platform"},
+           "hiw_intro": "I'm an engineer: I start with the problem, measure it, fix it and report the result. Each promise is labelled with where it comes from:",
+           "legend": {"mine": "mine; I'll advocate for it within the party.", "party": "announced by the party during this campaign, with a link to the announcement.",
+                      "plat": "from the party's October 2024 platform, not yet confirmed for this election."},
+           "hiw_more": "More about how I work and the sources",
            "short": ["Health", "Homes", "Cost of living", "Downtown", "Ferries", "Spending", "This riding", "Reporting"]},
     "fr": {"glance_h": "En bref : ce qui change pour vous", "for_you": "Pour vous :",
            "glance_note": "Chaque engagement ci-dessous dit ce qu'il change pour vous. « Détails et sources » affiche le texte complet, les chiffres et les liens. Chacun porte sa provenance : ma position, engagement du parti ou programme 2024.",
@@ -35,6 +39,10 @@ T = {
            "details": "Détails et sources", "details_nolink": "Détails", "deep": "Contexte : pourquoi, comment et à quel coût",
            "deep_nocost": "Contexte et chiffres", "totop": "Retour au résumé", "nav": "Sections de cette page", "top": "Résumé",
            "in_practice": "Concrètement", "chips": {"mine": "Ma position", "party": "Engagement du parti", "plat": "Programme 2024"},
+           "hiw_intro": "Je suis ingénieur : je pars du problème, j'en évalue l'ampleur, j'y apporte une solution et je rends compte du résultat. Chaque engagement porte sa provenance :",
+           "legend": {"mine": "la mienne; je la défendrai au sein du parti.", "party": "annoncé par le parti pendant cette campagne, avec un lien vers l'annonce.",
+                      "plat": "tiré du programme d'octobre 2024 du parti, pas encore confirmé pour cette élection."},
+           "hiw_more": "En savoir plus sur ma façon de travailler et les sources",
            "short": ["Santé", "Logement", "Coût de la vie", "Centre-ville", "Traversiers", "Dépenses", "Circonscription", "Bilans"]},
 }
 CHIP_RE = {"mine": r"\bmy position\b|\bma position\b",
@@ -178,7 +186,8 @@ def chips(lang, h):
 
 def transform(body, lang, slugify, flags):
     """body: the classic Priorities body (after collapse(), scorecard and photo strips). Returns the v2 body."""
-    U = T[lang]; FY = json.loads((ROOT / "data/priorities-for-you.json").read_text())[lang]
+    U = T[lang]; DATA = json.loads((ROOT / "data/priorities-for-you.json").read_text()); FY = DATA[lang]
+    SHORT = DATA.get("short_titles", {}).get(lang, {})
     secs = list(re.finditer(r'<section class="block" aria-labelledby="([^"]+)">(.*?)</section>', body, re.S))
     if len(secs) != len(EN_ORDER): raise SystemExit(f"prio_layout ({lang}): expected {len(EN_ORDER)} sections, found {len(secs)} (Notion headings changed?)")
     ids = [m.group(1) for m in secs]
@@ -191,7 +200,11 @@ def transform(body, lang, slugify, flags):
             k = next(i for i, c in enumerate(kids) if c.startswith('<nav class="toc"'))
             if text(kids[k - 1]) not in ("On this page", "Sur cette page"): raise SystemExit("prio_layout: 'On this page' label not found")
             toc_links = re.findall(r'<a href="(#[^"]+)">(.*?)</a>', kids[k]); del kids[k - 1:k + 1]
-            new_secs.append(f'<section class="block" aria-labelledby="{sid}">' + "\n".join(kids) + "</section>"); continue
+            head = [c for c in kids if c.startswith("<h2") or c.startswith('<span id="')]; more = [c for c in kids if c not in head]
+            leg = "".join(f'<li><span class="chip chip-{c}">{U["chips"][c]}</span> {U["legend"][c]}</li>' for c in ("mine", "party", "plat"))
+            new_secs.append(f'<section class="block hiw" aria-labelledby="{sid}">' + "\n".join(head)
+                            + f'<p class="hiw-intro">{U["hiw_intro"]}</p><ul class="hiw-legend">{leg}</ul>'
+                            + f'<details class="pc-det hiw-more"><summary>{U["hiw_more"]}</summary><div class="pc-dbody">' + "\n".join(more) + "</div></details></section>"); continue
         h2 = next(c for c in kids if c.startswith("<h2"))
         title_txt = text(h2)
         out = []; pre = []; wcfy = None; practice = None; cards_html = ""; rest = []; deep = None; tail = []
@@ -207,9 +220,11 @@ def transform(body, lang, slugify, flags):
                 cl = []
                 for j, (li, fy) in enumerate(zip(lis, lines)):
                     t, b, how = split_title(li)
+                    st = SHORT.get(en_id, {}).get(str(j + 1))
                     pid = slugify(text(t)); pid = (pid if len(pid) <= 48 else pid[:49].rsplit("-", 1)[0]).strip("-") or f"{sid}-{j + 1}"  # whole words, at most 48 characters
                     while pid in used: pid += "-2"
                     used.add(pid)
+                    if st: t, b = H.escape(st, quote=False), li  # short heading; the whole original bullet stays as the card text
                     key = f"{en_id}/{j}"
                     if lang == "en": vis_decisions[key] = words(b) <= VISIBLE_MAX
                     vis = vis_decisions.get(key, words(b) <= VISIBLE_MAX)
