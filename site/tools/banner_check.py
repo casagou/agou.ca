@@ -10,6 +10,13 @@ BASE = sys.argv[1].rstrip("/"); SHOTS = sys.argv[2].rstrip("/") if len(sys.argv)
 API = "https://qhyttuzmysookdgxymrl.supabase.co/rest/v1/rpc/get_public_events"; KEY = "sb_publishable_yJEI3Tmfk2bnZanIF-W1gQ_tgBwW-N7"
 ev = json.loads(urllib.request.urlopen(urllib.request.Request(API, data=b"{}", method="POST", headers={"apikey": KEY, "Content-Type": "application/json"}), timeout=15).read())
 now = datetime.datetime.now(datetime.timezone.utc)
+# no_party_v1 (8 Oct 2026): events left out on the build side (the page's #nextev-data "hide" list) are not expected in the banner
+import re as _re
+_home = urllib.request.urlopen(urllib.request.Request(BASE + "/?bannercheck=hide", headers={"User-Agent": "banner_check"}), timeout=15).read().decode()
+_m = _re.search(r'<script type="application/json" id="nextev-data">(.*?)</script>', _home, _re.S)
+HIDE = set(json.loads(_m.group(1).replace("<\\/", "</")).get("hide", [])) if _m else set()
+if HIDE: print(f"banner_check: ignoring event ids hidden by this build: {sorted(HIDE)}")
+ev = [e for e in ev if e["id"] not in HIDE]
 up = sorted([e for e in ev if datetime.datetime.fromisoformat(e["ends_at"]) > now], key=lambda e: (e["starts_at"], e["id"]))
 past_ids = {e["id"] for e in ev if datetime.datetime.fromisoformat(e["ends_at"]) <= now}
 async def main():
