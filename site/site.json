@@ -909,6 +909,28 @@
           ]
         ]
       },
+      "langford-goldstream": {
+        "title": "Langford BC",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Langford_BC.JPG",
+        "author": "P199",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "alt": {
+          "en": "The Goldstream Village archway over a street in central Langford, with red-brick buildings and autumn trees",
+          "fr": "L’arche Goldstream Village au-dessus d’une rue du centre de Langford, avec des immeubles de brique rouge et des arbres aux couleurs d’automne"
+        },
+        "place": {
+          "en": "Goldstream Village archway, Langford",
+          "fr": "Arche Goldstream Village, Langford"
+        },
+        "focus": {
+          "thumb": [
+            0.5,
+            0.43,
+            0.45
+          ]
+        }
+      },
       "menzies-street": {
         "title": "Don's food & floral NW",
         "source_url": "https://commons.wikimedia.org/wiki/File:Don's_food_&_floral_NW.jpg",
@@ -1199,9 +1221,10 @@
       "fort-street-antique-row"
     ],
     "events": {
-      "_doc": "Matched in forms.js against the public event data only (get_public_events; campaign_events has no photo column): 'address' = the first key, in this order, found inside the event address (so specific addresses go above general ones like 'Dallas Rd'), then 'neighbourhood' = English neighbourhood. Venues of public events, else the closest licensed photo on the same street, else a generic neighbourhood shot. To give one venue its own photo, add an address entry above the general ones, e.g. \"281 Menzies St\": \"<new-id>\". 4 Oct 2026 (Joachim's stricter rule): a photo must show the venue or its block, not a nearby landmark; when none exists the event shows no photo (so 'James Bay' has no neighbourhood default: 535 Superior St, Good Earth at Capital Park, has no licensed photo). An address mapped to null shows no photo and skips the neighbourhood default (5 Oct 2026: 380 Cook St, Cook Street Village Activity Centre, north of Pendergast; the Cook Street Village photos show other blocks).",
+      "_doc": "Matched in forms.js against the public event data only (get_public_events; campaign_events has no photo column): 'address' = the first key, in this order, found inside the event address (so specific addresses go above general ones like 'Dallas Rd'), then 'neighbourhood' = English neighbourhood. Venues of public events, else the closest licensed photo on the same street, else a generic neighbourhood shot. To give one venue its own photo, add an address entry above the general ones, e.g. \"281 Menzies St\": \"<new-id>\". 4 Oct 2026 (Joachim's stricter rule): a photo must show the venue or its block, not a nearby landmark; when none exists the event shows no photo (so 'James Bay' has no neighbourhood default: 535 Superior St, Good Earth at Capital Park, has no licensed photo). An address mapped to null shows no photo and skips the neighbourhood default (5 Oct 2026: 380 Cook St, Cook Street Village Activity Centre, north of Pendergast; the Cook Street Village photos show other blocks). 7 Oct 2026 (Joachim via Campaign Ops, Langford rally at 761 Station Ave): \"the venue or Langford\" allowed; Commons has no licensed photo of the Legion, so langford-goldstream shows the Goldstream Village archway in central Langford, about 280 m away (thumb crop above the 2024 roadside election signs).",
       "address": {
         "380 Cook St": null,
+        "761 Station Ave": "langford-goldstream",
         "900 Johnson St": "conservatory-of-music",
         "345 Cook St": "moka-house-block",
         "301 Cook St": "cook-street-village",
