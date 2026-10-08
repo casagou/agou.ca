@@ -1481,6 +1481,12 @@ if __name__ == "__main__":
         errs += sorted(set(no_party.ERRS))
         if a.env == "staging":
             with open(dist / "_redirects", "a") as fh: fh.write("/donate/ / 302\n/donate / 302\n/fr/donate/ /fr/ 302\n/fr/donate /fr/ 302\n")
+        else:  # GitHub Pages has no _redirects: old /donate/ links (and printed QR codes) forward to the home page; noindex, no content
+            for pre_, to_ in (("", "/"), ("fr/", "/fr/")):
+                (dist / pre_ / "donate").mkdir(parents=True, exist_ok=True)
+                (dist / pre_ / "donate" / "index.html").write_text(f'<!doctype html><html lang="{"fr" if pre_ else "en"}"><head><meta charset="utf-8"><meta name="robots" content="noindex">'
+                    f'<link rel="canonical" href="{LIVE}{to_}"><meta http-equiv="refresh" content="0; url={to_}"><title>Joachim Agou</title></head>'
+                    f'<body><script>location.replace("{to_}")</script><p><a href="{to_}">agou.ca</a></p></body></html>\n')
         npl = [h for h in no_party.scan(dist) if not h[3]]
         errs += [f"no_party: {h[0].relative_to(dist)}: {h[1]!r} in …{h[2]}…" for h in npl]
     if NOMINATIONS_CLOSED:  # nothing may link to the retired Nominate page or ask people to sign (its own EN/FR pages excepted)
