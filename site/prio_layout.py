@@ -207,7 +207,7 @@ def transform(body, lang, slugify, flags):
                 cl = []
                 for j, (li, fy) in enumerate(zip(lis, lines)):
                     t, b, how = split_title(li)
-                    pid = slugify(text(t))[:48].strip("-") or f"{sid}-{j + 1}"
+                    pid = slugify(text(t)); pid = (pid if len(pid) <= 48 else pid[:49].rsplit("-", 1)[0]).strip("-") or f"{sid}-{j + 1}"  # whole words, at most 48 characters
                     while pid in used: pid += "-2"
                     used.add(pid)
                     key = f"{en_id}/{j}"
