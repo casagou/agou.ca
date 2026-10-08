@@ -141,6 +141,12 @@ See `site/README.md`: "Photo slots", "Donate switch" (`site.json` → `promote_d
 - **While this is active, merging a publish PR into `main` does NOT go live.** Pages serves `redirect-cbc` until the source is switched back.
 - Rollback (about 1 minute): `gh api -X PUT repos/casagou/agou.ca/pages -f cname=agou.ca -F https_enforced=true -f 'source[branch]=main' -f 'source[path]=/'` then `gh api -X POST repos/casagou/agou.ca/pages/builds` (the source switch alone did not trigger a build), wait for `gh api repos/casagou/agou.ca/pages/builds/latest` to show `built` on main's head; pages may stay cached up to 10 min (max-age=600). Then run `python3 site/tools/banner_check.py https://agou.ca`.
 
+### No-party version (Joachim via Campaign Ops, 8 Oct 2026 2:50/2:52 PM PT), staging; live prepared, NOT published
+- Joachim is no longer supported by the party but is still running in Victoria–Beacon Hill. `site.json` `no_party_v1` (true) turns on `site/no_party.py` on staging; `no_party_v1_live` (false on staging) does the same for live builds.
+- What it does: EN/FR text edits (Priorities "my position", party-only items dropped, FAQ, home, About, media, privacy, scorecard lines 1–2), no party links (own volunteer / lawn-sign forms), no Donate page or appeals (`/donate/` 302 on staging, noindex stub forwarding home on live), no media-kit PDFs, event 114 and any public event naming the party hidden on the build side (JS filters the live RPC data; Supabase untouched). The build fails on any party term outside `no_party.ALLOW`.
+- Guards: diffcheck excuses exactly the no-party differences; `scorecard_check.py --no-party --dist DIR`; `province_check.py --dist DIR`; banner_check ignores the page's hidden ids.
+- Live: draft PR #75 (branch publish-20261008-no-party) built from branch `no-party-live-flag`. Going live also needs the Pages source switched from `redirect-cbc` back to `main`; runbook in /workspace/no-party/GO-LIVE.md on the box. Authorization line unchanged (Bert Chen, financial agent).
+
 ## 4. Publish to live (first done 2026-09-30, PR on casagou/agou.ca; repeat for every update)
 Option A (keeps the current GitHub Pages "deploy from branch" setup):
 1. Make sure no Notion red `[TO COMPLETE]` notes remain (the live build stops if any do). `cd site && python3 build.py --env live`. This writes `dist/` with canonical https://agou.ca URLs, sitemap.xml, robots.txt allowing indexing, `CNAME` (agou.ca) and `.nojekyll`, and no staging banner or noindex.
