@@ -1,0 +1,75 @@
+/* Priorities summary-first layout (prio_layout.py). Loaded only on /priorities/ and /fr/priorities/ when the layout is on. */
+.prio2 .glance { background:#fff; border:2px solid var(--navy); border-radius:var(--radius); padding:16px 18px 10px; margin:0 0 20px; }
+.prio2 .glance h2 { color:var(--navy); font-size:1.3rem; line-height:1.25; margin:0 0 8px; }
+.prio2 .glance ul { list-style:none; padding:0; margin:0 0 8px; }
+.prio2 .glance li { margin:0; padding:9px 0; border-top:1px solid var(--line); line-height:1.45; }
+.prio2 .glance li:first-child { border-top:0; padding-top:2px; }
+.prio2 .glance li a { display:inline-block; text-decoration:none; color:var(--navy); }
+.prio2 .glance li a strong { text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
+.prio2 .glance li a:hover strong { text-decoration-thickness:2px; }
+.prio2 .glance .g-sum { display:block; }
+.prio2 .glance .g-sum::first-letter { text-transform:uppercase; }
+@media (min-width:768px) {
+  .prio2 .glance ul { display:grid; grid-template-columns:1fr 1fr; column-gap:24px; }
+  .prio2 .glance li, .prio2 .glance li:first-child { border-top:1px solid var(--line); padding:9px 0; max-width:none; }
+  .prio2 .glance li:nth-child(-n+2) { border-top:0; padding-top:2px; }
+}
+.prio2 .g-also { margin:0 0 6px; font-size:.95rem; }
+.prio2 .g-note { margin:0 0 4px; font-size:.92rem; color:var(--muted); }
+.prio2 .g-tools { margin:0; }
+.prio2 .p2-all { min-height:44px; padding:0; font:inherit; font-size:.95rem; font-weight:700; color:var(--blue); background:none; border:0; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+.prio2 .p2-all:hover { color:var(--navy); text-decoration-thickness:2px; }
+
+/* sticky section bar (the site header is sticky below 1024px: 56px + 1px border) */
+.prio2 .pnav { position:sticky; top:0; z-index:30; background:var(--bg); border-bottom:1px solid var(--line); margin:0 0 28px; }
+.prio2 .pnav ul { list-style:none; margin:0; padding:6px 0; display:flex; gap:6px; overflow-x:auto; scrollbar-width:thin; -webkit-overflow-scrolling:touch; }
+.prio2 .pnav li { flex:none; margin:0; }
+.prio2 .pnav a { display:inline-flex; align-items:center; min-height:40px; padding:0 12px; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--navy); font-size:.92rem; font-weight:600; text-decoration:none; white-space:nowrap; }
+.prio2 .pnav a:hover { border-color:var(--navy); }
+.prio2 .pnav a[aria-current="true"] { background:var(--navy); border-color:var(--navy); color:#fff; }
+html { scroll-padding-top:68px; }
+@media (max-width:1023.98px) { .prio2 .pnav { top:57px; } html { scroll-padding-top:128px; } }
+
+/* each section: What changes for you first */
+.prio2 .wcfy { background:var(--sky); border-left:6px solid var(--blue); border-radius:10px; padding:12px 16px; margin:0 0 16px; }
+.prio2 .wcfy > p { margin:0; }
+.prio2 .wcfy .pc-practice { margin-top:6px; }
+.prio2 .wcfy .pc-practice ul { margin:4px 0 2px; }
+
+/* promise cards */
+.prio2 .pcards { margin:16px 0 18px; }
+.prio2 .pc { background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px 16px 4px; margin:0 0 10px; }
+.prio2 .pc-h { color:var(--navy); font-size:1.1rem; line-height:1.35; margin:0 0 4px; }
+.prio2 .pc-you { margin:0 0 6px; }
+.prio2 .pc > .pc-you:last-child { margin-bottom:8px; }
+.prio2 .pc-you strong { color:var(--navy); }
+.prio2 .pc-tags { display:inline; }
+.prio2 .pc-tags .chip { margin:2px 4px 0 0; vertical-align:2px; }
+.prio2 .chip { display:inline-block; border-radius:999px; padding:1px 10px; font-size:.8rem; font-weight:700; line-height:1.6; }
+.prio2 .chip-mine { background:#e3ecf7; color:#123a6d; }
+.prio2 .chip-party { background:#fdf0cf; color:#5e4100; }
+.prio2 .chip-plat { background:#eceff2; color:#2b3036; }
+.prio2 .pc-body { margin:0 0 8px; font-size:1rem; }
+
+/* Details and sources */
+.prio2 details.pc-det > summary, .prio2 details.pc-deep > summary { min-height:44px; display:flex; align-items:center; gap:8px; font-weight:700; color:var(--blue); cursor:pointer; list-style:none; }
+.prio2 details.pc-det > summary::-webkit-details-marker, .prio2 details.pc-deep > summary::-webkit-details-marker { display:none; }
+.prio2 details.pc-det > summary::before, .prio2 details.pc-deep > summary::before { content:"+"; flex:none; display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border:2px solid currentColor; border-radius:50%; font-size:1rem; line-height:1; }
+.prio2 details[open].pc-det > summary::before, .prio2 details[open].pc-deep > summary::before { content:"−"; }
+.prio2 details.pc-det > summary:hover, .prio2 details.pc-deep > summary:hover { color:var(--navy); text-decoration:underline; text-underline-offset:3px; }
+.prio2 .pc-dbody { border-top:1px solid var(--line); padding:8px 0 4px; font-size:1rem; }
+.prio2 .pc-dbody p { margin:0 0 10px; }
+.prio2 details.pc-deep { background:#fff; border:1px solid var(--line); border-radius:10px; padding:2px 16px 4px; margin:0 0 16px; }
+
+/* quieter sources: still AA+ (muted #4a5561 on white 7.6:1), links keep their colour and underline */
+.prio2 .cite { font-size:.88em; color:var(--muted); }
+
+.prio2 .totop { font-size:.95rem; margin:10px 0 0; }
+.prio2 .totop a { display:inline-flex; align-items:center; min-height:44px; }
+
+@media print {
+  .prio2 .pnav, .prio2 .g-tools, .prio2 .totop { display:none; }
+  .prio2 details > summary::before { display:none; }
+  .prio2 details::details-content { content-visibility:visible; display:block; }
+  .prio2 .pc { break-inside:avoid-page; }
+}

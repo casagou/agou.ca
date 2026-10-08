@@ -8,6 +8,7 @@ import argparse, html, json, re, shutil, pathlib, sys
 import scorecard  # /scorecard/ page (scorecard.py, scorecard.json, content/<lang>/scorecard.md)
 import province  # /province/ page (province.py, content/<lang>/province.md; not from Notion)
 import updates  # "Updates" / « Nouvelles » (updates.py, data/updates.json; hidden everywhere while it has no entries)
+import prio_layout  # Priorities summary-first layout (staging only until site.json priorities_layout_v2_live)
 import events_cal  # Events calendar + 'New' events (events_cal.py; staging only until site.json events_calendar_live)
 
 ROOT = pathlib.Path(__file__).resolve().parent
@@ -32,6 +33,8 @@ PARTY_ON = lambda env: env == "staging" or bool(SITE.get("party_links_live"))
 # Volunteer shifts on the Events page (migration 48): staging always; live only when site.json volunteer_shifts_live is true.
 # Live and staging share one database, so this flag is what keeps shifts off agou.ca until Joachim approves. See README "Volunteer shifts".
 SHIFTS_ON = lambda env: CAL_ON(env) and (env == "staging" or bool(SITE.get("volunteer_shifts_live")))
+PRIO2_ON = lambda env: env == "staging" or bool(SITE.get("priorities_layout_v2_live"))  # Priorities summary-first layout (prio_layout.py; 7 Oct 2026, staging only until Joachim approves)
+PRIO2_STATE = {}  # EN decisions (which card texts stay visible), reused for FR
 PARTY = {"on": False}
 # Staging drafts (4 Oct 2026): staging-drafts.json holds exact find/replace text edits that show on staging only,
 # and on live only once site.json[<draft live_flag>] is true. Applied in read(). See README "Staging drafts".
@@ -981,11 +984,19 @@ def build_page(lang, page, env):
         if not m_: sys.exit(f"priorities: '{U['lockup_block']}' section not found (needed for the lockup)")
         body = body[:m_.end()] + f'<p class="lockup lockup-block">{esc(U["lockup"])}</p>' + body[m_.end():]
         if vic: body = vic_priorities(body, lang)
+        if PRIO2_ON(env):
+            classic_ = body
+            body = prio_layout.transform(body, lang, slugify, PRIO2_STATE)
+            probs_ = prio_layout.coverage(classic_, body, lang)
+            if probs_: sys.exit(f"priorities ({lang}) summary-first layout: text or links from the classic page are missing:\n  " + "\n  ".join(probs_))
+            extra = (extra or "") + f'<script src="/assets/js/prio2.js?v={BUILD_ID}" defer></script>\n'
     main = f'<div class="page-head"><div class="wrap"><h1>{esc(h1)}</h1>{lock}</div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
     desc = first_text(md) if md else U["lawnsign"]["intro"] if key == "lawn-sign" else ""
     if key == "lawn-sign": desc = U["lawnsign"]["intro"]
     title = f"{h1} – Joachim Agou – Victoria–Beacon Hill"
     out = shell(lang, page, title, desc, main, env)
+    if key == "priorities" and PRIO2_ON(env):
+        out = out.replace("</head>", f'<link rel="stylesheet" href="/assets/css/prio2.css?v={BUILD_ID}">\n</head>', 1)
     return out.replace("</body>", extra + "</body>", 1) if extra else out
 
 
@@ -1407,6 +1418,8 @@ if __name__ == "__main__":
     dist = ROOT / a.out
     if dist.exists(): shutil.rmtree(dist)
     shutil.copytree(ROOT / "assets", dist / "assets")
+    if not PRIO2_ON(a.env):  # Priorities summary-first layout off (live while site.json priorities_layout_v2_live is false): its files don't ship
+        for f in ("assets/css/prio2.css", "assets/js/prio2.js"): (dist / f).unlink(missing_ok=True)
     for f in (dist / "assets/img").glob("joachim-agou-headshot-bg-*"):  # only the chosen background option ships (site.json headshot_background)
         if not any(f.name.startswith(f"joachim-agou-headshot-bg-{v}-") for v in HS_USED): f.unlink()
     if not (VIC_ON(a.env) and VIC):  # site.json victoria_photos_live false: no Victoria photo files on live

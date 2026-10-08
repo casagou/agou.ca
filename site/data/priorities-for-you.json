@@ -1,0 +1,123 @@
+{
+  "_doc": "Priorities summary-first layout (prio_layout.py; staging only while site.json priorities_layout_v2_live is false). One 'For you' line per promise card, in page order, per section (keyed by the EN section id; FR uses the same order). DRAFT wording for Joachim (7 Oct 2026): plain, says what changes in a person's life (time, money, safety, care), number-first where the page already has the figure. Every figure is already on the page. The build stops if a section's line count doesn't match its promises.",
+  "en": {
+    "1-health-care-you-can-get": [
+      "388 days is today's median wait for a family doctor in the Island Health region. More doctors and nurses licensed here, sooner, is how you get one faster.",
+      "9.1 hours a week: what doctors spend on paperwork. Cutting it frees time for appointments, and more of your visit goes to you.",
+      "See a doctor in the evening or on a weekend, without losing a shift or a day's pay.",
+      "40.7% of Island Health's scheduled surgeries waited past their medical benchmark. Once your scan or surgery is overdue, an approved clinic does it: you show your health card and pay nothing.",
+      "26.5 weeks to 14.2: Saskatchewan's median surgery wait after 4 years of this, with surgeries still publicly insured. Less time waiting in pain.",
+      "Within 100 days, an expert commission starts bringing B.C. fixes already proven in other public systems, to cut the time you wait.",
+      "16% of Island Health hospital days go to patients ready to leave (target: 14%). Seniors get the right care bed, and you get a bed out of emergency sooner.",
+      "About 2,400 temporary ER closures in B.C. from 2023 to 2025. Staffed shifts keep your emergency room open when you or your family need it.",
+      "15 hours is today's median wait for a ward bed after admission from emergency; Island Health's target is 10. Less time on a stretcher in the hallway.",
+      "Your planned surgery on time: less time living with pain, off work or waiting."
+    ],
+    "2-homes-people-can-afford": [
+      "6 months for a rezoning, 3 for a building permit: homes get built sooner, which eases rents over time.",
+      "Every fee and form on a new home ends up in its price or rent. Cutting them lowers the cost passed on to you.",
+      "Red tape back to 2017 levels: fewer rules and forms before a home can be built, with no cut to public servants.",
+      "$1,500 a month, rising toward $3,000: how much of your rent, mortgage interest or strata fees would count toward lower provincial income tax under the 2024 proposal. A tax cut, not a cheque."
+    ],
+    "3-cost-of-living": [
+      "5.60% back to 5.06% on the first $50,363 of taxable income: less provincial tax on the first dollars you earn.",
+      "Tax brackets rise with prices again, so a raise that only keeps up with inflation doesn't push your tax up.",
+      "Lower-income taxpayers keep the enhanced credit, so they don't pay for the rate cut.",
+      "Every claimed government saving is listed line by line, so you can check it yourself.",
+      "No new provincial tax and no higher provincial tax rate gets my vote. You can hold me to it on the scorecard.",
+      "3 years with no PST on new equipment and software: a café's espresso machine or a small firm's laptops cost less, and the savings stay in local businesses.",
+      "No PST at the till on Canadian beer, wine and spirits during the trade war: Island-made drinks cost less, and downtown and James Bay pubs and restaurants get a lift.",
+      "No PST on an affordable used car: less to pay when you need a car to get around.",
+      "If you take the ferry often, you get a say on a monthly flat fee, for more certainty on what you'll pay."
+    ],
+    "4-a-downtown-that-works": [
+      "250 more police officers for B.C., and you'll see how many reach VicPD: more officers in the hardest-hit neighbourhoods.",
+      "More staffed detox and treatment beds on the South Island, with waits published monthly: help is there when someone is ready to get well.",
+      "People in crisis on the street get into care, with medical and legal safeguards: safer for them and for everyone downtown.",
+      "Naloxone within reach, so an overdose can still be reversed, while the focus moves to treatment and recovery.",
+      "No illegal drug use in hospitals, shelters and supportive housing: safer for residents, patients and staff.",
+      "People move from tents into housing with support, and you'll see how many are still housed 12 months later.",
+      "50 new Crown prosecutors and more court capacity: cases reach trial faster, for victims and for the accused.",
+      "Health services spread across the region instead of a few downtown blocks: easier on the neighbourhood and the businesses there.",
+      "Small-business tax from 2% to 1%, and published permit waits: more of what a local business earns stays in the business."
+    ],
+    "transport-and-bc-ferries": [
+      "A charter with clear service standards, and new leadership if they're not met: sailings you can plan around.",
+      "A renewed fleet: fewer sailings between Swartz Bay and Tsawwassen lost to breakdowns.",
+      "Part of executive pay depends on results, so management is paid for getting you there on time.",
+      "295 round trips cancelled in a year, 267.5 of them for mechanical problems. Every quarter, you'll see whether breakdowns fall.",
+      "If you travel often, a monthly flat fee could give you more certainty on what you pay."
+    ],
+    "responsible-spending": [
+      "Every saving listed line by line, and new spending matched by a cut: you can check where your tax dollars go.",
+      "Health care and education are protected: savings don't come from your hospital or your child's school.",
+      "Money moves from programs that don't deliver to the services you use.",
+      "Every promise on this page comes with its cost, so you can judge whether it's worth it.",
+      "No vote from me for a bill that hides its cuts or raises a tax rate."
+    ],
+    "also-for-this-riding": [
+      "310 cruise ship calls in 2025 at Ogden Point: a cruise-day plan for traffic, buses and safe crossings in James Bay.",
+      "Almost half of B.C.'s public service works in Victoria: published service standards, changes based on data, and staff told early."
+    ]
+  },
+  "fr": {
+    "1-health-care-you-can-get": [
+      "388 jours : l'attente médiane actuelle pour un médecin de famille dans la région d'Island Health. Plus de médecins et de personnel infirmier autorisés à exercer ici, plus tôt : c'est ainsi que vous en aurez un plus vite.",
+      "9,1 heures par semaine : le temps que les médecins consacrent à la paperasse. En la réduisant, ils ont plus de temps pour les rendez-vous, et votre consultation vous est davantage consacrée.",
+      "Voir un médecin le soir ou la fin de semaine, sans perdre un quart de travail ni une journée de salaire.",
+      "40,7 % des chirurgies planifiées d'Island Health ont attendu au-delà du délai médical de référence. Si votre examen ou votre chirurgie est en retard, une clinique approuvée s'en charge : vous présentez votre carte santé et vous ne payez rien.",
+      "De 26,5 semaines à 14,2 : l'attente médiane pour une chirurgie en Saskatchewan après 4 ans, avec des chirurgies toujours assurées par le régime public. Moins de temps à attendre en souffrant.",
+      "Dans les 100 premiers jours, une commission d'experts commence à apporter en C.-B. des solutions éprouvées dans d'autres systèmes publics, pour réduire votre attente.",
+      "16 % des jours-patients chez Island Health sont ceux de patients prêts à partir (cible : 14 %). Les aînés obtiennent la bonne place en soins, et vous obtenez plus vite un lit quand vous êtes à l'urgence.",
+      "Environ 2 400 fermetures temporaires d'urgences en C.-B. de 2023 à 2025. Des quarts pourvus en personnel gardent votre urgence ouverte quand vous ou vos proches en avez besoin.",
+      "15 heures : l'attente médiane actuelle pour un lit après une admission par l'urgence; la cible d'Island Health est de 10. Moins de temps sur une civière dans le corridor.",
+      "Votre chirurgie planifiée dans les délais : moins de temps à vivre avec la douleur, en arrêt de travail ou dans l'attente."
+    ],
+    "2-homes-people-can-afford": [
+      "6 mois pour un rezonage, 3 pour un permis de construire : les logements sont construits plus tôt, ce qui contribue à faire baisser les loyers au fil du temps.",
+      "Chaque frais et chaque formulaire sur un nouveau logement se retrouve dans son prix ou son loyer. Les réduire diminue le coût répercuté sur vous.",
+      "Des formalités ramenées à leur niveau de 2017 : moins de règles et de formulaires avant de pouvoir construire, sans couper dans la fonction publique.",
+      "1 500 $ par mois, puis jusqu'à 3 000 $ : la part de votre loyer, de vos intérêts hypothécaires ou de vos frais de copropriété qui compterait pour réduire votre impôt provincial sur le revenu, selon la proposition de 2024. Une réduction d'impôt, pas un chèque."
+    ],
+    "3-cost-of-living": [
+      "De 5,60 % à 5,06 % sur la première tranche de 50 363 $ de revenu imposable : moins d'impôt provincial sur les premiers dollars que vous gagnez.",
+      "Les tranches d'imposition suivent de nouveau les prix : une augmentation de salaire qui ne fait que suivre l'inflation n'alourdit pas votre impôt.",
+      "Les contribuables à faible revenu gardent le crédit bonifié : ce ne sont pas eux qui paient la baisse du taux.",
+      "Chaque économie annoncée par le gouvernement est publiée poste par poste : vous pouvez la vérifier vous-même.",
+      "Aucun nouvel impôt ni aucune hausse d'un taux d'imposition provincial n'aura mon vote. Vous pourrez le vérifier dans le bulletin.",
+      "3 ans sans TVP sur le nouvel équipement et les logiciels : la machine à espresso d'un café ou les ordinateurs portables d'une petite entreprise coûtent moins cher, et l'économie reste dans les entreprises d'ici.",
+      "Aucune TVP à la caisse sur la bière, le vin et les spiritueux canadiens pendant la guerre commerciale : les produits de l'île coûtent moins cher, et les pubs et restaurants du centre-ville et de James Bay en profitent.",
+      "Aucune TVP sur une voiture d'occasion abordable : moins à payer quand vous avez besoin d'une voiture pour vous déplacer.",
+      "Si vous prenez souvent le traversier, vous avez votre mot à dire sur un forfait mensuel, pour mieux prévoir ce que vous paierez."
+    ],
+    "4-a-downtown-that-works": [
+      "250 policiers de plus pour la C.-B., et vous saurez combien arrivent au VicPD : plus de policiers dans les quartiers les plus touchés.",
+      "Plus de lits de désintoxication et de traitement dotés en personnel dans le sud de l'île, avec des délais publiés chaque mois : de l'aide au moment où une personne est prête à s'en sortir.",
+      "Les personnes en crise dans la rue sont prises en charge, avec des garanties médicales et juridiques : plus sûr pour elles et pour tout le monde au centre-ville.",
+      "La naloxone à portée de main, pour qu'une surdose puisse encore être renversée, pendant que l'accent passe au traitement et au rétablissement.",
+      "Aucune consommation de drogues illégales dans les hôpitaux, les refuges et les logements avec services de soutien : plus sûr pour les résidents, les patients et le personnel.",
+      "Les personnes passent de la tente à un logement avec services de soutien, et vous saurez combien y sont toujours logées 12 mois plus tard.",
+      "50 nouveaux procureurs de la Couronne et plus de capacité judiciaire : des procès tenus plus vite, pour les victimes comme pour les accusés.",
+      "Des services de santé répartis dans toute la région plutôt que sur quelques rues du centre-ville : moins de pression sur le quartier et ses entreprises.",
+      "Impôt des petites entreprises de 2 % à 1 %, et délais de délivrance des permis publiés : une plus grande part de ce que gagne une entreprise d'ici reste dans l'entreprise."
+    ],
+    "transport-and-bc-ferries": [
+      "Une charte avec des normes de service claires, et une nouvelle direction si elles ne sont pas respectées : des traversées sur lesquelles vous pouvez compter.",
+      "Une flotte renouvelée : moins de traversées entre Swartz Bay et Tsawwassen annulées en raison de pannes.",
+      "Une partie de la rémunération des dirigeants dépend des résultats : la direction est payée pour vous faire arriver à l'heure.",
+      "295 allers-retours annulés en un an, dont 267,5 pour des problèmes mécaniques. Chaque trimestre, vous verrez si les pannes diminuent.",
+      "Si vous voyagez souvent, un forfait mensuel pourrait vous permettre de mieux prévoir ce que vous paierez."
+    ],
+    "responsible-spending": [
+      "Chaque économie publiée poste par poste, et toute nouvelle dépense compensée par une réduction : vous pouvez vérifier où va l'argent de vos impôts.",
+      "Les soins de santé et l'éducation sont protégés : les économies ne viennent pas de votre hôpital ni de l'école de vos enfants.",
+      "L'argent passe des programmes qui ne donnent pas de résultats aux services que vous utilisez.",
+      "Chaque engagement de cette page est accompagné de son coût, pour que vous puissiez juger s'il en vaut la peine.",
+      "Mon vote ne va à aucun projet de loi qui cache ses compressions ou qui hausse un taux d'imposition."
+    ],
+    "also-for-this-riding": [
+      "310 escales de navires de croisière à Ogden Point en 2025 : un plan pour la circulation, les autobus et la sécurité des piétons à James Bay les jours d'escale.",
+      "Près de la moitié de la fonction publique de la C.-B. travaille à Victoria : des normes de service publiées, des changements fondés sur des données et un personnel informé tôt."
+    ]
+  }
+}
