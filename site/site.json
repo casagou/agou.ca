@@ -1271,6 +1271,9 @@
     }
   },
   "party_links_live": true,
+  "_no_party_v1_doc": "No-party version (8 Oct 2026): every mention of the party, its links, the donate page and party events are left out (see site/no_party.py). Staging builds use it while no_party_v1 is true; live builds only when no_party_v1_live is also true.",
+  "no_party_v1": true,
+  "no_party_v1_live": false,
   "priorities_health_v3_live": true,
   "priorities_bed_v2_live": true,
   "how_to_vote_v2_live": true,

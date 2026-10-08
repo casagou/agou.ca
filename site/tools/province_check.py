@@ -16,7 +16,7 @@ APPROVED = {  # old wording (retracted) -> approved wording, Joachim 30 Sep 2026
     "was a federal exemption the Province asked for.\n": "was a federal exemption the Province asked for. It ended on January 31, 2026.",
 }
 md = (ROOT / "content/en/province.md").read_text()
-page = (ROOT / "dist/province/index.html").read_text()
+page = ((pathlib.Path(sys.argv[sys.argv.index("--dist") + 1]) if "--dist" in sys.argv else ROOT / "dist") / "province/index.html").read_text()
 txt = re.sub(r"<(script|style).*?</\1>", " ", page, flags=re.S)
 txt = re.sub(r'<span class="pv-lbl"[^>]*>.*?</span>', " ", txt)
 txt = re.sub(r"</?(em|strong|a|span|mark)\b[^>]*>", "", txt)

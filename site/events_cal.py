@@ -24,6 +24,7 @@ DAYS = {"en": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
         "fr": ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"]}
 DAYS_ABBR = {"en": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "fr": ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."]}
 _STATE = {"events": None, "fetched": False}
+HIDE = set()  # event ids left out of this build (no_party.py; set by build.py before the first events() call). The database is not touched.
 
 
 def today():
@@ -51,6 +52,7 @@ def events():
     except Exception as ex:
         print(f"WARNING: get_public_events not reachable ({ex.__class__.__name__}); using data/events-added.json for the 'New' badges")
     changed = False
+    if live is not None and HIDE: live = [e for e in live if e["id"] not in HIDE]
     _STATE["live"] = live
     if live is not None:
         for e in live:
@@ -73,7 +75,7 @@ def events():
         ids = set(store["events"])
     out = []
     for k, r in store["events"].items():
-        if k not in ids: continue
+        if k not in ids or int(k) in HIDE: continue
         out.append({"id": int(k), "title": r["title"], "title_fr": r.get("title_fr") or "", "starts_at": r["starts_at"], "ends_at": r["ends_at"],
                     "added": datetime.date.fromisoformat(r["added"]), "since": since_of(r)})
     out.sort(key=lambda e: (e["starts_at"], e["id"]))
@@ -180,6 +182,7 @@ def home_banner(lang, site, ui, events_url):
     T = ui[lang]["new_events"]
     data = {"u": up, "url": events_url, "built": now_iso(), "hours": new_hours(site), "lang": lang,
             "txt": {k: T[k] for k in ("next", "now", "badge", "more_up_one", "more_up")}, "api": SUPABASE_URL, "key": SUPABASE_KEY}
+    if HIDE: data["hide"] = sorted(HIDE)  # site.js drops these ids from its live refresh too
     js = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     inner = ""
     if up:

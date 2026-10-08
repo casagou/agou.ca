@@ -8,6 +8,7 @@ import argparse, html, json, re, shutil, pathlib, sys
 import scorecard  # /scorecard/ page (scorecard.py, scorecard.json, content/<lang>/scorecard.md)
 import province  # /province/ page (province.py, content/<lang>/province.md; not from Notion)
 import updates  # "Updates" / « Nouvelles » (updates.py, data/updates.json; hidden everywhere while it has no entries)
+import no_party  # no-party version (site.json no_party_v1, 8 Oct 2026); see no_party.py
 import prio_layout  # Priorities summary-first layout (staging only until site.json priorities_layout_v2_live)
 import events_cal  # Events calendar + 'New' events (events_cal.py; staging only until site.json events_calendar_live)
 
@@ -448,7 +449,7 @@ def read(lang, key):
             for a_, b_ in d_["edits"].get(f"{lang}/{key}", []):
                 if t.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key}.md: text to replace not found once (live text changed? redo the draft): {a_[:80]!r}")
                 t = t.replace(a_, b_)
-    return t
+    return no_party.apply(t, lang, key)
 
 
 def page_drafts(lang, key, md):
@@ -460,7 +461,7 @@ def page_drafts(lang, key, md):
         for a_, b_ in d_["edits"].get(f"{lang}/{key}", []):
             if md.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key} (home section): text to replace not found once (Notion text changed? redo the draft): {a_[:80]!r}")
             md = md.replace(a_, b_)
-    return md
+    return no_party.apply(md, lang, key)
 
 
 def draft_updated(lang, key):
@@ -958,7 +959,7 @@ def build_page(lang, page, env):
         if warm:
             body += (f'<section class="block vlawn"><h2>{esc(VT["lawnsign_t"])}</h2>'
                      f'<p class="cta-line"><a class="btn sec" href="{url(lang, "lawn-sign")}"><strong>{esc(VT["lawnsign_btn"])}</strong></a></p></section>')
-        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": page["form"], "warm": warm, "text": {k: v for k, v in UI[lang][page["form"]].items() if k != "draft_tag"}, "common": UI[lang]["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
+        extra = f'<script id="form-config" type="application/json">{json.dumps({"form": page["form"], "warm": warm, **({"hide": sorted(events_cal.HIDE)} if events_cal.HIDE else {}), "text": {k: v for k, v in UI[lang][page["form"]].items() if k != "draft_tag"}, "common": UI[lang]["form_common"]}, ensure_ascii=False).replace("</", "<\\/")}</script>\n<script src="/assets/js/forms.js?v={BUILD_ID}" defer></script>\n'
     if page.get("form") == "events":
         T = U["events"]
         cal = CAL_ON(env)
@@ -973,6 +974,7 @@ def build_page(lang, page, env):
         calv = events_cal.calendar_html(lang, SITE, UI, shifts=shifts) if cal else ""
         body = f'<div data-hide-on-detail>{body}</div><section class="block" id="events-list" aria-live="polite">{toggle}<div id="listView"><div id="list"><p class="note">{esc(T["loading"])}</p></div></div>{calv}<article id="detailView" class="detail" hidden></article></section>'
         cfg = {"form": "events", "live_url": LIVE + self_path, "text": T, "common": U["form_common"], "maps": event_maps()}
+        if events_cal.HIDE: cfg["hide"] = sorted(events_cal.HIDE)  # no_party_v1: events left out of this build
         if vic: cfg["vic"] = vic_events_cfg(lang)
         if cal: cfg.update({"cal": SITE["calendar_month"], "new_until": events_cal.new_map(SITE), "new_label": UI[lang]["new_events"]["badge"]})
         if shifts: cfg.update({"shifts": True, "shift_text": {k: v for k, v in ST.items() if not k.startswith("_")}})
@@ -1368,6 +1370,9 @@ if __name__ == "__main__":
         BUILD_ID = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, text=True).strip()
     except Exception:
         BUILD_ID = datetime.datetime.now().strftime("%Y%m%d%H%M")
+    no_party.ON["on"] = no_party.NP_ON(a.env, SITE)
+    if no_party.ON["on"]:  # no-party version: donate page gone, party text edited out, party events hidden (see no_party.py)
+        no_party.setup(HIDDEN, UI, SEO, prio_layout, events_cal, ROOT)
     if a.env == "live" and not SITE.get("publish_faq_live", True):
         HIDDEN.add("faq")
     if a.env == "live" and not SITE.get("publish_scorecard_live", False):
@@ -1431,6 +1436,7 @@ if __name__ == "__main__":
     shutil.copy(ROOT / "assets/img/favicon.ico", dist / "favicon.ico")
     for ml, start, desc in (("en", "/", "Joachim Agou, Conservative Party of BC nominee in Victoria–Beacon Hill"),
                             ("fr", "/fr/", "Joachim Agou, investi par le Parti conservateur de la Colombie-Britannique dans Victoria–Beacon Hill")):
+        if no_party.ON["on"]: desc = no_party.MANIFEST_DESC[ml]
         man = {"name": "Joachim Agou – Victoria–Beacon Hill", "short_name": "Joachim Agou", "lang": f"{ml}-CA",
                "description": desc, "start_url": start, "scope": "/", "display": "browser",
                "background_color": "#ffffff", "theme_color": "#123a6d",
@@ -1440,13 +1446,13 @@ if __name__ == "__main__":
         (dist / start.lstrip("/")).mkdir(parents=True, exist_ok=True)
         (dist / start.lstrip("/") / "site.webmanifest").write_text(json.dumps(man, ensure_ascii=False, indent=1) + "\n")
     MEDIAKIT["env"] = a.env
-    MEDIAKIT["on"] = a.env == "staging" or bool(SITE.get("publish_media_kit_live"))
+    MEDIAKIT["on"] = (a.env == "staging" or bool(SITE.get("publish_media_kit_live"))) and not no_party.ON["on"]  # the media-kit PDFs name the party
     if not MEDIAKIT["on"]:
         shutil.rmtree(dist / "assets" / "media", ignore_errors=True)
     MEDIAKIT["errs"] = {f: e for f, e in pdf_check(dist).items() if e}
     for f, es in MEDIAKIT["errs"].items():
         print(f"{'PDF CHECK' if a.env == 'live' else 'WARNING (staging only, would block live)'}: {f.relative_to(dist)}:\n    " + "\n    ".join(es))
-    PARTY["on"] = PARTY_ON(a.env)
+    PARTY["on"] = PARTY_ON(a.env) and not no_party.ON["on"]  # no-party version: our own volunteer / lawn-sign forms again
     if PARTY["on"]:  # bridge pages leave the sitemap and search; party wording for their descriptions and the lawn-sign card
         for k in PARTY_MOVED: BYKEY[k]["robots"] = "noindex"
         for k, v in SEO["party_pages"].items(): SEO["pages"][k] = v
@@ -1471,6 +1477,12 @@ if __name__ == "__main__":
     updates.write_feeds(sys.modules[__name__], dist, a.env)  # /updates/feed.xml, /fr/updates/feed.xml (only with entries)
     (dist / "sitemap.xml").write_text(sitemap())  # staging too, for review (its robots.txt still disallows everything)
     errs = check(dist) + seo_check(dist, a.env) + shifts_check(dist, a.env) + updates.check(sys.modules[__name__], dist, a.env)
+    if no_party.ON["on"]:
+        errs += sorted(set(no_party.ERRS))
+        if a.env == "staging":
+            with open(dist / "_redirects", "a") as fh: fh.write("/donate/ / 302\n/donate / 302\n/fr/donate/ /fr/ 302\n/fr/donate /fr/ 302\n")
+        npl = [h for h in no_party.scan(dist) if not h[3]]
+        errs += [f"no_party: {h[0].relative_to(dist)}: {h[1]!r} in …{h[2]}…" for h in npl]
     if NOMINATIONS_CLOSED:  # nothing may link to the retired Nominate page or ask people to sign (its own EN/FR pages excepted)
         nom = {url(l, "nominate") for l in LANGS}; nom_pages = {dist / u.lstrip("/") / "index.html" for u in nom}
         ask = re.compile(r"Sign up to nominate|Become a nominator|I need 75|Put a test engineer on the ballot|S'inscrire pour signer|Il me faut la signature|Mettre un ingénieur d'essais sur le bulletin")

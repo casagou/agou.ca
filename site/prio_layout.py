@@ -49,6 +49,9 @@ CHIP_RE = {"mine": r"\bmy position\b|\bma position\b",
            "party": r"\bparty commitment\b|\bthe party (?:has committed|made the same pledge)|\bengagement du parti\b|\ble parti (?:s'est engagé|a pris le même engagement)",
            "plat": r"\b2024 party platform\b|\bprogramme 2024 du parti\b"}
 
+DATA_OVERRIDE = None          # no_party.py: the no-party version of data/priorities-for-you.json
+LEGEND = ("mine", "party", "plat")  # chips listed in the How I work legend (no_party.py: mine only)
+
 VOID = {"img", "source", "br", "hr", "meta", "link", "input", "wbr"}
 TAG = re.compile(r"<(/?)([a-zA-Z][a-zA-Z0-9]*)\b[^>]*?(/?)>")
 
@@ -186,7 +189,7 @@ def chips(lang, h):
 
 def transform(body, lang, slugify, flags):
     """body: the classic Priorities body (after collapse(), scorecard and photo strips). Returns the v2 body."""
-    U = T[lang]; DATA = json.loads((ROOT / "data/priorities-for-you.json").read_text()); FY = DATA[lang]
+    U = T[lang]; DATA = DATA_OVERRIDE or json.loads((ROOT / "data/priorities-for-you.json").read_text()); FY = DATA[lang]
     SHORT = DATA.get("short_titles", {}).get(lang, {})
     secs = list(re.finditer(r'<section class="block" aria-labelledby="([^"]+)">(.*?)</section>', body, re.S))
     if len(secs) != len(EN_ORDER): raise SystemExit(f"prio_layout ({lang}): expected {len(EN_ORDER)} sections, found {len(secs)} (Notion headings changed?)")
@@ -201,7 +204,7 @@ def transform(body, lang, slugify, flags):
             if text(kids[k - 1]) not in ("On this page", "Sur cette page"): raise SystemExit("prio_layout: 'On this page' label not found")
             toc_links = re.findall(r'<a href="(#[^"]+)">(.*?)</a>', kids[k]); del kids[k - 1:k + 1]
             head = [c for c in kids if c.startswith("<h2") or c.startswith('<span id="')]; more = [c for c in kids if c not in head]
-            leg = "".join(f'<li><span class="chip chip-{c}">{U["chips"][c]}</span> {U["legend"][c]}</li>' for c in ("mine", "party", "plat"))
+            leg = "".join(f'<li><span class="chip chip-{c}">{U["chips"][c]}</span> {U["legend"][c]}</li>' for c in LEGEND)
             new_secs.append(f'<section class="block hiw" aria-labelledby="{sid}">' + "\n".join(head)
                             + f'<p class="hiw-intro">{U["hiw_intro"]}</p><ul class="hiw-legend">{leg}</ul>'
                             + f'<details class="pc-det hiw-more"><summary>{U["hiw_more"]}</summary><div class="pc-dbody">' + "\n".join(more) + "</div></details></section>"); continue
