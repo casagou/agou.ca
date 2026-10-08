@@ -43,6 +43,7 @@
       .then(function (r) { if (!r.ok) throw r.status; return r.json(); })
       .then(function (rows) {
         if (!Array.isArray(rows)) return;
+        if (D.hide) rows = rows.filter(function (r) { return D.hide.indexOf(r.id) < 0; });  // no_party_v1: ids left out of this build
         render(rows.map(function (r) {
           var t = String((FR && r.title_fr) || r.title || "").split("|").map(function (x) { return x.trim(); }).join(" — ");
           var pl = String((FR && r.location_name_fr) || r.location_name || "").split(",")[0].trim();
