@@ -134,6 +134,13 @@ git commit --allow-empty -m "redeploy agou staging" && git push
 ## 3. Photos, Donate switch and exclusions
 See `site/README.md`: "Photo slots", "Donate switch" (`site.json` → `promote_donate`) and "Content exclusions".
 
+### TEMPORARY REDIRECT ACTIVE (Joachim, 8 Oct 2026 12:43 PM PT): agou.ca forwards to the party candidate page
+- Joachim in chat: "can you point agou.ca to the campaign website", "I don't want people to see agou.ca for now." Every path on agou.ca and www.agou.ca (EN and FR) now forwards to https://conservativebc.ca/candidate/joachim-agou/.
+- Method: GitHub Pages source switched from `main` to the orphan branch `redirect-cbc` (commit 74cd102), live 12:50 PM PT. Every page path that existed on main, plus 404.html (any other path, assets, PDFs, sitemap), is a noindex stub with a canonical link to the party page, a meta refresh and a JS `location.replace`, and no site content. Not a true HTTP 302 (200, or 404 for other paths, then an immediate browser redirect): Cloudflare does not front agou.ca (DNS at GoDaddy) and the only true 302 is GoDaddy forwarding, which needs Joachim's GoDaddy login. Generator: /workspace/agou-redirect/make_tree.py on the box.
+- `main` (e3ed25c, PR #74) is untouched. DNS, email (Google Workspace MX/SPF/DKIM/DMARC), the campaign app, Supabase and staging were not changed.
+- **While this is active, merging a publish PR into `main` does NOT go live.** Pages serves `redirect-cbc` until the source is switched back.
+- Rollback (about 1 minute): `gh api -X PUT repos/casagou/agou.ca/pages -f cname=agou.ca -F https_enforced=true -f 'source[branch]=main' -f 'source[path]=/'` then `gh api -X POST repos/casagou/agou.ca/pages/builds` (the source switch alone did not trigger a build), wait for `gh api repos/casagou/agou.ca/pages/builds/latest` to show `built` on main's head; pages may stay cached up to 10 min (max-age=600). Then run `python3 site/tools/banner_check.py https://agou.ca`.
+
 ## 4. Publish to live (first done 2026-09-30, PR on casagou/agou.ca; repeat for every update)
 Option A (keeps the current GitHub Pages "deploy from branch" setup):
 1. Make sure no Notion red `[TO COMPLETE]` notes remain (the live build stops if any do). `cd site && python3 build.py --env live`. This writes `dist/` with canonical https://agou.ca URLs, sitemap.xml, robots.txt allowing indexing, `CNAME` (agou.ca) and `.nojekyll`, and no staging banner or noindex.
