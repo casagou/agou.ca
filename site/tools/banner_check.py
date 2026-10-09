@@ -16,6 +16,12 @@ _home = urllib.request.urlopen(urllib.request.Request(BASE + "/?bannercheck=hide
 _m = _re.search(r'<script type="application/json" id="nextev-data">(.*?)</script>', _home, _re.S)
 HIDE = set(json.loads(_m.group(1).replace("<\\/", "</")).get("hide", [])) if _m else set()
 if HIDE: print(f"banner_check: ignoring event ids hidden by this build: {sorted(HIDE)}")
+# Events page hidden (site.json hide_events_getinvolved_v1): /events/ forwards to the home page and the home page has no banner -> pass
+_er = urllib.request.urlopen(urllib.request.Request(BASE + "/events/?bannercheck=hide", headers={"User-Agent": "banner_check"}), timeout=15)
+_eb = _er.read().decode("utf-8", "replace")
+if (_er.geturl().rstrip("/").split("?")[0] == BASE or 'http-equiv="refresh" content="0; url=/"' in _eb) and 'id="nextev"' not in _home:
+    print("banner check passed: the Events page is hidden in this build (/events/ forwards home) and the home page has no event banner, as intended")
+    sys.exit(0)
 ev = [e for e in ev if e["id"] not in HIDE]
 up = sorted([e for e in ev if datetime.datetime.fromisoformat(e["ends_at"]) > now], key=lambda e: (e["starts_at"], e["id"]))
 past_ids = {e["id"] for e in ev if datetime.datetime.fromisoformat(e["ends_at"]) <= now}

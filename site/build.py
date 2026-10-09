@@ -106,6 +106,13 @@ def party_page(lang, page, env):
     body = f'<section class="block lead">{"".join(parts)}</section>' + shifts_note
     main = f'<div class="page-head"><div class="wrap"><h1>{esc(T["h1"])}</h1></div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
     return shell(lang, page, f'{T["h1"]} – Joachim Agou – Victoria–Beacon Hill', T["lead"], main, env)
+HIDE_EG = {"on": False, "keys": ("events", "get-involved", "volunteer", "lawn-sign", "nominate")}  # site.json hide_events_getinvolved_v1(_live)
+HIDE_EG_EDITS = {  # copy that only points to the hidden pages (Joachim 8 Oct 2026 6:00 PM PT)
+    "en/home": [("dropsec", "## Volunteer"), ("dropsec", "## Events")],
+    "fr/home": [("dropsec", "## Bénévolat"), ("dropsec", "## Événements")],
+    "en/faq": [("dropsec", "## Get involved")],
+    "fr/faq": [("dropsec", "## S'impliquer")],
+}
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
 MEDIAKIT = {"on": True, "env": "staging", "errs": {}}  # media-kit PDFs (site.json media_kit / publish_media_kit_live); set in __main__
 IMG = {  # local image name -> (files by width, width, height)
@@ -449,7 +456,10 @@ def read(lang, key):
             for a_, b_ in d_["edits"].get(f"{lang}/{key}", []):
                 if t.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key}.md: text to replace not found once (live text changed? redo the draft): {a_[:80]!r}")
                 t = t.replace(a_, b_)
-    return no_party.apply(t, lang, key)
+    t = no_party.apply(t, lang, key)
+    if HIDE_EG["on"] and t is not None and f"{lang}/{key}" in HIDE_EG_EDITS:
+        t = no_party.apply_ops(t, HIDE_EG_EDITS[f"{lang}/{key}"], f"hide_events_getinvolved {lang}/{key}")
+    return t
 
 
 def page_drafts(lang, key, md):
@@ -637,7 +647,7 @@ def shell(lang, page, title, desc, main_html, env, extra_head="", robots_overrid
         active = ' class="active"' if key in kids else ""
         badge = events_cal.nav_badge(lang, SITE, UI) if k == "events" and CAL_ON(env) else ""
         items.append(f'<li{" class=\"has-sub\"" if kids else ""}><a href="{url(lang, k)}"{cur(k)}{active}>{esc(p.get("nav_short", p["nav"])[lang])}{badge}</a>{sub}</li>')
-    navs = f'<li class="nav-cta"><a class="btn primary" href="{url(lang, "volunteer")}">{esc(U["cta_volunteer"])}</a></li>' + "".join(items)
+    navs = ("" if "volunteer" in HIDDEN else f'<li class="nav-cta"><a class="btn primary" href="{url(lang, "volunteer")}">{esc(U["cta_volunteer"])}</a></li>') + "".join(items)
     staging = f'<div class="staging" role="note">{esc(U["staging"])}</div>' if env == "staging" else ""
     evbase = f' data-lang-switch data-base="{opath}"' if key == "events" else ""
     cta_v = url(lang, "volunteer"); cta_d = url(lang, "donate")
@@ -680,7 +690,7 @@ def shell(lang, page, title, desc, main_html, env, extra_head="", robots_overrid
   <a class="brand" href="{url(lang, 'home')}"><span class="brand-name">Joachim Agou</span><span class="brand-sub">{esc(U['brand_sub'])}</span></a>
   <div class="tools">
    <a class="lang" href="{opath}" hreflang="{other}-CA" lang="{other}"{evbase} aria-label="{esc(U['lang_other_label'])}"><span class="lang-long">{esc(U['lang_other'])}</span><span class="lang-short" aria-hidden="true">{U['lang_other_short']}</span></a>
-   <a class="btn primary hdr-cta" href="{cta_v}">{esc(U['cta_volunteer'])}</a>
+{"" if "volunteer" in HIDDEN else f'   <a class="btn primary hdr-cta" href="{cta_v}">{esc(U["cta_volunteer"])}</a>'}
 {f'   <a class="btn donate hdr-cta" href="{cta_d}">{esc(U["cta_donate"])}</a>' if SITE.get("promote_donate") else ""}
    <button id="menu-btn" class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" data-open="{esc(U['menu'])}" data-close="{esc(U['close'])}"><span class="burger" aria-hidden="true"></span><span class="lbl">{esc(U['menu'])}</span></button>
   </div>
@@ -858,13 +868,13 @@ def build_page(lang, page, env):
         # the callout's link is the page's main action: a primary button (same wording)
         hero_callout = re.sub(r'<a href="([^"]+)">', r'<a class="btn primary hero-cta" href="\1">', render(callout, lang, {"self": self_path})[0], count=1)
         if NOMINATIONS_CLOSED:  # the nominator callout is gone; Volunteer is the hero's main action (same label as the header button)
-            hero_callout = f'<p class="hero-actions"><a class="btn primary hero-cta" href="{url(lang, "volunteer")}">{esc(U["cta_volunteer"])}</a></p>'
+            hero_callout = "" if "volunteer" in HIDDEN else f'<p class="hero-actions"><a class="btn primary hero-cta" href="{url(lang, "volunteer")}">{esc(U["cta_volunteer"])}</a></p>'
             body = body.replace(f'<section class="block" aria-labelledby="{slugify(donate_h)}">', map_block(lang) + f'\n<section class="block" aria-labelledby="{slugify(donate_h)}">', 1)
         hero = (f'<div class="hero"><div class="wrap hero-grid"><div class="hero-text">'
                 f'<h1>{esc(U["home_title"])}</h1><p class="hero-sub">{inline(sub, ctx)}</p><p class="tagline">{inline(tagline, ctx)}</p><p class="lockup">{esc(U["lockup"])}</p>'
                 f'{intro}{hero_callout}</div>{hero_media}</div>'
                 + (f'<div class="wrap">{hero_src}</div>' if hero_src else "") + '</div>')
-        newev = events_cal.home_banner(lang, SITE, UI, url(lang, "events"))  # always on (4 Oct 2026): next upcoming event; hidden only when none
+        newev = "" if "events" in HIDDEN else events_cal.home_banner(lang, SITE, UI, url(lang, "events"))  # always on (4 Oct 2026): next upcoming event; hidden only when none
         main = newev + hero + shortcuts(lang) + (vic_band(lang, env) if vic else "") + home_layout(collapse(body, lang, page="home"), lang, updates.home_section(sys.modules[__name__], lang)) + f'<div class="wrap home-foot">{updated_for(lang, "home")}</div>'
         title = f"Joachim Agou – Victoria–Beacon Hill" if lang == "en" else "Joachim Agou – Victoria–Beacon Hill (français)"
         desc = re.sub(r"[*]", "", sub) + ". " + re.sub(r"[*]", "", tagline)
@@ -1004,7 +1014,7 @@ def build_page(lang, page, env):
 
 def shortcuts(lang):
     """Compact row of section shortcuts under the home hero (existing pages)."""
-    items = "".join(f'<li><a href="{url(lang, k)}">{esc(BYKEY[k]["nav"][lang])}</a></li>' for k in ("priorities", "get-involved", "events", "how-to-vote"))
+    items = "".join(f'<li><a href="{url(lang, k)}">{esc(BYKEY[k]["nav"][lang])}</a></li>' for k in ("priorities", "get-involved", "events", "how-to-vote") if k not in HIDDEN)
     return f'<nav class="shortcuts" aria-label="{esc(UI[lang]["shortcuts_label"])}"><div class="wrap"><ul>{items}</ul></div></nav>'
 
 
@@ -1341,7 +1351,7 @@ def check(dist):
     # Upcoming-event banner (4 Oct 2026, Joachim): while any public event has not ended, both home pages must show it,
     # pointing at the soonest one, with the embedded list site.js uses to keep it current. It vanished once before (2-4 Oct)
     # because the old 'New event' line was frozen at build time on an event that then ended.
-    for l_ in LANGS:
+    for l_ in (() if "events" in HIDDEN else LANGS):  # Events hidden (hide_events_getinvolved_v1): no banner by design
         hp = dist / url(l_, "home").lstrip("/") / "index.html"; ht = hp.read_text(); up = events_cal.upcoming(l_, SITE)
         m_ = re.search(r'<div class="newev nextev" id="nextev"( hidden)?>(.*?)<script type="application/json" id="nextev-data">(.*?)</script>', ht, re.S)
         if not m_: errs.append(f"{hp.relative_to(dist)}: upcoming-event banner missing"); continue
@@ -1371,6 +1381,9 @@ if __name__ == "__main__":
     except Exception:
         BUILD_ID = datetime.datetime.now().strftime("%Y%m%d%H%M")
     no_party.ON["on"] = no_party.NP_ON(a.env, SITE)
+    HIDE_EG["on"] = bool(SITE.get("hide_events_getinvolved_v1")) and (a.env == "staging" or bool(SITE.get("hide_events_getinvolved_v1_live")))
+    if HIDE_EG["on"]:  # Joachim 8 Oct 2026 6:00 PM PT: hide Events and Get involved (+ its pages) until he changes them; sources stay
+        HIDDEN.update(HIDE_EG["keys"])
     if no_party.ON["on"]:  # no-party version: donate page gone, party text edited out, party events hidden (see no_party.py)
         no_party.setup(HIDDEN, UI, SEO, prio_layout, events_cal, ROOT)
     if a.env == "live" and not SITE.get("publish_faq_live", True):
@@ -1479,14 +1492,18 @@ if __name__ == "__main__":
     errs = check(dist) + seo_check(dist, a.env) + shifts_check(dist, a.env) + updates.check(sys.modules[__name__], dist, a.env)
     if no_party.ON["on"]:
         errs += sorted(set(no_party.ERRS))
+    STUBS = ["donate"] * no_party.ON["on"] + list(HIDE_EG["keys"]) * HIDE_EG["on"]
+    if STUBS:
         if a.env == "staging":
-            with open(dist / "_redirects", "a") as fh: fh.write("/donate/ / 302\n/donate / 302\n/fr/donate/ /fr/ 302\n/fr/donate /fr/ 302\n")
-        else:  # GitHub Pages has no _redirects: old /donate/ links (and printed QR codes) forward to the home page; noindex, no content
-            for pre_, to_ in (("", "/"), ("fr/", "/fr/")):
-                (dist / pre_ / "donate").mkdir(parents=True, exist_ok=True)
-                (dist / pre_ / "donate" / "index.html").write_text(f'<!doctype html><html lang="{"fr" if pre_ else "en"}"><head><meta charset="utf-8"><meta name="robots" content="noindex">'
+            with open(dist / "_redirects", "a") as fh:
+                for k_ in STUBS: fh.write(f"/{k_}/ / 302\n/{k_} / 302\n/fr/{k_}/ /fr/ 302\n/fr/{k_} /fr/ 302\n")
+        else:  # GitHub Pages has no _redirects: old /donate/ (and hidden Events / Get involved) links and printed QR codes forward to the home page; noindex, no content
+            for k_, (pre_, to_) in ((k_, x) for k_ in STUBS for x in (("", "/"), ("fr/", "/fr/"))):
+                (dist / pre_ / k_).mkdir(parents=True, exist_ok=True)
+                (dist / pre_ / k_ / "index.html").write_text(f'<!doctype html><html lang="{"fr" if pre_ else "en"}"><head><meta charset="utf-8"><meta name="robots" content="noindex">'
                     f'<link rel="canonical" href="{LIVE}{to_}"><meta http-equiv="refresh" content="0; url={to_}"><title>Joachim Agou</title></head>'
                     f'<body><script>location.replace("{to_}")</script><p><a href="{to_}">agou.ca</a></p></body></html>\n')
+    if no_party.ON["on"]:
         npl = [h for h in no_party.scan(dist) if not h[3]]
         errs += [f"no_party: {h[0].relative_to(dist)}: {h[1]!r} in …{h[2]}…" for h in npl]
     if NOMINATIONS_CLOSED:  # nothing may link to the retired Nominate page or ask people to sign (its own EN/FR pages excepted)

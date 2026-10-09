@@ -27,19 +27,22 @@ for _n, _d in _build.DRAFTS.items():
 # and links are exactly the ones that differ between read() with the flag off and on (PARTY links are off in that version).
 import no_party as _np  # noqa: E402
 NP = _np.NP_ON(DENV, SITE)
+# Events / Get involved hidden (site.json hide_events_getinvolved_v1, Joachim 8 Oct 2026 6:00 PM PT): build.py HIDE_EG_EDITS drop their home / FAQ sections
+HEG = bool(SITE.get("hide_events_getinvolved_v1")) and (DENV == "staging" or bool(SITE.get("hide_events_getinvolved_v1_live")))
 NP_GONE, NP_LINKS = {}, {}
-if NP:
-    PARTY_ON = False
+if NP or HEG:
+    PARTY_ON = PARTY_ON and not NP
     _build.DRAFT_ENV["env"] = DENV
     _LNK = r"\]\((https?://[^)\s]+)\)"
     for _raw in sorted((ROOT / "notion-raw").glob("*.txt")):
         _lang, _key = _raw.stem.split("-", 1)
-        _np.ON["on"] = False; _b = _build.read(_lang, _key); _np.ON["on"] = True; _a = _build.read(_lang, _key)
+        _np.ON["on"] = False; _build.HIDE_EG["on"] = False; _b = _build.read(_lang, _key)
+        _np.ON["on"] = NP; _build.HIDE_EG["on"] = HEG; _a = _build.read(_lang, _key)
         if _b is None: continue
         _al = set(_a.split("\n"))
         NP_GONE[_raw.stem] = [l for l in _b.split("\n") if l not in _al]
         NP_LINKS[_raw.stem] = set(re.findall(_LNK, _b)) - set(re.findall(_LNK, _a))
-    _np.ON["on"] = False
+    _np.ON["on"] = False; _build.HIDE_EG["on"] = False
 BLOCK = {"p", "li", "h1", "h2", "h3", "figcaption", "summary", "div", "section", "br", "td", "a"}
 
 class T(HTMLParser):
@@ -130,8 +133,8 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
             dm = [n_ for n_, f_, _ in DRAFT_FINDS.get(name, []) for fl in f_.split("\n") if plain(fl) and len(plain(fl)) >= 12 and plain(fl) in p]
             if dm:
                 excluded.append(f"{name}: {p[:110]!r}  -> staging draft {dm[0]} (staging-drafts.json, live only with site.json {_build.DRAFTS[dm[0]]['live_flag']})"); continue
-        if not hit and NP and any(p in (plain(g) or "\x00") for g in NP_GONE.get(name, [])):
-            excluded.append(f"{name}: {p[:110]!r}  -> no-party version (no_party.py, site.json no_party_v1)"); continue
+        if not hit and (NP or HEG) and any(p in (plain(g) or "\x00") for g in NP_GONE.get(name, [])):
+            excluded.append(f"{name}: {p[:110]!r}  -> no-party version / hidden Events + Get involved (no_party.py, build.py HIDE_EG_EDITS)"); continue
         if hit:
             excluded.append(f"{name}: {p[:110]!r}  -> {hit[0]['why']}")
         else:
