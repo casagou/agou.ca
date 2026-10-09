@@ -28,7 +28,8 @@ for _n, _d in _build.DRAFTS.items():
 import no_party as _np  # noqa: E402
 NP = _np.NP_ON(DENV, SITE)
 # Events / Get involved hidden (site.json hide_events_getinvolved_v1, Joachim 8 Oct 2026 6:00 PM PT): build.py HIDE_EG_EDITS drop their home / FAQ sections
-HEG = bool(SITE.get("hide_events_getinvolved_v1")) and (DENV == "staging" or bool(SITE.get("hide_events_getinvolved_v1_live")))
+_build.set_hide_groups(DENV)  # per-group flags (build.py HIDE_GROUPS: events / nominate / getinvolved)
+HEG = _build.HIDE_EG["on"]
 NP_GONE, NP_LINKS = {}, {}
 if NP or HEG:
     PARTY_ON = PARTY_ON and not NP

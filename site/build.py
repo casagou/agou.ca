@@ -106,13 +106,32 @@ def party_page(lang, page, env):
     body = f'<section class="block lead">{"".join(parts)}</section>' + shifts_note
     main = f'<div class="page-head"><div class="wrap"><h1>{esc(T["h1"])}</h1></div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
     return shell(lang, page, f'{T["h1"]} – Joachim Agou – Victoria–Beacon Hill', T["lead"], main, env)
-HIDE_EG = {"on": False, "keys": ("events", "get-involved", "volunteer", "lawn-sign", "nominate")}  # site.json hide_events_getinvolved_v1(_live)
-HIDE_EG_EDITS = {  # copy that only points to the hidden pages (Joachim 8 Oct 2026 6:00 PM PT)
-    "en/home": [("dropsec", "## Volunteer"), ("dropsec", "## Events")],
-    "fr/home": [("dropsec", "## Bénévolat"), ("dropsec", "## Événements")],
-    "en/faq": [("dropsec", "## Get involved")],
-    "fr/faq": [("dropsec", "## S'impliquer")],
+# Hidden page groups (Joachim 8 Oct 2026 6:00 PM PT; Get involved back 7:16 PM PT). site.json hide_<group>_v1 (staging) and
+# hide_<group>_v1_live (live); a group whose own flags are absent falls back to hide_events_getinvolved_v1(_live). Sources stay in the repo.
+HIDE_GROUPS = {"events": ("events",), "nominate": ("nominate",), "getinvolved": ("get-involved", "volunteer", "lawn-sign")}
+HIDE_EG = {"on": False, "groups": set(), "keys": ()}
+HIDE_EG_EDITS = {  # copy that only points to hidden pages, per group
+    "getinvolved": {"en/home": [("dropsec", "## Volunteer")], "fr/home": [("dropsec", "## Bénévolat")],
+                    "en/faq": [("dropq", "How can I volunteer?"), ("dropq", "Can I get a lawn sign?")],
+                    "fr/faq": [("dropq", "Comment devenir bénévole?"), ("dropq", "Puis-je avoir une pancarte?")]},
+    "events": {"en/home": [("dropsec", "## Events")], "fr/home": [("dropsec", "## Événements")],
+               "en/faq": [("dropq", "Where can I meet you?")], "fr/faq": [("dropq", "Où puis-je vous rencontrer?")]},
 }
+FAQ_GI_HEAD = {"en": "## Get involved", "fr": "## S'impliquer"}
+
+
+def set_hide_groups(env):
+    HIDE_EG["groups"] = {g_ for g_ in HIDE_GROUPS if hide_on(g_, env)}
+    HIDE_EG["keys"] = tuple(k_ for g_ in sorted(HIDE_EG["groups"]) for k_ in HIDE_GROUPS[g_])
+    HIDE_EG["on"] = bool(HIDE_EG["groups"])
+
+
+def hide_on(group, env):
+    k, legacy = f"hide_{group}_v1", "hide_events_getinvolved_v1"
+    st = SITE.get(k, SITE.get(legacy)); lv = SITE.get(k + "_live", SITE.get(legacy + "_live"))
+    return bool(st) and (env == "staging" or bool(lv))
+
+
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
 MEDIAKIT = {"on": True, "env": "staging", "errs": {}}  # media-kit PDFs (site.json media_kit / publish_media_kit_live); set in __main__
 IMG = {  # local image name -> (files by width, width, height)
@@ -462,8 +481,12 @@ def read(lang, key):
         keep = [p_ for p_ in parts if not (p_.startswith("## ") and "<placeholder>MEDIAKIT</placeholder>" in p_)]
         if len(keep) != len(parts) - 1: sys.exit(f"media: {lang}/{key}: expected exactly one '## …' section holding <placeholder>MEDIAKIT</placeholder>")
         t = "".join(keep)
-    if HIDE_EG["on"] and t is not None and f"{lang}/{key}" in HIDE_EG_EDITS:
-        t = no_party.apply_ops(t, HIDE_EG_EDITS[f"{lang}/{key}"], f"hide_events_getinvolved {lang}/{key}")
+    if HIDE_EG["on"] and t is not None:
+        for g_ in sorted(HIDE_EG["groups"]):
+            if f"{lang}/{key}" in HIDE_EG_EDITS.get(g_, {}):
+                t = no_party.apply_ops(t, HIDE_EG_EDITS[g_][f"{lang}/{key}"], f"hide {g_} {lang}/{key}")
+        if key == "faq" and {"events", "getinvolved"} <= HIDE_EG["groups"]:  # nothing left under the FAQ Get involved heading
+            t = no_party.apply_ops(t, [("dropsec", FAQ_GI_HEAD[lang])], f"hide faq section {lang}")
     return t
 
 
@@ -960,7 +983,7 @@ def build_page(lang, page, env):
         welcome = (f'<section class="block vwelcome">{draft}<div class="vw-in">{headshot("112px", eager=True, bg=HS_SECOND)}'
                    f'<blockquote class="vw-note"><p>{esc(VT["welcome"])}</p><footer>– {esc(VT["welcome_sign"])}</footer></blockquote></div></section>')
         body = body.replace('</section>', f'<p class="vreassure">{esc(VT["reassure"])}</p>'
-                            f'<p class="vnext" id="vnext" hidden data-events="{url(lang, "events")}"></p></section>', 1)
+                            + ("" if "events" in HIDDEN else f'<p class="vnext" id="vnext" hidden data-events="{url(lang, "events")}"></p>') + '</section>', 1)  # no Events link while Events is hidden
         # Joachim (1 Oct 2026): the lead's "Every hour helps." / "Chaque heure compte." duplicated the reassurance line
         # ("…even two hours helps."), so the warm page drops that sentence and keeps "Knock on doors, make calls, …".
         # Home and Get involved keep the full Notion line.
@@ -1386,9 +1409,8 @@ if __name__ == "__main__":
     except Exception:
         BUILD_ID = datetime.datetime.now().strftime("%Y%m%d%H%M")
     no_party.ON["on"] = no_party.NP_ON(a.env, SITE)
-    HIDE_EG["on"] = bool(SITE.get("hide_events_getinvolved_v1")) and (a.env == "staging" or bool(SITE.get("hide_events_getinvolved_v1_live")))
-    if HIDE_EG["on"]:  # Joachim 8 Oct 2026 6:00 PM PT: hide Events and Get involved (+ its pages) until he changes them; sources stay
-        HIDDEN.update(HIDE_EG["keys"])
+    set_hide_groups(a.env)
+    HIDDEN.update(HIDE_EG["keys"])
     if no_party.ON["on"]:  # no-party version: donate page gone, party text edited out, party events hidden (see no_party.py)
         no_party.setup(HIDDEN, UI, SEO, prio_layout, events_cal, ROOT)
     if a.env == "live" and not SITE.get("publish_faq_live", True):
@@ -1497,7 +1519,7 @@ if __name__ == "__main__":
     errs = check(dist) + seo_check(dist, a.env) + shifts_check(dist, a.env) + updates.check(sys.modules[__name__], dist, a.env)
     if no_party.ON["on"]:
         errs += sorted(set(no_party.ERRS))
-    STUBS = ["donate"] * no_party.ON["on"] + list(HIDE_EG["keys"]) * HIDE_EG["on"]
+    STUBS = ["donate"] * no_party.ON["on"] + list(HIDE_EG["keys"])
     if STUBS:
         if a.env == "staging":
             with open(dist / "_redirects", "a") as fh:
