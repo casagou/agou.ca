@@ -156,6 +156,18 @@ See `site/README.md`: "Photo slots", "Donate switch" (`site.json` → `promote_d
 - Checks at go-live: golive_check PASS (39 resources), banner_check PASS (Events hidden), no conservativebc.ca on any page or the 404, party grep on live HTML: 3 hits, all reviewed contexts (2 Elections BC URL paths, FR « parti au pouvoir »).
 - Rollback to the redirect (1-3 min): `gh api -X PUT repos/casagou/agou.ca/pages -f cname=agou.ca -F https_enforced=true -f 'source[branch]=redirect-cbc' -f 'source[path]=/'` then `gh api -X POST repos/casagou/agou.ca/pages/builds`. (Rolling back only the content instead: `git revert -m 1 324a16c` on main and push; that brings back the party version, so do not use it unless Joachim asks.)
 
+### Media kit section removed (Joachim, 8 Oct 2026 7:15 PM PT), PR #76 (merge 9223b1f), live 7:17 PM PT
+- Media EN/FR: the "Media kit (PDF)" / "Dossier de presse (PDF)" heading, its "[Placeholder]" box and its "On this page" entry are gone. Rule in `build.py` read(): while the media-kit PDFs are not published (MEDIAKIT off), the Media page has no media-kit section; it comes back by itself if the PDFs are published. No other "[Placeholder]" box existed on the live site. Flags unchanged.
+- Rollback: `git revert -m 1 9223b1f` on main and push (Pages rebuilds in about a minute).
+
+### Get involved, Volunteer and Lawn sign back (Joachim, 8 Oct 2026 7:16 PM PT), PR #77 (merge 8099b22), live 7:21 PM PT
+- `site.json` per-group flags (build.py HIDE_GROUPS): `hide_events_v1(_live)` true (Events), `hide_nominate_v1(_live)` true (Nominate), `hide_getinvolved_v1(_live)` false (Get involved, Volunteer, Lawn sign). The legacy `hide_events_getinvolved_v1(_live)` stays as the fallback for a group without its own flags. Donate stays removed (no_party).
+- Back: nav/footer Get involved, header and hero Volunteer buttons, home Volunteer section, FAQ volunteer and lawn-sign answers, sitemap entries. Forms: `submit_volunteer_signup` -> volunteer_signups, `submit_lawn_sign_request` -> lawn_sign_requests (locked md5s unchanged: volunteer cff12c84…, nominator 944dfbce…).
+- Still left out while Events is hidden: home Events section, FAQ "Where can I meet you?", the event banner, the volunteer page's next-outing line.
+- Live test 7:23 PM PT: one TEST volunteer (volunteer_signups id 19, notification 22) and one TEST lawn sign (lawn_sign_requests id 12, notification 23) via agou.ca EN; both were the newest rows in the admin lists and the bell feed; then deleted (their notifications went with them via app_notify_del). Counts back to 3 / 2 / 13.
+- To bring Events back: set `hide_events_v1_live` to false (after Joachim's edits), build live, publish.
+- Rollback: `git revert -m 1 8099b22` on main and push (hides Get involved again), or set `hide_getinvolved_v1_live` true on staging and publish.
+
 ## 4. Publish to live (first done 2026-09-30, PR on casagou/agou.ca; repeat for every update)
 Option A (keeps the current GitHub Pages "deploy from branch" setup):
 1. Make sure no Notion red `[TO COMPLETE]` notes remain (the live build stops if any do). `cd site && python3 build.py --env live`. This writes `dist/` with canonical https://agou.ca URLs, sitemap.xml, robots.txt allowing indexing, `CNAME` (agou.ca) and `.nojekyll`, and no staging banner or noindex.
