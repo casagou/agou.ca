@@ -132,6 +132,9 @@ def hide_on(group, env):
     return bool(st) and (env == "staging" or bool(lv))
 
 
+PERSONAL_SOCIAL = {"hidden": False}  # site.json hide_personal_social_v1(_live) (Joachim, 8 Oct 2026 7:35 PM PT); set in __main__
+SOCIAL_GROUPS = lambda: ("campaign",) if PERSONAL_SOCIAL["hidden"] else ("campaign", "personal")
+PERSONAL_URLS = lambda: {u.rstrip("/").lower() for u in SITE["social"]["personal"].values()}
 HIDDEN = set()  # page keys left out of this build (see site.json publish_faq_live); filled in __main__
 MEDIAKIT = {"on": True, "env": "staging", "errs": {}}  # media-kit PDFs (site.json media_kit / publish_media_kit_live); set in __main__
 IMG = {  # local image name -> (files by width, width, height)
@@ -476,6 +479,9 @@ def read(lang, key):
                 if t.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key}.md: text to replace not found once (live text changed? redo the draft): {a_[:80]!r}")
                 t = t.replace(a_, b_)
     t = no_party.apply(t, lang, key)
+    if key == "_contact" and t is not None and PERSONAL_SOCIAL["hidden"]:  # Contact page: no 'Personal:' line (Joachim 8 Oct 2026 7:35 PM PT)
+        n_ = len(t.split("\n")); t = "\n".join(l for l in t.split("\n") if not re.match(r"^(Personal|Personnel)\s*:", l.strip()))
+        if len(t.split("\n")) != n_ - 1: sys.exit(f"contact: {lang}: expected exactly one 'Personal:' line to hide")
     if key == "media" and t is not None and not MEDIAKIT["on"]:  # Joachim 8 Oct 2026 7:15 PM PT: no PDF -> no 'Media kit (PDF)' section or placeholder
         parts = re.split(r"(?m)^(?=## )", t)
         keep = [p_ for p_ in parts if not (p_.startswith("## ") and "<placeholder>MEDIAKIT</placeholder>" in p_)]
@@ -597,7 +603,7 @@ def social_links(cls, lang):
     """Campaign: Facebook · Instagram, then Personal: Instagram · Facebook · X (site.json social; Joachim, 2 Oct 2026)."""
     G = UI[lang]["social_groups"]; colon = "\u00a0:" if lang == "fr" else ":"
     rows = []
-    for g in ("campaign", "personal"):
+    for g in SOCIAL_GROUPS():
         lab = G[g]
         items = "".join(f'<li><a href="{esc(u)}" rel="me noopener"><span class="vh">{esc(lab)} </span>{ICONS[n]}<span>{n}</span></a></li>' for n, u in SITE["social"][g].items())
         rows.append(f'<div class="soc-row"><span class="soc-glabel" aria-hidden="true">{esc(lab)}{colon}</span><ul class="{cls}" aria-label="{esc(lab)}">{items}</ul></div>')
@@ -740,7 +746,7 @@ def json_ld(lang, key, title, desc, canonical, env):
     home = LIVE + url(lang, "home")
     person = {"@type": "Person", "@id": LIVE + "/#joachim", "name": "Joachim Agou", "url": home,
               "image": LIVE + "/assets/img/" + IMG["joachim-agou-headshot"][0][1200], "knowsLanguage": ["en", "fr"],
-              "sameAs": [u for g in ("campaign", "personal") for u in SITE["social"][g].values()],
+              "sameAs": [u for g in SOCIAL_GROUPS() for u in SITE["social"][g].values()],
               "description": SEO["pages"]["home"][lang]["desc"]}
     if key == "home":
         graph = [person, {"@type": "WebSite", "@id": LIVE + "/#website", "name": UI[lang]["site_name"], "url": home,
@@ -1338,7 +1344,7 @@ def check(dist):
                 errs.append(f"{f.relative_to(dist)}: Casagou Inc. is back in the short or medium bio (only the full bio may name it)")
         if 'class="site-footer"' in t:  # social links grouped Campaign / Personal (Joachim, 2 Oct 2026)
             ft = t[t.index('class="site-footer"'):]
-            if ft.count('class="soc-row"') != 2 or "facebook.com/joachimagou" not in ft or "instagram.com/joachimagou" not in ft:
+            if ft.count('class="soc-row"') != len(SOCIAL_GROUPS()) or "facebook.com/joachimagou" not in ft or "instagram.com/joachimagou" not in ft:
                 errs.append(f"{f.relative_to(dist)}: footer social links are not grouped Campaign (joachimagou) / Personal (casagou)")
         if re.search(r'href="https://www\.instagram\.com/casagou/"[^>]*>(More photos|Plus de photos)', t):
             errs.append(f"{f.relative_to(dist)}: 'More photos on Instagram' must point at the campaign account")
@@ -1410,6 +1416,9 @@ if __name__ == "__main__":
         BUILD_ID = datetime.datetime.now().strftime("%Y%m%d%H%M")
     no_party.ON["on"] = no_party.NP_ON(a.env, SITE)
     set_hide_groups(a.env)
+    PERSONAL_SOCIAL["hidden"] = bool(SITE.get("hide_personal_social_v1")) and (a.env == "staging" or bool(SITE.get("hide_personal_social_v1_live")))
+    if PERSONAL_SOCIAL["hidden"]:  # personal accounts (@casagou) left out everywhere; updates entries linking them lose that button
+        updates.SKIP_URLS = PERSONAL_URLS()
     HIDDEN.update(HIDE_EG["keys"])
     if no_party.ON["on"]:  # no-party version: donate page gone, party text edited out, party events hidden (see no_party.py)
         no_party.setup(HIDDEN, UI, SEO, prio_layout, events_cal, ROOT)
@@ -1553,6 +1562,10 @@ if __name__ == "__main__":
             if "recruiter_id=251" not in _PU(k): errs.append(f"site.json party.urls.{k} lost recruiter_id=251")
         if "/volunteer/" in (dist / "sitemap.xml").read_text() or "/donate/" in (dist / "sitemap.xml").read_text() or "/lawn-sign/" in (dist / "sitemap.xml").read_text():
             errs.append("sitemap.xml lists a bridge page (volunteer / lawn-sign / donate)")
+    if PERSONAL_SOCIAL["hidden"]:
+        pu = re.compile("|".join(re.escape(u.split("://", 1)[1]) for u in PERSONAL_URLS()) + r"|@casagou\b", re.I)
+        errs += [f"{f.relative_to(dist)}: links a personal social account ({pu.search(f.read_text()).group(0)}), but hide_personal_social_v1 is on"
+                 for f in sorted(dist.rglob("*")) if f.suffix in (".html", ".xml", ".json", ".webmanifest", ".js") and pu.search(f.read_text(errors="replace"))]
     if a.env == "live" and not SITE.get("volunteer_shifts_note_live"):  # 5 Oct 2026 door-knocking shifts block: staging only until approved
         errs += [f"{f.relative_to(dist)}: shows the volunteer-page shifts block, but volunteer_shifts_note_live is false" for f in sorted(dist.rglob("*.html")) if 'class="block vshifts"' in f.read_text()]
     if HIDDEN:

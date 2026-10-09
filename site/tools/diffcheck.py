@@ -30,6 +30,10 @@ NP = _np.NP_ON(DENV, SITE)
 # Events / Get involved hidden (site.json hide_events_getinvolved_v1, Joachim 8 Oct 2026 6:00 PM PT): build.py HIDE_EG_EDITS drop their home / FAQ sections
 _build.set_hide_groups(DENV)  # per-group flags (build.py HIDE_GROUPS: events / nominate / getinvolved)
 HEG = _build.HIDE_EG["on"]
+# Personal social accounts hidden (site.json hide_personal_social_v1(_live), Joachim 8 Oct 2026 7:35 PM PT): their links are left out on purpose
+PERSONAL_HIDDEN = bool(SITE.get("hide_personal_social_v1")) and (DENV == "staging" or bool(SITE.get("hide_personal_social_v1_live")))
+PERSONAL_URLS = {u.rstrip("/").lower() for u in SITE["social"]["personal"].values()}
+_pers = lambda u: PERSONAL_HIDDEN and u.rstrip("/").lower() in PERSONAL_URLS
 NP_GONE, NP_LINKS = {}, {}
 if NP or HEG:
     PARTY_ON = PARTY_ON and not NP
@@ -151,13 +155,16 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
             dl = [n_ for n_, f_, r_ in DRAFT_FINDS.get(name, []) if u in f_ and u not in r_]
             if dl:
                 excluded.append(f"{name}: link {u} replaced on purpose (staging draft {dl[0]})"); continue
+            if _pers(u): excluded.append(f"{name}: personal social link {u} hidden on purpose (hide_personal_social_v1)"); continue
             problems.append(f"{name}: link missing on page: {u}")
     # contact block (every page footer)
     for l in contact.split("\n"):
         p = plain(l)
         if p == "Instagram · X · Facebook":  # shown as three labelled buttons; check the links instead
             for u in re.findall(r"\((https://[^)]+)\)", l):
-                if u not in hrefs: problems.append(f"{name}: social link missing: {u}")
+                if u not in hrefs:
+                    if _pers(u): excluded.append(f"{name}: personal social link {u} hidden on purpose (hide_personal_social_v1)"); continue
+                    problems.append(f"{name}: social link missing: {u}")
             continue
         if p and p not in ptxt:
             hit = [r for r in EXCL if r["page"] == f"{name}:contact" and plain(r["find"]) and plain(r["find"]) in p]

@@ -347,9 +347,13 @@ def home_section(B, lang):
             f'<p class="pagelink"><a href="{B.url(lang, "updates")}">{esc(T["see_all"])} <span aria-hidden="true">→</span></a></p>{follow(B, lang)}</section>')
 
 
+SKIP_URLS = set()  # build.py: links left out (hidden personal social accounts)
+
+
 def links_html(e, T):
     out = []
     for l in e.get("links") or []:
+        if l["url"].rstrip("/").lower() in SKIP_URLS: continue
         name = PLATFORMS[l["platform"].lower()][0]
         out.append(f'<li><a class="btn sec" href="{esc(l["url"])}" target="_blank" rel="noopener">{esc(T["see_on"].format(platform=name))} <span aria-hidden="true">↗</span><span class="vh"> {esc(T["new_tab"])}</span></a></li>')
     return f'<ul class="upd-links">{"".join(out)}</ul>' if out else ""
