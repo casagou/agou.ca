@@ -568,7 +568,7 @@ mark.todo { background:#fff1b8; color:#3d2e00; padding:2px 6px; border-radius:4p
 .upd-strip:focus-visible { outline-offset:-3px; }
 .upd-list { list-style:none; margin:0; padding:0; display:grid; grid-auto-flow:column; grid-auto-columns:72%; gap:14px; align-items:stretch; }
 .upd-list.n1 { grid-auto-columns:80%; }
-.upd-card { margin:0; min-width:0; scroll-snap-align:start; display:flex; flex-direction:column; background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+.upd-card { position:relative; /* keeps the visually-hidden .vh spans inside the scroll strip (no sideways page scroll on phones) */ margin:0; min-width:0; scroll-snap-align:start; display:flex; flex-direction:column; background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
 .upd-media { position:relative; }
 .upd-media img, .upd-photos img { display:block; width:100%; height:auto; aspect-ratio:4 / 3; object-fit:cover; background:var(--sky); }
 .upd-more { position:absolute; right:8px; bottom:8px; padding:2px 9px; border-radius:999px; background:rgba(18,58,109,.88); color:#fff; font-size:.85rem; font-weight:700; }

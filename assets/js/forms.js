@@ -98,7 +98,7 @@
   if (CFG.form === "volunteer" && CFG.warm && $("vnext")) {
     var KNOCK = /\bdoor[- ]?(?:knock|to[- ]?door)|\bknock(?:ing)? on doors|\bcanvass|porte[- ]?à[- ]?porte|frapper aux portes/i, now = Date.now(); // not "$5 at the door"
     rpc("get_public_events", {}).then(function (r) { return r.json(); }).then(function (list) {
-      var e = (list || []).filter(function (x) { return new Date(x.ends_at || x.starts_at).getTime() > now && KNOCK.test((x.title || "") + " " + (x.description || "")); })
+      var e = (list || []).filter(function (x) { return (CFG.hide || []).indexOf(x.id) < 0 && new Date(x.ends_at || x.starts_at).getTime() > now && KNOCK.test((x.title || "") + " " + (x.description || "")); })
         .sort(function (a, b) { return new Date(a.starts_at) - new Date(b.starts_at); })[0];
       if (!e) return;
       var FRL = T.next_canvass.indexOf("Prochaine") === 0, o = {};
@@ -628,7 +628,7 @@
     var shiftsP = Promise.resolve([]);
     if (CFG.shifts) shiftsP = rpc("get_public_shifts", {}).then(function (r) { return r.json(); })["catch"](function () { return []; }); // shifts failing never hides the events
     Promise.all([rpc("get_public_events", {}).then(function (r) { return r.json(); }), shiftsP])
-      .then(function (res) { EVENTS = (res[0] || []).map(localize).concat((res[1] || []).map(shiftRow)); route(); })
+      .then(function (res) { EVENTS = (res[0] || []).filter(function (x) { return !(CFG.hide || []).length || CFG.hide.indexOf(x.id) < 0; }).map(localize).concat((res[1] || []).filter(function (x) { return (CFG.hide || []).indexOf(x.id) < 0; }).map(shiftRow)); route(); })
       .catch(function () { $("list").textContent = ""; $("list").append(el("p", { class: "note", text: T.loadErr })); if (currentId()) $("listView").hidden = false; });
   }
 })();
