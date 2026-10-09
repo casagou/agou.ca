@@ -116,6 +116,9 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
     m = re.search(r"\n---\n## (Contact|Coordonnées)|\n---\n(?=\*(Authorized|Autorisé) )", body)
     main_part, contact = (body[:m.start()], body[m.end():]) if m else (body, "")
     page = dist / ("fr/" if lang == "fr" else "") / TARGET[key] / "index.html"
+    if key in _build.HIDE_EG["keys"]:  # whole page hidden on purpose (site.json hide_<group>_v1(_live)); it must be a noindex stub forwarding home, or absent (staging _redirects)
+        if page.exists() and ("noindex" not in page.read_text() or 'url=' not in page.read_text()): problems.append(f"{name}: hidden page is not a noindex stub forwarding home")
+        excluded.append(f"{name}: whole page hidden on purpose (hide_{key}_v1); source kept in notion-raw/ and content/"); continue
     ptxt, hrefs = page_text(page)
     for l in main_part.split("\n"):
         p = plain(l)

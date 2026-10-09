@@ -108,12 +108,15 @@ def party_page(lang, page, env):
     return shell(lang, page, f'{T["h1"]} – Joachim Agou – Victoria–Beacon Hill', T["lead"], main, env)
 # Hidden page groups (Joachim 8 Oct 2026 6:00 PM PT; Get involved back 7:16 PM PT). site.json hide_<group>_v1 (staging) and
 # hide_<group>_v1_live (live); a group whose own flags are absent falls back to hide_events_getinvolved_v1(_live). Sources stay in the repo.
-HIDE_GROUPS = {"events": ("events",), "nominate": ("nominate",), "getinvolved": ("get-involved", "volunteer", "lawn-sign")}
+HIDE_GROUPS = {"events": ("events",), "nominate": ("nominate",), "getinvolved": ("get-involved", "volunteer", "lawn-sign"),
+               "media": ("media",)}  # media: Joachim, 9 Oct 2026 4:01 PM PT ("hide the page for the media, the page that has my bio"); About stays
 HIDE_EG = {"on": False, "groups": set(), "keys": ()}
 HIDE_EG_EDITS = {  # copy that only points to hidden pages, per group
     "getinvolved": {"en/home": [("dropsec", "## Volunteer")], "fr/home": [("dropsec", "## Bénévolat")],
                     "en/faq": [("dropq", "How can I volunteer?"), ("dropq", "Can I get a lawn sign?")],
                     "fr/faq": [("dropq", "Comment devenir bénévole?"), ("dropq", "Puis-je avoir une pancarte?")]},
+    "media": {"en/home": [("dropline", '<page url="/media/">Media</page>')], "fr/home": [("dropline", '<page url="/fr/media/">Médias</page>')],
+              "en/faq": [("sub", " Media, see the Media page.", "")], "fr/faq": [("sub", " Médias : voir la page Médias.", "")]},
     "events": {"en/home": [("dropsec", "## Events")], "fr/home": [("dropsec", "## Événements")],
                "en/faq": [("dropq", "Where can I meet you?")], "fr/faq": [("dropq", "Où puis-je vous rencontrer?")]},
 }
@@ -127,7 +130,7 @@ def set_hide_groups(env):
 
 
 def hide_on(group, env):
-    k, legacy = f"hide_{group}_v1", "hide_events_getinvolved_v1"
+    k, legacy = f"hide_{group}_v1", ("hide_events_getinvolved_v1" if group != "media" else "hide_media_v1")  # media has no legacy fallback
     st = SITE.get(k, SITE.get(legacy)); lv = SITE.get(k + "_live", SITE.get(legacy + "_live"))
     return bool(st) and (env == "staging" or bool(lv))
 
@@ -503,6 +506,8 @@ def page_drafts(lang, key, md):
     for name_, d_ in DRAFTS.items():
         if not DRAFT_ON(name_, DRAFT_ENV["env"]): continue
         for a_, b_ in d_["edits"].get(f"{lang}/{key}", []):
+            if "media" in HIDDEN:  # the home 'Media' link line was already dropped (hide_media_v1): drop it from the draft's find/replace too
+                ml_ = f'<page url="{url(lang, "media")}">{BYKEY["media"]["nav"][lang]}</page>\n'; a_, b_ = a_.replace(ml_, ""), b_.replace(ml_, "")
             if md.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key} (home section): text to replace not found once (Notion text changed? redo the draft): {a_[:80]!r}")
             md = md.replace(a_, b_)
     return no_party.apply(md, lang, key)
@@ -640,7 +645,9 @@ def bg_credit(lang):
 
 
 def credit_line(c, lang):
-    return (f'<p class="credit">{esc(c["credit_prefix"][lang])} <a href="{esc(c["source_url"])}">{esc(c["title"])}</a>, '
+    pre = c["credit_prefix"][lang]
+    if "media" in HIDDEN: pre = pre.replace("(About, Media)", "(About)").replace("(À propos, Médias)", "(À propos)")  # Media page hidden (9 Oct 2026)
+    return (f'<p class="credit">{esc(pre)} <a href="{esc(c["source_url"])}">{esc(c["title"])}</a>, '
             f'{esc(c["author"])}, <a href="{esc(c["licence_url"])}" rel="license">{esc(c["licence"])}</a>{esc(c["credit_suffix"][lang])}</p>')
 
 
