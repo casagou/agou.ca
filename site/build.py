@@ -457,6 +457,11 @@ def read(lang, key):
                 if t.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key}.md: text to replace not found once (live text changed? redo the draft): {a_[:80]!r}")
                 t = t.replace(a_, b_)
     t = no_party.apply(t, lang, key)
+    if key == "media" and t is not None and not MEDIAKIT["on"]:  # Joachim 8 Oct 2026 7:15 PM PT: no PDF -> no 'Media kit (PDF)' section or placeholder
+        parts = re.split(r"(?m)^(?=## )", t)
+        keep = [p_ for p_ in parts if not (p_.startswith("## ") and "<placeholder>MEDIAKIT</placeholder>" in p_)]
+        if len(keep) != len(parts) - 1: sys.exit(f"media: {lang}/{key}: expected exactly one '## …' section holding <placeholder>MEDIAKIT</placeholder>")
+        t = "".join(keep)
     if HIDE_EG["on"] and t is not None and f"{lang}/{key}" in HIDE_EG_EDITS:
         t = no_party.apply_ops(t, HIDE_EG_EDITS[f"{lang}/{key}"], f"hide_events_getinvolved {lang}/{key}")
     return t

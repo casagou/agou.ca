@@ -37,7 +37,8 @@ if NP or HEG:
     for _raw in sorted((ROOT / "notion-raw").glob("*.txt")):
         _lang, _key = _raw.stem.split("-", 1)
         _np.ON["on"] = False; _build.HIDE_EG["on"] = False; _b = _build.read(_lang, _key)
-        _np.ON["on"] = NP; _build.HIDE_EG["on"] = HEG; _a = _build.read(_lang, _key)
+        _build.MEDIAKIT["on"] = (DENV == "staging" or bool(SITE.get("publish_media_kit_live"))) and not NP  # same rule as build.py __main__
+        _np.ON["on"] = NP; _build.HIDE_EG["on"] = HEG; _a = _build.read(_lang, _key); _build.MEDIAKIT["on"] = True
         if _b is None: continue
         _al = set(_a.split("\n"))
         NP_GONE[_raw.stem] = [l for l in _b.split("\n") if l not in _al]
@@ -134,7 +135,7 @@ for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
             if dm:
                 excluded.append(f"{name}: {p[:110]!r}  -> staging draft {dm[0]} (staging-drafts.json, live only with site.json {_build.DRAFTS[dm[0]]['live_flag']})"); continue
         if not hit and (NP or HEG) and any(p in (plain(g) or "\x00") for g in NP_GONE.get(name, [])):
-            excluded.append(f"{name}: {p[:110]!r}  -> no-party version / hidden Events + Get involved (no_party.py, build.py HIDE_EG_EDITS)"); continue
+            excluded.append(f"{name}: {p[:110]!r}  -> no-party version / hidden Events + Get involved / media-kit section without PDFs (no_party.py, build.py HIDE_EG_EDITS, build.py read())"); continue
         if hit:
             excluded.append(f"{name}: {p[:110]!r}  -> {hit[0]['why']}")
         else:
