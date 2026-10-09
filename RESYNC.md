@@ -320,3 +320,13 @@ Joachim, 7:35 PM PT: "For now, can you hide this? All my personal accounts." (ap
 - Guards: build.py fails if any personal URL or @casagou appears while hidden, and the footer guard expects 1 soc-row; diffcheck excuses the personal links only when the flag is on; golive_check fails on any personal link or a 'Personal:' social label, or on more than one footer social row.
 - Staging 49b8a08 (code) + 7fefd77 (live flag). Publish PR #78, merge 3ca576b, Pages built 7:39:37 PM PT.
 - Rollback: `git revert -m 1 3ca576b` on main (Pages rebuilds), or set `hide_personal_social_v1_live` to false on staging, rebuild live and publish. To bring them back on staging too, also set `hide_personal_social_v1` to false. golive_check's PERSONAL_RE assertions must be removed when the accounts come back.
+
+## 2026-10-09 4:12 PM PT: Media page hidden (LIVE)
+Joachim, 4:01 PM PT: "Can you hide the page for the media, the page that has my bio? I just want it, I hide it for now." (approval to publish)
+- Flags (site/site.json): `hide_media_v1` (staging) and `hide_media_v1_live` (live), both true. New hide group `media` in build.py HIDE_GROUPS (no legacy fallback). About is untouched.
+- Hidden, EN and FR: /media/ and /fr/media/ become noindex stubs forwarding to the home page (staging: 302 in _redirects); removed from the sitemap, the footer nav (every page) and the home 'More information' Media link.
+- Copy reworded minimally (HIDE_EG_EDITS "media"): FAQ 'How do I reach you?' loses ' Media, see the Media page.' (FR: ' Médias : voir la page Médias.'); the footer second-photo credit reads '(About)' / '(À propos)' instead of '(About, Media)' / '(À propos, Médias)' (build.py credit_line). The staging how-to-vote draft edit tolerates the dropped home line (page_drafts). No new claims.
+- Kept: content/{en,fr}/media.md, notion-raw/en-media.txt, all images. Only media-only asset: assets/img/joachim-agou-speaking-{800,1600}.jpg (no longer referenced by any page, still deployed, reachable by direct URL). The headshot download images stay (About uses them).
+- Guards: diffcheck treats a hidden page as passing (must be a noindex stub or absent); golive_check moved /media/ from PATHS to STUBS; banner_check unchanged; qa on the live build: 24 internal links, 0 broken, no console errors, no horizontal scroll.
+- Staging 3b2403d. Publish PR #79, merge 2f5c3af, Pages built 4:12:13 PM PT.
+- Rollback: `git revert -m 1 2f5c3af` on main (Pages rebuilds), or set `hide_media_v1_live` to false on staging, rebuild live and publish. To restore on staging too, set `hide_media_v1` to false. Also move /media/ back from STUBS to PATHS in golive_check.py.
