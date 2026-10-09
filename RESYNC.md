@@ -311,3 +311,12 @@ See `site/README.md` "Party links". If Notion's Home or FAQ volunteer, lawn-sign
 - Live diff vs PR #72: fr/index.html banner data only (the "t" title); everything else the ?v= cache token. No flags changed; no Priorities layout work (nothing written yet at publish time); notes-leak grep clean; scorecard, province and diffcheck guards passed.
 - Verified on agou.ca at 390 px: /fr/events/?e=114 shows the new title (old one absent), FR calendar Mon Oct 12 entry shows it with the NOUVEAU badge, no console errors, no sideways scroll. Screenshots: /workspace/events/verify73/.
 - Rollback: `git revert -m 1 9e2de04` on main and push; restore `title_fr` from the backup.
+
+## 2026-10-08 7:39 PM PT: personal social accounts hidden (LIVE)
+Joachim, 7:35 PM PT: "For now, can you hide this? All my personal accounts." (approval to publish)
+- Flags (site/site.json): `hide_personal_social_v1` (staging) and `hide_personal_social_v1_live` (live), both true. `social.personal` (Instagram/Facebook/X @casagou) is kept in site.json and is simply not rendered.
+- Hidden, EN and FR: the footer 'Personal:' / 'Personnel :' row on every page; the home 'Personal:' line (Notion home social line); the Contact page 'Personal:' line (`_contact.md`, dropped in `read()`); JSON-LD `sameAs` (campaign only); update-entry buttons linking a personal URL (`updates.SKIP_URLS`, staging samples only).
+- Unchanged: Campaign row, facebook.com/joachimagou and instagram.com/joachimagou. "Casagou Inc." / "Casagou Ops" in the bio text (About, FAQ, home, Media) is his company name, not an account, so it stays.
+- Guards: build.py fails if any personal URL or @casagou appears while hidden, and the footer guard expects 1 soc-row; diffcheck excuses the personal links only when the flag is on; golive_check fails on any personal link or a 'Personal:' social label, or on more than one footer social row.
+- Staging 49b8a08 (code) + 7fefd77 (live flag). Publish PR #78, merge 3ca576b, Pages built 7:39:37 PM PT.
+- Rollback: `git revert -m 1 3ca576b` on main (Pages rebuilds), or set `hide_personal_social_v1_live` to false on staging, rebuild live and publish. To bring them back on staging too, also set `hide_personal_social_v1` to false. golive_check's PERSONAL_RE assertions must be removed when the accounts come back.
