@@ -134,7 +134,7 @@ git commit --allow-empty -m "redeploy agou staging" && git push
 ## 3. Photos, Donate switch and exclusions
 See `site/README.md`: "Photo slots", "Donate switch" (`site.json` → `promote_donate`) and "Content exclusions".
 
-### TEMPORARY REDIRECT ACTIVE (Joachim, 8 Oct 2026 12:43 PM PT): agou.ca forwards to the party candidate page
+### TEMPORARY REDIRECT (Joachim, 8 Oct 2026 12:43 PM PT) — ENDED 8 Oct 6:05 PM PT, see 'LIVE AGAIN' below: agou.ca forwards to the party candidate page
 - Joachim in chat: "can you point agou.ca to the campaign website", "I don't want people to see agou.ca for now." Every path on agou.ca and www.agou.ca (EN and FR) now forwards to https://conservativebc.ca/candidate/joachim-agou/.
 - Method: GitHub Pages source switched from `main` to the orphan branch `redirect-cbc` (commit 74cd102), live 12:50 PM PT. Every page path that existed on main, plus 404.html (any other path, assets, PDFs, sitemap), is a noindex stub with a canonical link to the party page, a meta refresh and a JS `location.replace`, and no site content. Not a true HTTP 302 (200, or 404 for other paths, then an immediate browser redirect): Cloudflare does not front agou.ca (DNS at GoDaddy) and the only true 302 is GoDaddy forwarding, which needs Joachim's GoDaddy login. Generator: /workspace/agou-redirect/make_tree.py on the box.
 - `main` (e3ed25c, PR #74) is untouched. DNS, email (Google Workspace MX/SPF/DKIM/DMARC), the campaign app, Supabase and staging were not changed.
@@ -146,6 +146,15 @@ See `site/README.md`: "Photo slots", "Donate switch" (`site.json` → `promote_d
 - What it does: EN/FR text edits (Priorities "my position", party-only items dropped, FAQ, home, About, media, privacy, scorecard lines 1–2), no party links (own volunteer / lawn-sign forms), no Donate page or appeals (`/donate/` 302 on staging, noindex stub forwarding home on live), no media-kit PDFs, event 114 and any public event naming the party hidden on the build side (JS filters the live RPC data; Supabase untouched). The build fails on any party term outside `no_party.ALLOW`.
 - Guards: diffcheck excuses exactly the no-party differences; `scorecard_check.py --no-party --dist DIR`; `province_check.py --dist DIR`; banner_check ignores the page's hidden ids.
 - Live: draft PR #75 (branch publish-20261008-no-party) built from branch `no-party-live-flag`. Going live also needs the Pages source switched from `redirect-cbc` back to `main`; runbook in /workspace/no-party/GO-LIVE.md on the box. Authorization line unchanged (Bert Chen, financial agent).
+
+### LIVE AGAIN: no-party version, Events and Get involved hidden (Joachim, 8 Oct 2026 6:00 PM PT), PR #75 (merge 324a16c), live 6:05 PM PT
+- Joachim: "remove right now. I want you to hide events and get involved. I want you to hide those pages because I need to change them later, but I want the website agou.ca to be live again."
+- The temporary redirect is OFF: the GitHub Pages source was switched from `redirect-cbc` back to `main` (cname agou.ca, https enforced); Pages build of 324a16c finished 6:05:12 PM PT.
+- `site.json`: `no_party_v1_live` true and `hide_events_getinvolved_v1_live` true (staging: `no_party_v1`, `hide_events_getinvolved_v1` true).
+- Hidden (sources kept in the repo; `build.py` HIDE_EG): Events (calendar and event pages), Get involved, Volunteer, Lawn sign, Nominate, plus Donate (no_party). Left out with them: nav/footer entries, header and hero Volunteer buttons, the home event banner and shortcuts, the home "Volunteer" and "Events" sections, the FAQ "Get involved" section (`build.py` HIDE_EG_EDITS). Their URLs are noindex stubs forwarding to the home page (staging: 302 in `_redirects`); not in the sitemap.
+- To show them again: set `hide_events_getinvolved_v1_live` to false (after Joachim's edits), build live, publish as usual. banner_check passes while Events is hidden; /workspace/no-party/golive_check.py lists the hidden stubs.
+- Checks at go-live: golive_check PASS (39 resources), banner_check PASS (Events hidden), no conservativebc.ca on any page or the 404, party grep on live HTML: 3 hits, all reviewed contexts (2 Elections BC URL paths, FR « parti au pouvoir »).
+- Rollback to the redirect (1-3 min): `gh api -X PUT repos/casagou/agou.ca/pages -f cname=agou.ca -F https_enforced=true -f 'source[branch]=redirect-cbc' -f 'source[path]=/'` then `gh api -X POST repos/casagou/agou.ca/pages/builds`. (Rolling back only the content instead: `git revert -m 1 324a16c` on main and push; that brings back the party version, so do not use it unless Joachim asks.)
 
 ## 4. Publish to live (first done 2026-09-30, PR on casagou/agou.ca; repeat for every update)
 Option A (keeps the current GitHub Pages "deploy from branch" setup):
