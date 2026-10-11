@@ -2,7 +2,7 @@
 <details>
 <summary>Qui êtes-vous?</summary>
 	Je suis papa, ingénieur professionnel (P.Eng.) et propriétaire d'une petite entreprise. J'habite à Fairfield, dans la circonscription, avec ma fille.
-	Je suis né à Nice, en France, je suis arrivé au Canada en 2011 et je suis devenu citoyen canadien en 2023. J'ai habité à Québec, à Montréal, à Ottawa et à Toronto, et je me suis installé à Victoria en 2023. Depuis plus de 15 ans, je mène à bien des projets d'ingénierie dans le respect des budgets et des délais. Aujourd'hui, je suis ingénieur d'essais et d'évaluation dans le secteur de la défense, et je dirige Casagou Inc., une entreprise de Victoria de génie-conseil et de médias.
+	Je suis né à Nice, en France, je suis arrivé au Canada en 2011 et je suis devenu citoyen canadien en 2023. J'ai habité à Québec, à Montréal, à Ottawa et à Toronto, et je me suis installé à Victoria en 2023. Depuis plus de 15 ans, je mène à bien des projets d'ingénierie dans le respect des budgets et des délais. Aujourd'hui, je suis ingénieur d'essais et d'évaluation dans le secteur de la défense, et je dirige une entreprise de Victoria de génie-conseil et de médias.
 	En savoir plus : <mention-page url="/fr/about/"/>
 </details>
 <details>
@@ -34,7 +34,7 @@ J'ai sollicité cette investiture à cause du plan sur ce site, pas à cause d'u
 
 <details>
 <summary>Habitez-vous dans la circonscription? Quel est votre lien avec la communauté?</summary>
-	Oui. J'habite à Fairfield, où j'élève ma fille. Je vis au Canada depuis 2011. Après avoir habité à Québec, à Montréal, à Ottawa et à Toronto, je me suis installé à Victoria en 2023. Je dirige Casagou Inc., une petite entreprise de Victoria de génie-conseil et de médias. Je suis bénévole auprès de Chabad of Vancouver Island et vice-président par intérim de la Victoria Conservative Association.
+	Oui. J'habite à Fairfield, où j'élève ma fille. Je vis au Canada depuis 2011. Après avoir habité à Québec, à Montréal, à Ottawa et à Toronto, je me suis installé à Victoria en 2023. Je dirige une petite entreprise de Victoria de génie-conseil et de médias. Je suis bénévole auprès de Chabad of Vancouver Island et vice-président par intérim de la Victoria Conservative Association.
 </details>
 <details>
 <summary>Vous vous êtes installé ici seulement en 2023. Pourquoi devrions-nous vous faire confiance?</summary>
@@ -202,7 +202,7 @@ Je ne me présente pas contre leurs biographies. Le test, ce sont les chiffres d
 </details>
 <details>
 <summary>Comment géreriez-vous vos autres activités, votre entreprise et les conflits d'intérêts si vous étiez élu?</summary>
-Aujourd'hui, je suis ingénieur d'essais et d'évaluation chez un entrepreneur de la défense au service de la Marine royale canadienne, basé à Mill Bay. Si j'étais élu, je suivrais la *Members' Conflict of Interest Act* de la C.-B. Je déposerais la divulgation exigée auprès du commissaire aux conflits d'intérêts et j'en publierais un résumé en langage clair. Je me récuserais lorsque les règles l'exigent. Je n'accepterais pas de nouveaux contrats provinciaux par Casagou Inc. pendant que je suis député.
+Aujourd'hui, je suis ingénieur d'essais et d'évaluation chez un entrepreneur de la défense au service de la Marine royale canadienne, basé à Mill Bay. Si j'étais élu, je suivrais la *Members' Conflict of Interest Act* de la C.-B. Je déposerais la divulgation exigée auprès du commissaire aux conflits d'intérêts et j'en publierais un résumé en langage clair. Je me récuserais lorsque les règles l'exigent. Je n'accepterais pas de nouveaux contrats provinciaux par mon entreprise pendant que je suis député.
 Je ne fais pas ici une promesse de campagne de quitter cet emploi. C'est le commissaire, pas un slogan, qui décide ce qui doit cesser.
 </details>
 ## Mise en candidature et aide à la campagne

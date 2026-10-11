@@ -1,4 +1,5 @@
 # agou.ca: re-sync from Notion, redeploy staging, publish
+> `$ORG` in the commands below is the GitHub organisation that owns this repo (see `git remote -v`).
 
 The new bilingual site lives in `site/` on branch **`staging`**. Branch `main` (root `index.html`, `/volunteer/`, …) is what GitHub Pages serves at https://agou.ca today. Do not change it until the new site is approved.
 
@@ -16,7 +17,7 @@ Notion pages (ids are also in `site/site.json` → `notion`):
 1. Fetch the page (Notion MCP `notion-fetch <id>`, or copy its text) and save the full text as `site/notion-raw/<lang>-<key>.txt`, e.g. `en-about.txt`. Keep it verbatim. You may strip query strings from signed image URLs.
 2. `cd site && python3 tools/notion2md.py en-about` (no argument = all pages). This regenerates `content/<lang>/<key>.md` and applies `exclusions.json`. If a rule no longer matches, you get a warning. Update the rule; do not hand-edit content/.
 3. If the page's "Last updated" date should change, update `site.json` → `updated` (notion2md does this automatically when the fetched text includes `page_last_edited_at`).
-4. `python3 build.py --env staging`. The content checks must pass (no Thales/Joa/"the candidate" wording, only whitelisted phone numbers, authorization line on every page).
+4. `python3 build.py --env staging`. The content checks must pass (no the former employer/Joa/"the candidate" wording, only whitelisted phone numbers, authorization line on every page).
 5. `python3 tools/diffcheck.py` must end with `Unexpected differences: none`.
 6. Optional: `python3 -m http.server 8931 --directory dist` and `python3 tools/qa.py http://localhost:8931 /tmp/qa`.
 7. `git commit -am "site: re-sync <page> from Notion" && git push origin staging`.
@@ -44,9 +45,9 @@ Notion's FR FAQ still has the old 17-question text. One `fr-faq` rule in `site/e
 
 ### FR wording corrections and About career changes (30 Sep 2026; staging only until approved)
 Joachim's FR corrections to Home, Priorities, About and the voter information are `fr-home`, `fr-priorities` and `fr-about` rules in `site/exclusions.json`. The rest are direct edits in `ui.json` (nominate sub/intro, vote facts), `site.json` (nominate button label), `content/fr/scorecard.md` ("soins dans un milieu sécurisé") and `build.py` (the FR manifest description). Examples: "Je sollicite l'investiture…" instead of "Candidat à l'investiture…", and "signer mon formulaire de mise en candidature" instead of "appuyer ma candidature" for the nomination.
-- About (EN+FR): the current role is shown without the company name ("Test & Evaluation Engineer — Defence contractor supporting the Royal Canadian Navy, Mill Bay, BC · April 2026 – present"). The Casagou entry lists JOA Aero Engineering first, then Eventia Media, Victoria Drone and BC Funeral Videos. It's "more than 15 years" everywhere (EN FAQ too).
+- About (EN+FR): the current role is shown without the company name ("Test & Evaluation Engineer — Defence contractor supporting the Royal Canadian Navy, Mill Bay, BC · April 2026 – present"). The company entry lists JOA Aero Engineering first, then Eventia Media, Victoria Drone and BC Funeral Videos. It's "more than 15 years" everywhere (EN FAQ too).
 - About intro (EN+FR, 'Who I am' and 'Work' paragraphs): rewritten with Joachim's approved text, as whole-paragraph `en-about`/`fr-about` rules. `build.py` `ABOUT_OLD` fails the build if the old paragraphs come back.
-- About career history (EN+FR): rebuilt from Joachim's Notion CV (page 2dde245ae5f380fd8002f8f32bec3cac) as one whole-list `en-about`/`fr-about` rule each: roles in CV order, one or two short sentences. A City That Works must never appear on agou.ca (build.py refuses it); the Victoria Conservative Association volunteer role is held until Joachim decides. Also left out: the CV's career break, SpaceX private investment, Sar-El volunteer programme and Casagou Ops/Learning/Ventures. JOA Aero Engineering and Eventia Media are folded into the Casagou entry. If the Notion About list changes, the rule stops matching; update its `find`.
+- About career history (EN+FR): rebuilt from Joachim's Notion CV (page 2dde245ae5f380fd8002f8f32bec3cac) as one whole-list `en-about`/`fr-about` rule each: roles in CV order, one or two short sentences. A City That Works must never appear on agou.ca (build.py refuses it); the Victoria Conservative Association volunteer role is held until Joachim decides. Also left out: the CV's career break, SpaceX private investment, Sar-El volunteer programme and the Ops line/Learning/Ventures. JOA Aero Engineering and Eventia Media are folded into the company entry. If the Notion About list changes, the rule stops matching; update its `find`.
 - About 'How I work' (EN+FR): Joachim's approved four-step list (bold lead + one sentence each) replaces Notion's short list via `en-about`/`fr-about` rules. It appears only on About. `ABOUT_OLD` refuses the old list.
 - Home hero (EN+FR, 30 Sep 2026): intro paragraph, 'Put a test engineer on the ballot.' callout and a 'Sources:' line (build.py renders the lines between the tagline and the callout as `.hero-intro`, and the lines after the callout as `.hero-src`). The method line opens the home About block, and the old method sentences are removed. These are `en-home`/`fr-home` rules.
 - Priorities: four-beat first paragraph in each numbered section, as `en-priorities`/`fr-priorities` rules. §3 is Joachim's text; §1, §2 and §4 are proposals.
@@ -123,7 +124,7 @@ A Notion re-sync never touches this page. Its text comes from Joachim's message 
 - `build.py` fails if events are upcoming and a home page lacks the banner. After every deploy run `python3 site/tools/banner_check.py https://agou.ca` (or the staging URL); it exits 1 if the banner is missing while events are upcoming.
 
 ## 2. Redeploy staging (https://agou-staging.pages.dev)
-Deployment runs from casagou/Beacon-Hill, branch **`agou-site-staging`**, workflow `.github/workflows/agou-staging.yml`. It checks out agou.ca@staging, builds with `--env staging`, runs diffcheck, and deploys to the Cloudflare Pages project `agou-staging` with the repo's existing Cloudflare secret.
+Deployment runs from the Beacon-Hill repo, branch **`agou-site-staging`**, workflow `.github/workflows/agou-staging.yml`. It checks out agou.ca@staging, builds with `--env staging`, runs diffcheck, and deploys to the Cloudflare Pages project `agou-staging` with the repo's existing Cloudflare secret.
 Trigger it by pushing to that branch:
 ```
 git -C <Beacon-Hill clone> checkout agou-site-staging
@@ -139,7 +140,7 @@ See `site/README.md`: "Photo slots", "Donate switch" (`site.json` → `promote_d
 - Method: GitHub Pages source switched from `main` to the orphan branch `redirect-cbc` (commit 74cd102), live 12:50 PM PT. Every page path that existed on main, plus 404.html (any other path, assets, PDFs, sitemap), is a noindex stub with a canonical link to the party page, a meta refresh and a JS `location.replace`, and no site content. Not a true HTTP 302 (200, or 404 for other paths, then an immediate browser redirect): Cloudflare does not front agou.ca (DNS at GoDaddy) and the only true 302 is GoDaddy forwarding, which needs Joachim's GoDaddy login. Generator: /workspace/agou-redirect/make_tree.py on the box.
 - `main` (e3ed25c, PR #74) is untouched. DNS, email (Google Workspace MX/SPF/DKIM/DMARC), the campaign app, Supabase and staging were not changed.
 - **While this is active, merging a publish PR into `main` does NOT go live.** Pages serves `redirect-cbc` until the source is switched back.
-- Rollback (about 1 minute): `gh api -X PUT repos/casagou/agou.ca/pages -f cname=agou.ca -F https_enforced=true -f 'source[branch]=main' -f 'source[path]=/'` then `gh api -X POST repos/casagou/agou.ca/pages/builds` (the source switch alone did not trigger a build), wait for `gh api repos/casagou/agou.ca/pages/builds/latest` to show `built` on main's head; pages may stay cached up to 10 min (max-age=600). Then run `python3 site/tools/banner_check.py https://agou.ca`.
+- Rollback (about 1 minute): `gh api -X PUT repos/$ORG/agou.ca/pages -f cname=agou.ca -F https_enforced=true -f 'source[branch]=main' -f 'source[path]=/'` then `gh api -X POST repos/$ORG/agou.ca/pages/builds` (the source switch alone did not trigger a build), wait for `gh api repos/$ORG/agou.ca/pages/builds/latest` to show `built` on main's head; pages may stay cached up to 10 min (max-age=600). Then run `python3 site/tools/banner_check.py https://agou.ca`.
 
 ### No-party version (Joachim via Campaign Ops, 8 Oct 2026 2:50/2:52 PM PT), staging; live prepared, NOT published
 - Joachim is no longer supported by the party but is still running in Victoria–Beacon Hill. `site.json` `no_party_v1` (true) turns on `site/no_party.py` on staging; `no_party_v1_live` (false on staging) does the same for live builds.
@@ -154,7 +155,7 @@ See `site/README.md`: "Photo slots", "Donate switch" (`site.json` → `promote_d
 - Hidden (sources kept in the repo; `build.py` HIDE_EG): Events (calendar and event pages), Get involved, Volunteer, Lawn sign, Nominate, plus Donate (no_party). Left out with them: nav/footer entries, header and hero Volunteer buttons, the home event banner and shortcuts, the home "Volunteer" and "Events" sections, the FAQ "Get involved" section (`build.py` HIDE_EG_EDITS). Their URLs are noindex stubs forwarding to the home page (staging: 302 in `_redirects`); not in the sitemap.
 - To show them again: set `hide_events_getinvolved_v1_live` to false (after Joachim's edits), build live, publish as usual. banner_check passes while Events is hidden; /workspace/no-party/golive_check.py lists the hidden stubs.
 - Checks at go-live: golive_check PASS (39 resources), banner_check PASS (Events hidden), no conservativebc.ca on any page or the 404, party grep on live HTML: 3 hits, all reviewed contexts (2 Elections BC URL paths, FR « parti au pouvoir »).
-- Rollback to the redirect (1-3 min): `gh api -X PUT repos/casagou/agou.ca/pages -f cname=agou.ca -F https_enforced=true -f 'source[branch]=redirect-cbc' -f 'source[path]=/'` then `gh api -X POST repos/casagou/agou.ca/pages/builds`. (Rolling back only the content instead: `git revert -m 1 324a16c` on main and push; that brings back the party version, so do not use it unless Joachim asks.)
+- Rollback to the redirect (1-3 min): `gh api -X PUT repos/$ORG/agou.ca/pages -f cname=agou.ca -F https_enforced=true -f 'source[branch]=redirect-cbc' -f 'source[path]=/'` then `gh api -X POST repos/$ORG/agou.ca/pages/builds`. (Rolling back only the content instead: `git revert -m 1 324a16c` on main and push; that brings back the party version, so do not use it unless Joachim asks.)
 
 ### Media kit section removed (Joachim, 8 Oct 2026 7:15 PM PT), PR #76 (merge 9223b1f), live 7:17 PM PT
 - Media EN/FR: the "Media kit (PDF)" / "Dossier de presse (PDF)" heading, its "[Placeholder]" box and its "On this page" entry are gone. Rule in `build.py` read(): while the media-kit PDFs are not published (MEDIAKIT off), the Media page has no media-kit section; it comes back by itself if the PDFs are published. No other "[Placeholder]" box existed on the live site. Flags unchanged.
@@ -168,7 +169,7 @@ See `site/README.md`: "Photo slots", "Donate switch" (`site.json` → `promote_d
 - To bring Events back: set `hide_events_v1_live` to false (after Joachim's edits), build live, publish.
 - Rollback: `git revert -m 1 8099b22` on main and push (hides Get involved again), or set `hide_getinvolved_v1_live` true on staging and publish.
 
-## 4. Publish to live (first done 2026-09-30, PR on casagou/agou.ca; repeat for every update)
+## 4. Publish to live (first done 2026-09-30, PR on the agou.ca repo; repeat for every update)
 Option A (keeps the current GitHub Pages "deploy from branch" setup):
 1. Make sure no Notion red `[TO COMPLETE]` notes remain (the live build stops if any do). `cd site && python3 build.py --env live`. This writes `dist/` with canonical https://agou.ca URLs, sitemap.xml, robots.txt allowing indexing, `CNAME` (agou.ca) and `.nojekyll`, and no staging banner or noindex.
 2. On a new branch from `main`, replace the root site files with the contents of `site/dist/`. Keep `CNAME` = `agou.ca`. The new build replaces `/volunteer/`, `/nominate/`, `/events/`, `/lawn-sign/` at the same URLs and with the same RPCs.
@@ -186,14 +187,14 @@ cd <agou.ca clone> && git rm -rq . && cp -a <staging clone>/site/dist/. . && git
 git add -A && git commit -m "agou.ca: publish site from staging <sha>" && git push -u origin HEAD
 gh pr create --base main --fill && gh pr merge --merge
 ```
-Then wait for the Pages build (`gh api repos/casagou/agou.ca/pages/builds/latest`) and check https://agou.ca.
+Then wait for the Pages build (`gh api repos/$ORG/agou.ca/pages/builds/latest`) and check https://agou.ca.
 Only built files go on `main` (never `site/`), because GitHub Pages serves everything in the root, including the Notion snapshot.
 
 Rollback: `git revert -m 1 <merge commit>` on `main` and push (or open a revert PR from the PR page). Pages rebuilds the previous site in about a minute.
 
 ### Published live (1 Oct 2026, Joachim approved 5:51 PM PT)
 - `site.json`: `priorities_v2_approved` set to true. The new media-kit hashes (EN e8e47f6e…, FR df98916a…) were added to `media_kit_approved`.
-- The live build (32 pages, content checks passed) went out from staging f35abdf plus these flags in casagou/agou.ca PR #37, merge commit fec1dba.
+- The live build (32 pages, content checks passed) went out from staging f35abdf plus these flags in the agou.ca repo PR #37, merge commit fec1dba.
 
 ### French review (Joachim, 1 Oct 2026 6:32 PM PT), staging only
 - Source: Joachim's French review (`french-review-2026-10-02.md`). English is the master: every French sentence was checked against the current English, and English wins where they differ. Changelog with what was applied or skipped: `/workspace/fr-review/applied.md` on the build box.
@@ -216,16 +217,16 @@ Rules in `exclusions.json` whose "why" starts with "Joachim (1 Oct 2026, 7:49 PM
 See `site/README.md` "Party links". If Notion's Home or FAQ volunteer, lawn-sign or donate text changes, update `build.py` PARTY_MD; the build stops if a replacement no longer matches. To publish, set `site.json` `party_links_live` to true after Joachim approves.
 
 ### Published live (2 Oct 2026, Joachim approved 1:20 AM PT: "Now you can publish as is.")
-- `site.json`: `party_links_live` set to true. Everything on staging up to 89259f7 (consistency audit, French review, Needs-Joachim answers, party links, nominee wording, filing FAQ) went out from staging b8f4190 in casagou/agou.ca PR #38, merge commit 8278fde. Media-kit PDFs unchanged (still the e8e47f6e…/df98916a… files; their bios still say "seeking to represent" / « souhaite représenter »).
-- Migration 46 recorded in casagou/Beacon-Hill `supabase/migrations/46_campaign_events_fr.sql` (commit 9eba025; already applied, do not re-apply).
+- `site.json`: `party_links_live` set to true. Everything on staging up to 89259f7 (consistency audit, French review, Needs-Joachim answers, party links, nominee wording, filing FAQ) went out from staging b8f4190 in the agou.ca repo PR #38, merge commit 8278fde. Media-kit PDFs unchanged (still the e8e47f6e…/df98916a… files; their bios still say "seeking to represent" / « souhaite représenter »).
+- Migration 46 recorded in the Beacon-Hill repo `supabase/migrations/46_campaign_events_fr.sql` (commit 9eba025; already applied, do not re-apply).
 - Rollback: `git revert -m 1 8278fde` on main and push.
 
 ### Social links (2 Oct 2026, Joachim via Provincial Campaign Ops), live in PR #39 (merge 1c9d657)
-- `site.json` → `social.campaign` (facebook.com/joachimagou, instagram.com/joachimagou) and `social.personal` (@casagou Instagram, Facebook, X). Footer and Home "Follow along" render "Campaign: …" / "Personal: …" (FR « Campagne » / « Personnel »); Contact uses `exclusions.json` rules on `<lang>-home:contact`. JSON-LD sameAs lists all five; "More photos on Instagram" uses `social.campaign.Instagram`. The build fails if a footer lacks the two groups.
+- `site.json` → `social.campaign` (facebook.com/joachimagou, instagram.com/joachimagou) and `social.personal` (the personal handle Instagram, Facebook, X). Footer and Home "Follow along" render "Campaign: …" / "Personal: …" (FR « Campagne » / « Personnel »); Contact uses `exclusions.json` rules on `<lang>-home:contact`. JSON-LD sameAs lists all five; "More photos on Instagram" uses `social.campaign.Instagram`. The build fails if a footer lacks the two groups.
 - Rollback: `git revert -m 1 1c9d657` on main and push.
 
 ### Media bios and Priorities intro (2 Oct 2026, Joachim 8:18 and 8:20 PM PT)
-- Media short and medium bios no longer name Casagou Inc. (EN rules on `en-media`, FR edited in `content/fr/media.md`); the full bio still does. `build.py` fails if Casagou appears between the Short bio and Full bio headings.
+- Media short and medium bios no longer name the company (EN rules on `en-media`, FR edited in `content/fr/media.md`); (11 Oct 2026: the full bio no longer names it either; the build now blocks the name everywhere, see the 11 Oct entry).
 - Priorities intro is now "I'm the Conservative Party of BC's nominee in Victoria–Beacon Hill. Each proposal on this page says where it comes from:" (FR « Je suis investi … en indique la provenance : »); the "party's plan" link and the platform "coming soon" sentence are gone. Also removed: "The party has not yet published a 2026 version / fiscal plan" (Priorities, FAQ) and the FAQ's "coming soon" aside (now "October 2024; not yet confirmed for this election"). Rules in `exclusions.json` with why "Joachim (2 Oct 2026, 8:20 PM PT)". No existing guard or diffcheck needed the old sentence; a new FORBIDDEN entry blocks the platform 'coming soon' / 'not yet published' wording.
 
 ### Published live: How to vote v2 + home Voter information (Joachim approved 6 Oct 2026 9:49 AM PT), PR #63 (merge e2bf891)
@@ -238,7 +239,7 @@ See `site/README.md` "Party links". If Notion's Home or FAQ volunteer, lawn-sign
 - Renamed throughout: `trail.py` → `site/updates.py`, `tools/make_trail.py` → `tools/make_updates.py`, `data/trail*.json` → `data/updates*.json`, `assets/img/trail/` → `assets/img/updates/`, `site.json` page `trail` → `updates` (`/updates/`, nav "Updates" / « Nouvelles ») and config `trail` → `updates` (home_max 4), `ui.json` / `seo.json` `trail` → `updates`, CSS `.trail*` → `.upd-*`. No `/trail/` redirect (never public).
 - New: per-entry permalink pages (`/updates/<date>-<slug>/`, page keys `u:<date>-<slug>` registered by `updates.register`), RSS feeds (`/updates/feed.xml`, `/fr/updates/feed.xml`), entry format (title/body/links/up to 4 images/alt/slug; README "Updates"), photo layouts 0-4, home cards with "Read more". `shell()` now takes a per-page Open Graph override (`page["og"]`), used only by permalink pages.
 - Hidden while `data/updates.json` has no entries (HIDDEN + `updates.check`). 4 SAMPLE entries on staging only (`data/updates-samples.json`).
-- Published live (code only, zero entries) from staging 57288b8 in casagou/agou.ca PR #64, merge 64e190e (6 Oct 2026 10:42 AM PT). Live diff: site.css only (+ cache tokens, banner build timestamp). Live home pixel-identical before/after (EN/FR, 1440/390); /updates/, /fr/updates/, feeds and sample files 404; `volunteer_shifts_note_live` still false, `how_to_vote_v2_live` true. Rollback: `git revert -m 1 64e190e` on main and push.
+- Published live (code only, zero entries) from staging 57288b8 in the agou.ca repo PR #64, merge 64e190e (6 Oct 2026 10:42 AM PT). Live diff: site.css only (+ cache tokens, banner build timestamp). Live home pixel-identical before/after (EN/FR, 1440/390); /updates/, /fr/updates/, feeds and sample files 404; `volunteer_shifts_note_live` still false, `how_to_vote_v2_live` true. Rollback: `git revert -m 1 64e190e` on main and push.
 
 ### Published live: FAQ bundle (Joachim approved via Campaign Ops, 6 Oct 2026 10:46 AM PT), PR #65 (merge 8428d5d)
 - `site.json`: `faq_why_running_live` set to true (draft `faq_why_running` in `staging-drafts.json`, `en/faq` + `fr/faq` edits).
@@ -256,7 +257,7 @@ See `site/README.md` "Party links". If Notion's Home or FAQ volunteer, lawn-sign
 - Rollback: `git revert -m 1 7bd436a` on main and push; set event 113 `is_public=false` or `status='Cancelled'`.
 - Oct 6, 2026 ~1:57 PM PT (Events-approved): shift 105 `description` / `description_fr` replaced in campaign_events (FR « jumellerons »; U+00A0 before « : » and in « 20 h »). Data only, no site files, no PR: the public site never shows shift descriptions (`get_public_shifts` omits them; forms.js builds the shift page and ICS text from ui.json `shifts`). Backup: /workspace/events/campaign_events_backup_20261006b_id_105.json.
 
-- 2026-10-06 2:01 PM PT, shift time-of-day label (Events): forms.js partOfDay now morning <12:00, afternoon 12:00-16:59, evening 17:00+ (was evening from 16:00). Shifts 93, 102, 105 now say afternoon / après-midi. Staging 3334fdf; live agou.ca PR #67, merge commit eb28d28. Rollback: `git revert -m 1 eb28d28` in casagou/agou.ca (and revert 3334fdf on staging).
+- 2026-10-06 2:01 PM PT, shift time-of-day label (Events): forms.js partOfDay now morning <12:00, afternoon 12:00-16:59, evening 17:00+ (was evening from 16:00). Shifts 93, 102, 105 now say afternoon / après-midi. Staging 3334fdf; live agou.ca PR #67, merge commit eb28d28. Rollback: `git revert -m 1 eb28d28` in the agou.ca repo (and revert 3334fdf on staging).
 
 ### Published live: health wait figures (Joachim approved via Campaign Ops, 6 Oct 2026 8:10 PM PT), PR #68 (merge 794a48f)
 - `site.json`: `health_wait_figures_v1_live` set to true (draft `health_wait_figures_v1` in `staging-drafts.json`; `en/home`, `fr/home`, `en/priorities`, `fr/priorities` edits), exactly as approved on staging 61b9d5d.
@@ -314,10 +315,10 @@ See `site/README.md` "Party links". If Notion's Home or FAQ volunteer, lawn-sign
 
 ## 2026-10-08 7:39 PM PT: personal social accounts hidden (LIVE)
 Joachim, 7:35 PM PT: "For now, can you hide this? All my personal accounts." (approval to publish)
-- Flags (site/site.json): `hide_personal_social_v1` (staging) and `hide_personal_social_v1_live` (live), both true. `social.personal` (Instagram/Facebook/X @casagou) is kept in site.json and is simply not rendered.
+- Flags (site/site.json): `hide_personal_social_v1` (staging) and `hide_personal_social_v1_live` (live), both true. `social.personal` (Instagram/Facebook/X the personal handle) is kept in site.json and is simply not rendered.
 - Hidden, EN and FR: the footer 'Personal:' / 'Personnel :' row on every page; the home 'Personal:' line (Notion home social line); the Contact page 'Personal:' line (`_contact.md`, dropped in `read()`); JSON-LD `sameAs` (campaign only); update-entry buttons linking a personal URL (`updates.SKIP_URLS`, staging samples only).
-- Unchanged: Campaign row, facebook.com/joachimagou and instagram.com/joachimagou. "Casagou Inc." / "Casagou Ops" in the bio text (About, FAQ, home, Media) is his company name, not an account, so it stays.
-- Guards: build.py fails if any personal URL or @casagou appears while hidden, and the footer guard expects 1 soc-row; diffcheck excuses the personal links only when the flag is on; golive_check fails on any personal link or a 'Personal:' social label, or on more than one footer social row.
+- Unchanged: Campaign row, facebook.com/joachimagou and instagram.com/joachimagou. The bios named his company at that point (removed 11 Oct 2026, see the entry at the end).
+- Guards: build.py fails if any personal URL or the personal handle appears while hidden, and the footer guard expects 1 soc-row; diffcheck excuses the personal links only when the flag is on; golive_check fails on any personal link or a 'Personal:' social label, or on more than one footer social row.
 - Staging 49b8a08 (code) + 7fefd77 (live flag). Publish PR #78, merge 3ca576b, Pages built 7:39:37 PM PT.
 - Rollback: `git revert -m 1 3ca576b` on main (Pages rebuilds), or set `hide_personal_social_v1_live` to false on staging, rebuild live and publish. To bring them back on staging too, also set `hide_personal_social_v1` to false. golive_check's PERSONAL_RE assertions must be removed when the accounts come back.
 

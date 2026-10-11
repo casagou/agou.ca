@@ -26,6 +26,7 @@ for _n, _d in _build.DRAFTS.items():
 # No-party version (site.json no_party_v1, 8 Oct 2026): no_party.py removes or rewrites party text on purpose. The excused lines
 # and links are exactly the ones that differ between read() with the flag off and on (PARTY links are off in that version).
 import no_party as _np  # noqa: E402
+import namefilter as _nf  # noqa: E402
 NP = _np.NP_ON(DENV, SITE)
 # Events / Get involved hidden (site.json hide_events_getinvolved_v1, Joachim 8 Oct 2026 6:00 PM PT): build.py HIDE_EG_EDITS drop their home / FAQ sections
 _build.set_hide_groups(DENV)  # per-group flags (build.py HIDE_GROUPS: events / nominate / getinvolved)
@@ -109,7 +110,7 @@ def nominate_lines(name, text):
     return out
 for raw in sorted((ROOT / "notion-raw").glob("*.txt")):
     name = raw.stem; lang, key = name.split("-", 1)
-    text = raw.read_text()
+    text = _nf.scrub(raw.read_text())  # names that must not appear on the site (namefilter.py): the Notion text is compared after the same rewrite as tools/notion2md.py
     lines = text.split("\n")
     if "---" in lines[:6]: lines = lines[lines.index("---") + 1:]
     body = "\n".join(lines)

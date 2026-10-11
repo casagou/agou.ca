@@ -14,7 +14,7 @@
   {"sample": true, "date": "2026-10-02", "title_en": "An evening on Dallas Road", "title_fr": "Une soirée sur Dallas Road", "place": "Fairfield",
    "body_en": "I spent the evening walking Dallas Road from Clover Point to Ross Bay and talking with the people I met along the way. Many told me what they want from their next MLA: someone who listens, answers plainly and shows up. That is the job I am asking for. Thank you for the welcome.",
    "body_fr": "J'ai passé la soirée sur Dallas Road, de Clover Point à Ross Bay, à parler avec les passants. Plusieurs m'ont dit ce qu'ils attendent de leur prochain député : quelqu'un qui écoute, répond clairement et est présent. C'est ce poste que je sollicite. Merci de l'accueil.",
-   "links": [{"platform": "facebook", "url": "https://www.facebook.com/joachimagou"}, {"platform": "x", "url": "https://x.com/casagou"}],
+   "links": [{"platform": "facebook", "url": "https://www.facebook.com/joachimagou"}],
    "images": [{"vic": "clover-point"}, {"vic": "dallas-road"}, {"vic": "ross-bay-seawall"}]}
  ]
 }

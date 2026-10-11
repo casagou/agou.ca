@@ -8,7 +8,7 @@ Seeking the BC Conservative nomination to run for Member of the Legislative Asse
 	[Sign up to nominate (takes 1 minute)](https://agou.ca/nominate)
 </callout>
 ## About me {color="blue"}
-I'm a dad, a professional engineer (P.Eng.) and a small-business owner in Fairfield. For more than 15 years I've led engineering teams and delivered multimillion-dollar projects on budget and on deadline, from gas turbine test facilities on three continents to space robotics. Today I'm a test and evaluation engineer in the defence sector, and I run Casagou Inc., a Victoria engineering consulting and media company.
+I'm a dad, a professional engineer (P.Eng.) and a small-business owner in Fairfield. For more than 15 years I've led engineering teams and delivered multimillion-dollar projects on budget and on deadline, from gas turbine test facilities on three continents to space robotics. Today I'm a test and evaluation engineer in the defence sector, and I run a Victoria engineering consulting and media company.
 Born in Nice, France, I studied mechanical engineering at Florida Institute of Technology and came to Canada in 2011 for graduate research at Université Laval in Quebec City. I've since lived in Montreal, Ottawa and Toronto. I settled in Victoria in 2023 to raise my daughter, and became a Canadian citizen that same year. I speak English and French.
 I serve as interim vice-president of the Victoria Conservative Association and volunteer with Chabad of Vancouver Island. I'm running because neighbours across this riding tell me the same things: they can't find a family doctor, rent is out of reach, everything costs more, and downtown doesn't feel safe. My job as a test engineer is to check whether something works and report the result. I'll bring that habit to the Legislature: every commitment with a number attached, and a public report to the riding every quarter.
 <page url="https://app.notion.com/p/3e8e245ae5f381aba121efa7bf13cc57">About Joachim</page>
@@ -59,7 +59,7 @@ Voting places are still being confirmed by Elections BC. Source: [Elections BC, 
 ---
 ## Contact {color="blue"}
 [joachim@agou.ca](mailto:joachim@agou.ca) · [672-922-7017](tel:+16729227017)
-[Instagram](https://www.instagram.com/casagou/) · [X](https://x.com/casagou) · [Facebook](https://www.facebook.com/casagou)
+<personal-social/>
 **Financial agent and auditor**
 Financial agent: Bert Chen · [bert@bertchen.ca](mailto:bert@bertchen.ca) · [778-996-9910](tel:+17789969910)
 Auditor: Chan Nowosad Boates, Chartered Professional Accountants, Campbell River

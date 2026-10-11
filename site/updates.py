@@ -10,6 +10,7 @@ With zero entries nothing of it is built: no home section, no follow buttons, no
 "updates" in HIDDEN). Staging, while there are no real entries, shows the SAMPLE entries from data/updates-samples.json
 (existing licensed Victoria photos) when site.json updates.samples_on_staging is true; live never does (build check).
 """
+import namefilter
 import hashlib, html, json, pathlib, re, sys
 from urllib.parse import urlsplit
 
@@ -31,7 +32,7 @@ MON = {"en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
        "fr": ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juill.", "août", "sept.", "oct.", "nov.", "déc."]}
 MONTHS = {"en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
           "fr": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]}
-RULES = r"\bJoa\b|the candidate|le candidat|Thales|\bACTW\b|(?i:lawn signs? (?:are |is )?free|free lawn sign|pancartes? gratuites?)"
+RULES = r"\bJoa\b|the candidate|le candidat|\bACTW\b|" + f"(?i:{namefilter.ONE.pattern})|" + r"(?i:lawn signs? (?:are |is )?free|free lawn sign|pancartes? gratuites?)"
 esc = lambda s: html.escape(s, quote=True)
 STATE = {"entries": [], "sample": False}
 
@@ -77,7 +78,7 @@ def validate(entries, where):
         for k, lim in (("title_en", "title"), ("title_fr", "title"), ("body_en", "body"), ("body_fr", "body"), ("place", "place"), ("place_fr", "place"), ("alt_en", "alt"), ("alt_fr", "alt")):
             v = str(e.get(k) or "")
             if len(v) > LIM[lim]: errs.append(f"{tag}: {k} is {len(v)} characters (max {LIM[lim]})")
-            if re.search(RULES, v): errs.append(f"{tag}: {k} breaks a site rule (Joa / the candidate / Thales / ACTW / 'free' lawn signs)")
+            if re.search(RULES, v): errs.append(f"{tag}: {k} breaks a site rule (Joa / the candidate / a blocked name / ACTW / 'free' lawn signs)")
         links = e.get("links") or []
         if not isinstance(links, list): errs.append(f"{tag}: links must be a list"); links = []
         for j, l in enumerate(links):
@@ -98,7 +99,7 @@ def validate(entries, where):
                 errs.append(f"{t2}: focus must be [x, y], fractions 0-1 (crop centre)")
             for k in ("alt_en", "alt_fr"):
                 if len(str(im.get(k) or "")) > LIM["alt"]: errs.append(f"{t2}: {k} is too long (max {LIM['alt']})")
-                if re.search(RULES, str(im.get(k) or "")): errs.append(f"{t2}: {k} breaks a site rule (Joa / the candidate / Thales / ACTW / 'free' lawn signs)")
+                if re.search(RULES, str(im.get(k) or "")): errs.append(f"{t2}: {k} breaks a site rule (Joa / the candidate / a blocked name / ACTW / 'free' lawn signs)")
     return errs
 
 

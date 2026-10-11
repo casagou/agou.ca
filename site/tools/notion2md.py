@@ -13,10 +13,13 @@ What it does, in order (nothing else is changed; the words stay Notion's):
  2. drops the Notion nav bar at the top (everything up to the first '---' line);
  3. cuts the Contact / Coordonnées block at the bottom (the site shows it on every page from the home page);
  4. removes Notion colour tags like {color="blue"} and signed-URL query strings on images;
+ 4b. (before everything else) namefilter.scrub: the company / former-employer names and the personal social links are rewritten to neutral wording;
  5. applies the exact-string rules in exclusions.json (privacy / wording rules) and reports each one;
  6. rewrites links: Notion page links and agou.ca links become site links in the right language.
 """
 import json, re, sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+import namefilter  # names that must never appear on the site (Joachim, 11 Oct 2026): scrubbed from Notion text before the rules run
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = json.loads((ROOT / "site.json").read_text())
@@ -51,7 +54,7 @@ def map_link(url, lang):
 
 def convert(name, report):
     lang, key = name.split("-", 1)
-    raw = (ROOT / "notion-raw" / f"{name}.txt").read_text()
+    raw = namefilter.scrub((ROOT / "notion-raw" / f"{name}.txt").read_text())
     # 'Last updated' date: Notion's page_last_edited_at (UTC) converted to Pacific time, if present in the saved text
     m = re.search(r'"?page_last_edited_at"?\s*[:=]\s*"?(\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d)', raw)
     if m:

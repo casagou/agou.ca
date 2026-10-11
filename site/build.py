@@ -8,6 +8,7 @@ import argparse, html, json, re, shutil, pathlib, sys
 import scorecard  # /scorecard/ page (scorecard.py, scorecard.json, content/<lang>/scorecard.md)
 import province  # /province/ page (province.py, content/<lang>/province.md; not from Notion)
 import updates  # "Updates" / « Nouvelles » (updates.py, data/updates.json; hidden everywhere while it has no entries)
+import namefilter  # names that must never appear anywhere on the site (namefilter.py; Joachim, 11 Oct 2026)
 import no_party  # no-party version (site.json no_party_v1, 8 Oct 2026); see no_party.py
 import prio_layout  # Priorities summary-first layout (staging only until site.json priorities_layout_v2_live)
 import events_cal  # Events calendar + 'New' events (events_cal.py; staging only until site.json events_calendar_live)
@@ -470,7 +471,7 @@ def read(lang, key):
     if PARTY["on"] and key == "privacy" and (ROOT / "content" / lang / "privacy-party.md").exists():
         key = "privacy-party"
     p = ROOT / "content" / lang / f"{key}.md"
-    t = p.read_text() if p.exists() else None
+    t = namefilter.scrub(p.read_text()) if p.exists() else None
     if t is not None and PARTY["on"]:
         for a_, b_ in PARTY_MD.get((lang, key), []):
             if t.count(a_) != 1: sys.exit(f"party links: {lang}/{key}.md: text to replace not found once (Notion text changed?): {a_[:80]!r}")
@@ -482,9 +483,11 @@ def read(lang, key):
                 if t.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key}.md: text to replace not found once (live text changed? redo the draft): {a_[:80]!r}")
                 t = t.replace(a_, b_)
     t = no_party.apply(t, lang, key)
-    if key == "_contact" and t is not None and PERSONAL_SOCIAL["hidden"]:  # Contact page: no 'Personal:' line (Joachim 8 Oct 2026 7:35 PM PT)
-        n_ = len(t.split("\n")); t = "\n".join(l for l in t.split("\n") if not re.match(r"^(Personal|Personnel)\s*:", l.strip()))
-        if len(t.split("\n")) != n_ - 1: sys.exit(f"contact: {lang}: expected exactly one 'Personal:' line to hide")
+    if key == "_contact" and t is not None and not PERSONAL_SOCIAL["hidden"]:  # personal accounts shown: the 'Personal:' line comes from site.json social.personal (not stored in content/)
+        G_ = UI[lang]["social_groups"]; pl_ = " · ".join(f"[{n_}]({u_})" for n_, u_ in SITE["social"]["personal"].items())
+        ls_ = t.split("\n"); ci_ = next((i_ for i_, l_ in enumerate(ls_) if re.match(r"^(Campaign|Campagne)\s*:", l_)), None)
+        if ci_ is None: sys.exit(f"contact: {lang}: no Campaign line to put the Personal line after")
+        ls_.insert(ci_ + 1, f"{G_['personal']}{chr(160) + ':' if lang == 'fr' else ':'} {pl_}"); t = "\n".join(ls_)
     if key == "media" and t is not None and not MEDIAKIT["on"]:  # Joachim 8 Oct 2026 7:15 PM PT: no PDF -> no 'Media kit (PDF)' section or placeholder
         parts = re.split(r"(?m)^(?=## )", t)
         keep = [p_ for p_ in parts if not (p_.startswith("## ") and "<placeholder>MEDIAKIT</placeholder>" in p_)]
@@ -1233,8 +1236,24 @@ NOTION_TITLES = {  # page titles as in Notion
 }
 
 # ---------------- checks ----------------
+TEXT_EXT = {".html", ".xml", ".json", ".js", ".css", ".txt", ".webmanifest", ".svg", ".map", ".ics", ".md", ".csv", ".yml", ".yaml"}
+
+
+def name_check(dist):
+    """Every built file: text, file names, and the raw bytes of images / fonts (metadata). PDFs: see pdf_check (same FORBIDDEN pattern)."""
+    errs = []
+    for f in sorted(dist.rglob("*")):
+        if not f.is_file(): continue
+        rel = f.relative_to(dist).as_posix()
+        if namefilter.hits(rel): errs.append(f"{rel}: file name contains a name that must not appear on the site")
+        if f.suffix.lower() == ".pdf": continue
+        b = f.read_bytes()
+        h = namefilter.hits(b.decode("utf-8", "replace")) if f.suffix.lower() in TEXT_EXT else ([(m.group(0), "binary metadata")] if (m := namefilter.ONE.search(b.decode("latin-1"))) else [])
+        if h: errs.append(f"{rel}: contains {h[0][0]!r} ({h[0][1][:90]}) -- {len(h)} hit(s)")
+    return errs
+
 FORBIDDEN = [
-    (r"Thales", "employer name (Thales)"), (r"\bNATO\b|OTAN", "NATO"), (r"AJISS", "AJISS"), (r"clearance|habilitation de sécurité", "security clearance"),
+    (f"(?i:{namefilter.ONE.pattern})", "a name that must not appear on the site (company / former employer / personal handle)"), (r"\bNATO\b|OTAN", "NATO"), (r"AJISS", "AJISS"), (r"clearance|habilitation de sécurité", "security clearance"),
     (r"(?i:a city that works|\bune ville qui fonctionne|acitythatworks)|\bACTW\b", "A City That Works (hard rule: never on agou.ca)"),
     (r"\bJoa\b(?! Aero Engineering\b)", "the nickname Joa (only the exact business name 'Joa Aero Engineering' is allowed; joa.aero is lowercase and not matched)"), (r"Victoria-Beacon Hill", "hyphen instead of en dash in Victoria–Beacon Hill"),
     (r"is the Conservative Party of BC candidate|Party of BC candidate in|est le candidat du Parti", "'the candidate' / 'le candidat' wording (banned; say 'nominee' / 'investi')"),
@@ -1248,7 +1267,7 @@ FORBIDDEN = [
     (r"\bACTW\b|candidate site", "drafting-note wording (ACTW / 'candidate site') from the /province/ source; see RESYNC.md"),
     (r"more than 12 years|plus de 12 ans|12 years of experience|12 ans d'expérience", "the old '12 years' experience claim (Joachim, 30 Sep 2026: more than 15 years)"),
     (r"every person who has ever spoken for the party|toutes les personnes qui ont un jour parlé au nom du parti", "the FAQ sentence Joachim removed from 'Why the Conservatives?' (30 Sep 2026)"),
-    (r"BC Funeral Videos|Victoria Drone", "a business name Joachim removed from the About Casagou entry (30 Sep 2026; Eventia Media covers it)"),
+    (r"BC Funeral Videos|Victoria Drone", "a business name Joachim removed from the About company entry (30 Sep 2026; Eventia Media covers it)"),
     (r"(?i)hilda", "Joachim's street name (keep only the neighbourhood; see exclusions.json)"),
     (r"[Rr]obberies in Victoria rose 21%|vols qualifiés ont augmenté de 21\s?%|181 incidents", "the retracted robbery figure (metro area, not the city; fact-check 2026-09-30, see exclusions.json)"),
     (r"paid for by a balanced budget|stopping spending that does not deliver", "the retracted FAQ funding line (fact-check 2026-09-30; see exclusions.json)"),
@@ -1344,16 +1363,11 @@ def check(dist):
     for f in sorted(dist.rglob("*.html")):
         t = f.read_text()
         vis = re.sub(r"<script.*?</script>", " ", t, flags=re.S)
-        if f.relative_to(dist).as_posix() in ("media/index.html", "fr/media/index.html"):  # Joachim, 2 Oct 2026 8:18 PM PT
-            a_ = re.search(r'id="(short-bio|biographie-courte)[^"]*"', t); b_ = re.search(r'id="(full-bio|biographie-complète)"', t)
-            if not (a_ and b_): errs.append(f"{f.relative_to(dist)}: short or full bio heading not found (needed for the Casagou check)")
-            elif "Casagou" in t[a_.start():b_.start()]:
-                errs.append(f"{f.relative_to(dist)}: Casagou Inc. is back in the short or medium bio (only the full bio may name it)")
         if 'class="site-footer"' in t:  # social links grouped Campaign / Personal (Joachim, 2 Oct 2026)
             ft = t[t.index('class="site-footer"'):]
             if ft.count('class="soc-row"') != len(SOCIAL_GROUPS()) or "facebook.com/joachimagou" not in ft or "instagram.com/joachimagou" not in ft:
-                errs.append(f"{f.relative_to(dist)}: footer social links are not grouped Campaign (joachimagou) / Personal (casagou)")
-        if re.search(r'href="https://www\.instagram\.com/casagou/"[^>]*>(More photos|Plus de photos)', t):
+                errs.append(f"{f.relative_to(dist)}: footer social links are not grouped Campaign (joachimagou) / Personal (when shown)")
+        if any(re.search(rf'href="{re.escape(u_)}/?"[^>]*>(More photos|Plus de photos)', t) for u_ in SITE["social"]["personal"].values()):
             errs.append(f"{f.relative_to(dist)}: 'More photos on Instagram' must point at the campaign account")
         for pat, what in FORBIDDEN:
             if re.search(pat, t):
@@ -1424,7 +1438,7 @@ if __name__ == "__main__":
     no_party.ON["on"] = no_party.NP_ON(a.env, SITE)
     set_hide_groups(a.env)
     PERSONAL_SOCIAL["hidden"] = bool(SITE.get("hide_personal_social_v1")) and (a.env == "staging" or bool(SITE.get("hide_personal_social_v1_live")))
-    if PERSONAL_SOCIAL["hidden"]:  # personal accounts (@casagou) left out everywhere; updates entries linking them lose that button
+    if PERSONAL_SOCIAL["hidden"]:  # personal accounts left out everywhere; updates entries linking them lose that button
         updates.SKIP_URLS = PERSONAL_URLS()
     HIDDEN.update(HIDE_EG["keys"])
     if no_party.ON["on"]:  # no-party version: donate page gone, party text edited out, party events hidden (see no_party.py)
@@ -1569,10 +1583,7 @@ if __name__ == "__main__":
             if "recruiter_id=251" not in _PU(k): errs.append(f"site.json party.urls.{k} lost recruiter_id=251")
         if "/volunteer/" in (dist / "sitemap.xml").read_text() or "/donate/" in (dist / "sitemap.xml").read_text() or "/lawn-sign/" in (dist / "sitemap.xml").read_text():
             errs.append("sitemap.xml lists a bridge page (volunteer / lawn-sign / donate)")
-    if PERSONAL_SOCIAL["hidden"]:
-        pu = re.compile("|".join(re.escape(u.split("://", 1)[1]) for u in PERSONAL_URLS()) + r"|@casagou\b", re.I)
-        errs += [f"{f.relative_to(dist)}: links a personal social account ({pu.search(f.read_text()).group(0)}), but hide_personal_social_v1 is on"
-                 for f in sorted(dist.rglob("*")) if f.suffix in (".html", ".xml", ".json", ".webmanifest", ".js") and pu.search(f.read_text(errors="replace"))]
+    errs += name_check(dist)  # the company / former-employer names and the personal handle must not appear in any built file (Joachim, 11 Oct 2026 3:07 PM PT)
     if a.env == "live" and not SITE.get("volunteer_shifts_note_live"):  # 5 Oct 2026 door-knocking shifts block: staging only until approved
         errs += [f"{f.relative_to(dist)}: shows the volunteer-page shifts block, but volunteer_shifts_note_live is false" for f in sorted(dist.rglob("*.html")) if 'class="block vshifts"' in f.read_text()]
     if HIDDEN:

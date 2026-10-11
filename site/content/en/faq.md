@@ -2,7 +2,7 @@
 <details>
 <summary>Who are you?</summary>
 I'm a dad, a professional engineer (P.Eng.) and a small-business owner. I live in Fairfield, in this riding, with my daughter.
-I was born in Nice, France, came to Canada in 2011, and became a citizen in 2023. I've lived in Quebec City, Montreal, Ottawa and Toronto, and I settled in Victoria in 2023. For more than 15 years I've delivered engineering projects on budget and on deadline. Today I work as a test and evaluation engineer in the defence sector, and I run Casagou Inc., a Victoria engineering and media company.
+I was born in Nice, France, came to Canada in 2011, and became a citizen in 2023. I've lived in Quebec City, Montreal, Ottawa and Toronto, and I settled in Victoria in 2023. For more than 15 years I've delivered engineering projects on budget and on deadline. Today I work as a test and evaluation engineer in the defence sector, and I run a Victoria engineering and media company.
 More: <mention-page url="/about/"/>
 </details>
 <details>
@@ -32,7 +32,7 @@ I sought this nomination because of the plan on this site, not because of a pers
 </details>
 <details>
 <summary>Do you live in the riding? What is your connection to the community?</summary>
-Yes. I live in Fairfield, where I'm raising my daughter. I've lived in Canada since 2011, in Quebec City, Montreal, Ottawa and Toronto, and settled in Victoria in 2023. I run Casagou Inc., a small Victoria engineering consulting and media company, volunteer with Chabad of Vancouver Island, and serve as interim vice-president of the Victoria Conservative Association.
+Yes. I live in Fairfield, where I'm raising my daughter. I've lived in Canada since 2011, in Quebec City, Montreal, Ottawa and Toronto, and settled in Victoria in 2023. I run a small Victoria engineering consulting and media company, volunteer with Chabad of Vancouver Island, and serve as interim vice-president of the Victoria Conservative Association.
 </details>
 <details>
 <summary>You only settled here in 2023. Why should we trust you?</summary>
@@ -193,7 +193,7 @@ If party policy conflicted with what this riding needs, I'd say so publicly, tak
 </details>
 <details>
 <summary>How would you manage your other work, business and conflicts of interest if elected?</summary>
-Today I am a test and evaluation engineer with a defence contractor supporting the Royal Canadian Navy, based in Mill Bay. If elected I would follow B.C.'s *Members' Conflict of Interest Act*. I would file the required disclosure with the Conflict of Interest Commissioner and publish a plain-language summary. I would recuse myself where the rules require it. I would not take new provincial contracts through Casagou Inc. while I am an MLA.
+Today I am a test and evaluation engineer with a defence contractor supporting the Royal Canadian Navy, based in Mill Bay. If elected I would follow B.C.'s *Members' Conflict of Interest Act*. I would file the required disclosure with the Conflict of Interest Commissioner and publish a plain-language summary. I would recuse myself where the rules require it. I would not take new provincial contracts through my company while I am an MLA.
 I am not making a campaign promise about leaving that job. The commissioner, not a slogan, decides what must stop.
 </details>
 ## Nominating and helping

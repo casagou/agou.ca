@@ -8,7 +8,7 @@ Candidat à l'investiture du Parti conservateur de la Colombie-Britannique pour 
 	[**Inscrivez-vous pour appuyer ma candidature (1 minute)**](https://agou.ca/nominate)
 </callout>
 ## À propos de moi {color="blue"}
-Je suis papa, ingénieur professionnel (P.Eng.) et entrepreneur, et j'habite à Fairfield. Depuis plus de 15 ans, je dirige des équipes d'ingénierie et je livre des projets de plusieurs millions de dollars dans le respect des budgets et des échéanciers, des installations d'essai de turbines à gaz sur trois continents à la robotique spatiale. Aujourd'hui, je suis ingénieur d'essais et d'évaluation dans le secteur de la défense, et je dirige Casagou Inc., une entreprise de Victoria spécialisée en génie-conseil et en production média.
+Je suis papa, ingénieur professionnel (P.Eng.) et entrepreneur, et j'habite à Fairfield. Depuis plus de 15 ans, je dirige des équipes d'ingénierie et je livre des projets de plusieurs millions de dollars dans le respect des budgets et des échéanciers, des installations d'essai de turbines à gaz sur trois continents à la robotique spatiale. Aujourd'hui, je suis ingénieur d'essais et d'évaluation dans le secteur de la défense, et je dirige une entreprise de Victoria spécialisée en génie-conseil et en production média.
 Né à Nice, en France, j'ai étudié le génie mécanique au Florida Institute of Technology, puis je suis arrivé au Canada en 2011 pour des recherches aux cycles supérieurs à l'Université Laval, à Québec. J'ai ensuite vécu à Montréal, à Ottawa et à Toronto. Je me suis installé à Victoria en 2023 pour y élever ma fille et suis devenu citoyen canadien la même année. Je parle français et anglais.
 Je suis vice-président par intérim de la Victoria Conservative Association et bénévole auprès de Chabad of Vancouver Island. Je me présente parce que, partout dans la circonscription, mes voisins me disent la même chose : ils ne trouvent pas de médecin de famille, les loyers sont hors de portée, tout coûte plus cher et le centre-ville ne semble plus sûr. Mon métier d'ingénieur d'essais, c'est de vérifier si quelque chose fonctionne et d'en rendre compte. J'apporterai cette habitude à l'Assemblée législative : chaque engagement sera assorti d'un chiffre, et je publierai un rapport à la circonscription chaque trimestre.
 <page url="https://app.notion.com/p/8e3e245ae5f383f3afca01c296ec9ce6">À propos de Joachim</page>
@@ -56,7 +56,7 @@ Les lieux de vote sont en cours de confirmation par Elections BC. Source : [Elec
 ---
 ## Coordonnées {color="blue"}
 [joachim@agou.ca](mailto:joachim@agou.ca) · [672-922-7017](tel:+16729227017)
-[Instagram](https://www.instagram.com/casagou/) · [X](https://x.com/casagou) · [Facebook](https://www.facebook.com/casagou)
+<personal-social/>
 **Agent financier et vérificateur**
 Agent financier : Bert Chen · [bert@bertchen.ca](mailto:bert@bertchen.ca) · [778-996-9910](tel:+17789969910)
 Vérificateur : Chan Nowosad Boates, comptables professionnels agréés, Campbell River
