@@ -351,3 +351,13 @@ Joachim, 3:07 PM PT: "Can you ensure you don't mention [the company] or [the for
 - Media-kit PDFs (`site/assets/media/*.pdf`, tracked on staging only, never deployed while no_party is on): each still contains the names (3 hits each by pdftotext). They stay out of every build; if the media kit ever returns, `pdf_check` blocks them on live until they are regenerated without the names.
 - Staging 79a4e6a. Publish PR #80, merge 3e437b8, Pages built 3:18:05 PM PT. Live check: 0 hits in every fetched live file (HTML, JSON, JS, CSS, XML, manifest, txt, images; no PDFs are published).
 - Rollback: `git revert -m 1 3e437b8` on main (Pages rebuilds), then, if the old wording is wanted on staging too, revert 79a4e6a. Git history still carries the names (not rewritten).
+
+## 15 Oct 2026: authorization line and financial agent removed (Joachim)
+Joachim, 15 Oct 2026 10:49 AM PT, after being warned about the BC rules: "Remove the authorization line entirely, I accept the compliance risk." and "Remove Bert from my website as my financial agent."
+- Footer on every page, EN/FR: the "Authorized by …" / "Autorisé par …" line is gone (build.py footer(); no empty block left behind). The box "Financial agent and auditor" is now "Auditor" / "Vérificateur" with the auditor line only (it never named Bert, so it stays).
+- Contact block and contact page: the financial agent line is gone (exclusions.json `*-home:contact` rules, also `*-faq:contact` for the trailing FAQ authorization line).
+- Hidden sources (Donate on home, "How can I donate?" in the FAQ): the Bert Chen sentence is removed (exclusions.json rules); PARTY_MD entries rewritten without him; the donate page's "Questions?" line and ui.json `questions` keys removed.
+- seo.json: contact descriptions lose "or reach his financial agent, Bert Chen" (EN/FR); donate descriptions lose the Bert sentence. site.json doc string cleaned.
+- Guards: build.py `AGENT_GONE` fails the build on "Authorized by"/"Autorisé par", Bert, Chen, bertchen, 778-996-9910, "financial agent"/"agent financier" in any built page; /workspace/no-party/golive_check.py now requires them ABSENT; tools/diffcheck.py matches multi-line contact rules line by line.
+- Staging commit 347d103 (deployed 10:52 AM PT). Publish PR #81, merge 71aac05, live 10:54:58 AM PT.
+- Rollback: `git -C <agou.ca checkout> revert -m 1 71aac05 && git push` (live), and `git revert 347d103` on staging, then rebuild. Old golive_check: /tmp/golive_check.pre-noauth.py.
