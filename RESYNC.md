@@ -361,3 +361,11 @@ Joachim, 15 Oct 2026 10:49 AM PT, after being warned about the BC rules: "Remove
 - Guards: build.py `AGENT_GONE` fails the build on "Authorized by"/"Autorisé par", Bert, Chen, bertchen, 778-996-9910, "financial agent"/"agent financier" in any built page; /workspace/no-party/golive_check.py now requires them ABSENT; tools/diffcheck.py matches multi-line contact rules line by line.
 - Staging commit 347d103 (deployed 10:52 AM PT). Publish PR #81, merge 71aac05, live 10:54:58 AM PT.
 - Rollback: `git -C <agou.ca checkout> revert -m 1 71aac05 && git push` (live), and `git revert 347d103` on staging, then rebuild. Old golive_check: /tmp/golive_check.pre-noauth.py.
+
+## 15 Oct 2026: X removed from the contact description (Joachim)
+Joachim, 15 Oct 2026 11:31 AM PT: remove 'X' from the contact page meta description (EN/FR, and og/twitter description).
+- seo.json contact desc: EN "…by email or phone or follow him on Instagram, X and Facebook." → "…on Instagram and Facebook."; FR "…suivez-le sur Instagram, X et Facebook." → "…sur Instagram et Facebook." (feeds description, og:description, twitter:description).
+- No other mention of X/Twitter as his account in the live output (no x.com / twitter.com links, no twitter:site/creator); twitter:card/title/description/image tags stay.
+- Guard: build.py AGENT_GONE now also fails on "X and/et Facebook", ", X and/et", x.com/ or twitter.com/ links.
+- Staging d59ef60; publish PR #82, merge 1e3281d, live 11:34:29 AM PT.
+- Rollback: `git revert -m 1 1e3281d` on main; `git revert d59ef60` on staging, rebuild.
