@@ -44,7 +44,8 @@ DRAFTS = json.loads((ROOT / "staging-drafts.json").read_text())["drafts"] if (RO
 DRAFT_ENV = {"env": None}
 DRAFT_ON = lambda name, env: env == "staging" or bool(SITE.get(DRAFTS[name]["live_flag"]))
 AGENT_GONE = (("the authorization line", r"(?-i:Authori[sz]ed by|Autorisé par)"), ("the financial agent's name", r"\bBert\b|\bChen\b|bertchen"),
-              ("the financial agent's phone", r"778[-. ]?996[-. ]?9910|\+?17789969910"), ("'financial agent'", r"financial agent|agent financier"))
+              ("the financial agent's phone", r"778[-. ]?996[-. ]?9910|\+?17789969910"), ("'financial agent'", r"financial agent|agent financier"),
+              ("X/Twitter as one of his accounts (removed 15 Oct 2026)", r"(?-i:\bX\b(?= (?:and|et) Facebook)|, X,? (?:and|et)\b)|(?<![\w.])x\.com/|twitter\.com/"))
 PARTY_MOVED = ("volunteer", "lawn-sign", "donate")
 _PU = lambda k: SITE["party"]["urls"][k]
 PARTY_MD = {  # (lang, file): exact replacements in the Notion text when party links are on (each must match once)
