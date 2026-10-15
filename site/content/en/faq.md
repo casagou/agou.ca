@@ -211,7 +211,7 @@ Come to a Coffee with Joachim or another event. [See upcoming events](/events/)
 </details>
 <details>
 <summary>How can I donate?</summary>
-Online donations are coming soon. To contribute now, contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910). In 2026, you can give up to $1,513.29 in total to a party, its riding associations and its candidates. Only individuals who are Canadian citizens or permanent residents living in B.C. can contribute.
+In 2026, you can give up to $1,513.29 in total to a party, its riding associations and its candidates. Only individuals who are Canadian citizens or permanent residents living in B.C. can contribute.
 </details>
 ## Voting
 <details>

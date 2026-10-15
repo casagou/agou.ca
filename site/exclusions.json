@@ -1884,6 +1884,66 @@
       "find": "Vous pouvez aussi la déposer à un bureau du directeur du scrutin ou à un bureau de vote.",
       "replace": "Vous pouvez aussi la déposer à un bureau électoral de circonscription ou à un bureau de vote.",
       "why": "Joachim (6 Oct 2026, 9:49 AM PT): home Voter information matches the How to vote page: « Local 101, 722 Johnson Street », and Elections BC's 2026 French term « bureau électoral de circonscription » (2026 French Voter's Guide, https://elections.bc.ca/2026election/2026-provincial-election-voters-guide-French.pdf) instead of « bureau du directeur du scrutin ». Nothing else in the section changed."
+    },
+    {
+      "page": "en-home:contact",
+      "find": "**Financial agent and auditor**\nFinancial agent: Bert Chen · [bert@bertchen.ca](mailto:bert@bertchen.ca) · [778-996-9910](tel:+17789969910)\nAuditor: ",
+      "replace": "**Auditor**\n",
+      "why": "Joachim, 15 Oct 2026 10:49 AM PT: \"Remove the authorization line entirely, I accept the compliance risk.\" and \"Remove Bert from my website as my financial agent.\" (no financial agent name or contact on the site); the auditor stays (box titled Auditor / Vérificateur, line without the repeated label)."
+    },
+    {
+      "page": "en-home:contact",
+      "find": "*Authorized by Bert Chen, financial agent, *[*bert@bertchen.ca*](mailto:bert@bertchen.ca)*, *[*778-996-9910*](tel:+17789969910)*.*\n",
+      "replace": "",
+      "why": "Joachim, 15 Oct 2026 10:49 AM PT: \"Remove the authorization line entirely, I accept the compliance risk.\" and \"Remove Bert from my website as my financial agent.\" (no financial agent name or contact on the site)"
+    },
+    {
+      "page": "fr-home:contact",
+      "find": "**Agent financier et vérificateur**\nAgent financier : Bert Chen · [bert@bertchen.ca](mailto:bert@bertchen.ca) · [778-996-9910](tel:+17789969910)\nVérificateur : ",
+      "replace": "**Vérificateur**\n",
+      "why": "Joachim, 15 Oct 2026 10:49 AM PT: \"Remove the authorization line entirely, I accept the compliance risk.\" and \"Remove Bert from my website as my financial agent.\" (no financial agent name or contact on the site); the auditor stays (box titled Auditor / Vérificateur, line without the repeated label)."
+    },
+    {
+      "page": "fr-home:contact",
+      "find": "*Autorisé par Bert Chen, agent financier, *[*bert@bertchen.ca*](mailto:bert@bertchen.ca)*, *[*778-996-9910*](tel:+17789969910)*.*\n",
+      "replace": "",
+      "why": "Joachim, 15 Oct 2026 10:49 AM PT: \"Remove the authorization line entirely, I accept the compliance risk.\" and \"Remove Bert from my website as my financial agent.\" (no financial agent name or contact on the site)"
+    },
+    {
+      "page": "en-home",
+      "find": "Online donations are coming soon. To contribute now, contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910). He'll explain how to give and issue your tax receipt.\n",
+      "replace": "",
+      "why": "Joachim, 15 Oct 2026 10:49 AM PT: \"Remove the authorization line entirely, I accept the compliance risk.\" and \"Remove Bert from my website as my financial agent.\" (no financial agent name or contact on the site) (hidden Donate section source)."
+    },
+    {
+      "page": "fr-home",
+      "find": "Les dons en ligne seront bientôt possibles. Pour contribuer dès maintenant, communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910). Il vous expliquera comment donner et vous remettra votre reçu fiscal.\n",
+      "replace": "",
+      "why": "Joachim, 15 Oct 2026 10:49 AM PT: \"Remove the authorization line entirely, I accept the compliance risk.\" and \"Remove Bert from my website as my financial agent.\" (no financial agent name or contact on the site) (hidden Donate section source)."
+    },
+    {
+      "page": "en-faq",
+      "find": "Online donations are coming soon. To contribute now, contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910). ",
+      "replace": "",
+      "why": "Joachim, 15 Oct 2026 10:49 AM PT: \"Remove the authorization line entirely, I accept the compliance risk.\" and \"Remove Bert from my website as my financial agent.\" (no financial agent name or contact on the site) (hidden 'How can I donate?' answer)."
+    },
+    {
+      "page": "fr-faq",
+      "find": "Les dons en ligne seront bientôt possibles. Pour contribuer dès maintenant, communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910). ",
+      "replace": "",
+      "why": "Joachim, 15 Oct 2026 10:49 AM PT: \"Remove the authorization line entirely, I accept the compliance risk.\" and \"Remove Bert from my website as my financial agent.\" (no financial agent name or contact on the site) (hidden 'Comment faire un don?' answer)."
+    },
+    {
+      "page": "en-faq:contact",
+      "find": "*Authorized by Bert Chen, financial agent, *[bert@bertchen.ca](mailto:bert@bertchen.ca)*, 778-996-9910.*",
+      "replace": "",
+      "why": "Joachim, 15 Oct 2026 10:49 AM PT: \"Remove the authorization line entirely, I accept the compliance risk.\" and \"Remove Bert from my website as my financial agent.\" (no financial agent name or contact on the site)"
+    },
+    {
+      "page": "fr-faq:contact",
+      "find": "*Autorisé par Bert Chen, agent financier, *[*bert@bertchen.ca*](mailto:bert@bertchen.ca)*, 778-996-9910.*",
+      "replace": "",
+      "why": "Joachim, 15 Oct 2026 10:49 AM PT: \"Remove the authorization line entirely, I accept the compliance risk.\" and \"Remove Bert from my website as my financial agent.\" (no financial agent name or contact on the site)"
     }
   ],
   "_doc_wildcard": "A rule with \"page\": \"*\" applies to every Notion page on every re-sync (no warning when it does not match). The build also refuses any page containing \"Hilda\", so a new wording that no rule catches stops the build instead of going live."

@@ -38,7 +38,6 @@ Faire du porte-à-porte, passer des appels, installer une pancarte ou aider le j
 Venez prendre un café et me dire ce qui compte pour vous. Chaque événement a sa propre page pour confirmer votre présence et l'ajouter à votre agenda.
 [**→ Voir les prochains événements**](/fr/events/)
 ## Faire un don
-Les dons en ligne seront bientôt possibles. Pour contribuer dès maintenant, communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910). Il vous expliquera comment donner et vous remettra votre reçu fiscal.
 En 2026, vous pouvez donner jusqu'à 1 513,29 \$ au total à un parti, à ses associations de circonscription et à ses candidats. Seules les personnes ayant la citoyenneté canadienne ou la résidence permanente et vivant en C.-B. peuvent contribuer.
 ## Des questions?
 [**→ Foire aux questions**](/fr/faq/)

@@ -43,32 +43,28 @@ PARTY = {"on": False}
 DRAFTS = json.loads((ROOT / "staging-drafts.json").read_text())["drafts"] if (ROOT / "staging-drafts.json").exists() else {}
 DRAFT_ENV = {"env": None}
 DRAFT_ON = lambda name, env: env == "staging" or bool(SITE.get(DRAFTS[name]["live_flag"]))
+AGENT_GONE = (("the authorization line", r"(?-i:Authori[sz]ed by|Autorisé par)"), ("the financial agent's name", r"\bBert\b|\bChen\b|bertchen"),
+              ("the financial agent's phone", r"778[-. ]?996[-. ]?9910|\+?17789969910"), ("'financial agent'", r"financial agent|agent financier"))
 PARTY_MOVED = ("volunteer", "lawn-sign", "donate")
 _PU = lambda k: SITE["party"]["urls"][k]
 PARTY_MD = {  # (lang, file): exact replacements in the Notion text when party links are on (each must match once)
     ("en", "home"): [
         ("[**→ Sign up to volunteer**](/volunteer/)", "Sign-up and lawn-sign requests are on the Conservative Party of BC's website.\n[**→ Sign up to volunteer**](/volunteer/)"),
-        ("Online donations are coming soon. To contribute now, contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910). He'll explain how to give and issue your tax receipt.",
-         "Donations to my campaign go through the Conservative Party of BC's secure donation page. Questions? Contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910)."),
         ("Only individuals who are Canadian citizens or permanent residents living in B.C. can contribute.\n", "Only individuals who are Canadian citizens or permanent residents living in B.C. can contribute.\n[**→ Donate on the party's website**](/donate/)\n"),
     ],
     ("fr", "home"): [
         ("[**→ Inscrivez-vous comme bénévole**](/fr/volunteer/)", "L'inscription des bénévoles et les demandes de pancarte se font sur le site du Parti conservateur de la C.-B. (en anglais).\n[**→ Inscrivez-vous comme bénévole**](/fr/volunteer/)"),
-        ("Les dons en ligne seront bientôt possibles. Pour contribuer dès maintenant, communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910). Il vous expliquera comment donner et vous remettra votre reçu fiscal.",
-         "Les dons à ma campagne se font sur la page de dons sécurisée du Parti conservateur de la C.-B. (en anglais). Des questions? Communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910)."),
         ("et vivant en C.-B. peuvent contribuer.\n", "et vivant en C.-B. peuvent contribuer.\n[**→ Faire un don sur le site du parti**](/fr/donate/)\n"),
     ],
     ("en", "faq"): [
         ("[Sign up to volunteer](/volunteer/)", "Sign-up is on the Conservative Party of BC's website: [Sign up to volunteer](/volunteer/)"),
         ("[Request a lawn sign](/lawn-sign/)", "Requests go through the Conservative Party of BC's lawn-sign form: [Request a lawn sign](/lawn-sign/)"),
-        ("Online donations are coming soon. To contribute now, contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910).",
-         "Donate online through the Conservative Party of BC's secure donation page: [Donate](/donate/). Questions? Contact my financial agent, Bert Chen, at [bert@bertchen.ca](mailto:bert@bertchen.ca) or [778-996-9910](tel:+17789969910)."),
+        ("In 2026, you can give up to $1,513.29", "Donate online through the Conservative Party of BC's secure donation page: [Donate](/donate/). In 2026, you can give up to $1,513.29"),
     ],
     ("fr", "faq"): [
         ("[Inscrivez-vous comme bénévole](/fr/volunteer/)", "L'inscription se fait sur le site du Parti conservateur de la C.-B. (en anglais) : [Inscrivez-vous comme bénévole](/fr/volunteer/)"),
         ("[Demander une pancarte](/fr/lawn-sign/)", "Les demandes se font sur le formulaire du Parti conservateur de la C.-B. (en anglais) : [Demander une pancarte](/fr/lawn-sign/)"),
-        ("Les dons en ligne seront bientôt possibles. Pour contribuer dès maintenant, communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910).",
-         "Faites un don en ligne sur la page de dons sécurisée du Parti conservateur de la C.-B. (en anglais) : [Faire un don](/fr/donate/). Des questions? Communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910)."),
+        ("En 2026, vous pouvez donner jusqu'à 1 513,29", "Faites un don en ligne sur la page de dons sécurisée du Parti conservateur de la C.-B. (en anglais) : [Faire un don](/fr/donate/). En 2026, vous pouvez donner jusqu'à 1 513,29"),
     ],
 }
 
@@ -102,8 +98,6 @@ def party_page(lang, page, env):
         shifts_note = (f'<section class="block vshifts" aria-labelledby="vshifts">{draft}<h2 id="vshifts">{esc(T["shifts_h"])}</h2>'
                        f'<p>{esc(T["shifts_p1"])}</p><p>{esc(T["shifts_p2"])}</p>'
                        f'<p class="pagelink"><a href="{url(lang, "events")}?show=shifts">{esc(T["shifts_link"])} →</a></p></section>')
-    if key == "donate":
-        parts.append(f'<p>{esc(T["questions"])} <a href="mailto:bert@bertchen.ca">bert@bertchen.ca</a> {esc(P["or"])} <a href="tel:+17789969910">778-996-9910</a>.</p>')
     body = f'<section class="block lead">{"".join(parts)}</section>' + shifts_note
     main = f'<div class="page-head"><div class="wrap"><h1>{esc(T["h1"])}</h1></div></div><div class="wrap content">{body}{updated_for(lang, key)}</div>'
     return shell(lang, page, f'{T["h1"]} – Joachim Agou – Victoria–Beacon Hill', T["lead"], main, env)
@@ -622,9 +616,11 @@ def footer(lang, ctx):
     U = UI[lang]
     md = read(lang, "_contact")
     lines = [l for l in md.split("\n") if l.strip() and not re.match(r"^\*(Authorized|Autorisé) by|^\*(Authorized|Autorisé) par", l.strip())]
-    # split: contact lines (email/phone + socials) | financial agent box | other
+    # split: contact lines (email/phone + socials) | auditor box (heading + its lines, up to the first page link) | other
+    # 15 Oct 2026 (Joachim): no financial agent and no authorization line on the site; the box now holds the auditor only
     fa_i = next(i for i, l in enumerate(lines) if l.startswith("**"))
-    contact = lines[:fa_i]; fa = lines[fa_i:fa_i + 3]; rest = lines[fa_i + 3:]
+    fa_end = next((i for i in range(fa_i + 1, len(lines)) if lines[i].strip().startswith(("<page", "**"))), len(lines))
+    contact = lines[:fa_i]; fa = lines[fa_i:fa_end]; rest = lines[fa_end:]
     contact_html = "".join(f"<p>{inline(l, ctx)}</p>" for l in contact if "instagram.com" not in l)
     fa_html = f'<div class="fa-box"><p class="fa-title">{inline(fa[0], ctx)}</p>' + "".join(f"<p>{inline(l, ctx)}</p>" for l in fa[1:]) + "</div>"
     skip = {url(lang, k) for k in SITE["footer_nav"]} | hidden_urls()
@@ -633,13 +629,11 @@ def footer(lang, ctx):
     rest_html = "".join(f"<p>{inline(re.sub(r'<mention-page url=\"([^\"]+)\"/>', lambda m: f'[{mention_title(m.group(1))}]({m.group(1)})', l), ctx)}</p>" for l in rest)
     nav = "".join(f'<li><a href="{url(lang, k)}">{esc(BYKEY[k]["nav"][lang])}</a></li>' for k in SITE["footer_nav"])
     contact_h = "Contact" if lang == "en" else "Coordonnées"
-    auth_en = "Authorized by Bert Chen, financial agent, bert@bertchen.ca, 778-996-9910."
-    auth = f'<p class="auth">{auth_en}</p>' if lang == "en" else f'<p class="auth">Autorisé par Bert Chen, agent financier, bert@bertchen.ca, 778-996-9910.</p><p class="auth" lang="en">{auth_en}</p>'
     return (f'<footer class="site-footer"><div class="wrap fgrid">'
             f'<section aria-labelledby="fc"><h2 id="fc">{contact_h}</h2>{contact_html}<p class="soc-label">{esc(U["social_label"])}</p>{social_links("social", lang)}{rest_html}</section>'
             f'<section aria-label="{esc(fa[0].strip("*"))}">{fa_html}</section>'
             f'<nav aria-label="{esc(U["footer_nav"])}"><ul class="fnav">{nav}</ul></nav>'
-            f'</div><div class="wrap">{auth}{bg_credit(lang)}{vic_credits(lang)}</div></footer>')
+            f'</div><div class="wrap fcredits">{bg_credit(lang)}{vic_credits(lang)}</div></footer>')
 
 
 def bg_credit(lang):
@@ -1392,8 +1386,10 @@ def check(dist):
             for pat, what in FR_OLD:
                 if re.search(pat, plain_t):
                     errs.append(f"{f.relative_to(dist)}: contains {what} (corrected 2026-09-30; see exclusions.json)")
-        if "Authorized by Bert Chen, financial agent, bert@bertchen.ca, 778-996-9910." not in t:
-            errs.append(f"{f.relative_to(dist)}: missing footer authorization line")
+        # 15 Oct 2026 (Joachim): "Remove the authorization line entirely, I accept the compliance risk." / "Remove Bert from my website as my financial agent."
+        for what, pat in AGENT_GONE:
+            if re.search(pat, t, re.I):
+                errs.append(f"{f.relative_to(dist)}: contains {what} (removed 15 Oct 2026 at Joachim's request)")
     # FR FAQ must mirror the EN FAQ: same number of sections (topic index) and questions
     en_faq, fr_faq = dist / "faq" / "index.html", dist / "fr" / "faq" / "index.html"
     if en_faq.exists() and fr_faq.exists():

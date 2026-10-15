@@ -305,7 +305,7 @@
     "faq"
   ],
   "promote_donate": false,
-  "_promote_donate_doc": "ONE-LINE SWITCH. false = Donate is a quiet item inside Get involved only (people are sent to Bert Chen). true = adds a yellow Donate button in the header and in the phone's bottom bar, and a yellow Donate button on the Get involved page. Rebuild after changing.",
+  "_promote_donate_doc": "ONE-LINE SWITCH. false = Donate is a quiet item inside Get involved only. true = adds a yellow Donate button in the header and in the phone's bottom bar, and a yellow Donate button on the Get involved page. Rebuild after changing.",
   "footer_nav": [
     "scorecard",
     "province",

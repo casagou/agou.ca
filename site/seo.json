@@ -118,11 +118,11 @@
     "donate": {
       "en": {
         "title": "Donate",
-        "desc": "Online donations to Joachim Agou's campaign in Victoria–Beacon Hill are coming soon. To give now, contact financial agent Bert Chen, who will explain how."
+        "desc": "Online donations to Joachim Agou's campaign in Victoria–Beacon Hill are coming soon."
       },
       "fr": {
         "title": "Faire un don",
-        "desc": "Les dons en ligne à la campagne de Joachim Agou dans Victoria–Beacon Hill arrivent bientôt. Pour donner dès maintenant, communiquez avec l'agent financier, Bert Chen."
+        "desc": "Les dons en ligne à la campagne de Joachim Agou dans Victoria–Beacon Hill arrivent bientôt."
       }
     },
     "events": {
@@ -168,11 +168,11 @@
     "contact": {
       "en": {
         "title": "Contact",
-        "desc": "Contact Joachim Agou in Victoria–Beacon Hill by email or phone, follow him on Instagram, X and Facebook, or reach his financial agent, Bert Chen."
+        "desc": "Contact Joachim Agou in Victoria–Beacon Hill by email or phone or follow him on Instagram, X and Facebook."
       },
       "fr": {
         "title": "Coordonnées",
-        "desc": "Joignez Joachim Agou dans Victoria–Beacon Hill par courriel ou téléphone, suivez-le sur Instagram, X et Facebook, ou communiquez avec son agent financier, Bert Chen."
+        "desc": "Joignez Joachim Agou dans Victoria–Beacon Hill par courriel ou téléphone ou suivez-le sur Instagram, X et Facebook."
       }
     },
     "privacy": {

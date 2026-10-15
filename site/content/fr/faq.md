@@ -220,7 +220,7 @@ Je ne fais pas ici une promesse de campagne de quitter cet emploi. C'est le comm
 </details>
 <details>
 <summary>Comment faire un don?</summary>
-	Les dons en ligne seront bientôt possibles. Pour contribuer dès maintenant, communiquez avec mon agent financier, Bert Chen, à [bert@bertchen.ca](mailto:bert@bertchen.ca) ou au [778-996-9910](tel:+17789969910). En 2026, vous pouvez donner jusqu'à 1 513,29 \$ au total à un parti, à ses associations de circonscription et à ses candidats. Seules les personnes ayant la citoyenneté canadienne ou la résidence permanente et vivant en C.-B. peuvent contribuer.
+	En 2026, vous pouvez donner jusqu'à 1 513,29 \$ au total à un parti, à ses associations de circonscription et à ses candidats. Seules les personnes ayant la citoyenneté canadienne ou la résidence permanente et vivant en C.-B. peuvent contribuer.
 </details>
 ## Voter
 <details>
