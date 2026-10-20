@@ -369,3 +369,10 @@ Joachim, 15 Oct 2026 11:31 AM PT: remove 'X' from the contact page meta descript
 - Guard: build.py AGENT_GONE now also fails on "X and/et Facebook", ", X and/et", x.com/ or twitter.com/ links.
 - Staging d59ef60; publish PR #82, merge 1e3281d, live 11:34:29 AM PT.
 - Rollback: `git revert -m 1 1e3281d` on main; `git revert d59ef60` on staging, rebuild.
+
+## 20 Oct 2026: Priorities Oct 20 update published (Joachim)
+Joachim, 20 Oct 2026 1:03 AM PT: drop the "My position" chips and legend; 1:07 AM PT: "Remove the inline (my position) text too, then publish live."
+- Draft `priorities_oct20_v1` (staging-drafts.json), now live via site.json `priorities_oct20_v1_live: true`: housing "Cities decide where homes go; the Province makes sure they decide on time." (Priorities + FAQ, EN/FR); ferries procurement "that gives B.C. shipyards a fair shot"; new cards: urgent and primary care centre (health), Police on the street (downtown), Child care for shift workers (cost of living); FAQ synced. No new figures.
+- No source chips or How I work legend (prio_layout NO_CHIPS); build.py `strip_my_position()` removes every inline "(my position)" / "(ma position)" label, including "(my position; …)" / "(…; my position, …)" forms, on all pages, after no_party. Prose sentences that use the phrase (FAQ "That standard is my position.") are untouched. DUMP_MD debug hook removed.
+- Staging 1cd436b + site.json flag commit.
+- Rollback: `git revert -m 1 <merge>` on main; or set `priorities_oct20_v1_live` false on staging and republish.
