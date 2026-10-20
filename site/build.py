@@ -4,7 +4,7 @@
 Content comes from content/<lang>/*.md (made from Notion by tools/notion2md.py).
 Interface/form wording comes from ui.json. Page list, photo slots and social links from site.json.
 No framework, no dependencies (Python 3 standard library only)."""
-import argparse, html, json, re, shutil, pathlib, sys
+import os, argparse, html, json, re, shutil, pathlib, sys
 import scorecard  # /scorecard/ page (scorecard.py, scorecard.json, content/<lang>/scorecard.md)
 import province  # /province/ page (province.py, content/<lang>/province.md; not from Notion)
 import updates  # "Updates" / « Nouvelles » (updates.py, data/updates.json; hidden everywhere while it has no entries)
@@ -473,11 +473,18 @@ def read(lang, key):
             t = t.replace(a_, b_)
     if t is not None and DRAFT_ENV["env"]:
         for name_, d_ in DRAFTS.items():
-            if not DRAFT_ON(name_, DRAFT_ENV["env"]): continue
+            if not DRAFT_ON(name_, DRAFT_ENV["env"]) or d_.get("after_no_party"): continue
             for a_, b_ in d_["edits"].get(f"{lang}/{key}", []):
                 if t.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key}.md: text to replace not found once (live text changed? redo the draft): {a_[:80]!r}")
                 t = t.replace(a_, b_)
     t = no_party.apply(t, lang, key)
+    if t is not None and DRAFT_ENV["env"] and no_party.ON["on"]:  # drafts written against the published (no-party) text: "after_no_party": true
+        for name_, d_ in DRAFTS.items():
+            if not d_.get("after_no_party") or not DRAFT_ON(name_, DRAFT_ENV["env"]): continue
+            for a_, b_ in d_["edits"].get(f"{lang}/{key}", []):
+                if t.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key} (after no-party): text to replace not found once (live text changed? redo the draft): {a_[:80]!r}")
+                t = t.replace(a_, b_)
+    if os.environ.get("DUMP_MD") and t is not None: pathlib.Path(os.environ["DUMP_MD"], f"{lang}-{key}.md").write_text(t)
     if key == "_contact" and t is not None and not PERSONAL_SOCIAL["hidden"]:  # personal accounts shown: the 'Personal:' line comes from site.json social.personal (not stored in content/)
         G_ = UI[lang]["social_groups"]; pl_ = " · ".join(f"[{n_}]({u_})" for n_, u_ in SITE["social"]["personal"].items())
         ls_ = t.split("\n"); ci_ = next((i_ for i_, l_ in enumerate(ls_) if re.match(r"^(Campaign|Campagne)\s*:", l_)), None)
@@ -1440,6 +1447,25 @@ if __name__ == "__main__":
     HIDDEN.update(HIDE_EG["keys"])
     if no_party.ON["on"]:  # no-party version: donate page gone, party text edited out, party events hidden (see no_party.py)
         no_party.setup(HIDDEN, UI, SEO, prio_layout, events_cal, ROOT)
+    for name_, d_ in DRAFTS.items():  # staging drafts that add or reword 'For you' lines: "for_you": {lang: {section id: [[index, text, "insert"|"set"], ...]}}
+        if not d_.get("for_you") or not DRAFT_ON(name_, a.env): continue
+        fy_ = prio_layout.DATA_OVERRIDE or json.loads((ROOT / "data/priorities-for-you.json").read_text())
+        for lang_, secs_ in d_["for_you"].items():
+            for sid_, ops_ in secs_.items():
+                for op_ in sorted(ops_, key=lambda o: -o[0]):  # [0-based index, 'For you' line, "insert"|"set", short title or None]
+                    i_, txt_, how_, short_ = (list(op_) + [None])[:4]
+                    st_ = fy_.setdefault("short_titles", {}).setdefault(lang_, {}).setdefault(sid_, {})
+                    if how_ == "insert":
+                        fy_[lang_][sid_].insert(i_, txt_)
+                        for n_ in sorted((int(k) for k in list(st_)), reverse=True):  # short titles are numbered from 1: shift the ones after the new card
+                            if n_ > i_: st_[str(n_ + 1)] = st_.pop(str(n_))
+                    else: fy_[lang_][sid_][i_] = txt_
+                    if short_: st_[str(i_ + 1)] = short_
+        prio_layout.DATA_OVERRIDE = fy_
+    if DRAFT_ON("priorities_oct20_v1", a.env):  # Joachim 20 Oct 2026 1:03 AM PT: drop the 'My position' chips and the How I work legend
+        prio_layout.NO_CHIPS["on"] = True
+        for l_, u_ in prio_layout.T.items():
+            u_["hiw_intro"] = re.sub(r"\s*:\s*$", ".", u_["hiw_intro"])
     if a.env == "live" and not SITE.get("publish_faq_live", True):
         HIDDEN.add("faq")
     if a.env == "live" and not SITE.get("publish_scorecard_live", False):

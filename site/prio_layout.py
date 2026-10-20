@@ -50,6 +50,7 @@ CHIP_RE = {"mine": r"\bmy position\b|\bma position\b",
            "plat": r"\b2024 party platform\b|\bprogramme 2024 du parti\b"}
 
 DATA_OVERRIDE = None          # no_party.py: the no-party version of data/priorities-for-you.json
+NO_CHIPS = {"on": False}  # staging draft priorities_oct20_v1 (Joachim 20 Oct 2026): no source chips on cards, no legend
 LEGEND = ("mine", "party", "plat")  # chips listed in the How I work legend (no_party.py: mine only)
 
 VOID = {"img", "source", "br", "hr", "meta", "link", "input", "wbr"}
@@ -204,9 +205,9 @@ def transform(body, lang, slugify, flags):
             if text(kids[k - 1]) not in ("On this page", "Sur cette page"): raise SystemExit("prio_layout: 'On this page' label not found")
             toc_links = re.findall(r'<a href="(#[^"]+)">(.*?)</a>', kids[k]); del kids[k - 1:k + 1]
             head = [c for c in kids if c.startswith("<h2") or c.startswith('<span id="')]; more = [c for c in kids if c not in head]
-            leg = "".join(f'<li><span class="chip chip-{c}">{U["chips"][c]}</span> {U["legend"][c]}</li>' for c in LEGEND)
+            leg = "" if NO_CHIPS["on"] else "".join(f'<li><span class="chip chip-{c}">{U["chips"][c]}</span> {U["legend"][c]}</li>' for c in LEGEND)
             new_secs.append(f'<section class="block hiw" aria-labelledby="{sid}">' + "\n".join(head)
-                            + f'<p class="hiw-intro">{U["hiw_intro"]}</p><ul class="hiw-legend">{leg}</ul>'
+                            + f'<p class="hiw-intro">{U["hiw_intro"]}</p>' + (f'<ul class="hiw-legend">{leg}</ul>' if leg else "")
                             + f'<details class="pc-det hiw-more"><summary>{U["hiw_more"]}</summary><div class="pc-dbody">' + "\n".join(more) + "</div></details></section>"); continue
         h2 = next(c for c in kids if c.startswith("<h2"))
         title_txt = text(h2)
@@ -231,7 +232,7 @@ def transform(body, lang, slugify, flags):
                     key = f"{en_id}/{j}"
                     if lang == "en": vis_decisions[key] = words(b) <= VISIBLE_MAX
                     vis = vis_decisions.get(key, words(b) <= VISIBLE_MAX)
-                    ch = "".join(f'<span class="chip chip-{k}">{U["chips"][k]}</span>' for k in chips(lang, li))
+                    ch = "".join(f'<span class="chip chip-{k}">{U["chips"][k]}</span>' for k in ([] if NO_CHIPS["on"] else chips(lang, li)))
                     card = (f'<article class="pc" id="{pid}"><h3 class="pc-h">{t}</h3>'
                             f'<p class="pc-you"><strong>{U["for_you"]}</strong> {H.escape(fy, quote=False)}'
                             + (f' <span class="pc-tags">{ch}</span>' if ch else "") + "</p>")
