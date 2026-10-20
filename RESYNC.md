@@ -380,5 +380,5 @@ Joachim, 20 Oct 2026 1:03 AM PT: drop the "My position" chips and legend; 1:07 A
 ## 20 Oct 2026: urgent care card reworded, published (Joachim)
 Joachim, 20 Oct 2026 1:19 AM PT asked for the draft; 1:30 AM PT: "Publish the reworded urgent care card live."
 - Draft `urgentcare_reword_v1` (staging-drafts.json, applies on top of priorities_oct20_v1), live via site.json `urgentcare_reword_v1_live: true`: the "new centre" card becomes "Get seen at the urgent care centres we already have" (six Island Health UPCCs, 8 a.m.–8 p.m. daily, booking line 1-833-688-8722, source islandhealth.ca/services/same-day-primary-care, 23 Sep 2026); more appointments and staff; quarterly per-centre waits incl. callers who couldn't get an appointment. FAQ EN/FR synced. No new figures. 1-833-688-8722 added to build.py PHONES_OK.
-- Staging ff9d75b + flag commit.
-- Rollback: `git revert -m 1 <merge>` on main; or set `urgentcare_reword_v1_live` false on staging and republish (brings back the priorities_oct20_v1 card).
+- Staging ff9d75b + e9655a8. Publish PR #84, merge 5c2f524.
+- Rollback: `git revert -m 1 5c2f524` on main; or set `urgentcare_reword_v1_live` false on staging and republish (brings back the priorities_oct20_v1 card).
