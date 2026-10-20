@@ -1342,7 +1342,8 @@ PRIORITIES_OLD = [
 ]
 EXPERIENCE_OLD = r"(?i)(more than|over)\s+(12|twelve)\s+years|\b(12|twelve) years of experience|plus de (12|douze) ans"
 PHONES_OK = {"672-922-7017", "778-996-9910", "1-800-661-8683", "16729227017", "17789969910",
-             "1-888-456-5448", "778-405-9892"}  # Elections BC TTY and the Victoria–Beacon Hill district electoral office (How to vote; elections.bc.ca, checked 6 Oct 2026)
+             "1-888-456-5448", "778-405-9892",
+             "1-833-688-8722"}  # Island Health same-day primary care booking line (islandhealth.ca/services/same-day-primary-care, 23 Sep 2026; urgentcare_reword_v1)  # Elections BC TTY and the Victoria–Beacon Hill district electoral office (How to vote; elections.bc.ca, checked 6 Oct 2026)
 
 
 def shifts_check(dist, env):

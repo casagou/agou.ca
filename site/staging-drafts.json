@@ -644,6 +644,68 @@
           ]
         }
       }
+    },
+    "urgentcare_reword_v1": {
+      "live_flag": "urgentcare_reword_v1_live",
+      "updated": "2026-10-20",
+      "after_no_party": true,
+      "why": "Joachim, 20 Oct 2026 1:19 AM PT: 'Draft the reworded urgent care card on staging for me to review.' STAGING ONLY. Rewords the priorities_oct20_v1 urgent care card around getting seen at the six existing Island Health UPCCs (source: Island Health same-day primary care page, updated 23 Sep 2026). No new centre, no wait or turnaway figures. Applies on top of priorities_oct20_v1.",
+      "edits": {
+        "en/priorities": [
+          [
+            "- **An urgent and primary care centre where waits are longest.** Open an urgent and primary care centre with evening and weekend hours where South Island waits are longest, and publish its wait times every quarter (my position).\n",
+            "- **Get seen at the urgent and primary care centres we already have.** Greater Victoria has six Island Health urgent and primary care centres, open 8 a.m. to 8 p.m. every day: Downtown (1107 Pandora), James Bay, Esquimalt, Gorge, North Quadra and Westshore. You book by calling 1-833-688-8722, and a call doesn't guarantee an appointment ([Island Health, Sept 2026](https://www.islandhealth.ca/services/same-day-primary-care)). Add appointments and staff at these centres, so more callers get seen. Publish each centre's wait times every quarter, including how many callers couldn't get an appointment, so you can check (my position).\n"
+          ]
+        ],
+        "fr/priorities": [
+          [
+            "- **Un centre de soins d'urgence et de soins primaires là où l'attente est la plus longue.** Ouvrir un centre de soins d'urgence et de soins primaires, ouvert le soir et la fin de semaine, là où l'attente est la plus longue dans le sud de l'île de Vancouver, et publier ses délais d'attente chaque trimestre (ma position).\n",
+            "- **Être vu dans les centres de soins d'urgence et de soins primaires qui existent déjà.** Le Grand Victoria compte six centres de soins d'urgence et de soins primaires d'Island Health, ouverts de 8 h à 20 h tous les jours : Downtown (1107, rue Pandora), James Bay, Esquimalt, Gorge, North Quadra et Westshore. On prend rendez-vous en composant le 1-833-688-8722, et un appel ne garantit pas un rendez-vous ([Island Health, sept. 2026, en anglais](https://www.islandhealth.ca/services/same-day-primary-care)). Ajouter des rendez-vous et du personnel dans ces centres, pour que plus de gens soient vus. Publier chaque trimestre les délais d'attente de chaque centre, y compris le nombre de personnes qui n'ont pas pu obtenir de rendez-vous, pour que vous puissiez vérifier (ma position).\n"
+          ]
+        ],
+        "en/faq": [
+          [
+            "Open an urgent and primary care centre with evening and weekend hours where South Island waits are longest, and publish its wait times every quarter (my position).",
+            "Add appointments and staff at the six urgent and primary care centres we already have, so more callers get seen, and publish each centre's wait times every quarter, including how many callers couldn't get an appointment (my position)."
+          ],
+          [
+            "and for an urgent and primary care centre where waits are longest, so Jubilee",
+            "and for more appointments at the urgent and primary care centres we already have, so Jubilee"
+          ]
+        ],
+        "fr/faq": [
+          [
+            "Ouvrir un centre de soins d'urgence et de soins primaires, ouvert le soir et la fin de semaine, là où l'attente est la plus longue dans le sud de l'île de Vancouver, et publier ses délais d'attente chaque trimestre (ma position).",
+            "Ajouter des rendez-vous et du personnel dans les six centres de soins d'urgence et de soins primaires qui existent déjà, pour que plus de gens soient vus, et publier chaque trimestre les délais d'attente de chaque centre, y compris le nombre de personnes qui n'ont pas pu obtenir de rendez-vous (ma position)."
+          ],
+          [
+            "ainsi qu'un centre de soins d'urgence et de soins primaires là où l'attente est la plus longue, pour que le Jubilee",
+            "ainsi que plus de rendez-vous dans les centres de soins d'urgence et de soins primaires qui existent déjà, pour que le Jubilee"
+          ]
+        ]
+      },
+      "for_you": {
+        "en": {
+          "1-health-care-you-can-get": [
+            [
+              3,
+              "Six urgent and primary care centres already offer same-day care, 8 a.m. to 8 p.m. every day. More appointments and staff there mean more callers get seen, and each centre's wait times are published every quarter so you can check.",
+              "set",
+              "Get seen at the urgent care centres we already have"
+            ]
+          ]
+        },
+        "fr": {
+          "1-health-care-you-can-get": [
+            [
+              3,
+              "Six centres de soins d'urgence et de soins primaires offrent déjà des soins le jour même, de 8 h à 20 h tous les jours. Plus de rendez-vous et de personnel, c'est plus de gens vus, et les délais d'attente de chaque centre sont publiés chaque trimestre pour que vous puissiez vérifier.",
+              "set",
+              "Être vu dans les centres de soins d'urgence existants"
+            ]
+          ]
+        }
+      }
     }
   }
 }
