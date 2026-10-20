@@ -46,6 +46,15 @@ DRAFT_ON = lambda name, env: env == "staging" or bool(SITE.get(DRAFTS[name]["liv
 AGENT_GONE = (("the authorization line", r"(?-i:Authori[sz]ed by|Autorisé par)"), ("the financial agent's name", r"\bBert\b|\bChen\b|bertchen"),
               ("the financial agent's phone", r"778[-. ]?996[-. ]?9910|\+?17789969910"), ("'financial agent'", r"financial agent|agent financier"),
               ("X/Twitter as one of his accounts (removed 15 Oct 2026)", r"(?-i:\bX\b(?= (?:and|et) Facebook)|, X,? (?:and|et)\b)|(?<![\w.])x\.com/|twitter\.com/"))
+_MYPOS = r"(?:my position|ma position)"
+def strip_my_position(t):
+    """Drop the inline 'my position' source label: ' (my position)' goes, '(my position; X)' / '(my position, X)' become '(X)'."""
+    t = re.sub(r"[ \u00a0]*\(" + _MYPOS + r"\)", "", t, flags=re.I)
+    t = re.sub(r"\(" + _MYPOS + r"\s*[;,]\s*", "(", t, flags=re.I)
+    t = re.sub(r"\s*[;,]\s*" + _MYPOS + r"(?=\s*\))", "", t, flags=re.I)
+    t = re.sub(r"([;,])\s*" + _MYPOS + r"\s*[;,]\s*", r"\1 ", t, flags=re.I)
+    t = re.sub(r"^- \*\*(?:My position|Ma position)\s*:\*\*.*\n", "", t, flags=re.M)
+    return t
 PARTY_MOVED = ("volunteer", "lawn-sign", "donate")
 _PU = lambda k: SITE["party"]["urls"][k]
 PARTY_MD = {  # (lang, file): exact replacements in the Notion text when party links are on (each must match once)
@@ -484,7 +493,8 @@ def read(lang, key):
             for a_, b_ in d_["edits"].get(f"{lang}/{key}", []):
                 if t.count(a_) != 1: sys.exit(f"staging draft {name_}: {lang}/{key} (after no-party): text to replace not found once (live text changed? redo the draft): {a_[:80]!r}")
                 t = t.replace(a_, b_)
-    if os.environ.get("DUMP_MD") and t is not None: pathlib.Path(os.environ["DUMP_MD"], f"{lang}-{key}.md").write_text(t)
+    if t is not None and DRAFT_ENV["env"] and DRAFT_ON("priorities_oct20_v1", DRAFT_ENV["env"]):  # Joachim 20 Oct 2026 1:07 AM PT: no inline '(my position)' labels either
+        t = strip_my_position(t)
     if key == "_contact" and t is not None and not PERSONAL_SOCIAL["hidden"]:  # personal accounts shown: the 'Personal:' line comes from site.json social.personal (not stored in content/)
         G_ = UI[lang]["social_groups"]; pl_ = " · ".join(f"[{n_}]({u_})" for n_, u_ in SITE["social"]["personal"].items())
         ls_ = t.split("\n"); ci_ = next((i_ for i_, l_ in enumerate(ls_) if re.match(r"^(Campaign|Campagne)\s*:", l_)), None)
