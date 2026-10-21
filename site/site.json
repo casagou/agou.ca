@@ -1299,6 +1299,7 @@
   "priorities_downtown_v2_live": true,
   "priorities_oct20_v1_live": true,
   "urgentcare_reword_v1_live": true,
+  "scorecard_line13_v1_live": true,
   "_priorities_oct20_v1_live_doc": "Joachim, 20 Oct 2026 1:07 AM PT: publish the Oct 20 Priorities draft (housing/ferries rewording, urgent care centre, downtown policing, shift-worker child care, FAQ sync), no My position chips/legend, no inline (my position) labels.",
   "_priorities_downtown_v2_live_doc": "staging-drafts.json priorities_downtown_v2 (7 Oct 2026): Priorities section 4 (A downtown that works) updated with the party's Safe Streets for BC announcement (6 Oct 2026), party commitment vs my position labelled. Staging always shows it; false = live keeps the published section 4. Set true only after Joachim approves, then rebuild live and publish. Approved by Joachim via Campaign Ops 7 Oct 2026 8:46 AM PT, exactly as on staging 5937f1b, and set true.",
   "faq_priorities_sync_v1_live": true,
