@@ -387,5 +387,5 @@ Joachim, 20 Oct 2026 1:19 AM PT asked for the draft; 1:30 AM PT: "Publish the re
 Joachim, 20 Oct 2026 6:36 PM PT: "Publish scorecard line 13 live now." (overrides the 12-line rule; the scorecard now has 13 lines). Wording from his FGCA email.
 - Draft `scorecard_line13_v1` (staging-drafts.json), live via site.json `scorecard_line13_v1_live: true`: line 13 "Child care spaces in Victoria–Beacon Hill" EN/FR appended to content/<lang>/scorecard.md text (draft edit), summary card in scorecard.json item 13 (no figure, no source yet, cadence quarterly_foi), PRIORITY 13 -> priority 3 (Cost of living). Counts 12 -> 13: scorecard intro and promise 1, kicker, "The 13 lines in full", meta/og descriptions (seo.json via scorecard.use_line13), Priorities ferries note "13-line scorecard" (EN/FR). FAQ "What about schools and childcare?" gains "How you'll know: scorecard line 13 (…)" EN/FR. No figures.
 - Guards: scorecard.py requires exactly N items (13 with the flag, else 12); tools/scorecard_check.py prints the line count and expects 13 when item-13 is on the page (run with --no-party: 0 not found).
-- Staging e4374e6 + flag commit.
-- Rollback: `git revert -m 1 <merge>` on main; or set `scorecard_line13_v1_live` false on staging and republish.
+- Staging e4374e6 + 5d5fc43. Publish PR #85, merge e6a0d81.
+- Rollback: `git revert -m 1 e6a0d81` on main; or set `scorecard_line13_v1_live` false on staging and republish.
