@@ -8,6 +8,7 @@ import json, pathlib, re
 ROOT = pathlib.Path(__file__).resolve().parent
 SC = json.loads((ROOT / "scorecard.json").read_text())
 NB = "\u00a0"
+N = {"n": 12}  # number of lines; 13 when staging draft scorecard_line13_v1 is on (Joachim, 20 Oct 2026), set by use_line13()
 
 T = {
     "en": {
@@ -72,7 +73,21 @@ T = {
 }
 
 # scorecard line -> the Priorities section it reports on ("1"-"4" = the numbered priorities; "report" = "How I'll report to you")
-PRIORITY = {"8": "1", "9": "1", "10": "1", "3": "2", "4": "2", "1": "3", "2": "3", "5": "4", "6": "4", "7": "4", "12": "4", "11": "report"}
+PRIORITY = {"13": "3", "8": "1", "9": "1", "10": "1", "3": "2", "4": "2", "1": "3", "2": "3", "5": "4", "6": "4", "7": "4", "12": "4", "11": "report"}
+
+
+def use_line13(SEO):
+    """Scorecard line 13 (child care spaces) on: every '12 numbers / lines' count becomes 13 (UI wording here and seo.json)."""
+    N["n"] = 13
+    for L in T.values():
+        for k, v in L.items():
+            if isinstance(v, str): L[k] = re.sub(r"\b12 (numbers|lines|chiffres|lignes)\b", r"13 \1", v)
+    def walk(o):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if isinstance(v, str) and k == "desc": o[k] = re.sub(r"\b12 (numbers|chiffres)\b", r"13 \1", v)
+                else: walk(v)
+    walk(SEO)
 
 
 def priority_heads(B, lang):
@@ -139,7 +154,7 @@ def parse(md):
         if m:
             items[-1]["rows"].append(("promise", m.group(2)[0].upper() + m.group(2)[1:] + " " + m.group(3))); continue
         raise SystemExit(f"scorecard.md: cannot place this line: {s[:80]!r}")
-    if len(items) != 12: raise SystemExit(f"scorecard.md: expected 12 items, found {len(items)}")
+    if len(items) != N["n"]: raise SystemExit(f"scorecard.md: expected {N['n']} items, found {len(items)}")
     return how_h, how, prom_h, promises, items
 
 

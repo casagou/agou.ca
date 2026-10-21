@@ -13,6 +13,16 @@ page_md = md
 if "--no-party" in sys.argv:  # no-party build (site.json no_party_v1): lines 1-2 drop the party / caucus wording (no_party.py EDITS en/scorecard)
     sys.path.insert(0, str(ROOT)); import no_party
     no_party.ON["on"] = True; page_md = no_party.apply(md, "en", "scorecard")
+ids_ = sorted(set(re.findall(r'id="item-(\d+)"', page)), key=int)
+if "item-13" in page or "--line13" in sys.argv:  # scorecard line 13 (staging draft scorecard_line13_v1, Joachim 20 Oct 2026): 13 lines
+    import json as _j
+    for a_, b_ in _j.loads((ROOT / "staging-drafts.json").read_text())["drafts"]["scorecard_line13_v1"]["edits"]["en/scorecard"]:
+        if page_md.count(a_) != 1: sys.exit(f"scorecard_check: line-13 edit anchor not found once: {a_[:60]!r}")
+        page_md = page_md.replace(a_, b_)
+    want_ = 13
+else:
+    want_ = 12
+print(f"scorecard: {len(ids_)} lines on the page (expected {want_})" + ("" if ids_ == [str(i) for i in range(1, want_ + 1)] else "  <-- MISMATCH"))
 txt = re.sub(r"<(script|style).*?</\1>", " ", page, flags=re.S)
 txt = re.sub(r"</?(em|strong|a|span|mark)\b[^>]*>", "", txt)
 txt = html.unescape(re.sub(r"<[^>]+>", " ", txt)); txt = re.sub(r"\s+", " ", txt)

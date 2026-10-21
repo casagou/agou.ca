@@ -379,6 +379,23 @@
           "url": "https://www.ourplacesociety.com/wp-content/uploads/2026/08/Impact-Report-25-26-.pdf"
         }
       ]
+    },
+    "13": {
+      "status": "target",
+      "cadence": "quarterly_foi",
+      "short": {
+        "en": "Child care spaces",
+        "fr": "Places en service de garde"
+      },
+      "fig": {
+        "en": "No figure yet",
+        "fr": "Aucun chiffre pour l’instant"
+      },
+      "figlabel": {
+        "en": "first number in the first quarterly report",
+        "fr": "premier chiffre au premier bilan trimestriel"
+      },
+      "sources": []
     }
   },
   "approved_edits": {

@@ -706,6 +706,66 @@
           ]
         }
       }
+    },
+    "scorecard_line13_v1": {
+      "live_flag": "scorecard_line13_v1_live",
+      "updated": "2026-10-20",
+      "after_no_party": true,
+      "why": "Joachim, 20 Oct 2026 6:36 PM PT: 'Publish scorecard line 13 live now.' (overrides the 12-line rule). Line 13 from his FGCA email wording: licensed child care spaces in Victoria–Beacon Hill, how many are $10-a-day, median wait; quarterly from Ministry data, FOI + print the refusal if not released by riding. No figures. scorecard.py switches 12 -> 13 in counts (scorecard.N) when this draft is on.",
+      "edits": {
+        "en/scorecard": [
+          [
+            "That is what I will argue for.",
+            "That is what I will argue for.\n\n**13. Child care spaces in Victoria–Beacon Hill**  \n**Target:** A public count, every quarter, of licensed child care spaces in Victoria–Beacon Hill, how many of them are $10-a-day, and the median time a family waits for one.  \n**Today:** No figure on this page yet. The first number comes in the first quarterly report.  \n**Source / cadence:** Ministry data. Quarterly. If the Ministry will not release it by riding, I file the FOI and print the refusal.  \n**My lever:** Publish it every quarter. FOI the riding number if the Ministry will not release it, and print the refusal."
+          ],
+          [
+            "I will publish these 12 numbers every quarter",
+            "I will publish these 13 numbers every quarter"
+          ],
+          [
+            "All 12 lines, sources",
+            "All 13 lines, sources"
+          ]
+        ],
+        "fr/scorecard": [
+          [
+            "Voilà ce que je défendrai.",
+            "Voilà ce que je défendrai.\n\n**13. Les places en service de garde dans Victoria–Beacon Hill**  \n**Cible :** Un décompte public, chaque trimestre, des places en service de garde agréées dans Victoria–Beacon Hill, du nombre de ces places à 10 $ par jour et du délai médian d’attente d’une famille pour en obtenir une.  \n**Aujourd’hui :** Aucun chiffre sur cette page pour l’instant. Le premier chiffre paraîtra dans le premier bilan trimestriel.  \n**Source / fréquence :** Données du ministère. Chaque trimestre. Si le ministère refuse de les publier par circonscription, je dépose une demande d’accès à l’information et je publie le refus.  \n**Mon levier :** Publier ce chiffre chaque trimestre. Demander le chiffre de la circonscription par accès à l’information si le ministère refuse de le publier, et publier le refus."
+          ],
+          [
+            "Je publierai ces 12 chiffres chaque trimestre",
+            "Je publierai ces 13 chiffres chaque trimestre"
+          ],
+          [
+            "Les 12 lignes, les sources",
+            "Les 13 lignes, les sources"
+          ]
+        ],
+        "en/priorities": [
+          [
+            "not from my 12-line scorecard",
+            "not from my 13-line scorecard"
+          ]
+        ],
+        "fr/priorities": [
+          [
+            "mon bulletin de 12 lignes",
+            "mon bulletin de 13 lignes"
+          ]
+        ],
+        "en/faq": [
+          [
+            "Parents in Fairfield and James Bay should not have to file the FOI themselves.",
+            "Parents in Fairfield and James Bay should not have to file the FOI themselves. How you'll know: [scorecard](https://agou.ca/scorecard/) line 13 (licensed child care spaces in Victoria–Beacon Hill, how many are $10-a-day, and the median wait for one)."
+          ]
+        ],
+        "fr/faq": [
+          [
+            "ne devraient pas avoir à déposer eux-mêmes la demande d'accès à l'information.",
+            "ne devraient pas avoir à déposer eux-mêmes la demande d'accès à l'information. Comment vous pourrez suivre les résultats : la ligne 13 du [bulletin](https://agou.ca/fr/scorecard/) (les places en service de garde agréées dans Victoria–Beacon Hill, le nombre de places à 10 $ par jour et le délai d'attente médian pour en obtenir une)."
+          ]
+        ]
+      }
     }
   }
 }

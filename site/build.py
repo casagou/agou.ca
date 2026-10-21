@@ -1473,6 +1473,8 @@ if __name__ == "__main__":
                     else: fy_[lang_][sid_][i_] = txt_
                     if short_: st_[str(i_ + 1)] = short_
         prio_layout.DATA_OVERRIDE = fy_
+    if DRAFT_ON("scorecard_line13_v1", a.env):  # Joachim 20 Oct 2026 6:36 PM PT: scorecard line 13 (child care spaces), 13 lines
+        scorecard.use_line13(SEO)
     if DRAFT_ON("priorities_oct20_v1", a.env):  # Joachim 20 Oct 2026 1:03 AM PT: drop the 'My position' chips and the How I work legend
         prio_layout.NO_CHIPS["on"] = True
         for l_, u_ in prio_layout.T.items():
