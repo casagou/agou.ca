@@ -396,3 +396,10 @@ Joachim, 21 Oct 2026 ~9:50 PM PT: "Publish it live as it is now."
 - tools: /workspace/no-party/golive_check.py STUBS no longer lists media.
 - Publish PR #86, merge 2266c53, live 9:53:30 PM PT.
 - Rollback: `git revert -m 1 2266c53` on main; or set `hide_media_v1_live` true on staging and republish (and put media back in golive_check STUBS).
+
+### Priorities robbery figure: metro area (21 Oct 2026, PR #87)
+Joachim, 21 Oct 2026 11:14 PM PT: "Show both: city on the scorecard, metro in Priorities." ~11:20 PM PT: "Publish it live."
+- Staging draft `robbery_cma_v1` (staging-drafts.json), live via site.json `robbery_cma_v1_live: true`: Priorities downtown "Why" EN/FR now says "Robberies in the Victoria metro area rose 21% in 2025, to 181 incidents" linking Statistics Canada Table 35-10-0177 (Victoria CMA [59935]: 149 in 2024, 181 in 2025). Scorecard line 7 unchanged: City of Victoria 126 (+19%), Table 35-10-0184 (VicPD municipal [59025]: 106 -> 126).
+- build.py robbery guard allows "181 incidents" only in the metro wording; "Robberies in Victoria rose 21%" stays blocked.
+- Staging b3668f3, 0b30d67, 9fdde45, f74a301. Publish PR #87, merge 43162b6, live 11:23:16 PM PT.
+- Rollback: `git revert -m 1 43162b6` on main; or set `robbery_cma_v1_live` false on staging and republish.
