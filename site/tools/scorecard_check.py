@@ -22,6 +22,11 @@ if "item-13" in page or "--line13" in sys.argv:  # scorecard line 13 (staging dr
     want_ = 13
 else:
     want_ = 12
+if "metro area +21% in 2025 (181 incidents)" in page:  # staging draft robbery_cma_v1 (21 Oct 2026)
+    import json as _j
+    for a_, b_ in _j.loads((ROOT / "staging-drafts.json").read_text())["drafts"]["robbery_cma_v1"]["edits"]["en/scorecard"]:
+        if page_md.count(a_) != 1: sys.exit(f"scorecard_check: robbery edit anchor not found once: {a_[:60]!r}")
+        page_md = page_md.replace(a_, b_)
 print(f"scorecard: {len(ids_)} lines on the page (expected {want_})" + ("" if ids_ == [str(i) for i in range(1, want_ + 1)] else "  <-- MISMATCH"))
 txt = re.sub(r"<(script|style).*?</\1>", " ", page, flags=re.S)
 txt = re.sub(r"</?(em|strong|a|span|mark)\b[^>]*>", "", txt)

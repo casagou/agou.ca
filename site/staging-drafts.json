@@ -766,6 +766,38 @@
           ]
         ]
       }
+    },
+    "robbery_cma_v1": {
+      "live_flag": "robbery_cma_v1_live",
+      "updated": "2026-10-21",
+      "after_no_party": true,
+      "why": "Joachim, 21 Oct 2026 ~10:40 PM PT asked for '+21% to 181 incidents'. Verified (StatCan CSVs on the box): 181 (2024: 149, +21.5%) is the Victoria census metropolitan area [59935], Table 35-10-0177. City of Victoria (VicPD municipal [59025]) is 126 (2024: 106, +18.9%), Table 35-10-0184. Staging wording names the metro area and cites 35-10-0177. NOT approved for live.",
+      "edits": {
+        "en/scorecard": [
+          [
+            "Robberies in the city +19% in 2025 (126 incidents), Statistics Canada, July 2026.",
+            "Robberies in the Victoria metro area +21% in 2025 (181 incidents), Statistics Canada, July 2026."
+          ]
+        ],
+        "fr/scorecard": [
+          [
+            "Vols qualifiés dans la Ville : +19 % en 2025 (126 incidents), selon Statistique Canada, juillet 2026.",
+            "Vols qualifiés dans la région métropolitaine de Victoria : +21 % en 2025 (181 incidents), selon Statistique Canada, juillet 2026."
+          ]
+        ],
+        "en/priorities": [
+          [
+            "Robberies in Victoria rose 19% in 2025 ([Statistics Canada, Table 35-10-0184](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510018401)).",
+            "Robberies in the Victoria metro area rose 21% in 2025, to 181 incidents ([Statistics Canada, Table 35-10-0177](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510017701))."
+          ]
+        ],
+        "fr/priorities": [
+          [
+            "Les vols qualifiés ont augmenté de 19 % à Victoria en 2025 ([Statistique Canada, tableau 35-10-0184](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3510018401)).",
+            "Les vols qualifiés ont augmenté de 21 % dans la région métropolitaine de Victoria en 2025, pour atteindre 181 incidents ([Statistique Canada, tableau 35-10-0177](https://www150.statcan.gc.ca/t1/tbl1/fr/tv.action?pid=3510017701))."
+          ]
+        ]
+      }
     }
   }
 }

@@ -1289,6 +1289,8 @@
   "hide_personal_social_v1_live": true,
   "_hide_media_v1_doc": "Joachim, 9 Oct 2026 4:01 PM PT: \"hide the page for the media, the page that has my bio ... I hide it for now.\" Hides /media/ and /fr/media/ (noindex stubs forwarding home, out of the sitemap, nav, footer, home link, FAQ pointer). About stays. content/*/media.md and the headshot downloads stay in the repo. Staging: hide_media_v1; live also needs hide_media_v1_live. To bring it back set both to false.",
   "hide_media_v1": false,
+  "_robbery_cma_v1_doc": "Staging draft robbery_cma_v1 (21 Oct 2026): metro-area robbery figure (181, +21%, Table 35-10-0177). Not approved for live.",
+  "robbery_cma_v1_live": false,
   "hide_media_v1_live": false,
   "priorities_health_v3_live": true,
   "priorities_bed_v2_live": true,

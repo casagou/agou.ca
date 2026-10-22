@@ -1281,7 +1281,7 @@ FORBIDDEN = [
     (r"every person who has ever spoken for the party|toutes les personnes qui ont un jour parlé au nom du parti", "the FAQ sentence Joachim removed from 'Why the Conservatives?' (30 Sep 2026)"),
     (r"BC Funeral Videos|Victoria Drone", "a business name Joachim removed from the About company entry (30 Sep 2026; Eventia Media covers it)"),
     (r"(?i)hilda", "Joachim's street name (keep only the neighbourhood; see exclusions.json)"),
-    (r"[Rr]obberies in Victoria rose 21%|vols qualifiés ont augmenté de 21\s?%|181 incidents", "the retracted robbery figure (metro area, not the city; fact-check 2026-09-30, see exclusions.json)"),
+    (r"[Rr]obberies in Victoria rose 21%|vols qualifiés ont augmenté de 21\s?% à Victoria|(?<!metro area \+21% in 2025 \()(?<!Victoria\u00a0: \+21\u00a0% en 2025 \()(?<!rose 21% in 2025, to )(?<!pour atteindre )181 incidents", "the retracted robbery figure (metro area, not the city; fact-check 2026-09-30, see exclusions.json)"),
     (r"paid for by a balanced budget|stopping spending that does not deliver", "the retracted FAQ funding line (fact-check 2026-09-30; see exclusions.json)"),
 ]
 
