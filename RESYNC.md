@@ -389,3 +389,10 @@ Joachim, 20 Oct 2026 6:36 PM PT: "Publish scorecard line 13 live now." (override
 - Guards: scorecard.py requires exactly N items (13 with the flag, else 12); tools/scorecard_check.py prints the line count and expects 13 when item-13 is on the page (run with --no-party: 0 not found).
 - Staging e4374e6 + 5d5fc43. Publish PR #85, merge e6a0d81.
 - Rollback: `git revert -m 1 e6a0d81` on main; or set `scorecard_line13_v1_live` false on staging and republish.
+
+### Media page live again (21 Oct 2026, PR #86)
+Joachim, 21 Oct 2026 ~9:50 PM PT: "Publish it live as it is now."
+- site.json `hide_media_v1` false (staging 5d4ceed) and `hide_media_v1_live` false (bc050c4): /media/ and /fr/media/ back with nav, footer, home link, FAQ pointer and "(About, Media)" photo credit. Bios as they were (no-party edits apply), speaking photo kept. Media kit (PDF) section stays out (no-party build; both PDFs still name the party).
+- tools: /workspace/no-party/golive_check.py STUBS no longer lists media.
+- Publish PR #86, merge 2266c53, live 9:53:30 PM PT.
+- Rollback: `git revert -m 1 2266c53` on main; or set `hide_media_v1_live` true on staging and republish (and put media back in golive_check STUBS).
