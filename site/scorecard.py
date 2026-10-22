@@ -174,13 +174,6 @@ def scorecard_page(B, lang, page, env):
     md = B.read(lang, "scorecard")
     how_h, how, prom_h, promises, items = parse(md)
     meta = SC["items"]
-    if "robbery_cma_v1" in B.DRAFTS and B.DRAFT_ON("robbery_cma_v1", env):  # staging draft (21 Oct 2026): metro-area robbery figure -> cite Table 35-10-0177
-        import copy; meta = copy.deepcopy(meta)
-        for k_, m_ in meta.items():
-            for s_ in m_.get("sources", []):
-                if "pid=3510018401" in s_.get("url", ""):
-                    s_.update(en="Statistics Canada Table 35-10-0177 (robberies, Victoria metropolitan area)", fr="Statistique Canada, tableau 35-10-0177 (vols qualifiés, région métropolitaine de Victoria)",
-                              url="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3510017701")
     # status strip
     lp = SC.get("last_published")
     if lp:
