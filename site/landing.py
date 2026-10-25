@@ -21,12 +21,12 @@ CSS = ("*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0
        "@media(max-width:600px){body{font-size:17px}main{padding-top:8vh}h1{font-size:1.8rem}}")
 
 
-def page(live_origin):
+def page(live_origin, env="live"):
     desc = "Thank you, Victoria–Beacon Hill."
     body = f"<h2>{html.escape(PARAS[0])}</h2>" + "".join(f"<p>{html.escape(p)}</p>" for p in PARAS[1:])
     return (f'<!doctype html>\n<html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">\n'
             f'<title>Joachim Agou – Thank you, Victoria–Beacon Hill</title><meta name="description" content="{html.escape(desc)}">\n'
-            f'<meta name="landing-only" content="{MARK}"><link rel="canonical" href="{live_origin}/"><link rel="icon" href="/favicon.ico">\n'
+            f'<meta name="landing-only" content="{MARK}">{'<meta name="robots" content="noindex, nofollow">' if env == "staging" else ""}<link rel="canonical" href="{live_origin}/"><link rel="icon" href="/favicon.ico">\n'
             f'<meta property="og:title" content="Joachim Agou – Thank you, Victoria–Beacon Hill"><meta property="og:description" content="{html.escape(desc)}">'
             f'<meta property="og:type" content="website"><meta property="og:url" content="{live_origin}/">\n<style>{CSS}</style></head>\n'
             f'<body><main><h1>{html.escape(H1)}</h1>{body}</main><footer>{html.escape(FOOT)}</footer></body></html>\n')
@@ -47,7 +47,7 @@ def make(dist, env, live_origin):
     for f in list(dist.iterdir()):
         shutil.rmtree(f) if f.is_dir() else f.unlink()
     (dist / "favicon.ico").write_bytes(keep)
-    (dist / "index.html").write_text(page(live_origin))
+    (dist / "index.html").write_text(page(live_origin, env))
     for u in old:
         (dist / u.strip("/")).mkdir(parents=True, exist_ok=True); (dist / u.strip("/") / "index.html").write_text(stub(live_origin))
     (dist / "404.html").write_text(stub(live_origin))  # any other old URL (assets, PDFs, feeds, sitemap pages) gets the 404 page, which forwards to /
