@@ -1442,7 +1442,7 @@ def check(dist):
 BUILD_ID = "dev"
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("--env", choices=["staging", "live"], default="staging"); ap.add_argument("--out", default="dist")
+    ap = argparse.ArgumentParser(); ap.add_argument("--env", choices=["staging", "live"], default="staging"); ap.add_argument("--out", default="dist"); ap.add_argument("--no-landing", action="store_true", help="ignore thankyou_oct24_v1 (full-site build, for diffcheck / scorecard_check / province_check)")
     a = ap.parse_args()
     DRAFT_ENV["env"] = a.env
     import subprocess, datetime
@@ -1635,4 +1635,10 @@ if __name__ == "__main__":
     n = len(list(dist.rglob("index.html")))
     if errs:
         print("BUILD CHECK FAILED:\n  " + "\n  ".join(errs)); sys.exit(1)
+    if not a.no_landing and bool(SITE.get("thankyou_oct24_v1")) and (a.env == "staging" or bool(SITE.get("thankyou_oct24_v1_live"))):
+        import landing  # Joachim, 24 Oct 2026 (via Provincial Voice): whole site on hold, one English thank-you landing page; every other URL forwards to it
+        landing.make(dist, a.env, LIVE); lerrs = landing.check(dist, a.env, LIVE, no_party, namefilter)
+        if lerrs: print("LANDING CHECK FAILED:\n  " + "\n  ".join(lerrs)); sys.exit(1)
+        n = len(list(dist.rglob("index.html")))
+        print(f"LANDING-ONLY MODE (site.json thankyou_oct24_v1): dist holds the single thank-you page; every old URL forwards to it. ", end="")
     print(f"Built {n} pages ({a.env}) into {dist.relative_to(ROOT)}; content checks passed.")

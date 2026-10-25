@@ -16,6 +16,10 @@ _home = urllib.request.urlopen(urllib.request.Request(BASE + "/?bannercheck=hide
 _m = _re.search(r'<script type="application/json" id="nextev-data">(.*?)</script>', _home, _re.S)
 HIDE = set(json.loads(_m.group(1).replace("<\\/", "</")).get("hide", [])) if _m else set()
 if HIDE: print(f"banner_check: ignoring event ids hidden by this build: {sorted(HIDE)}")
+# landing-only mode (site.json thankyou_oct24_v1, 24 Oct 2026): the whole site is one thank-you page; there is no banner and no Events page, by design
+if 'name="landing-only"' in _home:
+    if 'id="nextev"' in _home or "<a " in _home: print("BANNER CHECK FAILED: landing-only page has a banner or a link"); sys.exit(1)
+    print("banner check passed: landing-only mode (thankyou_oct24_v1): the home page is the single thank-you page, with no event banner and no links, as intended"); sys.exit(0)
 # Events page hidden (site.json hide_events_getinvolved_v1): /events/ forwards to the home page and the home page has no banner -> pass
 _er = urllib.request.urlopen(urllib.request.Request(BASE + "/events/?bannercheck=hide", headers={"User-Agent": "banner_check"}), timeout=15)
 _eb = _er.read().decode("utf-8", "replace")
