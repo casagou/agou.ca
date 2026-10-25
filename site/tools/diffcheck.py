@@ -6,6 +6,9 @@ import re, sys, json, pathlib, html
 from html.parser import HTMLParser
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 dist = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "dist"
+_ix = dist / "index.html"
+if _ix.exists() and 'name="landing-only"' in _ix.read_text(encoding="utf-8"):  # thankyou_oct24_v1: dist is the single thank-you page; the Notion page diff does not apply (build.py landing.check already verified it). Full-site diff: build.py --no-landing, then this.
+    print("diffcheck: landing-only mode (thankyou_oct24_v1): no Notion pages in dist; skipped (run build.py --no-landing first for the full-site diff)"); sys.exit(0)
 SITE = json.loads((ROOT / "site.json").read_text())
 EXCL = json.loads((ROOT / "exclusions.json").read_text())["rules"]
 # Party links (2 Oct 2026): build.py PARTY_MD rewrites these Notion lines on staging (and on live once site.json party_links_live is true)
