@@ -1291,7 +1291,7 @@
   "hide_media_v1": false,
   "_thankyou_oct24_v1_doc": "Joachim, 24 Oct 2026 (relayed by Provincial Voice, then confirmed by the parent): the whole site is on hold; one English landing page with his name and the thank-you message, nothing else. landing.py replaces dist/ after the normal build and checks; every old URL (EN and FR) is a noindex stub forwarding to /. Staging: thankyou_oct24_v1; live also needs thankyou_oct24_v1_live. To bring the site back set both to false (or just the live one for live). build.py --no-landing builds the full site for diffcheck / scorecard_check / province_check. NOT approved for live.",
   "thankyou_oct24_v1": true,
-  "thankyou_oct24_v1_live": false,
+  "thankyou_oct24_v1_live": true,
   "_robbery_cma_v1_doc": "Staging draft robbery_cma_v1 (21 Oct 2026): metro-area robbery figure (181, +21%, Table 35-10-0177). Not approved for live.",
   "robbery_cma_v1_live": true,
   "hide_media_v1_live": false,
